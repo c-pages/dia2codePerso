@@ -179,7 +179,7 @@
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_c.c
 	"dia2code.h"
 
-1447361678 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
+1447368216 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
 	"dia2code.h"
 	"decls.h"
 	"includes.h"
@@ -238,4 +238,9 @@
 1404759383 source:r:\06 - c++\dia2codeperso\source_parser.c
 	"dia2code.h"
 	"source_parser.h"
+
+1447368239 source:r:\06 - c++\dia2codeperso\main.c
+	"dia2code.h"
+	"code_generators.h"
+	"parse_diagram.h"
 

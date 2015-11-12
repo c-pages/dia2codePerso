@@ -642,15 +642,6 @@ void
 generate_code_cpp (batch *b)
 {
 
-
-
-
-
-
-
-
-
-
     declaration *d;
     umlclasslist tmplist = b->classlist;
     FILE *licensefile = NULL;
@@ -687,8 +678,10 @@ generate_code_cpp (batch *b)
         char filename[BIG_BUFFER];
 
         if (d->decl_kind == dk_module) {
+            printf("---->par là 1 ! namespace?\n");
             name = d->u.this_module->pkg->name;
         } else {         /* dk_class */
+            printf("---->par là 2 !\n");
             name = d->u.this_class->key->name;
         }
         sprintf (filename, "%s.%s", name, file_ext);
@@ -777,25 +770,7 @@ generate_code_cpp (batch *b)
 
 
 
-
-//if (d->u.this_class->key->operations != NULL)
     generate_code_cppFICHER_CPP (b);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -855,7 +830,7 @@ gen_body (umlclassnode *node)
         while (umlo != NULL) {
             umlattrlist tmpa = umlo->key.parameters;
 
-    print("/////////////////////////////////////////////////\n");
+            print("/////////////////////////////////////////////////\n");
 
             if (strlen (umlo->key.attr.type) > 0) {
                 emit ("%s ", cppname (umlo->key.attr.type));
@@ -937,20 +912,24 @@ gen_declBody (declaration *d)
 
 
 
-
+    ////////////// UN MACHIN DE NAMESPACE |-> ////////////////////////
     if (d->decl_kind == dk_module) {
         name = d->u.this_module->pkg->name;
-        print ("namespace %s {\n\n", name);
+    /*    print ("namespace %s {\n\n", name);
         indentlevel++;
         d = d->u.this_module->contents;
         while (d != NULL) {
             gen_declBody (d);
             d = d->next;
         }
-        indentlevel--;
-        print ("};\n\n", name);
+        indentlevel--;*/
+        print (" //------>>     on a un NAMSPACE : %s\n", name);
         return;
     }
+
+    ////////////// <-| UN MACHIN DE NAMESPACE   ////////////////////////
+
+
 
 
     if (strlen (stype) == 0) {
@@ -972,87 +951,6 @@ gen_declBody (declaration *d)
         print ("const %s %s = %s;\n\n", cppname (umla->key.type), name,
                                                  umla->key.value);
 
-//    }
-//    else if (is_enum_stereo (stype)) {
-//        print ("enum %s {\n", name);
-//        indentlevel++;
-//        while (umla != NULL) {
-//            char *literal = umla->key.name;
-//            check_umlattr (&umla->key, name);
-//            if (strlen (umla->key.type) > 0)
-//                fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
-//            print ("%s", literal);
-//            if (strlen (umla->key.value) > 0)
-//                print (" = %s", umla->key.value);
-//            if (umla->next)
-//                emit (",");
-//            emit ("\n");
-//            umla = umla->next;
-//        }
-//        indentlevel--;
-//        print ("};\n\n");
-//
-//    } else if (is_struct_stereo (stype)) {
-//        print ("struct %s {\n", name);
-//        indentlevel++;
-//        while (umla != NULL) {
-//            check_umlattr (&umla->key, name);
-//            print ("%s %s", cppname (umla->key.type), umla->key.name);
-//            if (strlen (umla->key.value) > 0)
-//                fprintf (stderr, "%s/%s: ignoring value\n",
-//                                 name, umla->key.name);
-//            emit (";\n");
-//            umla = umla->next;
-//        }
-//        indentlevel--;
-//        print ("};\n\n");
-//
-//    } else if (eq (stype, "CORBAException")) {
-//        fprintf (stderr, "%s: CORBAException not yet implemented\n", name);
-//
-//    } else if (eq (stype, "CORBAUnion")) {
-//        umlattrnode *sw = umla;
-//        if (sw == NULL) {
-//            fprintf (stderr, "Error: attributes not set at union %s\n", name);
-//            exit (1);
-//        }
-//        fprintf (stderr, "%s: CORBAUnion not yet fully implemented\n", name);
-//        print ("class %s {  // CORBAUnion\n", name);
-//        print ("public:\n", name);
-//        indentlevel++;
-//        print ("%s _d();  // body TBD\n\n", umla->key.type);
-//        umla = umla->next;
-//        while (umla != NULL) {
-//            check_umlattr (&umla->key, name);
-//            print ("%s %s ();  // body TBD\n",
-//                   cppname (umla->key.type), umla->key.name);
-//            print ("void %s (%s _value);  // body TBD\n\n", umla->key.name,
-//                   cppname (umla->key.type));
-//            umla = umla->next;
-//        }
-//        indentlevel--;
-//        print ("};\n\n");
-//
-//    } else if (is_typedef_stereo (stype)) {
-//        /* Conventions for CORBATypedef:
-//           The first (and only) attribute contains the following:
-//           Name:   Empty - the name is taken from the class.
-//           Type:   Name of the original type which is typedefed.
-//           Value:  Optionally contains array dimension(s) of the typedef.
-//                   These dimensions are given in square brackets, e.g.
-//                   [3][10]
-//         */
-//        if (umla == NULL) {
-//            fprintf (stderr, "Error: first attribute (impl type) not set "
-//                             "at typedef %s\n", name);
-//            exit (1);
-//        }
-//        if (strlen (umla->key.name) > 0)  {
-//            fprintf (stderr, "Warning: typedef %s: ignoring name field "
-//                        "in implementation type attribute\n", name);
-//        }
-//        print ("typedef %s %s%s;\n\n", cppname (umla->key.type), name,
-//                                                umla->key.value);
     } else {
 
         gen_body (node);
@@ -1097,9 +995,6 @@ generate_code_cppFICHER_CPP (batch *b)
         char *name, *tmpname;
         char filename[BIG_BUFFER];
 
-
-
-
 //        ///////////////////////////////////////////////////////////////////////
 //        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
 //        if ( d->u.this_class->key->operations == NULL ){
@@ -1107,16 +1002,12 @@ generate_code_cppFICHER_CPP (batch *b)
 //        } else {
 //        ///////////////////////////////////////////////////////////////////////
 
-
-
-
             if (d->decl_kind == dk_module) {
                 name = d->u.this_module->pkg->name;
             } else {         /* dk_class */
                 name = d->u.this_class->key->name;
             }
             sprintf (filename, "%s.%s", name, body_file_ext);
-
 
 
             spec = open_outfile (filename, b);
@@ -1135,54 +1026,15 @@ generate_code_cppFICHER_CPP (batch *b)
                     print ("%c", lc);
             }
 
-
-
-
             print("/////////////////////////////////////////////////\n");
             print("// Headers\n");
             print("/////////////////////////////////////////////////\n");
-
             print("#include <%s.h>\n",name );
-    /*
-            includes = NULL;
-            determine_includes (d, b);
-            if (use_corba)
-                print ("#include <p_orb.h>\n\n");
-            if (includes) {
-                namelist incfile = includes;
-                while (incfile != NULL) {
-                    if (!eq (incfile->name, name)) {
-                        print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-                    }
-                    incfile = incfile->next;
-                }
-                print ("\n");
-            }*/
-
             print ("\n");
-
-
-
-
-
-
-    //
-    //    // on passe le cpp si pas de fonctions (ni de static a declarer ?)
-    //    if ( d->u.this_class->key->operations == NULL ){
-    //        printf("\n\n    ------> pas de methodes ici : %s", name );
-    //        return;
-    //    }
 
             gen_declBody (d);
 
             indentlevel = 0;  /* just for safety (should be 0 already) */
-
-
-
-
-
-
-
 
 
             fclose (spec);
@@ -1191,9 +1043,6 @@ generate_code_cppFICHER_CPP (batch *b)
 //         } //  fin du if ( d->u.this_class->key->operations == NULL )
 //        ///////////////////////////////////////////////////////////////////////
 
-
-
-        //  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
         d = d->next;
     }

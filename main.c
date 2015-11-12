@@ -332,9 +332,9 @@ parameter = -1;   /* error */
     param_list_destroy();
 
 
-//printf("Press any key to continue...");
-//
-//   system("pause");
+printf("Press any key to continue...");
+
+   system("pause");
 
 
     return 0;
