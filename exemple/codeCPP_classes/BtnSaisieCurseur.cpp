@@ -1,0 +1,72 @@
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <BtnSaisieCurseur.h>
+
+/////////////////////////////////////////////////
+BtnSaisieCurseur::BtnSaisieCurseur (ptr parent, Orientation orientation)
+: m_orientation ( Verticale ou Horizontale )
+, m_longueurglissiere (  )
+, m_btnDrag ( new () )
+, m_btnFond ( new () )
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+int BtnSaisieCurseur::setValeur ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+int BtnSaisieCurseur::getValeur ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::actualiser ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::traiter_evenements (const sf::Event& evenement)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::init ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::init_skin ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::init_interactions ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void BtnSaisieCurseur::actualiser_bounds ()
+{
+    
+}
+
+

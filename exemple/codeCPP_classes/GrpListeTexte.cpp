@@ -1,0 +1,102 @@
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <GrpListeTexte.h>
+
+/////////////////////////////////////////////////
+GrpListeTexte::GrpListeTexte (ptr parent)
+: m_element (  )
+, m_contenuPosition (  )
+, m_contenuGroupe ( new () )
+, m_contenuImage (  )
+, m_btnGliss_V ( new () )
+, m_btnGliss_H ( new () )
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::ajouter (string element)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::supprimer (string element)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+void GrpListeTexte::lier (string key, funcType fonction)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+void GrpListeTexte::lier (unsigned int id, funcType fonction)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+void GrpListeTexte::delier (string key)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+void GrpListeTexte::delier (unsigned int id)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::actualiser ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::traiter_evenements (const sf::Event& evenement)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::init ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::init_skin ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::init_interactions ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpListeTexte::actualiser_bounds ()
+{
+    
+}
+
+
