@@ -1,6 +1,6 @@
 # dia2codePerso
 customisation à la cerpe de dia2code http://dia2code.sourceforge.net/
-  - commentaires (facon SFML)  VisibleCc++ Style.
+  - commentaires (facon SFML)  (Visible C++ Style de code::block).
   - creation des*.cpp avec initialisation des membres pour fonction de creation
   - gestion des virtuel, abstrait et statics, avec initialisation des statics dans le *.cpp
 
