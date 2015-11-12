@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Fenetre.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_fenetre_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Fenetre.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_fenetre_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FENETRE__H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FENETRE__H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gadget_8h.html">Gadget.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_fenetre.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fenetre.html">Fenetre</a> : <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a>, <span class="keyword">public</span> <a class="code" href="class_gadget.html">Gadget</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Les methodes</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_fenetre.html#a23a4bede836e0ad6e0de7e393027d97f">Fenetre</a> (ptr parent);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_fenetre.html#a23a4bede836e0ad6e0de7e393027d97f">Fenetre</a> (ptr parent, <span class="keywordtype">string</span> titre, <span class="keywordtype">bool</span> redim = <span class="keyword">true</span>, <span class="keywordtype">bool</span> fermable = <span class="keyword">true</span>, <span class="keywordtype">bool</span> deplacable = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_fenetre.html#a9400e81cf7936fc24880428e0c3420d7">setTitre</a> (<span class="keywordtype">string</span> titre);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#ab39767111c8c2ef0c508127eff441733">ajouter</a> (ptr enfant);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#a57bb0e0ff3b26bad31d007789aa614a3">supprimer</a> (ptr enfant);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#a8d30149747e7771064f16e0b957f5e2b">actualiser</a> ();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#a3e862b877af3847b4dc11295bd6fdc8b">traiter_evenements</a> (<span class="keyword">const</span> sf::Event&amp; evenement);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#acb6ad0b04a3b694823db565346514d18">init</a> ();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#adc895cbb0e573316c7def5423193e272">init_skin</a> ();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#afc106ea784eb3f47a6346d7d5d62e604">init_interactions</a> ();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fenetre.html#a87ab0696383c79c76efb7f28f10cd2c1">actualiser_bounds</a> ();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="class_fenetre.html#a777e2b76d5ea47c4d7e447b1e81bce74">   78</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#aea62b05533d43925e359586fc1f9ab54">m_deplacable</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#a777e2b76d5ea47c4d7e447b1e81bce74">m_redimensionnable</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#ac9663704262b336ff3ab5ec34b9c5e22">m_fermable</a>;    </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_fenetre.html#a72ea9fe659368abbdd82f86710140333">   79</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#a01d83288eb844f33266652768026d153">m_deplacement</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#af504fc5811ae0668799f8fbfa1ffe953">m_redim_D</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#a14d37cb62d46efc2022d198da21cd5bd">m_redim_G</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#a72ea9fe659368abbdd82f86710140333">m_redim_H</a>;    <span class="keywordtype">bool</span> <a class="code" href="class_fenetre.html#a1cce63f762c4d016172e48082967b98e">m_redim_B</a>;    </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="class_fenetre.html#a99dfe12ef422bc703fbcc898d9fe5aa5">   80</a></span>&#160;    sf::Vector2i <a class="code" href="class_fenetre.html#a79640601e28cd6b3d07f43c236abdbcf">m_fenetrePosition_debut</a>;    sf::Vector2i <a class="code" href="class_fenetre.html#a99dfe12ef422bc703fbcc898d9fe5aa5">m_sourisPosition_debut</a>;    sf::Vector2i <a class="code" href="class_fenetre.html#a8a2677a3a489d5b3290f349ad89bd5e6">m_fenetreTaille_debut</a>;    </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_fenetre.html#a480f9c490e71f8cf1184128c07fa87e1">   81</a></span>&#160;    shared_ptr&lt;Label&gt; <a class="code" href="class_fenetre.html#a480f9c490e71f8cf1184128c07fa87e1">m_lblTitre</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a942bb1b6a2a8ef8f1b1262124fd53240">m_btnDrag</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a4aa479537618dbf9016d777cbbf38ebf">m_btnFermer</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#acdea0ec836e3a98907a940cca9d6aa47">m_btnRedim_BD</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#af2b46957668ea71d52bbc2778e41a493">m_btnRedim_BG</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#ac0bb087639154653d2828dec78b04d57">m_btnRedim_HD</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a8e884ebfe6f948967b13fbb85196c252">m_btnRedim_HG</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a18a9e00d8ae5cd75ae72106e372b3f17">m_btnRedim_G</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#ad878a51ef2c5c8b908a8ff9de464cdcc">m_btnRedim_D</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a0db3f29e12c4596a20fbd5854bc977b7">m_btnRedim_B</a>;    shared_ptr&lt;Bouton&gt; <a class="code" href="class_fenetre.html#a5069b06bdba7f9c86b443ca846b658b5">m_btnRedim_H</a>;    shared_ptr&lt;Image&gt; <a class="code" href="class_fenetre.html#a13214041027aa53ae5428706197a3517">m_contenuCadre</a>;    shared_ptr&lt;Contenant&gt; <a class="code" href="class_fenetre.html#a43d7bf4e3f2a115ef350d1b341a523b5">m_contenu</a>;    shared_ptr&lt;Image&gt; <a class="code" href="class_fenetre.html#af2e68ee550228a02f46e5c7e7ffee411">m_fond</a>;    </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="ttc" id="class_fenetre_html"><div class="ttname"><a href="class_fenetre.html">Fenetre</a></div><div class="ttdef"><b>Definition:</b> Fenetre.h:15</div></div>
+<div class="ttc" id="class_fenetre_html_ac9663704262b336ff3ab5ec34b9c5e22"><div class="ttname"><a href="class_fenetre.html#ac9663704262b336ff3ab5ec34b9c5e22">Fenetre::m_fermable</a></div><div class="ttdeci">bool m_fermable</div><div class="ttdef"><b>Definition:</b> Fenetre.h:78</div></div>
+<div class="ttc" id="class_fenetre_html_a8a2677a3a489d5b3290f349ad89bd5e6"><div class="ttname"><a href="class_fenetre.html#a8a2677a3a489d5b3290f349ad89bd5e6">Fenetre::m_fenetreTaille_debut</a></div><div class="ttdeci">sf::Vector2i m_fenetreTaille_debut</div><div class="ttdef"><b>Definition:</b> Fenetre.h:80</div></div>
+<div class="ttc" id="class_fenetre_html_a480f9c490e71f8cf1184128c07fa87e1"><div class="ttname"><a href="class_fenetre.html#a480f9c490e71f8cf1184128c07fa87e1">Fenetre::m_lblTitre</a></div><div class="ttdeci">shared_ptr&lt; Label &gt; m_lblTitre</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a8e884ebfe6f948967b13fbb85196c252"><div class="ttname"><a href="class_fenetre.html#a8e884ebfe6f948967b13fbb85196c252">Fenetre::m_btnRedim_HG</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_HG</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a3e862b877af3847b4dc11295bd6fdc8b"><div class="ttname"><a href="class_fenetre.html#a3e862b877af3847b4dc11295bd6fdc8b">Fenetre::traiter_evenements</a></div><div class="ttdeci">virtual void traiter_evenements(const sf::Event &amp;evenement)</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:49</div></div>
+<div class="ttc" id="class_fenetre_html_a87ab0696383c79c76efb7f28f10cd2c1"><div class="ttname"><a href="class_fenetre.html#a87ab0696383c79c76efb7f28f10cd2c1">Fenetre::actualiser_bounds</a></div><div class="ttdeci">virtual void actualiser_bounds()</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:77</div></div>
+<div class="ttc" id="class_fenetre_html_a13214041027aa53ae5428706197a3517"><div class="ttname"><a href="class_fenetre.html#a13214041027aa53ae5428706197a3517">Fenetre::m_contenuCadre</a></div><div class="ttdeci">shared_ptr&lt; Image &gt; m_contenuCadre</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a57bb0e0ff3b26bad31d007789aa614a3"><div class="ttname"><a href="class_fenetre.html#a57bb0e0ff3b26bad31d007789aa614a3">Fenetre::supprimer</a></div><div class="ttdeci">virtual void supprimer(ptr enfant)</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:35</div></div>
+<div class="ttc" id="class_fenetre_html_a99dfe12ef422bc703fbcc898d9fe5aa5"><div class="ttname"><a href="class_fenetre.html#a99dfe12ef422bc703fbcc898d9fe5aa5">Fenetre::m_sourisPosition_debut</a></div><div class="ttdeci">sf::Vector2i m_sourisPosition_debut</div><div class="ttdef"><b>Definition:</b> Fenetre.h:80</div></div>
+<div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div></div>
+<div class="ttc" id="class_fenetre_html_acdea0ec836e3a98907a940cca9d6aa47"><div class="ttname"><a href="class_fenetre.html#acdea0ec836e3a98907a940cca9d6aa47">Fenetre::m_btnRedim_BD</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_BD</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a14d37cb62d46efc2022d198da21cd5bd"><div class="ttname"><a href="class_fenetre.html#a14d37cb62d46efc2022d198da21cd5bd">Fenetre::m_redim_G</a></div><div class="ttdeci">bool m_redim_G</div><div class="ttdef"><b>Definition:</b> Fenetre.h:79</div></div>
+<div class="ttc" id="class_fenetre_html_a4aa479537618dbf9016d777cbbf38ebf"><div class="ttname"><a href="class_fenetre.html#a4aa479537618dbf9016d777cbbf38ebf">Fenetre::m_btnFermer</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnFermer</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a9400e81cf7936fc24880428e0c3420d7"><div class="ttname"><a href="class_fenetre.html#a9400e81cf7936fc24880428e0c3420d7">Fenetre::setTitre</a></div><div class="ttdeci">setTitre(string titre)</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:21</div></div>
+<div class="ttc" id="class_fenetre_html_a79640601e28cd6b3d07f43c236abdbcf"><div class="ttname"><a href="class_fenetre.html#a79640601e28cd6b3d07f43c236abdbcf">Fenetre::m_fenetrePosition_debut</a></div><div class="ttdeci">sf::Vector2i m_fenetrePosition_debut</div><div class="ttdef"><b>Definition:</b> Fenetre.h:80</div></div>
+<div class="ttc" id="class_fenetre_html_a5069b06bdba7f9c86b443ca846b658b5"><div class="ttname"><a href="class_fenetre.html#a5069b06bdba7f9c86b443ca846b658b5">Fenetre::m_btnRedim_H</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_H</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdoc">Classe communes aux gadgets interactifs (boutons, fenetres, etc... quasi tous en fait ( sauf Image et...</div><div class="ttdef"><b>Definition:</b> Action.h:12</div></div>
+<div class="ttc" id="class_fenetre_html_a72ea9fe659368abbdd82f86710140333"><div class="ttname"><a href="class_fenetre.html#a72ea9fe659368abbdd82f86710140333">Fenetre::m_redim_H</a></div><div class="ttdeci">bool m_redim_H</div><div class="ttdef"><b>Definition:</b> Fenetre.h:79</div></div>
+<div class="ttc" id="class_fenetre_html_a777e2b76d5ea47c4d7e447b1e81bce74"><div class="ttname"><a href="class_fenetre.html#a777e2b76d5ea47c4d7e447b1e81bce74">Fenetre::m_redimensionnable</a></div><div class="ttdeci">bool m_redimensionnable</div><div class="ttdef"><b>Definition:</b> Fenetre.h:78</div></div>
+<div class="ttc" id="class_fenetre_html_af2e68ee550228a02f46e5c7e7ffee411"><div class="ttname"><a href="class_fenetre.html#af2e68ee550228a02f46e5c7e7ffee411">Fenetre::m_fond</a></div><div class="ttdeci">shared_ptr&lt; Image &gt; m_fond</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_acb6ad0b04a3b694823db565346514d18"><div class="ttname"><a href="class_fenetre.html#acb6ad0b04a3b694823db565346514d18">Fenetre::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:56</div></div>
+<div class="ttc" id="class_fenetre_html_a18a9e00d8ae5cd75ae72106e372b3f17"><div class="ttname"><a href="class_fenetre.html#a18a9e00d8ae5cd75ae72106e372b3f17">Fenetre::m_btnRedim_G</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_G</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a1cce63f762c4d016172e48082967b98e"><div class="ttname"><a href="class_fenetre.html#a1cce63f762c4d016172e48082967b98e">Fenetre::m_redim_B</a></div><div class="ttdeci">bool m_redim_B</div><div class="ttdef"><b>Definition:</b> Fenetre.h:79</div></div>
+<div class="ttc" id="class_fenetre_html_a0db3f29e12c4596a20fbd5854bc977b7"><div class="ttname"><a href="class_fenetre.html#a0db3f29e12c4596a20fbd5854bc977b7">Fenetre::m_btnRedim_B</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_B</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a942bb1b6a2a8ef8f1b1262124fd53240"><div class="ttname"><a href="class_fenetre.html#a942bb1b6a2a8ef8f1b1262124fd53240">Fenetre::m_btnDrag</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnDrag</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_ab39767111c8c2ef0c508127eff441733"><div class="ttname"><a href="class_fenetre.html#ab39767111c8c2ef0c508127eff441733">Fenetre::ajouter</a></div><div class="ttdeci">virtual void ajouter(ptr enfant)</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:28</div></div>
+<div class="ttc" id="class_fenetre_html_ad878a51ef2c5c8b908a8ff9de464cdcc"><div class="ttname"><a href="class_fenetre.html#ad878a51ef2c5c8b908a8ff9de464cdcc">Fenetre::m_btnRedim_D</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_D</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a23a4bede836e0ad6e0de7e393027d97f"><div class="ttname"><a href="class_fenetre.html#a23a4bede836e0ad6e0de7e393027d97f">Fenetre::Fenetre</a></div><div class="ttdeci">Fenetre(ptr parent)</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:7</div></div>
+<div class="ttc" id="class_gadget_html"><div class="ttname"><a href="class_gadget.html">Gadget</a></div><div class="ttdoc">Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... </div><div class="ttdef"><b>Definition:</b> Gadget.h:16</div></div>
+<div class="ttc" id="class_fenetre_html_aea62b05533d43925e359586fc1f9ab54"><div class="ttname"><a href="class_fenetre.html#aea62b05533d43925e359586fc1f9ab54">Fenetre::m_deplacable</a></div><div class="ttdeci">bool m_deplacable</div><div class="ttdef"><b>Definition:</b> Fenetre.h:78</div></div>
+<div class="ttc" id="_gadget_8h_html"><div class="ttname"><a href="_gadget_8h.html">Gadget.h</a></div></div>
+<div class="ttc" id="class_fenetre_html_a8d30149747e7771064f16e0b957f5e2b"><div class="ttname"><a href="class_fenetre.html#a8d30149747e7771064f16e0b957f5e2b">Fenetre::actualiser</a></div><div class="ttdeci">virtual void actualiser()</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:42</div></div>
+<div class="ttc" id="class_fenetre_html_adc895cbb0e573316c7def5423193e272"><div class="ttname"><a href="class_fenetre.html#adc895cbb0e573316c7def5423193e272">Fenetre::init_skin</a></div><div class="ttdeci">virtual void init_skin()</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:63</div></div>
+<div class="ttc" id="class_fenetre_html_a43d7bf4e3f2a115ef350d1b341a523b5"><div class="ttname"><a href="class_fenetre.html#a43d7bf4e3f2a115ef350d1b341a523b5">Fenetre::m_contenu</a></div><div class="ttdeci">shared_ptr&lt; Contenant &gt; m_contenu</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_a01d83288eb844f33266652768026d153"><div class="ttname"><a href="class_fenetre.html#a01d83288eb844f33266652768026d153">Fenetre::m_deplacement</a></div><div class="ttdeci">bool m_deplacement</div><div class="ttdef"><b>Definition:</b> Fenetre.h:79</div></div>
+<div class="ttc" id="class_fenetre_html_afc106ea784eb3f47a6346d7d5d62e604"><div class="ttname"><a href="class_fenetre.html#afc106ea784eb3f47a6346d7d5d62e604">Fenetre::init_interactions</a></div><div class="ttdeci">virtual void init_interactions()</div><div class="ttdef"><b>Definition:</b> Fenetre.cpp:70</div></div>
+<div class="ttc" id="class_fenetre_html_ac0bb087639154653d2828dec78b04d57"><div class="ttname"><a href="class_fenetre.html#ac0bb087639154653d2828dec78b04d57">Fenetre::m_btnRedim_HD</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_HD</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_af2b46957668ea71d52bbc2778e41a493"><div class="ttname"><a href="class_fenetre.html#af2b46957668ea71d52bbc2778e41a493">Fenetre::m_btnRedim_BG</a></div><div class="ttdeci">shared_ptr&lt; Bouton &gt; m_btnRedim_BG</div><div class="ttdef"><b>Definition:</b> Fenetre.h:81</div></div>
+<div class="ttc" id="class_fenetre_html_af504fc5811ae0668799f8fbfa1ffe953"><div class="ttname"><a href="class_fenetre.html#af504fc5811ae0668799f8fbfa1ffe953">Fenetre::m_redim_D</a></div><div class="ttdeci">bool m_redim_D</div><div class="ttdef"><b>Definition:</b> Fenetre.h:79</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_fenetre_8h.html">Fenetre.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

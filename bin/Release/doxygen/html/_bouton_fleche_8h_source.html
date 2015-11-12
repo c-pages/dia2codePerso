@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/107 - Interface/Interface/include/gadgets/BoutonFleche.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_bouton_fleche_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">BoutonFleche.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_bouton_fleche_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BOUTONFLECHE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BOUTONFLECHE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;Gadget.h&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegui.html">gui</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span>ChampTexte;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_bouton.html">Bouton</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgui_1_1_bouton_fleche.html">BoutonFleche</a> : <span class="keyword">public</span> <a class="code" href="classgui_1_1_gadget.html">Gadget</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a898dfaf2535aab9b22c329447be6dcb2">BoutonFleche</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#ad1507564f2dfa7c3c41fae2ea78427bc">~BoutonFleche</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a90919c3a9b6d252cd95e1d47fc2ff7e4">setSkin</a>( std::shared_ptr&lt;Skin&gt;    skin );</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a4c1c412fec10c6cef927358237305b94">initUI</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a9d8d076caac98fdaf5bf3867d74bb9ca">majGeom</a> (  )  ;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> sf::FloatRect</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a239bc493196ce86580250ed02e9be0be">getLocalBounds</a> ( ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">virtual</span> sf::FloatRect</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a4b62cd60a96ba1e33ad7fac7eff14d25">getGlobalBounds</a> ( ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">virtual</span> sf::Vector2f</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a2767e33353bd72069c9183a261ed40b2">   91</a></span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a2767e33353bd72069c9183a261ed40b2">getSize</a> ( )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_bouton_fleche.html#abde5b93d77757a1c65db94eecebd44c9">m_taille</a>; };</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a5ad9c0e3d07ceaec78865bda6ffe032c">   99</a></span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a5ad9c0e3d07ceaec78865bda6ffe032c">setSize</a> ( sf::Vector2f taille ) { <a class="code" href="classgui_1_1_bouton_fleche.html#abde5b93d77757a1c65db94eecebd44c9">m_taille</a> = taille; <a class="code" href="classgui_1_1_bouton_fleche.html#a9d8d076caac98fdaf5bf3867d74bb9ca">majGeom</a>(); };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a1c62c145463cef56f2dce863072065b4">setVal</a> ( <span class="keywordtype">float</span> val );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a0fbd6929cce15ee7c5f375c3dffa6da3">  114</a></span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a0fbd6929cce15ee7c5f375c3dffa6da3">getVal</a> ( ) { <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_bouton_fleche.html#a9e06924109cdc8c1346395d35a727359">m_valeur</a>; };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a76452e3cfd5a963282f46369a3e077a6">  121</a></span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a76452e3cfd5a963282f46369a3e077a6">setPrecision</a> ( <span class="keywordtype">float</span> val ) { <a class="code" href="classgui_1_1_bouton_fleche.html#a2d4f0e66547f7d3b73cdf1dd23658396">m_precision</a> = val; };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a54d9767623295c979da9bd5bf03fa7e5">  129</a></span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a54d9767623295c979da9bd5bf03fa7e5">getPrecision</a> ( )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_bouton_fleche.html#a2d4f0e66547f7d3b73cdf1dd23658396">m_precision</a>; };</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a11579f97970076185e7f1ae89961278d">traiter_evenements</a> ( <span class="keyword">const</span> sf::Event&amp; event );</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a62c51af54b7d2a2b474c3a47d112ca8a">actualiser</a> ( <span class="keywordtype">float</span> deltaT ) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="classgui_1_1_bouton_fleche.html#a4b7846125b561ea203485acb8484bb44">draw</a>( sf::RenderTarget&amp; target, sf::RenderStates states ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// Les Membres</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a9e06924109cdc8c1346395d35a727359">  173</a></span>&#160;<span class="comment"></span>    <span class="keywordtype">float</span>                           <a class="code" href="classgui_1_1_bouton_fleche.html#a9e06924109cdc8c1346395d35a727359">m_valeur</a>;   </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a2d4f0e66547f7d3b73cdf1dd23658396">  174</a></span>&#160;    <span class="keywordtype">float</span>                           <a class="code" href="classgui_1_1_bouton_fleche.html#a2d4f0e66547f7d3b73cdf1dd23658396">m_precision</a>;    </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a51523ab0cdc746c0d92b50499aa33262">  175</a></span>&#160;    std::shared_ptr&lt;ChampTexte&gt;     <a class="code" href="classgui_1_1_bouton_fleche.html#a51523ab0cdc746c0d92b50499aa33262">m_champ</a>;    </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a0945402d453b8914def8624ac1eadb76">  176</a></span>&#160;    std::shared_ptr&lt;Bouton&gt;         <a class="code" href="classgui_1_1_bouton_fleche.html#a0945402d453b8914def8624ac1eadb76">m_btnPlus</a>;  </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a20e50615ec8de8a33bec7c7a5d1f3cd3">  177</a></span>&#160;    std::shared_ptr&lt;Bouton&gt;         <a class="code" href="classgui_1_1_bouton_fleche.html#a20e50615ec8de8a33bec7c7a5d1f3cd3">m_btnMoins</a>; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#abde5b93d77757a1c65db94eecebd44c9">  179</a></span>&#160;    sf::Vector2f                    <a class="code" href="classgui_1_1_bouton_fleche.html#abde5b93d77757a1c65db94eecebd44c9">m_taille</a>;   </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a6405ddcd0dbf04323fc124528d23a697">  182</a></span>&#160;    <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>                        <a class="code" href="classgui_1_1_bouton_fleche.html#a6405ddcd0dbf04323fc124528d23a697">m_fctPlus</a>;  </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a7849664301a2a1a823ece4c799bc0d3f">  183</a></span>&#160;    <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>                        <a class="code" href="classgui_1_1_bouton_fleche.html#a7849664301a2a1a823ece4c799bc0d3f">m_fctMoins</a>; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classgui_1_1_bouton_fleche.html#a2437e3cbcf905815489d5fa910282937">  184</a></span>&#160;    <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>                        <a class="code" href="classgui_1_1_bouton_fleche.html#a2437e3cbcf905815489d5fa910282937">m_fctChange</a>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;};</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;} <span class="comment">// fin namespace gui</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">#endif // BOUTONFLECHE_H</span></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a2767e33353bd72069c9183a261ed40b2"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a2767e33353bd72069c9183a261ed40b2">gui::BoutonFleche::getSize</a></div><div class="ttdeci">virtual sf::Vector2f getSize() const </div><div class="ttdoc">acceder à la taille du gadget </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:91</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a9d8d076caac98fdaf5bf3867d74bb9ca"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a9d8d076caac98fdaf5bf3867d74bb9ca">gui::BoutonFleche::majGeom</a></div><div class="ttdeci">void majGeom()</div><div class="ttdoc">Mettre à jour les gémotries du gadget. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:80</div></div>
+<div class="ttc" id="class_bouton_html"><div class="ttname"><a href="class_bouton.html">Bouton</a></div><div class="ttdef"><b>Definition:</b> Bouton.h:15</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a1c62c145463cef56f2dce863072065b4"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a1c62c145463cef56f2dce863072065b4">gui::BoutonFleche::setVal</a></div><div class="ttdeci">void setVal(float val)</div><div class="ttdoc">Definir la valeur du gadget. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:108</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a7849664301a2a1a823ece4c799bc0d3f"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a7849664301a2a1a823ece4c799bc0d3f">gui::BoutonFleche::m_fctMoins</a></div><div class="ttdeci">FuncType m_fctMoins</div><div class="ttdoc">fonction pour manipuler la valeur. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:183</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_ad1507564f2dfa7c3c41fae2ea78427bc"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#ad1507564f2dfa7c3c41fae2ea78427bc">gui::BoutonFleche::~BoutonFleche</a></div><div class="ttdeci">~BoutonFleche()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:32</div></div>
+<div class="ttc" id="namespacegui_html"><div class="ttname"><a href="namespacegui.html">gui</a></div><div class="ttdef"><b>Definition:</b> gui.cpp:6</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a54d9767623295c979da9bd5bf03fa7e5"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a54d9767623295c979da9bd5bf03fa7e5">gui::BoutonFleche::getPrecision</a></div><div class="ttdeci">float getPrecision() const </div><div class="ttdoc">acceder à la valeur du gadget </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:129</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a6405ddcd0dbf04323fc124528d23a697"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a6405ddcd0dbf04323fc124528d23a697">gui::BoutonFleche::m_fctPlus</a></div><div class="ttdeci">FuncType m_fctPlus</div><div class="ttdoc">fonction pour manipuler la valeur. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:182</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a4b62cd60a96ba1e33ad7fac7eff14d25"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a4b62cd60a96ba1e33ad7fac7eff14d25">gui::BoutonFleche::getGlobalBounds</a></div><div class="ttdeci">virtual sf::FloatRect getGlobalBounds() const </div><div class="ttdoc">Accesseur de la boundingBox en global. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:129</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a0945402d453b8914def8624ac1eadb76"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a0945402d453b8914def8624ac1eadb76">gui::BoutonFleche::m_btnPlus</a></div><div class="ttdeci">std::shared_ptr&lt; Bouton &gt; m_btnPlus</div><div class="ttdoc">le Bouton plus. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:176</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a76452e3cfd5a963282f46369a3e077a6"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a76452e3cfd5a963282f46369a3e077a6">gui::BoutonFleche::setPrecision</a></div><div class="ttdeci">void setPrecision(float val)</div><div class="ttdoc">Definir la valeur du gadget. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:121</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a62c51af54b7d2a2b474c3a47d112ca8a"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a62c51af54b7d2a2b474c3a47d112ca8a">gui::BoutonFleche::actualiser</a></div><div class="ttdeci">virtual void actualiser(float deltaT) override</div><div class="ttdoc">Actualiser les éléments. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:155</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a51523ab0cdc746c0d92b50499aa33262"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a51523ab0cdc746c0d92b50499aa33262">gui::BoutonFleche::m_champ</a></div><div class="ttdeci">std::shared_ptr&lt; ChampTexte &gt; m_champ</div><div class="ttdoc">le champ de texte du gadget. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:175</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html">gui::BoutonFleche</a></div><div class="ttdoc">Gadget, permet de controler une valeur numerique avec deux flèche à coté d&#39;un Champ de saisie de text...</div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:23</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a4c1c412fec10c6cef927358237305b94"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a4c1c412fec10c6cef927358237305b94">gui::BoutonFleche::initUI</a></div><div class="ttdeci">void initUI()</div><div class="ttdoc">initialiser les elements de l&#39;UI de ce gadget. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:43</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_abde5b93d77757a1c65db94eecebd44c9"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#abde5b93d77757a1c65db94eecebd44c9">gui::BoutonFleche::m_taille</a></div><div class="ttdeci">sf::Vector2f m_taille</div><div class="ttdoc">Le taille de la fenetre. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:179</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a5ad9c0e3d07ceaec78865bda6ffe032c"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a5ad9c0e3d07ceaec78865bda6ffe032c">gui::BoutonFleche::setSize</a></div><div class="ttdeci">virtual void setSize(sf::Vector2f taille)</div><div class="ttdoc">definir la taille du gadget </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:99</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a0fbd6929cce15ee7c5f375c3dffa6da3"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a0fbd6929cce15ee7c5f375c3dffa6da3">gui::BoutonFleche::getVal</a></div><div class="ttdeci">float getVal()</div><div class="ttdoc">acceder à la valeur du gadget </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:114</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html"><div class="ttname"><a href="classgui_1_1_gadget.html">gui::Gadget</a></div><div class="ttdoc">Classe virtuelle, la base commune aux gadgets formant l&#39;interface. </div><div class="ttdef"><b>Definition:</b> Gadget.h:22</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a2d4f0e66547f7d3b73cdf1dd23658396"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a2d4f0e66547f7d3b73cdf1dd23658396">gui::BoutonFleche::m_precision</a></div><div class="ttdeci">float m_precision</div><div class="ttdoc">l&#39;unité de notre valuer, "l&#39;echelle" </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:174</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a20e50615ec8de8a33bec7c7a5d1f3cd3"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a20e50615ec8de8a33bec7c7a5d1f3cd3">gui::BoutonFleche::m_btnMoins</a></div><div class="ttdeci">std::shared_ptr&lt; Bouton &gt; m_btnMoins</div><div class="ttdoc">le Bouton moins. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:177</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a9e06924109cdc8c1346395d35a727359"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a9e06924109cdc8c1346395d35a727359">gui::BoutonFleche::m_valeur</a></div><div class="ttdeci">float m_valeur</div><div class="ttdoc">la valeur du gadget </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:173</div></div>
+<div class="ttc" id="classgui_1_1_action_html_a4223568d083f940e94c80829f63ae817"><div class="ttname"><a href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">gui::Action::FuncType</a></div><div class="ttdeci">std::function&lt; void()&gt; FuncType</div><div class="ttdoc">la fonction lambda associé aux declenchements des evenements. </div><div class="ttdef"><b>Definition:</b> Action.h:66</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a2437e3cbcf905815489d5fa910282937"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a2437e3cbcf905815489d5fa910282937">gui::BoutonFleche::m_fctChange</a></div><div class="ttdeci">FuncType m_fctChange</div><div class="ttdoc">fonction pour manipuler la valeur. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.h:184</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a898dfaf2535aab9b22c329447be6dcb2"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a898dfaf2535aab9b22c329447be6dcb2">gui::BoutonFleche::BoutonFleche</a></div><div class="ttdeci">BoutonFleche()</div><div class="ttdoc">Constructeur par défaut. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:17</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a239bc493196ce86580250ed02e9be0be"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a239bc493196ce86580250ed02e9be0be">gui::BoutonFleche::getLocalBounds</a></div><div class="ttdeci">virtual sf::FloatRect getLocalBounds() const </div><div class="ttdoc">Accesseur de la boundingBox en local. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:116</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a4b7846125b561ea203485acb8484bb44"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a4b7846125b561ea203485acb8484bb44">gui::BoutonFleche::draw</a></div><div class="ttdeci">virtual void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const </div><div class="ttdoc">Dessiner le bouton. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:166</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a11579f97970076185e7f1ae89961278d"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a11579f97970076185e7f1ae89961278d">gui::BoutonFleche::traiter_evenements</a></div><div class="ttdeci">virtual void traiter_evenements(const sf::Event &amp;event)</div><div class="ttdoc">La gestion des évènements utilisateurs. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:143</div></div>
+<div class="ttc" id="classgui_1_1_bouton_fleche_html_a90919c3a9b6d252cd95e1d47fc2ff7e4"><div class="ttname"><a href="classgui_1_1_bouton_fleche.html#a90919c3a9b6d252cd95e1d47fc2ff7e4">gui::BoutonFleche::setSkin</a></div><div class="ttdeci">virtual void setSkin(std::shared_ptr&lt; Skin &gt; skin)</div><div class="ttdoc">Définie le skin du Label. </div><div class="ttdef"><b>Definition:</b> BoutonFleche.cpp:98</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ff70e889e03670d89dfdab991312e87.html">107 - Interface</a></li><li class="navelem"><a class="el" href="dir_42cf65273a26526dbb4b881064a58c6c.html">Interface</a></li><li class="navelem"><a class="el" href="dir_452d14ca761af2a11fe1fe10d890976e.html">include</a></li><li class="navelem"><a class="el" href="dir_077092a11125e44da0294b0c5df8646b.html">gadgets</a></li><li class="navelem"><a class="el" href="_bouton_fleche_8h.html">BoutonFleche.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

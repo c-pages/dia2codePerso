@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/107 - Interface/Interface/include/Action.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('107_01-_01_interface_2_interface_2include_2_action_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Action.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="107_01-_01_interface_2_interface_2include_2_action_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ACTION_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ACTION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span>   <span class="comment">// function</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span>      <span class="comment">// pair</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span>         <span class="comment">// list</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span>         <span class="comment">// map</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegui.html">gui</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">   22</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">Evenements</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eac6a58adae86e0ab980b7e826ff298327">   24</a></span>&#160;      <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eac6a58adae86e0ab980b7e826ff298327">onBtnG_DblClique</a>          </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eae44ec1390d83a3451ec947bc7b99dfae">   25</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eae44ec1390d83a3451ec947bc7b99dfae">onBtnG_Relache</a>            </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea13b691824260d0388f7171a232e930e7">   26</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea13b691824260d0388f7171a232e930e7">onBtnG_RelacheDehors</a>      </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea794ba95af6273ec5a29bdd49b6bdd0ed">   27</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea794ba95af6273ec5a29bdd49b6bdd0ed">onBtnG_Press</a>              </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea824f6fe8ddca25870ffda8be12e9533d">   28</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea824f6fe8ddca25870ffda8be12e9533d">onBtnG_PressDehors</a>        </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea947b2c8fd6ae83f49da423fccf8780a7">   30</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea947b2c8fd6ae83f49da423fccf8780a7">onBtnD_Relache</a>            </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea88ab7a25bdf88fc38374964a0d2dc661">   31</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea88ab7a25bdf88fc38374964a0d2dc661">onBtnD_RelacheDehors</a>      </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea7342cb926c1a285c4f283c7a3fe66f3e">   32</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea7342cb926c1a285c4f283c7a3fe66f3e">onBtnD_Press</a>              </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea9dadfbc3561751164617297e91313bf9">   34</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea9dadfbc3561751164617297e91313bf9">onBtnM_Relache</a>            </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eadfd7c9c2c99b19990c8e98bd07718aa1">   35</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eadfd7c9c2c99b19990c8e98bd07718aa1">onBtnM_RelacheDehors</a>      </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea42d04da96bc611475e72ca4bb65b7cc9">   36</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea42d04da96bc611475e72ca4bb65b7cc9">onBtnM_Press</a>              </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea939ec84d0866f28a0c6db1071b5c759f">   37</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea939ec84d0866f28a0c6db1071b5c759f">onBtnM_RollUp</a>             </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea257dba5325834273005923df2877db19">   38</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea257dba5325834273005923df2877db19">onBtnM_RollDown</a>           </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea87da7f594de65c06830acbf82697611b">   40</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea87da7f594de65c06830acbf82697611b">onBtn_Entre</a>               </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eab2d008233b7f12c035e96cab7d70def1">   41</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eab2d008233b7f12c035e96cab7d70def1">onBtn_Sort</a>                </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea431b28b16e1d7cf55c30352a754889c7">   43</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea431b28b16e1d7cf55c30352a754889c7">onBtn_changeEtat</a>          </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea0b818d3afcaf8d8e1af6836debe3685e">   45</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea0b818d3afcaf8d8e1af6836debe3685e">onFen_Ferme</a>               </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea704a9138cfe28e43ecf9fd646f77a540">   46</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea704a9138cfe28e43ecf9fd646f77a540">onFen_Ouvre</a>               </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eaad9a6a0508e148fbe6800313ffd32a14">   49</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eaad9a6a0508e148fbe6800313ffd32a14">onCha_ChangeValeur</a>        </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ead83a1e358728676b09a4f2db9f1dea93">   50</a></span>&#160;    , <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ead83a1e358728676b09a4f2db9f1dea93">onCha_ValideValeur</a>        </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html">   61</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgui_1_1_action.html">Action</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="comment">//Déclarations de types des fonction lambda que l&#39;on associe au evenements declenchés</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">   66</a></span>&#160;        <span class="keyword">using</span>   <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a> = std::function&lt;void()&gt;;                               </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#a7bcfcccef4e486c0df6980c7b16fc594">   67</a></span>&#160;        <span class="keyword">static</span>  <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>    <a class="code" href="classgui_1_1_action.html#a7bcfcccef4e486c0df6980c7b16fc594">defaultFunc</a>;                                        </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#a7a85a606811b45e6232414b1d4e29bed">   68</a></span>&#160;        <span class="keyword">typedef</span>  std::map&lt; sf::Keyboard::Key    , FuncType &gt;      <a class="code" href="classgui_1_1_action.html#a7a85a606811b45e6232414b1d4e29bed">evtClavier</a>;   </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#a359295e3ccae6767582f4450b6c49ec4">   69</a></span>&#160;        <span class="keyword">typedef</span>  std::map&lt; Evenements           , FuncType &gt;      <a class="code" href="classgui_1_1_action.html#a359295e3ccae6767582f4450b6c49ec4">evtSouris</a>;    </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classgui_1_1_action.html#a71a73e6fb17daf972c7d1d6d6a5bcf02">lier</a>    ( <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">Evenements</a> evt ,      <span class="keyword">const</span> <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>&amp; fonction);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="classgui_1_1_action.html#a71a73e6fb17daf972c7d1d6d6a5bcf02">lier</a>    ( sf::Keyboard::Key  touche ,      <span class="keyword">const</span> <a class="code" href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">FuncType</a>&amp; fonction);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="classgui_1_1_action.html#af4c1a232a6c343bc50f7a1a28cc9fa8e">delier</a>  ( <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">Evenements</a> evt );</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="classgui_1_1_action.html#af4c1a232a6c343bc50f7a1a28cc9fa8e">delier</a>  ( sf::Keyboard::Key  touche);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77">declencher</a> ( <a class="code" href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">Evenements</a> evt );</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classgui_1_1_action.html#ab9a09e3abd6aa0d07be54d005fea566a">traiter_evenements</a>   ( <span class="keyword">const</span> sf::Event&amp; event );</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#ae3dfea6e15a336d6095fcddeccee27ac">  136</a></span>&#160;<span class="comment"></span>        evtSouris       <a class="code" href="classgui_1_1_action.html#ae3dfea6e15a336d6095fcddeccee27ac">_evtsSouris</a>;    </div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classgui_1_1_action.html#acb4c5836898b8221986f90a5b226908e">  137</a></span>&#160;        evtClavier      <a class="code" href="classgui_1_1_action.html#acb4c5836898b8221986f90a5b226908e">_evtsClavier</a>;   </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;};<span class="comment">// fin class action</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};<span class="comment">// fin du namespace gui</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#endif // ACTION_H</span></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="ttc" id="classgui_1_1_action_html_a359295e3ccae6767582f4450b6c49ec4"><div class="ttname"><a href="classgui_1_1_action.html#a359295e3ccae6767582f4450b6c49ec4">gui::Action::evtSouris</a></div><div class="ttdeci">std::map&lt; Evenements, FuncType &gt; evtSouris</div><div class="ttdoc">collecteur d&#39;évenement déclenché par nos gui::Evenements (souris, fenetre ..) </div><div class="ttdef"><b>Definition:</b> Action.h:69</div></div>
+<div class="ttc" id="classgui_1_1_action_html_ab9a09e3abd6aa0d07be54d005fea566a"><div class="ttname"><a href="classgui_1_1_action.html#ab9a09e3abd6aa0d07be54d005fea566a">gui::Action::traiter_evenements</a></div><div class="ttdeci">bool traiter_evenements(const sf::Event &amp;event)</div><div class="ttdoc">La gestion des évènements utilisateurs. </div><div class="ttdef"><b>Definition:</b> Action.cpp:60</div></div>
+<div class="ttc" id="classgui_1_1_action_html"><div class="ttname"><a href="classgui_1_1_action.html">gui::Action</a></div><div class="ttdoc">Classe virtuelle permetant de lier des évenements à des fonctions. </div><div class="ttdef"><b>Definition:</b> Action.h:61</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea704a9138cfe28e43ecf9fd646f77a540"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea704a9138cfe28e43ecf9fd646f77a540">gui::onFen_Ouvre</a></div><div class="ttdoc">Quand on ferme une fenetre. </div><div class="ttdef"><b>Definition:</b> Action.h:46</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea9dadfbc3561751164617297e91313bf9"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea9dadfbc3561751164617297e91313bf9">gui::onBtnM_Relache</a></div><div class="ttdoc">Relache le bouton du milieu de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:34</div></div>
+<div class="ttc" id="namespacegui_html"><div class="ttname"><a href="namespacegui.html">gui</a></div><div class="ttdef"><b>Definition:</b> gui.cpp:6</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ead83a1e358728676b09a4f2db9f1dea93"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ead83a1e358728676b09a4f2db9f1dea93">gui::onCha_ValideValeur</a></div><div class="ttdoc">Quand on valide la valeur d&#39;un champ de saisie de texte. </div><div class="ttdef"><b>Definition:</b> Action.h:50</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea794ba95af6273ec5a29bdd49b6bdd0ed"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea794ba95af6273ec5a29bdd49b6bdd0ed">gui::onBtnG_Press</a></div><div class="ttdoc">Presse le bouton gauche de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:27</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea824f6fe8ddca25870ffda8be12e9533d"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea824f6fe8ddca25870ffda8be12e9533d">gui::onBtnG_PressDehors</a></div><div class="ttdoc">Presse a coté du gadget avec le bouton gauche de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:28</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843eadfd7c9c2c99b19990c8e98bd07718aa1"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eadfd7c9c2c99b19990c8e98bd07718aa1">gui::onBtnM_RelacheDehors</a></div><div class="ttdoc">Relache le bouton du milieu de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:35</div></div>
+<div class="ttc" id="classgui_1_1_action_html_ae3dfea6e15a336d6095fcddeccee27ac"><div class="ttname"><a href="classgui_1_1_action.html#ae3dfea6e15a336d6095fcddeccee27ac">gui::Action::_evtsSouris</a></div><div class="ttdeci">evtSouris _evtsSouris</div><div class="ttdoc">La liste des evenements souris enregistrés. </div><div class="ttdef"><b>Definition:</b> Action.h:136</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843eac6a58adae86e0ab980b7e826ff298327"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eac6a58adae86e0ab980b7e826ff298327">gui::onBtnG_DblClique</a></div><div class="ttdoc">Double clique. </div><div class="ttdef"><b>Definition:</b> Action.h:24</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea431b28b16e1d7cf55c30352a754889c7"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea431b28b16e1d7cf55c30352a754889c7">gui::onBtn_changeEtat</a></div><div class="ttdoc">quand BoutonACocher change d&#39;état </div><div class="ttdef"><b>Definition:</b> Action.h:43</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843eaad9a6a0508e148fbe6800313ffd32a14"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eaad9a6a0508e148fbe6800313ffd32a14">gui::onCha_ChangeValeur</a></div><div class="ttdoc">Quand on change la valeur d&#39;un champ de saisie de texte. </div><div class="ttdef"><b>Definition:</b> Action.h:49</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843eae44ec1390d83a3451ec947bc7b99dfae"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eae44ec1390d83a3451ec947bc7b99dfae">gui::onBtnG_Relache</a></div><div class="ttdoc">Relache le bouton gauche de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:25</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea42d04da96bc611475e72ca4bb65b7cc9"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea42d04da96bc611475e72ca4bb65b7cc9">gui::onBtnM_Press</a></div><div class="ttdoc">Presse le bouton du milieu de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:36</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea257dba5325834273005923df2877db19"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea257dba5325834273005923df2877db19">gui::onBtnM_RollDown</a></div><div class="ttdoc">Roule vers le bas le bouton du milieu de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:38</div></div>
+<div class="ttc" id="classgui_1_1_action_html_af4c1a232a6c343bc50f7a1a28cc9fa8e"><div class="ttname"><a href="classgui_1_1_action.html#af4c1a232a6c343bc50f7a1a28cc9fa8e">gui::Action::delier</a></div><div class="ttdeci">virtual void delier(Evenements evt)</div><div class="ttdoc">supprimer un ecouteur d&#39;évenement. </div><div class="ttdef"><b>Definition:</b> Action.cpp:34</div></div>
+<div class="ttc" id="classgui_1_1_action_html_ac44de0d5b38067e8ec6cf98ef16a6a77"><div class="ttname"><a href="classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77">gui::Action::declencher</a></div><div class="ttdeci">void declencher(Evenements evt)</div><div class="ttdoc">Déclencher la fonction associé à l&#39;évenement. </div><div class="ttdef"><b>Definition:</b> Action.cpp:50</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea87da7f594de65c06830acbf82697611b"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea87da7f594de65c06830acbf82697611b">gui::onBtn_Entre</a></div><div class="ttdoc">Survol. </div><div class="ttdef"><b>Definition:</b> Action.h:40</div></div>
+<div class="ttc" id="classgui_1_1_action_html_a71a73e6fb17daf972c7d1d6d6a5bcf02"><div class="ttname"><a href="classgui_1_1_action.html#a71a73e6fb17daf972c7d1d6d6a5bcf02">gui::Action::lier</a></div><div class="ttdeci">virtual void lier(Evenements evt, const FuncType &amp;fonction)</div><div class="ttdoc">Ajoute un ecouteur d&#39;evenement associé à une fonction lambda(FuncType) à executer lors du déclencheme...</div><div class="ttdef"><b>Definition:</b> Action.cpp:18</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea88ab7a25bdf88fc38374964a0d2dc661"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea88ab7a25bdf88fc38374964a0d2dc661">gui::onBtnD_RelacheDehors</a></div><div class="ttdoc">Relache le bouton droit de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:31</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843eab2d008233b7f12c035e96cab7d70def1"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843eab2d008233b7f12c035e96cab7d70def1">gui::onBtn_Sort</a></div><div class="ttdoc">Quitte le survol. </div><div class="ttdef"><b>Definition:</b> Action.h:41</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea939ec84d0866f28a0c6db1071b5c759f"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea939ec84d0866f28a0c6db1071b5c759f">gui::onBtnM_RollUp</a></div><div class="ttdoc">Roule vers le haut le bouton du milieu de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:37</div></div>
+<div class="ttc" id="classgui_1_1_action_html_acb4c5836898b8221986f90a5b226908e"><div class="ttname"><a href="classgui_1_1_action.html#acb4c5836898b8221986f90a5b226908e">gui::Action::_evtsClavier</a></div><div class="ttdeci">evtClavier _evtsClavier</div><div class="ttdoc">La liste des evenements Claviers enregistrés. </div><div class="ttdef"><b>Definition:</b> Action.h:137</div></div>
+<div class="ttc" id="classgui_1_1_action_html_a4223568d083f940e94c80829f63ae817"><div class="ttname"><a href="classgui_1_1_action.html#a4223568d083f940e94c80829f63ae817">gui::Action::FuncType</a></div><div class="ttdeci">std::function&lt; void()&gt; FuncType</div><div class="ttdoc">la fonction lambda associé aux declenchements des evenements. </div><div class="ttdef"><b>Definition:</b> Action.h:66</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea947b2c8fd6ae83f49da423fccf8780a7"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea947b2c8fd6ae83f49da423fccf8780a7">gui::onBtnD_Relache</a></div><div class="ttdoc">Relache le bouton droit de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:30</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea0b818d3afcaf8d8e1af6836debe3685e"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea0b818d3afcaf8d8e1af6836debe3685e">gui::onFen_Ferme</a></div><div class="ttdoc">Quand on ferme une fenetre. </div><div class="ttdef"><b>Definition:</b> Action.h:45</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea7342cb926c1a285c4f283c7a3fe66f3e"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea7342cb926c1a285c4f283c7a3fe66f3e">gui::onBtnD_Press</a></div><div class="ttdoc">Presse le bouton droit de la souris. </div><div class="ttdef"><b>Definition:</b> Action.h:32</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843ea13b691824260d0388f7171a232e930e7"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843ea13b691824260d0388f7171a232e930e7">gui::onBtnG_RelacheDehors</a></div><div class="ttdoc">Relache a coté du gadget avec le bouton gauche de la souris après avoir pressé dedans. </div><div class="ttdef"><b>Definition:</b> Action.h:26</div></div>
+<div class="ttc" id="classgui_1_1_action_html_a7bcfcccef4e486c0df6980c7b16fc594"><div class="ttname"><a href="classgui_1_1_action.html#a7bcfcccef4e486c0df6980c7b16fc594">gui::Action::defaultFunc</a></div><div class="ttdeci">static FuncType defaultFunc</div><div class="ttdoc">type par defaut de la fonction lambda. </div><div class="ttdef"><b>Definition:</b> Action.h:67</div></div>
+<div class="ttc" id="namespacegui_html_a679a250c68f3a4f70b52673ccf7c843e"><div class="ttname"><a href="namespacegui.html#a679a250c68f3a4f70b52673ccf7c843e">gui::Evenements</a></div><div class="ttdeci">Evenements</div><div class="ttdoc">enumeration des differents dtype d&#39;évenements. </div><div class="ttdef"><b>Definition:</b> Action.h:22</div></div>
+<div class="ttc" id="classgui_1_1_action_html_a7a85a606811b45e6232414b1d4e29bed"><div class="ttname"><a href="classgui_1_1_action.html#a7a85a606811b45e6232414b1d4e29bed">gui::Action::evtClavier</a></div><div class="ttdeci">std::map&lt; sf::Keyboard::Key, FuncType &gt; evtClavier</div><div class="ttdoc">Collecteur d&#39;évenements clavier. </div><div class="ttdef"><b>Definition:</b> Action.h:68</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ff70e889e03670d89dfdab991312e87.html">107 - Interface</a></li><li class="navelem"><a class="el" href="dir_42cf65273a26526dbb4b881064a58c6c.html">Interface</a></li><li class="navelem"><a class="el" href="dir_452d14ca761af2a11fe1fe10d890976e.html">include</a></li><li class="navelem"><a class="el" href="107_01-_01_interface_2_interface_2include_2_action_8h.html">Action.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

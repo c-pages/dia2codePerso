@@ -1,0 +1,384 @@
+# depslib dependency file v1.0
+1404759383 source:r:\06 - c++\dia2code-0.8.7\dia2code\comment_helper.c
+	"dia2code.h"
+
+1447287837 r:\06 - c++\dia2code-0.8.7\dia2code\dia2code.h
+	<string.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<dlfcn.h>
+
+1288882724 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\parser.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+	<libxml/hash.h>
+	<libxml/valid.h>
+	<libxml/entities.h>
+	<libxml/xmlerror.h>
+	<libxml/xmlstring.h>
+	<libxml/encoding.h>
+	<libxml/xmlIO.h>
+	<libxml/globals.h>
+
+1308508838 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlversion.h
+	<libxml/xmlexports.h>
+	<ansidecl.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlexports.h
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\tree.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/xmlstring.h>
+	<libxml/xmlregexp.h>
+	<libxml/xmlmemory.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlstring.h
+	<stdarg.h>
+	<libxml/xmlversion.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlregexp.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/dict.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\dict.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlmemory.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/threads.h>
+	<libxml/globals.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\threads.h
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\globals.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xmlerror.h>
+	<libxml/SAX.h>
+	<libxml/SAX2.h>
+	<libxml/xmlmemory.h>
+	<libxml/threads.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlerror.h
+	<libxml/parser.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\sax.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xlink.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\sax2.h
+	<stdio.h>
+	<stdlib.h>
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/xlink.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\hash.h
+	<libxml/xmlversion.h>
+	<libxml/parser.h>
+	<libxml/dict.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\valid.h
+	<libxml/xmlversion.h>
+	<libxml/xmlerror.h>
+	<libxml/tree.h>
+	<libxml/list.h>
+	<libxml/xmlautomata.h>
+	<libxml/xmlregexp.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\list.h
+	<libxml/xmlversion.h>
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlautomata.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+	<libxml/xmlregexp.h>
+
+1286861132 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\entities.h
+	<libxml/xmlversion.h>
+	<libxml/tree.h>
+
+1288886032 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\encoding.h
+	<libxml/xmlversion.h>
+	<iconv.h>
+	<unicode/ucnv.h>
+	<libxml/tree.h>
+
+1447286521 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\iconv.h
+	<sys/cdefs.h>
+	<_types.h>
+	"iconv.h"
+
+1447286967 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\sys\cdefs.h
+
+1447287091 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\_types.h
+
+1253802720 r:\06 - c++\000 - tests\test\libxml2-2.7.8.win32\include\libxml\xmlio.h
+	<stdio.h>
+	<libxml/xmlversion.h>
+	<libxml/globals.h>
+	<libxml/tree.h>
+	<libxml/parser.h>
+	<libxml/encoding.h>
+
+1404759383 source:r:\06 - c++\dia2code-0.8.7\dia2code\decls.c
+	"decls.h"
+
+1404759383 r:\06 - c++\dia2code-0.8.7\dia2code\decls.h
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\comment_helper.c
+	"dia2code.h"
+
+1447290831 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\dia2code.h
+	<string.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<dlfcn.h>
+	"ansidecl.h"
+	<stddef.h>
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\decls.c
+	"decls.h"
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\decls.h
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_ada.c
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\includes.h
+	"dia2code.h"
+	"decls.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_as3.c
+	"dia2code.h"
+	"comment_helper.h"
+	"source_parser.h"
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\comment_helper.h
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\source_parser.h
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_c.c
+	"dia2code.h"
+
+1447305334 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_cpp.c
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_csharp.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_idl.c
+	<stdarg.h>
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_java.c
+	"dia2code.h"
+	"comment_helper.h"
+	"source_parser.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_php.c
+	"dia2code.h"
+	"source_parser.h"
+	"comment_helper.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_php_five.c
+	"dia2code.h"
+
+1447290408 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_python.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_ruby.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_shp.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\generate_code_sql.c
+	"dia2code.h"
+	"parse_diagram.h"
+	"code_generators.h"
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\parse_diagram.h
+	"dia2code.h"
+
+1404759383 r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\code_generators.h
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\includes.c
+	"includes.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\main.c
+	"dia2code.h"
+	"code_generators.h"
+	"parse_diagram.h"
+
+1447290446 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\parse_diagram.c
+	"parse_diagram.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\scan_tree.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\source_parser.c
+	"dia2code.h"
+	"source_parser.h"
+
+1447295233 source:r:\06 - c++\000 - tests\test\dia2codeperso\dia2codeperso\dia2code.c
+	"dia2code.h"
+	<errno.h>
+
+1404759383 source:r:\06 - c++\dia2codeperso\comment_helper.c
+	"dia2code.h"
+
+1447290831 r:\06 - c++\dia2codeperso\dia2code.h
+	<string.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<dlfcn.h>
+	"ansidecl.h"
+	<stddef.h>
+
+1404759383 source:r:\06 - c++\dia2codeperso\decls.c
+	"decls.h"
+
+1404759383 r:\06 - c++\dia2codeperso\decls.h
+	"dia2code.h"
+
+1447295233 source:r:\06 - c++\dia2codeperso\dia2code.c
+	"dia2code.h"
+	<errno.h>
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_ada.c
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 r:\06 - c++\dia2codeperso\includes.h
+	"dia2code.h"
+	"decls.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_as3.c
+	"dia2code.h"
+	"comment_helper.h"
+	"source_parser.h"
+
+1404759383 r:\06 - c++\dia2codeperso\comment_helper.h
+
+1404759383 r:\06 - c++\dia2codeperso\source_parser.h
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_c.c
+	"dia2code.h"
+
+1447305334 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_csharp.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_idl.c
+	<stdarg.h>
+	"dia2code.h"
+	"decls.h"
+	"includes.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_java.c
+	"dia2code.h"
+	"comment_helper.h"
+	"source_parser.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_php.c
+	"dia2code.h"
+	"source_parser.h"
+	"comment_helper.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_php_five.c
+	"dia2code.h"
+
+1447290408 source:r:\06 - c++\dia2codeperso\generate_code_python.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_ruby.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_shp.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\generate_code_sql.c
+	"dia2code.h"
+	"parse_diagram.h"
+	"code_generators.h"
+
+1404759383 r:\06 - c++\dia2codeperso\parse_diagram.h
+	"dia2code.h"
+
+1404759383 r:\06 - c++\dia2codeperso\code_generators.h
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\includes.c
+	"includes.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\main.c
+	"dia2code.h"
+	"code_generators.h"
+	"parse_diagram.h"
+
+1447290446 source:r:\06 - c++\dia2codeperso\parse_diagram.c
+	"parse_diagram.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\scan_tree.c
+	"dia2code.h"
+
+1404759383 source:r:\06 - c++\dia2codeperso\source_parser.c
+	"dia2code.h"
+	"source_parser.h"
+

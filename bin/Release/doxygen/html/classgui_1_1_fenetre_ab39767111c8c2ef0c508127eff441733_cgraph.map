@@ -1,0 +1,4 @@
+<map id="gui::Fenetre::ajouter" name="gui::Fenetre::ajouter">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#a7ad2c3c4e3407461f3c8291a8738eaab" title="Mettre à jour les gémotries de la fenêtre. " alt="" coords="192,5,347,32"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a5da3277922ae281ba6f85f2dd8d4a0e8" title="mais à jour les styles des éléments de la fenêtre. " alt="" coords="395,5,563,32"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="gui::Action::traiter_evenements" name="gui::Action::traiter_evenements">
+<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#a86a4ee6fac3cf043a37376a2f209a50c" title="La gestion des évènements utilisateurs. " alt="" coords="179,5,309,47"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a071ef749bcb765b6c606f37acb932b9e" title="La gestion des évènements utilisateurs. " alt="" coords="371,43,503,84"/>
+<area shape="rect" id="node4" href="$classgui_1_1_gadget.html#a228977e7c05bbb61bb1b6f0efa9d7823" title="La gestion des évènements utilisateurs. " alt="" coords="179,173,309,215"/>
+<area shape="rect" id="node6" href="$classgui_1_1_contenant.html#aaf92cf1d1d7266d25b0c15cd5202ae4b" title="La gestion des évènements utilisateurs. " alt="" coords="363,108,510,149"/>
+<area shape="rect" id="node7" href="$classgui_1_1_fenetre_encastree.html#af6b98196b14c8bca61001b37cd4dee38" title="La gestion des évènements utilisateurs. " alt="" coords="361,239,512,280"/>
+<area shape="rect" id="node8" href="$classgui_1_1_label.html#a5314909bf67f37a3e9b719166500b6bf" title="La gestion des évènements utilisateurs. " alt="" coords="377,304,496,345"/>
+<area shape="rect" id="node5" href="$classgui_1_1_bouton_slide.html#af552a1f65efbdbb9cf763a99f1637e62" title="La gestion des évènements utilisateurs. " alt="" coords="357,173,516,215"/>
+</map>

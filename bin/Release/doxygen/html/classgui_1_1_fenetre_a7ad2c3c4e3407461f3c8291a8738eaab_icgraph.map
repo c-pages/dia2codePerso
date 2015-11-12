@@ -1,0 +1,9 @@
+<map id="gui::Fenetre::majGeom" name="gui::Fenetre::majGeom">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#accf9b24a70ea31e0f20c51f8af572ca7" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="225,5,353,32"/>
+<area shape="rect" id="node4" href="$classgui_1_1_fenetre.html#aaf4d16049d3cc707254a598b686c9dda" title="Definir le titre. " alt="" coords="218,56,361,83"/>
+<area shape="rect" id="node5" href="$classgui_1_1_fenetre.html#ab39767111c8c2ef0c508127eff441733" title="ajouter un enfant " alt="" coords="220,107,359,133"/>
+<area shape="rect" id="node6" href="$classgui_1_1_fenetre.html#a5499f27e6618ce7527825c56b187a1e7" title="Actualiser les éléments. " alt="" coords="212,157,367,184"/>
+<area shape="rect" id="node7" href="$classgui_1_1_fenetre.html#a0ef3d718be52458dc0c9137f669819fc" title="Definir la taille du contenu. " alt="" coords="218,208,361,235"/>
+<area shape="rect" id="node8" href="$classgui_1_1_fenetre.html#a5c9d501e681cd47ad4b7031d18352b9b" title="Definir l&#39;epaisseur de la bordure. " alt="" coords="208,259,371,285"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a79e2ba12822701f8b18ca0760620d2f8" title="Constructeur. " alt="" coords="419,5,561,32"/>
+</map>

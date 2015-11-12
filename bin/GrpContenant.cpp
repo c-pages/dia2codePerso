@@ -1,0 +1,73 @@
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <GrpContenant.h>
+
+/////////////////////////////////////////////////
+GrpContenant::GrpContenant (ptr parent)
+: m_contenuPosition (  )
+, m_contenuGroupe ( new () )
+, m_contenuImage (  )
+, m_btnGliss_V ( new () )
+, m_btnGliss_H ( new () )
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::ajouter (ptr element)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::supprimer (ptr element)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::actualiser ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::traiter_evenements (const sf::Event& evenenemt)
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::init ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::init_skin ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::init_interactions ()
+{
+    
+}
+
+
+/////////////////////////////////////////////////
+virtual void GrpContenant::actualiser_bounds ()
+{
+    
+}
+
+

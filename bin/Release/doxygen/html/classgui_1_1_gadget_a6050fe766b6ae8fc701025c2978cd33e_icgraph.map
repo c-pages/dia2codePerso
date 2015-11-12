@@ -1,0 +1,10 @@
+<map id="gui::Gadget::contient" name="gui::Gadget::contient">
+<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#af54c95a689d82821c62e87620b2a98dd" title="gui::Bouton::gerer_etat" alt="" coords="441,12,596,39"/>
+<area shape="rect" id="node4" href="$classgui_1_1_bouton.html#a78ba380ce479631e18742179054d249d" title="La gestion du survol. " alt="" coords="203,41,387,68"/>
+<area shape="rect" id="node6" href="$classgui_1_1_bouton.html#af687c9bb8f175258aecdbd52868cb773" title="La gestion du survol. " alt="" coords="203,92,386,119"/>
+<area shape="rect" id="node7" href="$classgui_1_1_bouton.html#ae52786842ebf35b396e9d6580420f9a2" title="La gestion du survol. " alt="" coords="197,143,393,169"/>
+<area shape="rect" id="node8" href="$classgui_1_1_bouton.html#acf68a7a2541c1a11fb7c9b151a99f1be" title="La gestion du survol. " alt="" coords="196,194,393,235"/>
+<area shape="rect" id="node9" href="$classgui_1_1_contenant.html#a1780fbb691e77ecd96fe85949e63edb6" title="Renvois si le point (x,y) est contenu dans le gadget. " alt="" coords="215,260,375,287"/>
+<area shape="rect" id="node3" href="$classgui_1_1_bouton.html#a86a4ee6fac3cf043a37376a2f209a50c" title="La gestion des évènements utilisateurs. " alt="" coords="644,45,773,86"/>
+<area shape="rect" id="node5" href="$classgui_1_1_bouton.html#a25cc982d9ad8d18065bb5bef37d3b14d" title="gui::Bouton::gerer\l_declenchements" alt="" coords="456,85,581,126"/>
+</map>

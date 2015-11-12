@@ -1,0 +1,10 @@
+<map id="gui::FenetreEncastree::majGeom" name="gui::FenetreEncastree::majGeom">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre_encastree.html#abc446088899c4b050fa356417263b833" title="Definir la taille du contenu. " alt="" coords="204,5,355,47"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre_encastree.html#a32a4bbbcb40d7431ae4430111eea0c1c" title="Definir l&#39;epaisseur de la bordure. " alt="" coords="204,71,355,112"/>
+<area shape="rect" id="node4" href="$classgui_1_1_fenetre_encastree.html#a1f8d587d23c5aebe457f828575279a31" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="204,136,355,177"/>
+<area shape="rect" id="node6" href="$classgui_1_1_fenetre_encastree.html#a333b5c576ba59e954a4f45e5bce1527a" title="Definir le titre. " alt="" coords="204,201,355,243"/>
+<area shape="rect" id="node7" href="$classgui_1_1_fenetre_encastree.html#a4916b12a5969c92d4843fe9686304728" title="ajouter un enfant " alt="" coords="204,267,355,308"/>
+<area shape="rect" id="node8" href="$classgui_1_1_fenetre_encastree.html#a155900dc25e6be7e140e7f3fd464d6ac" title="les manipulation de drag et de redimensionnement. " alt="" coords="204,332,355,373"/>
+<area shape="rect" id="node5" href="$classgui_1_1_fenetre_encastree.html#a34239916742c4c51d29e49ee18fccd30" title="gui::FenetreEncastree\l::FenetreEncastree" alt="" coords="403,136,553,177"/>
+<area shape="rect" id="node9" href="$classgui_1_1_fenetre_encastree.html#ac3b1cd1b96e9582dd37ac69f9e3957fd" title="Actualiser les éléments. " alt="" coords="403,332,553,373"/>
+</map>

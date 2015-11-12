@@ -1,0 +1,4 @@
+<map id="gui::Label::getLocalBounds" name="gui::Label::getLocalBounds">
+<area shape="rect" id="node2" href="$classgui_1_1_label.html#a5cdb2304ef0b04956246301dbde2695f" title="Accesseur de la boundingBox en global. " alt="" coords="232,5,417,32"/>
+<area shape="rect" id="node3" href="$classgui_1_1_label.html#a53d1325a8b2a1241c413184f16883f0b" title="Accesseur de la taille du texte. " alt="" coords="259,56,390,83"/>
+</map>

@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/107 - Interface/Interface/include/Gadget.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('107_01-_01_interface_2_interface_2include_2_gadget_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Gadget.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="107_01-_01_interface_2_interface_2include_2_gadget_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GADGET_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GADGET_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="107_01-_01_interface_2_interface_2include_2_action_8h.html">Action.h</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_skin_8h.html">Skin.h</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegui.html">gui</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classgui_1_1_gadget.html">Gadget</a> : <span class="keyword">public</span> <a class="code" href="classgui_1_1_action.html">Action</a> , <span class="keyword">public</span> sf::Drawable , <span class="keyword">public</span> sf::Transformable</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a7d8208eca8d1fc7355572bdf3faaecde">   28</a></span>&#160;    <span class="keyword">typedef</span>     std::shared_ptr &lt; Gadget &gt;     <a class="code" href="classgui_1_1_gadget.html#a7d8208eca8d1fc7355572bdf3faaecde">ptr</a>; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a9336229f410c076f089c29e5b4c5eaa0">Gadget</a>  ( );</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a9336229f410c076f089c29e5b4c5eaa0">Gadget</a>  ( std::shared_ptr&lt;Style&gt;   style );</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a9336229f410c076f089c29e5b4c5eaa0">Gadget</a>  ( std::shared_ptr &lt;Skin&gt;    skin );</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classgui_1_1_gadget.html#a29360ed23914371598b458ab70626489">~Gadget</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a2d021f2ce19a4335d79bcaedf4ab4bb2">   66</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a2d021f2ce19a4335d79bcaedf4ab4bb2">setSize</a> ( sf::Vector2f taille ){};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">virtual</span> sf::Vector2f</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#af3bf6c3eafa429927505416d71a87ee4">   75</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#af3bf6c3eafa429927505416d71a87ee4">getSize</a> ( )<span class="keyword"> const </span>{  <span class="keywordflow">return</span> {0,0}; } ;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">virtual</span> sf::Vector2f</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180">getPosAbs</a> () <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">virtual</span> sf::FloatRect</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a2a12490ebc5d7ff80780010930e37b12">   93</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a2a12490ebc5d7ff80780010930e37b12">getLocalBounds</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> {0,0,0,0}; };</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keyword">virtual</span> sf::FloatRect</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4">  102</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4">getGlobalBounds</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> {0,0,0,0}; };</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">virtual</span>     <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a2e410ff9735e205cf2c50c82939876d8">ajouter</a> ( ptr enfant );</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keyword">virtual</span>     <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a02a9b2e04c82e9539312301c449e2baa">  127</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a02a9b2e04c82e9539312301c449e2baa">setParent</a> ( <a class="code" href="classgui_1_1_gadget.html">Gadget</a> * parent ) { <a class="code" href="classgui_1_1_gadget.html#aed32b8bde0e9e8f5384adb7adf05a46a">m_parent</a> = parent ; };</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a7f15aac8882069c593c5ff11ff5cd476">setSkin</a>( std::shared_ptr&lt;Skin&gt;    skin );</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#acdefffdd07776f71f56b91ee6f28a76b">setStyle</a>( std::shared_ptr&lt;Style&gt;     style );</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#aff005fd3dc53ad6a7feb76aea7a88c08">aligner</a> (  <a class="code" href="classgui_1_1_gadget.html">Gadget</a>&amp; cible , <a class="code" href="namespacegui.html#a6e45c5df5008b4bd5935d9a172382432">Alignements</a>    align  = <a class="code" href="namespacegui.html#a6e45c5df5008b4bd5935d9a172382432a963beace9de2ebab0caed452109e66c3">Alignements::Ctre_Mili</a> , <span class="keywordtype">float</span> ecart = 0 );</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a29dbce388329d020b761cec79131f931">  177</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a29dbce388329d020b761cec79131f931">setActif</a> ( <span class="keywordtype">bool</span> val ) { <a class="code" href="classgui_1_1_gadget.html#a79deb80c3bae13e71c178b777ce3f4bb">m_actif</a> = val; };</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a5442078caf792fe005dac499f8295e45">  187</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a5442078caf792fe005dac499f8295e45">estActif</a> (  )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_gadget.html#a79deb80c3bae13e71c178b777ce3f4bb">m_actif</a> ; };</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a5a3af2e01d4c09e9935503a4a348ff8f">  199</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a5a3af2e01d4c09e9935503a4a348ff8f">setVisible</a> ( <span class="keywordtype">bool</span> val ) { <a class="code" href="classgui_1_1_gadget.html#a10fc45e0ac3da5339be2e1efb9fed289">m_visible</a> = val ; };</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#af14fdc740572064ff3faf2a9dd8486fd">  209</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#af14fdc740572064ff3faf2a9dd8486fd">estVisible</a> (  )<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_gadget.html#a10fc45e0ac3da5339be2e1efb9fed289">m_visible</a> ; };</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#ab2bd5264b770b78ecc59d2f1b7486aa6">  218</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#ab2bd5264b770b78ecc59d2f1b7486aa6">aSupprimer</a>(){  <span class="keywordflow">return</span> <a class="code" href="classgui_1_1_gadget.html#a5a90fbf5cca8da8ab438bd54f22d7412">m_aSupprimer</a> ; };</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#af2d0b7310b6a61f2e9feee6b52275462">  228</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#af2d0b7310b6a61f2e9feee6b52275462">demanderActualisation</a>(){  <a class="code" href="classgui_1_1_gadget.html#ab472e731b7cebb3e7ba999cb7bee8b52">m_aActualiser</a> = true ; <span class="comment">/*m_parent-&gt;demanderActualisation();*/</span> };</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#adf55e6760cf3d4ef586ce87c07cfae7c">  240</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#adf55e6760cf3d4ef586ce87c07cfae7c">supprimer</a>(){  <a class="code" href="classgui_1_1_gadget.html#a5a90fbf5cca8da8ab438bd54f22d7412">m_aSupprimer</a> = <span class="keyword">true</span>; };</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a093269333aa3725e27ca92a4a48e4dfb">  253</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a093269333aa3725e27ca92a4a48e4dfb">rotate</a>(<span class="keywordtype">float</span> x )  { std::cout &lt;&lt;<span class="stringliteral">&quot;ATTENTION: rotate() n&#39;est pas pris en compte pour tout les gui::gadgets!\n&quot;</span>; } ;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">virtual</span>  <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e">contient</a> ( <span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y );</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a899d1c57358530e2a1936b89adab1ecb">mettreAuDessus</a>( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ID );</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a14ce17866dc2c16ded01a7ba66644e54">demander_mettreAuDessus</a>( );</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a5a61b311e87d3046e1ae6f6fa8e71ec7">setID</a> ( <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ID );</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#ab46946685c75fd2fd2a1cb4ffa0bf630">getID</a> (  ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a8a72d0816ec1928958ff5dd3ccd983f5">  320</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a8a72d0816ec1928958ff5dd3ccd983f5">majGeom</a>(){};</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgui_1_1_gadget.html#a228977e7c05bbb61bb1b6f0efa9d7823">traiter_evenements</a> ( <span class="keyword">const</span> sf::Event&amp; event );</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgui_1_1_gadget.html#ae7da817bf98b4a13e5342515586a9af9">actualiser</a> ( <span class="keywordtype">float</span> deltaT ) ;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <a class="code" href="classgui_1_1_gadget.html#a0b1e10aad8f5043b4bead27840ad6b3f">draw</a>( sf::RenderTarget&amp; target, sf::RenderStates states ) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#af5c60b20048ba2de87cbc917bd75e2da">  362</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classgui_1_1_fenetre.html">Fenetre</a>;       </div>
+<div class="line"><a name="l00363"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#aa9e4aa786fd85401ae45a925e843ffc9">  363</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classgui_1_1_contenant.html">Contenant</a>;     </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="comment">//std::string             m_nom;          ///&lt; le nom du gadget, (pour l&#39;instant on s&#39;en sert pas mais peut etre un jour...).</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#aed32b8bde0e9e8f5384adb7adf05a46a">  366</a></span>&#160;    <a class="code" href="classgui_1_1_gadget.html">Gadget</a>*                 <a class="code" href="classgui_1_1_gadget.html#aed32b8bde0e9e8f5384adb7adf05a46a">m_parent</a>;       </div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#ab6be4fdbfe4645692c959ed1425bfa87">  367</a></span>&#160;    std::vector&lt; ptr &gt;      <a class="code" href="classgui_1_1_gadget.html#ab6be4fdbfe4645692c959ed1425bfa87">m_enfants</a>;      </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#acd2cf430709c8f7f82c5334d34e451dc">  369</a></span>&#160;    std::shared_ptr&lt;Skin&gt;   <a class="code" href="classgui_1_1_gadget.html#acd2cf430709c8f7f82c5334d34e451dc">m_skin</a>;         </div>
+<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a6d7bd13de67c1577d6fa5073cb35edc9">  370</a></span>&#160;    std::shared_ptr&lt;Style&gt;  <a class="code" href="classgui_1_1_gadget.html#a6d7bd13de67c1577d6fa5073cb35edc9">m_style</a>;        </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a79deb80c3bae13e71c178b777ce3f4bb">  372</a></span>&#160;    <span class="keywordtype">bool</span>                    <a class="code" href="classgui_1_1_gadget.html#a79deb80c3bae13e71c178b777ce3f4bb">m_actif</a>;        </div>
+<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a10fc45e0ac3da5339be2e1efb9fed289">  373</a></span>&#160;    <span class="keywordtype">bool</span>                    <a class="code" href="classgui_1_1_gadget.html#a10fc45e0ac3da5339be2e1efb9fed289">m_visible</a>;      </div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a5a90fbf5cca8da8ab438bd54f22d7412">  374</a></span>&#160;    <span class="keywordtype">bool</span>                    <a class="code" href="classgui_1_1_gadget.html#a5a90fbf5cca8da8ab438bd54f22d7412">m_aSupprimer</a>;   </div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#ab472e731b7cebb3e7ba999cb7bee8b52">  375</a></span>&#160;    <span class="keywordtype">bool</span>                    <a class="code" href="classgui_1_1_gadget.html#ab472e731b7cebb3e7ba999cb7bee8b52">m_aActualiser</a>;  </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
+<div class="line"><a name="l00377"></a><span class="lineno"><a class="line" href="classgui_1_1_gadget.html#a63b5bef3bc45776b5cc1fdb54b7b0388">  377</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>            <a class="code" href="classgui_1_1_gadget.html#a63b5bef3bc45776b5cc1fdb54b7b0388">m_id</a>;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="comment">//std::shared_ptr&lt;Gadget&gt; m_this;</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">//    ////////////DEBUG/////////////</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">//    sf::RectangleShape      m_DEBUG_SHAPE;</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="comment">//    ////////////DEBUG/////////////</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;};<span class="comment">// fin de class Gadget</span></div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;};<span class="comment">// fin du namespace gui</span></div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="preprocessor">#endif // GADGET_H</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="ttc" id="classgui_1_1_gadget_html_a63b5bef3bc45776b5cc1fdb54b7b0388"><div class="ttname"><a href="classgui_1_1_gadget.html#a63b5bef3bc45776b5cc1fdb54b7b0388">gui::Gadget::m_id</a></div><div class="ttdeci">unsigned int m_id</div><div class="ttdef"><b>Definition:</b> Gadget.h:377</div></div>
+<div class="ttc" id="_skin_8h_html"><div class="ttname"><a href="_skin_8h.html">Skin.h</a></div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_ae7da817bf98b4a13e5342515586a9af9"><div class="ttname"><a href="classgui_1_1_gadget.html#ae7da817bf98b4a13e5342515586a9af9">gui::Gadget::actualiser</a></div><div class="ttdeci">virtual void actualiser(float deltaT)</div><div class="ttdoc">Actualiser les éléments. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:297</div></div>
+<div class="ttc" id="classgui_1_1_action_html"><div class="ttname"><a href="classgui_1_1_action.html">gui::Action</a></div><div class="ttdoc">Classe virtuelle permetant de lier des évenements à des fonctions. </div><div class="ttdef"><b>Definition:</b> Action.h:61</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a5a3af2e01d4c09e9935503a4a348ff8f"><div class="ttname"><a href="classgui_1_1_gadget.html#a5a3af2e01d4c09e9935503a4a348ff8f">gui::Gadget::setVisible</a></div><div class="ttdeci">void setVisible(bool val)</div><div class="ttdoc">Definir l&#39;état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:199</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_ab2bd5264b770b78ecc59d2f1b7486aa6"><div class="ttname"><a href="classgui_1_1_gadget.html#ab2bd5264b770b78ecc59d2f1b7486aa6">gui::Gadget::aSupprimer</a></div><div class="ttdeci">bool aSupprimer()</div><div class="ttdoc">demande si le gadget est en attente de suppression </div><div class="ttdef"><b>Definition:</b> Gadget.h:218</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a29dbce388329d020b761cec79131f931"><div class="ttname"><a href="classgui_1_1_gadget.html#a29dbce388329d020b761cec79131f931">gui::Gadget::setActif</a></div><div class="ttdeci">void setActif(bool val)</div><div class="ttdoc">Definir l&#39;état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:177</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a6050fe766b6ae8fc701025c2978cd33e"><div class="ttname"><a href="classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e">gui::Gadget::contient</a></div><div class="ttdeci">virtual bool contient(float x, float y)</div><div class="ttdoc">Renvois si le point (x,y) est contenu dans le gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:274</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a14ce17866dc2c16ded01a7ba66644e54"><div class="ttname"><a href="classgui_1_1_gadget.html#a14ce17866dc2c16ded01a7ba66644e54">gui::Gadget::demander_mettreAuDessus</a></div><div class="ttdeci">void demander_mettreAuDessus()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:189</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a9336229f410c076f089c29e5b4c5eaa0"><div class="ttname"><a href="classgui_1_1_gadget.html#a9336229f410c076f089c29e5b4c5eaa0">gui::Gadget::Gadget</a></div><div class="ttdeci">Gadget()</div><div class="ttdoc">Constructeur par defaut. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:12</div></div>
+<div class="ttc" id="namespacegui_html"><div class="ttname"><a href="namespacegui.html">gui</a></div><div class="ttdef"><b>Definition:</b> gui.cpp:6</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_ab46946685c75fd2fd2a1cb4ffa0bf630"><div class="ttname"><a href="classgui_1_1_gadget.html#ab46946685c75fd2fd2a1cb4ffa0bf630">gui::Gadget::getID</a></div><div class="ttdeci">unsigned int getID() const </div><div class="ttdoc">Accesseur état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:95</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a899d1c57358530e2a1936b89adab1ecb"><div class="ttname"><a href="classgui_1_1_gadget.html#a899d1c57358530e2a1936b89adab1ecb">gui::Gadget::mettreAuDessus</a></div><div class="ttdeci">void mettreAuDessus(unsigned int ID)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:200</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_adf55e6760cf3d4ef586ce87c07cfae7c"><div class="ttname"><a href="classgui_1_1_gadget.html#adf55e6760cf3d4ef586ce87c07cfae7c">gui::Gadget::supprimer</a></div><div class="ttdeci">void supprimer()</div><div class="ttdoc">Demander la suppression de ce gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:240</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a2e410ff9735e205cf2c50c82939876d8"><div class="ttname"><a href="classgui_1_1_gadget.html#a2e410ff9735e205cf2c50c82939876d8">gui::Gadget::ajouter</a></div><div class="ttdeci">virtual void ajouter(ptr enfant)</div><div class="ttdoc">Ajouter un enfant. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:84</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_af2d0b7310b6a61f2e9feee6b52275462"><div class="ttname"><a href="classgui_1_1_gadget.html#af2d0b7310b6a61f2e9feee6b52275462">gui::Gadget::demanderActualisation</a></div><div class="ttdeci">void demanderActualisation()</div><div class="ttdoc">demande au gadget et à ses ancetres une actualisation </div><div class="ttdef"><b>Definition:</b> Gadget.h:228</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a2d021f2ce19a4335d79bcaedf4ab4bb2"><div class="ttname"><a href="classgui_1_1_gadget.html#a2d021f2ce19a4335d79bcaedf4ab4bb2">gui::Gadget::setSize</a></div><div class="ttdeci">virtual void setSize(sf::Vector2f taille)</div><div class="ttdoc">Acceder à la taille du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:66</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_acdefffdd07776f71f56b91ee6f28a76b"><div class="ttname"><a href="classgui_1_1_gadget.html#acdefffdd07776f71f56b91ee6f28a76b">gui::Gadget::setStyle</a></div><div class="ttdeci">virtual void setStyle(std::shared_ptr&lt; Style &gt; style)</div><div class="ttdoc">Définie le style du Label. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:116</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a228977e7c05bbb61bb1b6f0efa9d7823"><div class="ttname"><a href="classgui_1_1_gadget.html#a228977e7c05bbb61bb1b6f0efa9d7823">gui::Gadget::traiter_evenements</a></div><div class="ttdeci">virtual void traiter_evenements(const sf::Event &amp;event)</div><div class="ttdoc">La gestion des évènements utilisateurs. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:319</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a7d8208eca8d1fc7355572bdf3faaecde"><div class="ttname"><a href="classgui_1_1_gadget.html#a7d8208eca8d1fc7355572bdf3faaecde">gui::Gadget::ptr</a></div><div class="ttdeci">std::shared_ptr&lt; Gadget &gt; ptr</div><div class="ttdoc">definition du type des pointeurs de gadget </div><div class="ttdef"><b>Definition:</b> Gadget.h:28</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a978a62f695b2c7d96714f537fb1da180"><div class="ttname"><a href="classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180">gui::Gadget::getPosAbs</a></div><div class="ttdeci">virtual sf::Vector2f getPosAbs() const </div><div class="ttdoc">Acceder à la position absolue (en remontant les ancetres). </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:74</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a79deb80c3bae13e71c178b777ce3f4bb"><div class="ttname"><a href="classgui_1_1_gadget.html#a79deb80c3bae13e71c178b777ce3f4bb">gui::Gadget::m_actif</a></div><div class="ttdeci">bool m_actif</div><div class="ttdoc">si le gadget est actif ou pas. ( visible mais pas utilisable. ) </div><div class="ttdef"><b>Definition:</b> Gadget.h:372</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_af14fdc740572064ff3faf2a9dd8486fd"><div class="ttname"><a href="classgui_1_1_gadget.html#af14fdc740572064ff3faf2a9dd8486fd">gui::Gadget::estVisible</a></div><div class="ttdeci">bool estVisible() const </div><div class="ttdoc">Accesseur état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:209</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_acd2cf430709c8f7f82c5334d34e451dc"><div class="ttname"><a href="classgui_1_1_gadget.html#acd2cf430709c8f7f82c5334d34e451dc">gui::Gadget::m_skin</a></div><div class="ttdeci">std::shared_ptr&lt; Skin &gt; m_skin</div><div class="ttdoc">le skin du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:369</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a093269333aa3725e27ca92a4a48e4dfb"><div class="ttname"><a href="classgui_1_1_gadget.html#a093269333aa3725e27ca92a4a48e4dfb">gui::Gadget::rotate</a></div><div class="ttdeci">virtual void rotate(float x)</div><div class="ttdoc">overload annulant la fonction rotate </div><div class="ttdef"><b>Definition:</b> Gadget.h:253</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a5a61b311e87d3046e1ae6f6fa8e71ec7"><div class="ttname"><a href="classgui_1_1_gadget.html#a5a61b311e87d3046e1ae6f6fa8e71ec7">gui::Gadget::setID</a></div><div class="ttdeci">void setID(unsigned int ID)</div><div class="ttdoc">Definir l&#39;état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:102</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html"><div class="ttname"><a href="classgui_1_1_gadget.html">gui::Gadget</a></div><div class="ttdoc">Classe virtuelle, la base commune aux gadgets formant l&#39;interface. </div><div class="ttdef"><b>Definition:</b> Gadget.h:22</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_aff005fd3dc53ad6a7feb76aea7a88c08"><div class="ttname"><a href="classgui_1_1_gadget.html#aff005fd3dc53ad6a7feb76aea7a88c08">gui::Gadget::aligner</a></div><div class="ttdeci">void aligner(Gadget &amp;cible, Alignements align=Alignements::Ctre_Mili, float ecart=0)</div><div class="ttdoc">Aligne le gadget sur un autre. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:126</div></div>
+<div class="ttc" id="namespacegui_html_a6e45c5df5008b4bd5935d9a172382432"><div class="ttname"><a href="namespacegui.html#a6e45c5df5008b4bd5935d9a172382432">gui::Alignements</a></div><div class="ttdeci">Alignements</div><div class="ttdoc">Alignement d&#39;un éléments par rapport à un autre. </div><div class="ttdef"><b>Definition:</b> Style.h:19</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a29360ed23914371598b458ab70626489"><div class="ttname"><a href="classgui_1_1_gadget.html#a29360ed23914371598b458ab70626489">gui::Gadget::~Gadget</a></div><div class="ttdeci">virtual ~Gadget()</div><div class="ttdoc">Destructeur. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:67</div></div>
+<div class="ttc" id="107_01-_01_interface_2_interface_2include_2_action_8h_html"><div class="ttname"><a href="107_01-_01_interface_2_interface_2include_2_action_8h.html">Action.h</a></div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a02a9b2e04c82e9539312301c449e2baa"><div class="ttname"><a href="classgui_1_1_gadget.html#a02a9b2e04c82e9539312301c449e2baa">gui::Gadget::setParent</a></div><div class="ttdeci">virtual void setParent(Gadget *parent)</div><div class="ttdoc">Ajouter un enfant. </div><div class="ttdef"><b>Definition:</b> Gadget.h:127</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a7f15aac8882069c593c5ff11ff5cd476"><div class="ttname"><a href="classgui_1_1_gadget.html#a7f15aac8882069c593c5ff11ff5cd476">gui::Gadget::setSkin</a></div><div class="ttdeci">virtual void setSkin(std::shared_ptr&lt; Skin &gt; skin)</div><div class="ttdoc">Définie le skin du Label. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:108</div></div>
+<div class="ttc" id="classgui_1_1_fenetre_html"><div class="ttname"><a href="classgui_1_1_fenetre.html">gui::Fenetre</a></div><div class="ttdoc">Gadget permettant de rassembler des Gadgets au sein d&#39;une Fenetre. </div><div class="ttdef"><b>Definition:</b> Fenetre.h:25</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_ab6be4fdbfe4645692c959ed1425bfa87"><div class="ttname"><a href="classgui_1_1_gadget.html#ab6be4fdbfe4645692c959ed1425bfa87">gui::Gadget::m_enfants</a></div><div class="ttdeci">std::vector&lt; ptr &gt; m_enfants</div><div class="ttdoc">Les enfants du bouton. </div><div class="ttdef"><b>Definition:</b> Gadget.h:367</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a0b1e10aad8f5043b4bead27840ad6b3f"><div class="ttname"><a href="classgui_1_1_gadget.html#a0b1e10aad8f5043b4bead27840ad6b3f">gui::Gadget::draw</a></div><div class="ttdeci">virtual void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const </div><div class="ttdoc">Rendre les éléments. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:333</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a10fc45e0ac3da5339be2e1efb9fed289"><div class="ttname"><a href="classgui_1_1_gadget.html#a10fc45e0ac3da5339be2e1efb9fed289">gui::Gadget::m_visible</a></div><div class="ttdeci">bool m_visible</div><div class="ttdoc">si le gadget est visible ou pas. </div><div class="ttdef"><b>Definition:</b> Gadget.h:373</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a5442078caf792fe005dac499f8295e45"><div class="ttname"><a href="classgui_1_1_gadget.html#a5442078caf792fe005dac499f8295e45">gui::Gadget::estActif</a></div><div class="ttdeci">bool estActif() const </div><div class="ttdoc">Accesseur état du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:187</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_aed32b8bde0e9e8f5384adb7adf05a46a"><div class="ttname"><a href="classgui_1_1_gadget.html#aed32b8bde0e9e8f5384adb7adf05a46a">gui::Gadget::m_parent</a></div><div class="ttdeci">Gadget * m_parent</div><div class="ttdoc">le gadget m_parent. </div><div class="ttdef"><b>Definition:</b> Gadget.h:366</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a59a5758a13c8dba8443f039dce709bb4"><div class="ttname"><a href="classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4">gui::Gadget::getGlobalBounds</a></div><div class="ttdeci">virtual sf::FloatRect getGlobalBounds() const </div><div class="ttdoc">Acceder à la boundingBox global. </div><div class="ttdef"><b>Definition:</b> Gadget.h:102</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a5a90fbf5cca8da8ab438bd54f22d7412"><div class="ttname"><a href="classgui_1_1_gadget.html#a5a90fbf5cca8da8ab438bd54f22d7412">gui::Gadget::m_aSupprimer</a></div><div class="ttdeci">bool m_aSupprimer</div><div class="ttdoc">On le passe à true quand on veut supprimer ce gadget (il sera supprimé par son parent au debut de l&#39;a...</div><div class="ttdef"><b>Definition:</b> Gadget.h:374</div></div>
+<div class="ttc" id="classgui_1_1_contenant_html"><div class="ttname"><a href="classgui_1_1_contenant.html">gui::Contenant</a></div><div class="ttdoc">Gadget Permet d&#39;afficher un ensemble de gadget dans une fenetre de contenu. </div><div class="ttdef"><b>Definition:</b> Contenant.h:21</div></div>
+<div class="ttc" id="namespacegui_html_a6e45c5df5008b4bd5935d9a172382432a963beace9de2ebab0caed452109e66c3"><div class="ttname"><a href="namespacegui.html#a6e45c5df5008b4bd5935d9a172382432a963beace9de2ebab0caed452109e66c3">gui::Ctre_Mili</a></div><div class="ttdoc">Centre Milieu. </div><div class="ttdef"><b>Definition:</b> Style.h:25</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a2a12490ebc5d7ff80780010930e37b12"><div class="ttname"><a href="classgui_1_1_gadget.html#a2a12490ebc5d7ff80780010930e37b12">gui::Gadget::getLocalBounds</a></div><div class="ttdeci">virtual sf::FloatRect getLocalBounds() const </div><div class="ttdoc">Acceder à la boundingBox local. </div><div class="ttdef"><b>Definition:</b> Gadget.h:93</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_ab472e731b7cebb3e7ba999cb7bee8b52"><div class="ttname"><a href="classgui_1_1_gadget.html#ab472e731b7cebb3e7ba999cb7bee8b52">gui::Gadget::m_aActualiser</a></div><div class="ttdeci">bool m_aActualiser</div><div class="ttdoc">Si on a changer un truc qui necessite d&#39;actualiser la geometrie, couleur... du gadget (comme un resiz...</div><div class="ttdef"><b>Definition:</b> Gadget.h:375</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a8a72d0816ec1928958ff5dd3ccd983f5"><div class="ttname"><a href="classgui_1_1_gadget.html#a8a72d0816ec1928958ff5dd3ccd983f5">gui::Gadget::majGeom</a></div><div class="ttdeci">virtual void majGeom()</div><div class="ttdoc">Actualise le model du Gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:320</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_af3bf6c3eafa429927505416d71a87ee4"><div class="ttname"><a href="classgui_1_1_gadget.html#af3bf6c3eafa429927505416d71a87ee4">gui::Gadget::getSize</a></div><div class="ttdeci">virtual sf::Vector2f getSize() const </div><div class="ttdoc">Acceder à la taille du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:75</div></div>
+<div class="ttc" id="classgui_1_1_gadget_html_a6d7bd13de67c1577d6fa5073cb35edc9"><div class="ttname"><a href="classgui_1_1_gadget.html#a6d7bd13de67c1577d6fa5073cb35edc9">gui::Gadget::m_style</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; m_style</div><div class="ttdoc">le style du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:370</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ff70e889e03670d89dfdab991312e87.html">107 - Interface</a></li><li class="navelem"><a class="el" href="dir_42cf65273a26526dbb4b881064a58c6c.html">Interface</a></li><li class="navelem"><a class="el" href="dir_452d14ca761af2a11fe1fe10d890976e.html">include</a></li><li class="navelem"><a class="el" href="107_01-_01_interface_2_interface_2include_2_gadget_8h.html">Gadget.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

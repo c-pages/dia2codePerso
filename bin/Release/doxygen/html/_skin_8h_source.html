@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/107 - Interface/Interface/include/Skin.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="pages.html"><span>Pages&#160;associées</span></a></li>
+      <li><a href="modules.html"><span>Modules</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_skin_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Skin.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_skin_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SKIN_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SKIN_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="_style_8h.html">Style.h</a>&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegui.html">gui</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html">   18</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structgui_1_1_skin.html">Skin</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="structgui_1_1_skin.html#a216892ffb06a16a2aba1d0c8261496b3">Skin</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="structgui_1_1_skin.html#a216892ffb06a16a2aba1d0c8261496b3">Skin</a>( <span class="keyword">const</span> <a class="code" href="structgui_1_1_skin.html">Skin</a>&amp; skin );</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//T&amp; T::operator=(T arg)</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#a68e4974d6ed7fef61c39561eb33687db">   44</a></span>&#160;<span class="comment"></span>    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#a68e4974d6ed7fef61c39561eb33687db">desactive</a>;        </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#af50b19d11f4b0942b1a37ee573523c78">   45</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#af50b19d11f4b0942b1a37ee573523c78">fenetre</a>;          </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#a2ffb0e1c16580474ef4d224a171cab32">   46</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#a2ffb0e1c16580474ef4d224a171cab32">btnRepos</a>;         </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#a8cca0462c051b5ed1b9d2fe8a9a5b404">   47</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#a8cca0462c051b5ed1b9d2fe8a9a5b404">btnSurvol</a>;        </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#ae6ff5c8929e4e61d092443282a34ef67">   48</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#ae6ff5c8929e4e61d092443282a34ef67">btnPress</a>;         </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#abf49dd986593e33cd6afbdfb9157cdf2">   49</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#abf49dd986593e33cd6afbdfb9157cdf2">lblTitre</a>;         </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#a8de5deb80ea554c337da798869545ea8">   50</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#a8de5deb80ea554c337da798869545ea8">lblCourant</a>;       </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#afd37b53fbf7c8aef41ca6708573401af">   51</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#afd37b53fbf7c8aef41ca6708573401af">lblLog</a>;           </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#adcb7d12316f7e80898af1f9ff0c2d28e">   52</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#adcb7d12316f7e80898af1f9ff0c2d28e">cadre</a>;            </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structgui_1_1_skin.html#af4ed9848a6eb07ad02fd9f2b55ecc7ba">   53</a></span>&#160;    std::shared_ptr &lt;Style&gt;  <a class="code" href="structgui_1_1_skin.html#af4ed9848a6eb07ad02fd9f2b55ecc7ba">invisible</a>;        </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}; <span class="comment">// fin namespace gui</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif // SKIN_H</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="ttc" id="structgui_1_1_skin_html_af4ed9848a6eb07ad02fd9f2b55ecc7ba"><div class="ttname"><a href="structgui_1_1_skin.html#af4ed9848a6eb07ad02fd9f2b55ecc7ba">gui::Skin::invisible</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; invisible</div><div class="ttdoc">le style pour des boutons invisibles par exemple </div><div class="ttdef"><b>Definition:</b> Skin.h:53</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_a68e4974d6ed7fef61c39561eb33687db"><div class="ttname"><a href="structgui_1_1_skin.html#a68e4974d6ed7fef61c39561eb33687db">gui::Skin::desactive</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; desactive</div><div class="ttdoc">le style des gadgets désactivés </div><div class="ttdef"><b>Definition:</b> Skin.h:44</div></div>
+<div class="ttc" id="_style_8h_html"><div class="ttname"><a href="_style_8h.html">Style.h</a></div></div>
+<div class="ttc" id="structgui_1_1_skin_html"><div class="ttname"><a href="structgui_1_1_skin.html">gui::Skin</a></div><div class="ttdoc">Structure de donnée. Un Skin définie un ensemble de Style pour les éléments d&#39;une interface graphique...</div><div class="ttdef"><b>Definition:</b> Skin.h:18</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_abf49dd986593e33cd6afbdfb9157cdf2"><div class="ttname"><a href="structgui_1_1_skin.html#abf49dd986593e33cd6afbdfb9157cdf2">gui::Skin::lblTitre</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; lblTitre</div><div class="ttdoc">le style des titres. </div><div class="ttdef"><b>Definition:</b> Skin.h:49</div></div>
+<div class="ttc" id="namespacegui_html"><div class="ttname"><a href="namespacegui.html">gui</a></div><div class="ttdef"><b>Definition:</b> gui.cpp:6</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_a8de5deb80ea554c337da798869545ea8"><div class="ttname"><a href="structgui_1_1_skin.html#a8de5deb80ea554c337da798869545ea8">gui::Skin::lblCourant</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; lblCourant</div><div class="ttdoc">le style des champs de texte courant. </div><div class="ttdef"><b>Definition:</b> Skin.h:50</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_ae6ff5c8929e4e61d092443282a34ef67"><div class="ttname"><a href="structgui_1_1_skin.html#ae6ff5c8929e4e61d092443282a34ef67">gui::Skin::btnPress</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; btnPress</div><div class="ttdoc">le style des boutons au press. </div><div class="ttdef"><b>Definition:</b> Skin.h:48</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_a216892ffb06a16a2aba1d0c8261496b3"><div class="ttname"><a href="structgui_1_1_skin.html#a216892ffb06a16a2aba1d0c8261496b3">gui::Skin::Skin</a></div><div class="ttdeci">Skin()</div><div class="ttdoc">Constructeur par defaut. </div><div class="ttdef"><b>Definition:</b> Skin.cpp:12</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_afd37b53fbf7c8aef41ca6708573401af"><div class="ttname"><a href="structgui_1_1_skin.html#afd37b53fbf7c8aef41ca6708573401af">gui::Skin::lblLog</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; lblLog</div><div class="ttdoc">le style pour le Log et Infos </div><div class="ttdef"><b>Definition:</b> Skin.h:51</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_a8cca0462c051b5ed1b9d2fe8a9a5b404"><div class="ttname"><a href="structgui_1_1_skin.html#a8cca0462c051b5ed1b9d2fe8a9a5b404">gui::Skin::btnSurvol</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; btnSurvol</div><div class="ttdoc">le style des boutons au survol. </div><div class="ttdef"><b>Definition:</b> Skin.h:47</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_adcb7d12316f7e80898af1f9ff0c2d28e"><div class="ttname"><a href="structgui_1_1_skin.html#adcb7d12316f7e80898af1f9ff0c2d28e">gui::Skin::cadre</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; cadre</div><div class="ttdoc">le style pour les cadre, cad lefill et transparent </div><div class="ttdef"><b>Definition:</b> Skin.h:52</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_af50b19d11f4b0942b1a37ee573523c78"><div class="ttname"><a href="structgui_1_1_skin.html#af50b19d11f4b0942b1a37ee573523c78">gui::Skin::fenetre</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; fenetre</div><div class="ttdoc">le style des fenêtres. </div><div class="ttdef"><b>Definition:</b> Skin.h:45</div></div>
+<div class="ttc" id="structgui_1_1_skin_html_a2ffb0e1c16580474ef4d224a171cab32"><div class="ttname"><a href="structgui_1_1_skin.html#a2ffb0e1c16580474ef4d224a171cab32">gui::Skin::btnRepos</a></div><div class="ttdeci">std::shared_ptr&lt; Style &gt; btnRepos</div><div class="ttdoc">le style des boutons au repos. </div><div class="ttdef"><b>Definition:</b> Skin.h:46</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1ff70e889e03670d89dfdab991312e87.html">107 - Interface</a></li><li class="navelem"><a class="el" href="dir_42cf65273a26526dbb4b881064a58c6c.html">Interface</a></li><li class="navelem"><a class="el" href="dir_452d14ca761af2a11fe1fe10d890976e.html">include</a></li><li class="navelem"><a class="el" href="_skin_8h.html">Skin.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

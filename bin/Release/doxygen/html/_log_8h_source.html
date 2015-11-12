@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Log.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_log_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Log.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_log_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LOG__H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LOG__H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="_action_8h.html">Action.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_gadget_8h.html">Gadget.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_log.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_log.html">Log</a> : <span class="keyword">public</span> <a class="code" href="class_action.html">Action</a>, <span class="keyword">public</span> <a class="code" href="class_gadget.html">Gadget</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="comment">// Les methodes</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_log.html#af6071a60aa52b6c1b511f99b4bc1b8fe">Log</a> ();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_log.html#a68a5ca483f5401ccddc52348840935ae">setTexte</a> (<span class="keywordtype">string</span> texte);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_log.html#a5da65195575a22eeca2791cb991da9e8">print</a> ();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_log.html#a2ad858bd01378935dfea6c5e1e324c01">init</a> ();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_log.html#a4ba0bec8d7e9bc0787c2f30660408a27">init_skin</a> ();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_log.html#a490570e5efc9e8c7c30d59c86be71933">actualiser</a> ();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_log.html#afdffd2b8cb3a18e2c26d81f328f5cb42">traiter_evenement</a> (<span class="keyword">const</span> sf::Event&amp; evenement);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_log.html#ab7f93a1a2d86aecfc684add438fb56ed">   54</a></span>&#160;    std::string <a class="code" href="class_log.html#ab7f93a1a2d86aecfc684add438fb56ed">m_preligne</a>;    </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_log.html#aed6c35407fcb592bc8fec6097d710a19">   56</a></span>&#160;    std::shared_ptr&lt;Texte&gt; <a class="code" href="class_log.html#a85ef69ac10c305ffbad800f1f0ca5730">m_lblMouseX</a>;    shared_ptr&lt;Texte&gt; <a class="code" href="class_log.html#aed6c35407fcb592bc8fec6097d710a19">m_lblMouseY</a>;    shared_ptr&lt;Texte&gt; <a class="code" href="class_log.html#a447dd89dd16e11ac481695aeb4b84e3f">m_lblFPS</a>;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="ttc" id="class_log_html_ab7f93a1a2d86aecfc684add438fb56ed"><div class="ttname"><a href="class_log.html#ab7f93a1a2d86aecfc684add438fb56ed">Log::m_preligne</a></div><div class="ttdeci">std::string m_preligne</div><div class="ttdef"><b>Definition:</b> Log.h:54</div></div>
+<div class="ttc" id="class_log_html_a5da65195575a22eeca2791cb991da9e8"><div class="ttname"><a href="class_log.html#a5da65195575a22eeca2791cb991da9e8">Log::print</a></div><div class="ttdeci">static void print()</div><div class="ttdef"><b>Definition:</b> Log.cpp:21</div></div>
+<div class="ttc" id="class_log_html_a490570e5efc9e8c7c30d59c86be71933"><div class="ttname"><a href="class_log.html#a490570e5efc9e8c7c30d59c86be71933">Log::actualiser</a></div><div class="ttdeci">virtual void actualiser()</div><div class="ttdef"><b>Definition:</b> Log.cpp:42</div></div>
+<div class="ttc" id="class_log_html_af6071a60aa52b6c1b511f99b4bc1b8fe"><div class="ttname"><a href="class_log.html#af6071a60aa52b6c1b511f99b4bc1b8fe">Log::Log</a></div><div class="ttdeci">Log()</div><div class="ttdef"><b>Definition:</b> Log.cpp:7</div></div>
+<div class="ttc" id="_action_8h_html"><div class="ttname"><a href="_action_8h.html">Action.h</a></div></div>
+<div class="ttc" id="class_log_html_aed6c35407fcb592bc8fec6097d710a19"><div class="ttname"><a href="class_log.html#aed6c35407fcb592bc8fec6097d710a19">Log::m_lblMouseY</a></div><div class="ttdeci">shared_ptr&lt; Texte &gt; m_lblMouseY</div><div class="ttdef"><b>Definition:</b> Log.h:56</div></div>
+<div class="ttc" id="class_action_html"><div class="ttname"><a href="class_action.html">Action</a></div><div class="ttdoc">Classe communes aux gadgets interactifs (boutons, fenetres, etc... quasi tous en fait ( sauf Image et...</div><div class="ttdef"><b>Definition:</b> Action.h:12</div></div>
+<div class="ttc" id="class_log_html_afdffd2b8cb3a18e2c26d81f328f5cb42"><div class="ttname"><a href="class_log.html#afdffd2b8cb3a18e2c26d81f328f5cb42">Log::traiter_evenement</a></div><div class="ttdeci">virtual void traiter_evenement(const sf::Event &amp;evenement)</div><div class="ttdef"><b>Definition:</b> Log.cpp:49</div></div>
+<div class="ttc" id="class_log_html_a68a5ca483f5401ccddc52348840935ae"><div class="ttname"><a href="class_log.html#a68a5ca483f5401ccddc52348840935ae">Log::setTexte</a></div><div class="ttdeci">void setTexte(string texte)</div><div class="ttdef"><b>Definition:</b> Log.cpp:14</div></div>
+<div class="ttc" id="class_log_html_a4ba0bec8d7e9bc0787c2f30660408a27"><div class="ttname"><a href="class_log.html#a4ba0bec8d7e9bc0787c2f30660408a27">Log::init_skin</a></div><div class="ttdeci">virtual void init_skin()</div><div class="ttdef"><b>Definition:</b> Log.cpp:35</div></div>
+<div class="ttc" id="class_log_html_a447dd89dd16e11ac481695aeb4b84e3f"><div class="ttname"><a href="class_log.html#a447dd89dd16e11ac481695aeb4b84e3f">Log::m_lblFPS</a></div><div class="ttdeci">shared_ptr&lt; Texte &gt; m_lblFPS</div><div class="ttdef"><b>Definition:</b> Log.h:56</div></div>
+<div class="ttc" id="class_log_html_a85ef69ac10c305ffbad800f1f0ca5730"><div class="ttname"><a href="class_log.html#a85ef69ac10c305ffbad800f1f0ca5730">Log::m_lblMouseX</a></div><div class="ttdeci">std::shared_ptr&lt; Texte &gt; m_lblMouseX</div><div class="ttdef"><b>Definition:</b> Log.h:56</div></div>
+<div class="ttc" id="class_gadget_html"><div class="ttname"><a href="class_gadget.html">Gadget</a></div><div class="ttdoc">Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... </div><div class="ttdef"><b>Definition:</b> Gadget.h:16</div></div>
+<div class="ttc" id="class_log_html"><div class="ttname"><a href="class_log.html">Log</a></div><div class="ttdef"><b>Definition:</b> Log.h:15</div></div>
+<div class="ttc" id="_gadget_8h_html"><div class="ttname"><a href="_gadget_8h.html">Gadget.h</a></div></div>
+<div class="ttc" id="class_log_html_a2ad858bd01378935dfea6c5e1e324c01"><div class="ttname"><a href="class_log.html#a2ad858bd01378935dfea6c5e1e324c01">Log::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdef"><b>Definition:</b> Log.cpp:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_log_8h.html">Log.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

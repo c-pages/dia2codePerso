@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="dia2codePerso" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/dia2code" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/dia2code" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/Release" />
+				<Option object_output="R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/.objs" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="R:/06 - C++/000 - tests/test/libxml2-2.7.8.win32/include" />
+			<Add directory="R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/sys" />
+		</Compiler>
+		<Linker>
+			<Add library="R:\06 - C++\000 - tests\test\libxml2-2.7.8.win32\lib\libxml2.lib" />
+			<Add directory="R:/06 - C++/000 - tests/test/libxml2-2.7.8.win32/lib" />
+		</Linker>
+		<Unit filename="code_generators.h" />
+		<Unit filename="comment_helper.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="comment_helper.h" />
+		<Unit filename="decls.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="decls.h" />
+		<Unit filename="dia2code.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dia2code.h" />
+		<Unit filename="generate_code_ada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_as3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_cpp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_csharp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_idl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_java.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_php.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_php_five.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_python.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_ruby.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_shp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="generate_code_sql.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="iconv.h" />
+		<Unit filename="includes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="includes.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parse_diagram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="parse_diagram.h" />
+		<Unit filename="scan_tree.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="source_parser.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="source_parser.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="5" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

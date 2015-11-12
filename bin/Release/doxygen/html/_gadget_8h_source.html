@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Application de base:  Fichier source de R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Gadget.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Application de base
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">La structure de base d&#39;une application SFML avec debut de GUI</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_gadget_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">R:/06 - C++/000 - tests/test/dia2codePerso/dia2codePerso/bin/Release/Gadget.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_gadget_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef GADGET__H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define GADGET__H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &quot;<a class="code" href="_groupe_8h.html">Groupe.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_transformable_8h.html">Transformable.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_drawable_8h.html">Drawable.h</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_gadget.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_gadget.html">Gadget</a> : <span class="keyword">public</span> <a class="code" href="class_transformable.html">Transformable</a>, <span class="keyword">public</span> <a class="code" href="class_drawable.html">Drawable</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">// Les methodes</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_gadget.html#ab46946685c75fd2fd2a1cb4ffa0bf630">getID</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#ad58fdd30c40ccb3d954fccc18b7e20a1">setID</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a73cefc899a3fd2a06bab6a89704b68b2">setActif</a> (<span class="keywordtype">bool</span> valeur);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#a5997ae07179041600a99270cf506a8b1">getActif</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#ad7476663513ac0e133d6e666904e62b1">setVisible</a> (<span class="keywordtype">bool</span> valeur);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#aae75e34e8133b9c6de98189da26d9edf">getVisible</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_gadget.html#ac7a958cd78991a7172ef2493c2d1d03c">setSkin</a> (shared_ptr&lt;Skin&gt; skin);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    Skin <a class="code" href="class_gadget.html#ad66f888fe7f27359794ffd904142210a">getSkin</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#af105848e6893ea18d97c3bfca5ff8797">setInfo</a> (<span class="keywordtype">string</span> info);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_gadget.html#a4cc32c993c989c1ddc8aaa607e842900">getInfo</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a95aaee41ecccd44c4eae542c2e8c2846">setParent</a> (ptr parent);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a2e410ff9735e205cf2c50c82939876d8">ajouter</a> (ptr enfant);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#aaa509019d9da0062a73e7d66302c545d">supprimer</a> (ptr enfant);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    sf::Vector2f <a class="code" href="class_gadget.html#a978a62f695b2c7d96714f537fb1da180">getPosAbs</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#aeb7c8047b13ea6e19ccf201858d3d411">setSize</a> (sf::Vector2i taille);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    sf::Vector2i <a class="code" href="class_gadget.html#a44fad0910097d2c397994f5ce7787d77">getSize</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    sf::floatRect <a class="code" href="class_gadget.html#a99075dbe5cfb62eb921c923e694320fd">getLocalBounds</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    sf::floatRect <a class="code" href="class_gadget.html#a16fae1489fba6e7139e410a65b9ee1c8">getGlobalBounds</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a50e75502de7ce3275b7ee3b73cfdb90a">Aligner</a> (ptr&lt;Gadget&gt; cible);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#a7a51570947548175bc70d4374a6128d1">Contient</a> (<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#af150b7f88ad19b2df81d63128d5d0804">demander_aEtre_supprimer</a> ();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a7cc34b572ecda99726a24453be0a926e">demander_aEtre_auDessus</a> () <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a17caa483ab546e2e99291f610b7bde68">mettre_auDessus</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a3df700f207907e51c7207170537a5c77">init</a> ();</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a789e4e7e275698c821d1647c59a63c37">init_skin</a> ();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a7c8b4e870d5874447b3bc316ec5503a5">init_interactions</a> ();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#aa312cf90d4c03c4e3545d9d786286d07">actualiser</a> ();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a6554371650ef0f3cb56895531b168607">actualiser_bounds</a> ();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a559126d683e739203792b29a26127099">traiter_evenements</a> (<span class="keyword">const</span> sf::Event&amp; evenement);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_gadget.html#a0b1e10aad8f5043b4bead27840ad6b3f">draw</a> (sf::RenderTarget&amp; target, sf::RenderStates states) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="comment">// Les membres</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment"></span>    </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="class_gadget.html#aa2145684569911d18ce4d6e6a8959b1d">  140</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="class_gadget.html#aa2145684569911d18ce4d6e6a8959b1d">m_id</a>;    </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="class_gadget.html#a29d105db5ac0cc3f46533befd3421d6b">  141</a></span>&#160;    sf::Vector2i <a class="code" href="class_gadget.html#a29d105db5ac0cc3f46533befd3421d6b">m_taille</a>;    </div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="class_gadget.html#a241d4eaa842bfe978bbb037952ee91e8">  142</a></span>&#160;    sf::floatRect <a class="code" href="class_gadget.html#a241d4eaa842bfe978bbb037952ee91e8">m_localBounds</a>;    </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="class_gadget.html#a988420b121a6884de5a067960a36ed26">  143</a></span>&#160;    sf::floatRect <a class="code" href="class_gadget.html#a988420b121a6884de5a067960a36ed26">m_globalBounds</a>;    </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="class_gadget.html#abf028002c0d8bcc112de4030f50e0bac">  144</a></span>&#160;    Skin <a class="code" href="class_gadget.html#abf028002c0d8bcc112de4030f50e0bac">m_skin</a>;    </div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="class_gadget.html#a1572cef815c3207b6b4354973e907c79">  145</a></span>&#160;    std::string <a class="code" href="class_gadget.html#a1572cef815c3207b6b4354973e907c79">m_infoBulle</a>;    </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="class_gadget.html#a8400fad725a4bd6b6f059d148a3e0354">  146</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#a8400fad725a4bd6b6f059d148a3e0354">m_actif</a>;    </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="class_gadget.html#a503a0117ece2bdaeeee6bba2d47621db">  147</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#a503a0117ece2bdaeeee6bba2d47621db">m_visible</a>;    </div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="class_gadget.html#a20c7e9e72b901dfa25e7c9efa5ab8319">  148</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_gadget.html#a20c7e9e72b901dfa25e7c9efa5ab8319">m_aSupprimer</a>;    </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="class_gadget.html#a0c57baacf9e87700039c75ae7ba0c367">  149</a></span>&#160;    <a class="code" href="class_gadget.html">Gadget</a>* <a class="code" href="class_gadget.html#a0c57baacf9e87700039c75ae7ba0c367">m_parent</a>;    </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="class_gadget.html#a3ee4cfe6572135fb8fa134e287b2dd2b">  150</a></span>&#160;    <a class="code" href="class_groupe.html">Groupe</a> <a class="code" href="class_gadget.html#a3ee4cfe6572135fb8fa134e287b2dd2b">m_enfants</a>;    </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="class_gadget.html#ae139cb2406d9f7b773b0114d3c7d09ff">  151</a></span>&#160;    GUI* <a class="code" href="class_gadget.html#ae139cb2406d9f7b773b0114d3c7d09ff">ms_gui</a>;    </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="class_gadget.html#a51d53bf265d96f18b5cec34e684a8a75">  153</a></span>&#160;    ptr <a class="code" href="class_gadget.html#a51d53bf265d96f18b5cec34e684a8a75">m_this</a>;    </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;};</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="ttc" id="class_gadget_html_af150b7f88ad19b2df81d63128d5d0804"><div class="ttname"><a href="class_gadget.html#af150b7f88ad19b2df81d63128d5d0804">Gadget::demander_aEtre_supprimer</a></div><div class="ttdeci">void demander_aEtre_supprimer()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:147</div></div>
+<div class="ttc" id="class_gadget_html_ad66f888fe7f27359794ffd904142210a"><div class="ttname"><a href="class_gadget.html#ad66f888fe7f27359794ffd904142210a">Gadget::getSkin</a></div><div class="ttdeci">Skin getSkin() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:56</div></div>
+<div class="ttc" id="class_gadget_html_a6554371650ef0f3cb56895531b168607"><div class="ttname"><a href="class_gadget.html#a6554371650ef0f3cb56895531b168607">Gadget::actualiser_bounds</a></div><div class="ttdeci">virtual void actualiser_bounds()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:196</div></div>
+<div class="ttc" id="class_gadget_html_a29d105db5ac0cc3f46533befd3421d6b"><div class="ttname"><a href="class_gadget.html#a29d105db5ac0cc3f46533befd3421d6b">Gadget::m_taille</a></div><div class="ttdeci">sf::Vector2i m_taille</div><div class="ttdoc">la taille permet d&#39;organiser la disposition des Ã©lÃ©ments graphiques du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:141</div></div>
+<div class="ttc" id="class_gadget_html_a0c57baacf9e87700039c75ae7ba0c367"><div class="ttname"><a href="class_gadget.html#a0c57baacf9e87700039c75ae7ba0c367">Gadget::m_parent</a></div><div class="ttdeci">Gadget * m_parent</div><div class="ttdoc">le Gadget parent. </div><div class="ttdef"><b>Definition:</b> Gadget.h:149</div></div>
+<div class="ttc" id="class_gadget_html_a4cc32c993c989c1ddc8aaa607e842900"><div class="ttname"><a href="class_gadget.html#a4cc32c993c989c1ddc8aaa607e842900">Gadget::getInfo</a></div><div class="ttdeci">string getInfo() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:70</div></div>
+<div class="ttc" id="class_gadget_html_aeb7c8047b13ea6e19ccf201858d3d411"><div class="ttname"><a href="class_gadget.html#aeb7c8047b13ea6e19ccf201858d3d411">Gadget::setSize</a></div><div class="ttdeci">void setSize(sf::Vector2i taille)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:105</div></div>
+<div class="ttc" id="class_gadget_html_a50e75502de7ce3275b7ee3b73cfdb90a"><div class="ttname"><a href="class_gadget.html#a50e75502de7ce3275b7ee3b73cfdb90a">Gadget::Aligner</a></div><div class="ttdeci">void Aligner(ptr&lt; Gadget &gt; cible)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:133</div></div>
+<div class="ttc" id="class_gadget_html_a95aaee41ecccd44c4eae542c2e8c2846"><div class="ttname"><a href="class_gadget.html#a95aaee41ecccd44c4eae542c2e8c2846">Gadget::setParent</a></div><div class="ttdeci">void setParent(ptr parent)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:77</div></div>
+<div class="ttc" id="class_gadget_html_a99075dbe5cfb62eb921c923e694320fd"><div class="ttname"><a href="class_gadget.html#a99075dbe5cfb62eb921c923e694320fd">Gadget::getLocalBounds</a></div><div class="ttdeci">sf::floatRect getLocalBounds() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:119</div></div>
+<div class="ttc" id="class_gadget_html_a1572cef815c3207b6b4354973e907c79"><div class="ttname"><a href="class_gadget.html#a1572cef815c3207b6b4354973e907c79">Gadget::m_infoBulle</a></div><div class="ttdeci">std::string m_infoBulle</div><div class="ttdoc">texte d&#39;information sur le gadget Ã  afficher en cas de survol prolongÃ© d&#39;un gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:145</div></div>
+<div class="ttc" id="_groupe_8h_html"><div class="ttname"><a href="_groupe_8h.html">Groupe.h</a></div></div>
+<div class="ttc" id="class_gadget_html_a0b1e10aad8f5043b4bead27840ad6b3f"><div class="ttname"><a href="class_gadget.html#a0b1e10aad8f5043b4bead27840ad6b3f">Gadget::draw</a></div><div class="ttdeci">virtual void draw(sf::RenderTarget &amp;target, sf::RenderStates states) const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:210</div></div>
+<div class="ttc" id="class_gadget_html_af105848e6893ea18d97c3bfca5ff8797"><div class="ttname"><a href="class_gadget.html#af105848e6893ea18d97c3bfca5ff8797">Gadget::setInfo</a></div><div class="ttdeci">void setInfo(string info)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:63</div></div>
+<div class="ttc" id="class_gadget_html_a2e410ff9735e205cf2c50c82939876d8"><div class="ttname"><a href="class_gadget.html#a2e410ff9735e205cf2c50c82939876d8">Gadget::ajouter</a></div><div class="ttdeci">virtual void ajouter(ptr enfant)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:84</div></div>
+<div class="ttc" id="class_gadget_html_aa312cf90d4c03c4e3545d9d786286d07"><div class="ttname"><a href="class_gadget.html#aa312cf90d4c03c4e3545d9d786286d07">Gadget::actualiser</a></div><div class="ttdeci">virtual void actualiser()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:189</div></div>
+<div class="ttc" id="class_gadget_html_aa2145684569911d18ce4d6e6a8959b1d"><div class="ttname"><a href="class_gadget.html#aa2145684569911d18ce4d6e6a8959b1d">Gadget::m_id</a></div><div class="ttdeci">unsigned int m_id</div><div class="ttdoc">l&#39;id unique du gadget dans la liste des enfants de son parent. L&#39;id correspond Ã  l&#39;ordre de cette li...</div><div class="ttdef"><b>Definition:</b> Gadget.h:140</div></div>
+<div class="ttc" id="class_gadget_html_a16fae1489fba6e7139e410a65b9ee1c8"><div class="ttname"><a href="class_gadget.html#a16fae1489fba6e7139e410a65b9ee1c8">Gadget::getGlobalBounds</a></div><div class="ttdeci">sf::floatRect getGlobalBounds() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:126</div></div>
+<div class="ttc" id="class_gadget_html_ae139cb2406d9f7b773b0114d3c7d09ff"><div class="ttname"><a href="class_gadget.html#ae139cb2406d9f7b773b0114d3c7d09ff">Gadget::ms_gui</a></div><div class="ttdeci">GUI * ms_gui</div><div class="ttdoc">static vers le gui commum </div><div class="ttdef"><b>Definition:</b> Gadget.h:151</div></div>
+<div class="ttc" id="class_gadget_html_ab46946685c75fd2fd2a1cb4ffa0bf630"><div class="ttname"><a href="class_gadget.html#ab46946685c75fd2fd2a1cb4ffa0bf630">Gadget::getID</a></div><div class="ttdeci">unsigned int getID() const </div><div class="ttdoc">Acceder Ã  l&#39;id du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:7</div></div>
+<div class="ttc" id="class_groupe_html"><div class="ttname"><a href="class_groupe.html">Groupe</a></div><div class="ttdef"><b>Definition:</b> Groupe.h:15</div></div>
+<div class="ttc" id="class_gadget_html_a978a62f695b2c7d96714f537fb1da180"><div class="ttname"><a href="class_gadget.html#a978a62f695b2c7d96714f537fb1da180">Gadget::getPosAbs</a></div><div class="ttdeci">sf::Vector2f getPosAbs() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:98</div></div>
+<div class="ttc" id="class_gadget_html_a5997ae07179041600a99270cf506a8b1"><div class="ttname"><a href="class_gadget.html#a5997ae07179041600a99270cf506a8b1">Gadget::getActif</a></div><div class="ttdeci">bool getActif() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:28</div></div>
+<div class="ttc" id="class_gadget_html_a7cc34b572ecda99726a24453be0a926e"><div class="ttname"><a href="class_gadget.html#a7cc34b572ecda99726a24453be0a926e">Gadget::demander_aEtre_auDessus</a></div><div class="ttdeci">void demander_aEtre_auDessus() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:154</div></div>
+<div class="ttc" id="class_gadget_html_a503a0117ece2bdaeeee6bba2d47621db"><div class="ttname"><a href="class_gadget.html#a503a0117ece2bdaeeee6bba2d47621db">Gadget::m_visible</a></div><div class="ttdeci">bool m_visible</div><div class="ttdoc">est il visible ? ( si non visible : inactif ?) </div><div class="ttdef"><b>Definition:</b> Gadget.h:147</div></div>
+<div class="ttc" id="class_gadget_html_a73cefc899a3fd2a06bab6a89704b68b2"><div class="ttname"><a href="class_gadget.html#a73cefc899a3fd2a06bab6a89704b68b2">Gadget::setActif</a></div><div class="ttdeci">void setActif(bool valeur)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:21</div></div>
+<div class="ttc" id="class_gadget_html_a51d53bf265d96f18b5cec34e684a8a75"><div class="ttname"><a href="class_gadget.html#a51d53bf265d96f18b5cec34e684a8a75">Gadget::m_this</a></div><div class="ttdeci">ptr m_this</div><div class="ttdoc">un pointeur partagÃ© vers le gadget (this) </div><div class="ttdef"><b>Definition:</b> Gadget.h:153</div></div>
+<div class="ttc" id="class_gadget_html_a44fad0910097d2c397994f5ce7787d77"><div class="ttname"><a href="class_gadget.html#a44fad0910097d2c397994f5ce7787d77">Gadget::getSize</a></div><div class="ttdeci">sf::Vector2i getSize() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:112</div></div>
+<div class="ttc" id="class_gadget_html_ac7a958cd78991a7172ef2493c2d1d03c"><div class="ttname"><a href="class_gadget.html#ac7a958cd78991a7172ef2493c2d1d03c">Gadget::setSkin</a></div><div class="ttdeci">setSkin(shared_ptr&lt; Skin &gt; skin)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:49</div></div>
+<div class="ttc" id="class_drawable_html"><div class="ttname"><a href="class_drawable.html">Drawable</a></div><div class="ttdef"><b>Definition:</b> Drawable.h:12</div></div>
+<div class="ttc" id="_drawable_8h_html"><div class="ttname"><a href="_drawable_8h.html">Drawable.h</a></div></div>
+<div class="ttc" id="class_gadget_html_a3ee4cfe6572135fb8fa134e287b2dd2b"><div class="ttname"><a href="class_gadget.html#a3ee4cfe6572135fb8fa134e287b2dd2b">Gadget::m_enfants</a></div><div class="ttdeci">Groupe m_enfants</div><div class="ttdoc">les Gadgets enfants. </div><div class="ttdef"><b>Definition:</b> Gadget.h:150</div></div>
+<div class="ttc" id="class_gadget_html_ad7476663513ac0e133d6e666904e62b1"><div class="ttname"><a href="class_gadget.html#ad7476663513ac0e133d6e666904e62b1">Gadget::setVisible</a></div><div class="ttdeci">void setVisible(bool valeur)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:35</div></div>
+<div class="ttc" id="class_gadget_html_aaa509019d9da0062a73e7d66302c545d"><div class="ttname"><a href="class_gadget.html#aaa509019d9da0062a73e7d66302c545d">Gadget::supprimer</a></div><div class="ttdeci">virtual void supprimer(ptr enfant)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:91</div></div>
+<div class="ttc" id="class_gadget_html_a20c7e9e72b901dfa25e7c9efa5ab8319"><div class="ttname"><a href="class_gadget.html#a20c7e9e72b901dfa25e7c9efa5ab8319">Gadget::m_aSupprimer</a></div><div class="ttdeci">bool m_aSupprimer</div><div class="ttdoc">si le parent doit supprimer ce gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.h:148</div></div>
+<div class="ttc" id="class_gadget_html_a988420b121a6884de5a067960a36ed26"><div class="ttname"><a href="class_gadget.html#a988420b121a6884de5a067960a36ed26">Gadget::m_globalBounds</a></div><div class="ttdeci">sf::floatRect m_globalBounds</div><div class="ttdoc">la rectangle anglobant du gadget en coordonnÃ©s globales. </div><div class="ttdef"><b>Definition:</b> Gadget.h:143</div></div>
+<div class="ttc" id="class_gadget_html_a7a51570947548175bc70d4374a6128d1"><div class="ttname"><a href="class_gadget.html#a7a51570947548175bc70d4374a6128d1">Gadget::Contient</a></div><div class="ttdeci">bool Contient(float x, float y) const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:140</div></div>
+<div class="ttc" id="class_transformable_html"><div class="ttname"><a href="class_transformable.html">Transformable</a></div><div class="ttdef"><b>Definition:</b> Transformable.h:12</div></div>
+<div class="ttc" id="class_gadget_html_ad58fdd30c40ccb3d954fccc18b7e20a1"><div class="ttname"><a href="class_gadget.html#ad58fdd30c40ccb3d954fccc18b7e20a1">Gadget::setID</a></div><div class="ttdeci">void setID(unsigned int id)</div><div class="ttdoc">Definir l&#39;id du gadget. </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:14</div></div>
+<div class="ttc" id="class_gadget_html_a241d4eaa842bfe978bbb037952ee91e8"><div class="ttname"><a href="class_gadget.html#a241d4eaa842bfe978bbb037952ee91e8">Gadget::m_localBounds</a></div><div class="ttdeci">sf::floatRect m_localBounds</div><div class="ttdoc">la rectangle anglobant du gadget en coordonnÃ©s locales. </div><div class="ttdef"><b>Definition:</b> Gadget.h:142</div></div>
+<div class="ttc" id="class_gadget_html_a789e4e7e275698c821d1647c59a63c37"><div class="ttname"><a href="class_gadget.html#a789e4e7e275698c821d1647c59a63c37">Gadget::init_skin</a></div><div class="ttdeci">virtual void init_skin()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:175</div></div>
+<div class="ttc" id="class_gadget_html_a8400fad725a4bd6b6f059d148a3e0354"><div class="ttname"><a href="class_gadget.html#a8400fad725a4bd6b6f059d148a3e0354">Gadget::m_actif</a></div><div class="ttdeci">bool m_actif</div><div class="ttdoc">le gadget est il actif ? </div><div class="ttdef"><b>Definition:</b> Gadget.h:146</div></div>
+<div class="ttc" id="class_gadget_html"><div class="ttname"><a href="class_gadget.html">Gadget</a></div><div class="ttdoc">Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... </div><div class="ttdef"><b>Definition:</b> Gadget.h:16</div></div>
+<div class="ttc" id="class_gadget_html_a17caa483ab546e2e99291f610b7bde68"><div class="ttname"><a href="class_gadget.html#a17caa483ab546e2e99291f610b7bde68">Gadget::mettre_auDessus</a></div><div class="ttdeci">void mettre_auDessus(unsigned int id)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:161</div></div>
+<div class="ttc" id="class_gadget_html_abf028002c0d8bcc112de4030f50e0bac"><div class="ttname"><a href="class_gadget.html#abf028002c0d8bcc112de4030f50e0bac">Gadget::m_skin</a></div><div class="ttdeci">Skin m_skin</div><div class="ttdoc">le skin. </div><div class="ttdef"><b>Definition:</b> Gadget.h:144</div></div>
+<div class="ttc" id="class_gadget_html_a559126d683e739203792b29a26127099"><div class="ttname"><a href="class_gadget.html#a559126d683e739203792b29a26127099">Gadget::traiter_evenements</a></div><div class="ttdeci">virtual void traiter_evenements(const sf::Event &amp;evenement)</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:203</div></div>
+<div class="ttc" id="class_gadget_html_aae75e34e8133b9c6de98189da26d9edf"><div class="ttname"><a href="class_gadget.html#aae75e34e8133b9c6de98189da26d9edf">Gadget::getVisible</a></div><div class="ttdeci">bool getVisible() const </div><div class="ttdef"><b>Definition:</b> Gadget.cpp:42</div></div>
+<div class="ttc" id="class_gadget_html_a3df700f207907e51c7207170537a5c77"><div class="ttname"><a href="class_gadget.html#a3df700f207907e51c7207170537a5c77">Gadget::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:168</div></div>
+<div class="ttc" id="_transformable_8h_html"><div class="ttname"><a href="_transformable_8h.html">Transformable.h</a></div></div>
+<div class="ttc" id="class_gadget_html_a7c8b4e870d5874447b3bc316ec5503a5"><div class="ttname"><a href="class_gadget.html#a7c8b4e870d5874447b3bc316ec5503a5">Gadget::init_interactions</a></div><div class="ttdeci">virtual void init_interactions()</div><div class="ttdef"><b>Definition:</b> Gadget.cpp:182</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_gadget_8h.html">Gadget.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>

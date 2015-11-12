@@ -1,0 +1,5 @@
+<map id="gui::Gadget::actualiser" name="gui::Gadget::actualiser">
+<area shape="rect" id="node2" href="$classgui_1_1_bouton_slide.html#a48bb296c9a18f0e28df42d87b4f69a00" title="Actualiser les éléments. " alt="" coords="207,5,388,32"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre_encastree.html#ac3b1cd1b96e9582dd37ac69f9e3957fd" title="Actualiser les éléments. " alt="" coords="222,57,373,98"/>
+<area shape="rect" id="node4" href="$classgui_1_1_label.html#af940ee918cf3e72ce74383d609c08721" title="Actualiser les éléments. " alt="" coords="226,123,369,149"/>
+</map>

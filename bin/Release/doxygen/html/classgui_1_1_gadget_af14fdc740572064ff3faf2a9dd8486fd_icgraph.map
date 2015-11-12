@@ -1,0 +1,14 @@
+<map id="gui::Gadget::estVisible" name="gui::Gadget::estVisible">
+<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#a86a4ee6fac3cf043a37376a2f209a50c" title="La gestion des évènements utilisateurs. " alt="" coords="221,71,350,112"/>
+<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a228977e7c05bbb61bb1b6f0efa9d7823" title="La gestion des évènements utilisateurs. " alt="" coords="220,136,351,177"/>
+<area shape="rect" id="node9" href="$classgui_1_1_groupe.html#a898d4bd6591e67ab8d0d0432f62af8d0" title="Rendre les éléments. " alt="" coords="223,202,347,229"/>
+<area shape="rect" id="node10" href="$classgui_1_1_bouton_encoche.html#a7b16e473d79aa0d1b1c4c554e8e71669" title="Rendre les différents éléments du ou des écrans actifs. " alt="" coords="216,253,355,295"/>
+<area shape="rect" id="node11" href="$classgui_1_1_bouton_slide.html#a4ab6933254e1588d1b775359f6ae081e" title="Dessiner le bouton. " alt="" coords="209,319,361,346"/>
+<area shape="rect" id="node12" href="$classgui_1_1_bouton_texte.html#ac07e5e027d4d9d3544e8964d5d370714" title="Rendre les éléments. " alt="" coords="208,370,363,397"/>
+<area shape="rect" id="node13" href="$classgui_1_1_label.html#af940ee918cf3e72ce74383d609c08721" title="Actualiser les éléments. " alt="" coords="214,421,357,447"/>
+<area shape="rect" id="node4" href="$classgui_1_1_fenetre.html#a071ef749bcb765b6c606f37acb932b9e" title="La gestion des évènements utilisateurs. " alt="" coords="424,5,556,47"/>
+<area shape="rect" id="node5" href="$classgui_1_1_bouton_slide.html#af552a1f65efbdbb9cf763a99f1637e62" title="La gestion des évènements utilisateurs. " alt="" coords="411,71,569,112"/>
+<area shape="rect" id="node6" href="$classgui_1_1_contenant.html#aaf92cf1d1d7266d25b0c15cd5202ae4b" title="La gestion des évènements utilisateurs. " alt="" coords="417,136,563,177"/>
+<area shape="rect" id="node7" href="$classgui_1_1_fenetre_encastree.html#af6b98196b14c8bca61001b37cd4dee38" title="La gestion des évènements utilisateurs. " alt="" coords="415,201,565,243"/>
+<area shape="rect" id="node8" href="$classgui_1_1_label.html#a5314909bf67f37a3e9b719166500b6bf" title="La gestion des évènements utilisateurs. " alt="" coords="431,267,549,308"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="gui::FenetreEncastree::actualiser" name="gui::FenetreEncastree::actualiser">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre_encastree.html#a155900dc25e6be7e140e7f3fd464d6ac" title="les manipulation de drag et de redimensionnement. " alt="" coords="205,5,356,47"/>
+<area shape="rect" id="node5" href="$classgui_1_1_gadget.html#ae7da817bf98b4a13e5342515586a9af9" title="Actualiser les éléments. " alt="" coords="204,71,357,98"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre_encastree.html#a8b335aec20648b67a6d16ce38c5c22f8" title="Mettre à jour les gémotries de la fenêtre. " alt="" coords="411,5,562,47"/>
+<area shape="rect" id="node4" href="$classgui_1_1_fenetre_encastree.html#a4a86e93d7b596eed4cf174290acbae0d" title="mais à jour les styles des éléments de la fenêtre. " alt="" coords="616,5,767,47"/>
+<area shape="rect" id="node6" href="$classgui_1_1_gadget.html#ab2bd5264b770b78ecc59d2f1b7486aa6" title="demande si le gadget est en attente de suppression " alt="" coords="405,71,568,98"/>
+</map>

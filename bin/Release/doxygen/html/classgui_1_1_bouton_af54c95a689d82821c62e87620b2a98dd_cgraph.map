@@ -1,0 +1,4 @@
+<map id="gui::Bouton::gerer_etat" name="gui::Bouton::gerer_etat">
+<area shape="rect" id="node2" href="$classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e" title="Renvois si le point (x,y) est contenu dans le gadget. " alt="" coords="208,29,351,56"/>
+<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4" title="Acceder à la boundingBox global. " alt="" coords="399,29,595,56"/>
+</map>

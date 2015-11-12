@@ -1,0 +1,7 @@
+<map id="gui::Gadget::traiter_evenements" name="gui::Gadget::traiter_evenements">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#a071ef749bcb765b6c606f37acb932b9e" title="La gestion des évènements utilisateurs. " alt="" coords="197,5,329,47"/>
+<area shape="rect" id="node3" href="$classgui_1_1_bouton_slide.html#af552a1f65efbdbb9cf763a99f1637e62" title="La gestion des évènements utilisateurs. " alt="" coords="184,71,343,112"/>
+<area shape="rect" id="node4" href="$classgui_1_1_contenant.html#aaf92cf1d1d7266d25b0c15cd5202ae4b" title="La gestion des évènements utilisateurs. " alt="" coords="190,136,337,177"/>
+<area shape="rect" id="node5" href="$classgui_1_1_fenetre_encastree.html#af6b98196b14c8bca61001b37cd4dee38" title="La gestion des évènements utilisateurs. " alt="" coords="188,201,339,243"/>
+<area shape="rect" id="node6" href="$classgui_1_1_label.html#a5314909bf67f37a3e9b719166500b6bf" title="La gestion des évènements utilisateurs. " alt="" coords="204,267,323,308"/>
+</map>

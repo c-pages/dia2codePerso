@@ -1,0 +1,4 @@
+<map id="gui::Image::setFillColor" name="gui::Image::setFillColor">
+<area shape="rect" id="node2" href="$classgui_1_1_image.html#a55d6e4c44d04badfa764af150610c130" title="Mise a jour des gemotries ( size, pos, couleur, textures..) " alt="" coords="208,5,355,32"/>
+<area shape="rect" id="node3" href="$classgui_1_1_bouton_encoche.html#a6014e719ac05833528c2dafbcd3d12a8" title="Constructeur avec definition du skin et valeur de l&#39;état du bouton. " alt="" coords="212,57,351,98"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="gui::Gadget::supprimer" name="gui::Gadget::supprimer">
+<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#acd2aa33c316509036191f724ef51d30a" title="Initialiser l&#39;interface pour le bouton fermer. " alt="" coords="219,5,347,47"/>
+<area shape="rect" id="node5" href="$classgui_1_1_fenetre_encastree.html#aaa900b28f22ddaf34dbc346439a9eb76" title="Initialiser l&#39;interface pour le bouton fermer. " alt="" coords="208,71,359,112"/>
+<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#accf9b24a70ea31e0f20c51f8af572ca7" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="418,13,546,39"/>
+<area shape="rect" id="node4" href="$classgui_1_1_fenetre.html#a79e2ba12822701f8b18ca0760620d2f8" title="Constructeur. " alt="" coords="609,13,752,39"/>
+<area shape="rect" id="node6" href="$classgui_1_1_fenetre_encastree.html#a1f8d587d23c5aebe457f828575279a31" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="407,71,557,112"/>
+<area shape="rect" id="node7" href="$classgui_1_1_fenetre_encastree.html#a34239916742c4c51d29e49ee18fccd30" title="gui::FenetreEncastree\l::FenetreEncastree" alt="" coords="605,71,756,112"/>
+</map>

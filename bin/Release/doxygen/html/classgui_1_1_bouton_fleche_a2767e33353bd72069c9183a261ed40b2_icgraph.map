@@ -1,0 +1,4 @@
+<map id="gui::BoutonFleche::getSize" name="gui::BoutonFleche::getSize">
+<area shape="rect" id="node2" href="$classgui_1_1_bouton_fleche.html#a239bc493196ce86580250ed02e9be0be" title="Accesseur de la boundingBox en local. " alt="" coords="188,5,323,47"/>
+<area shape="rect" id="node3" href="$classgui_1_1_bouton_fleche.html#a4b62cd60a96ba1e33ad7fac7eff14d25" title="Accesseur de la boundingBox en global. " alt="" coords="188,71,323,112"/>
+</map>

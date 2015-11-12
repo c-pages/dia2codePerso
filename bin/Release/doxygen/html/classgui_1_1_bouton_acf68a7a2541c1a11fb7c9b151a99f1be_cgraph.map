@@ -1,0 +1,5 @@
+<map id="gui::Bouton::test_declRouletteSouris" name="gui::Bouton::test_declRouletteSouris">
+<area shape="rect" id="node2" href="$classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e" title="Renvois si le point (x,y) est contenu dans le gadget. " alt="" coords="257,29,399,56"/>
+<area shape="rect" id="node4" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="251,80,405,107"/>
+<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4" title="Acceder à la boundingBox global. " alt="" coords="453,29,649,56"/>
+</map>
