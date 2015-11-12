@@ -340,12 +340,23 @@ print("\n");
 
 
             /* print operation */
-            if (umlo->key.attr.isabstract || is_valuetype) {
+            if (umlo->key.attr.isabstract || is_valuetype || eq (umlo->key.attr.isvirtuel , "1")  ) {
                 emit ("virtual ");
                 umlo->key.attr.value[0] = '0';
             }
 
 
+
+
+
+////if (umlo->key.attr.isvirtuel == '2' )
+//if (    eq (umlo->key.attr.isvirtuel , "2") )
+//    print ( "#################### pouet pouet """"""""""""""""""""""""""""\n");
+//
+//
+////                    umlo->key.attr.name[0] != '~')
+//
+//print (">>>>>>>>>>>>>> isvirtuel: %s <<<<<<<<<<<<<<<<<<\n" , umlo->key.attr.isvirtuel);
 
 
 
@@ -814,11 +825,6 @@ gen_body (umlclassnode *node)
     char *stype = node->key->stereotype;
     int is_valuetype = 0;
 
-//    if (strlen (stype) > 0) {
-//        print ("// %s\n", stype);
-//        is_valuetype = eq (stype, "CORBAValue");
-//    }
-
 
     if (node->key->attributes != NULL) {
         int    testStatic = 0;
@@ -849,182 +855,20 @@ gen_body (umlclassnode *node)
                 }
                 umla = umla->next;
             }
-
-                    print ("\n\n");
-
-
+            print ("\n\n");
         }
-
     }
 
 
-
-
-
-
-
-
-
-
-    /*
-
-/// \brief
-///
-/// \param
-/// \param
-/// \return
-///
-/////////////////////////////////////////////////
-
-    print ( "/////////////////////////////////////////////////\n");
-
-    print("/// class %s - %s\n", name, node->key->comment);
-
-    */
-
-//
-//print("/////////////////////////////////////////////////\n");
-//
-
-
- //   print("/// class %s - %s\n", name, node->key->comment);
-//
-//    if (node->key->templates != NULL) {
-//        umltemplatelist template = node->key->templates;
-//        if (is_valuetype) {
-//            fprintf (stderr, "CORBAValue %s: template ignored\n", name);
-//        } else {
-//            print ("template <");
-//            while (template != NULL) {
-//                print ("%s %s", template->key.type, template->key.name);
-//                template = template->next;
-//                if (template != NULL)
-//                    emit (", ");
-//            }
-//            emit (">\n");
-//        }
-//    }
-
-//    print ("class %s", name);
-//    if (node->parents != NULL) {
-//        umlclasslist parent = node->parents;
-//        emit (" : ");
-//        while (parent != NULL) {
-//            emit ("public %s", fqname (parent, 0));
-//            parent = parent->next;
-//            if (parent != NULL)
-//                emit (", ");
-//        }
-//    } else if (is_valuetype) {
-//        emit (" : CORBA::ValueBase");
-//    }
-//    emit (" {\n");
-//    //indentlevel++;
-
-//    if (node->associations != NULL) {
-//        umlassoclist assoc = node->associations;
-//        print ("// Associations\n");
-//
-//
-//
-//
-//
-//        /*
-//         * The associations are mapped as private members.
-//         * Is that really what we want?
-//         * (For example, other UML tools additionally generate
-//         * setters/getters.)  Ideas and comments welcome.
-//        */
-//        while (assoc != NULL) {
-//            umlclassnode *ref;
-//            if (assoc->name[0] != '\0')
-//            {
-//                ref = find_by_name (gb->classlist, assoc->key->name);
-//                print ("");
-//                if (ref != NULL)
-//                    emit ("%s", fqname (ref, !assoc->composite));
-//                else
-//                    emit ("%s", cppname (assoc->key->name));
-//                emit (" %s;\n", assoc->name);
-//            }
-//            assoc = assoc->next;
-//        }
-//    }
 
     if (node->key->operations != NULL) {
         umloplist umlo = node->key->operations;
         int tmpv = -1;
 
-//
-//print("\n");
-//print("/////////////////////////////////////////////////\n");
-//print("// Les methodes\n");
-//print("/////////////////////////////////////////////////\n");
-//print("\n");
-
-
-
-
-
-/*
-        if (is_valuetype) {
-            indentlevel--;
-            print ("public:\n");
-            indentlevel++;
-        }*/
         while (umlo != NULL) {
             umlattrlist tmpa = umlo->key.parameters;
-//            if (is_valuetype) {
-//                if (umlo->key.attr.visibility != '0')
-//                    fprintf (stderr, "CORBAValue %s/%s: must be public\n",
-//                                     name, umlo->key.attr.name);
-//            } else {
-//                check_visibility (&tmpv, umlo->key.attr.visibility);
-//            }
 
-            /* print comments on operation */
-//            if (strlen(umlo->key.attr.comment)) {
-//
-//
-//
-//print("/////////////////////////////////////////////////\n");
-//print("/// \\brief %s\n", umlo->key.attr.comment);
-//print("///\n");
-//
-//
-//
-//            //    print("/// %s\n", umlo->key.attr.comment);
-//
-//
-//                tmpa = umlo->key.parameters;
-//                while (tmpa != NULL) {
-//                     print("/// \\param %s\t\t %s\n",
-//                           tmpa->key.name,
-//                           //kind_str(tmpa->key.kind),
-//                           tmpa->key.comment);
-//                           tmpa = tmpa->next;
-//                }
-//            }
-            /* print operation */
-           // print ("");
-print("/////////////////////////////////////////////////\n");
-//            if (umlo->key.attr.isabstract || is_valuetype) {
-//                emit ("virtual ");
-//                umlo->key.attr.value[0] = '0';
-//            }
-//            if (umlo->key.attr.isstatic) {
-//                if (is_valuetype)
-//                    fprintf (stderr, "CORBAValue %s/%s: static not supported\n",
-//                                     name, umlo->key.attr.name);
-//                else
-//                    emit ("static ");
-//            }
-
-
-
-
-
-
+    print("/////////////////////////////////////////////////\n");
 
             if (strlen (umlo->key.attr.type) > 0) {
                 emit ("%s ", cppname (umlo->key.attr.type));
@@ -1033,13 +877,7 @@ print("/////////////////////////////////////////////////\n");
             tmpa = umlo->key.parameters;
             while (tmpa != NULL) {
                 emit ("%s %s", tmpa->key.type, tmpa->key.name);
-//                if (tmpa->key.value[0] != 0) {
-//                    if (is_valuetype)
-//                        fprintf (stderr, "CORBAValue %s/%s: param default "
-//                                 "not supported\n", name, umlo->key.attr.name);
-//                    else
-//                       emit (" = %s", tmpa->key.value);
-//                }
+
                 tmpa = tmpa->next;
                 if (tmpa != NULL) {
                     emit (", ");
@@ -1050,20 +888,9 @@ print("/////////////////////////////////////////////////\n");
                 emit (" const");
             }
                     print ("\n");
-//            if (umlo->key.attr.value[0]) {
-//                // virtual
-//                if ((umlo->key.attr.isabstract || is_valuetype) &&
-//                    umlo->key.attr.name[0] != '~')
-//                    emit (" = %s", umlo->key.attr.value);
-//            }
-
-
-            ////////////////////////////////////////////////////////////
-//        print ( "\nNAME : %s\numlo->key.attr.name : %s\n", name, umlo->key.attr.name );
 
            if ( strcmp(name, umlo->key.attr.name) == 0  ) {
-//            // si pas de type d fonction=>constructeur ou destructeur!!! donc marche pas !!!
-//           if (strlen (umlo->key.attr.type) == 0) {
+
 
                 if (node->key->attributes != NULL) {
                     umlattrlist umla = node->key->attributes;
@@ -1077,18 +904,10 @@ print("/////////////////////////////////////////////////\n");
                         if (compteur == 0)  print (": ");
                         else print (", ");
 
-
-
-
-
                         emit ("%s ( %s )\n", umla->key.name, umla->key.value );
-
-                        //emit (";");
-
                         compteur++;
 
                         }
-
 
                         umla = umla->next;
                     }
@@ -1097,118 +916,10 @@ print("/////////////////////////////////////////////////\n");
             }
             ////////////////////////////////////////////////////////////
 
-
-
-
             emit ("\{\n    \n\}\n\n\n");
             umlo = umlo->next;
         }
     }
-
-//    if (node->key->attributes != NULL) {
-//        umlattrlist umla = node->key->attributes;
-//        if (is_valuetype) {
-//            print ("// Public state members\n");
-//            indentlevel--;
-//            print ("public:\n");
-//            indentlevel++;
-//            while (umla != NULL) {
-//                char *member = umla->key.name;
-//                umlclassnode *ref;
-//                if (umla->key.visibility != '0') {
-//                    umla = umla->next;
-//                    continue;
-//                }
-//                print ("");
-//                if (umla->key.isstatic) {
-//                    fprintf (stderr, "CORBAValue %s/%s: static not supported\n",
-//                                     name, member);
-//                }
-//                ref = find_by_name (gb->classlist, umla->key.type);
-//                if (ref != NULL)
-//                    eboth ("%s", fqname (ref, 1));
-//                else
-//                    eboth ("%s", cppname (umla->key.type));
-//                emit (" %s () { return _%s; }\n", member, member);
-//                print ("void %s (", member);
-//                if (ref != NULL) {
-//                    int by_ref = pass_by_reference (ref->key);
-//                    if (by_ref)
-//                        emit ("const ");
-//                    emit ("%s", fqname (ref, 1));
-//                    if (by_ref)
-//                        emit ("&");
-//                } else {
-//                    emit ("%s", cppname (umla->key.type));
-//                }
-//                emit (" value_) { _%s = value_; }\n");
-//                umla = umla->next;
-//            }
-//        } else {
-//            int tmpv = -1;
-//
-//            //print ("// Attributes\n");
-//
-//
-//
-//
-//    print("\n");
-//    print("/////////////////////////////////////////////////\n");
-//    print("// Les membres\n");
-//    print("/////////////////////////////////////////////////\n");
-//    print("\n");
-//
-//
-//
-//            while (umla != NULL) {
-//                check_visibility (&tmpv, umla->key.visibility);
-//
-//
-//
-//                print ("");
-//                if (umla->key.isstatic) {
-//                    emit ("static ");
-//                }
-//                emit ("%s %s", umla->key.type, umla->key.name);
-//
-//                emit (";");
-//
-//                if (strlen(umla->key.comment)) {
-//                    print("///<  %s\n", umla->key.comment);
-//                }
-//
-//
-//                umla = umla->next;
-//            }
-//        }
-//    }
-
-//    if (node->key->attributes != NULL && is_valuetype) {
-//        umlattrlist umla = node->key->attributes;
-//        emit ("\n");
-//        indentlevel--;
-//        print ("private:  // State member implementation\n");
-//        indentlevel++;
-//        while (umla != NULL) {
-//            umlclassnode *ref = find_by_name (gb->classlist, umla->key.type);
-//            print ("");
-//            if (ref != NULL) {
-//                emit ("%s", fqname (ref, is_oo_class (ref->key)));
-//                /*
-//                 * FIXME: Find a better way to decide whether to use
-//                 * a pointer.
-//                */
-//            } else
-//                emit ("%s", cppname (umla->key.type));
-//            emit (" _%s;\n", umla->key.name);
-//            umla = umla->next;
-//        }
-//    }
-
-   // indentlevel--;
-   // print ("};\n\n");
-
-
 }
 
 static void

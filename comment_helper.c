@@ -24,8 +24,8 @@
  */
 void generate_class_comment( FILE *outfile, batch *b, umlclass *class )
 {
-    
-    
+
+
 }
 
 /**

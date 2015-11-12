@@ -68,6 +68,10 @@ int INDENT_CNT = 4; /* This should be a parameter in the command line */
 int bOpenBraceOnNewline = 1; /* This should also be a command-line parameter */
 
 int main(int argc, char **argv) {
+
+
+
+
     int i;
     char *license = NULL;  /* License file */
     int clobber = 1;   /*  Overwrite files while generating code*/
@@ -128,6 +132,10 @@ under certain conditions; read the COPYING file for details.\n";
 
     /* initialise stuff like global variables to their default values */
     dia2code_initializations();
+
+
+
+
 
     generator = NULL;
     generators[0] = generate_code_cpp;
@@ -287,9 +295,12 @@ parameter = -1;   /* error */
 #else
             strcpy(inifile, "~/.dia2code/dia2code.ini");
 #endif
-            process_initialization_file(inifile, 0);           
+            process_initialization_file(inifile, 0);
         }
     }
+
+
+
 
     if (generator_buildtree == 0 && buildtree == 1) {
         buildtree = 0;
@@ -319,6 +330,13 @@ parameter = -1;   /* error */
     (*generator)(thisbatch);
 
     param_list_destroy();
+
+//
+//printf("Press any key to continue...");
+//
+//   system("pause");
+
+
     return 0;
 }
 
@@ -417,7 +435,7 @@ int process_initialization_file(char *filename, int exit_if_not_found)
     int line = 0;
     int slen;
     char s[LARGE_BUFFER];
-    
+
     if (f == NULL)
     if (exit_if_not_found)
     {
@@ -453,6 +471,6 @@ int process_initialization_file(char *filename, int exit_if_not_found)
         parse_command(name, param);
     }
     fclose(f);
-    
+
     return 1;
 }

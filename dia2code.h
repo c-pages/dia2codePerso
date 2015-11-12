@@ -82,6 +82,11 @@ struct umlattribute {
     char comment [LARGE_BUFFER];
     char visibility;
     char isabstract;
+
+    //// bordel |-> ////////
+    char isvirtuel[SMALL_BUFFER];
+    //// <-| bordel ////////
+
     char isstatic;
     char isconstant;
     char kind;
@@ -157,6 +162,7 @@ struct umlclass {
     char stereotype[SMALL_BUFFER];
     char comment[LARGE_BUFFER];
     int isabstract;
+    int isvirtuel;
     umlattrlist attributes;
     umloplist operations;
     umltemplatelist templates;

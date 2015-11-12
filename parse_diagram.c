@@ -226,6 +226,42 @@ void parse_attribute(xmlNodePtr node, umlattribute *tmp) {
         } else if ( eq("query", nodename)) {
             tmp->isconstant = parse_boolean(node->xmlChildrenNode);
         }
+
+        ///// mon bordel |-> /////////////////////////
+        else if ( eq("inheritance_type", nodename) ) {
+
+
+            attrval = xmlGetProp(node->xmlChildrenNode, "val");
+            sscanf(attrval, "%c", &(tmp->isvirtuel));
+            free(attrval);
+
+//printf("\n");
+//printf("<<<<<<<<<<<<<<>>>>>>>>>>\n");
+//printf("<<< inheritance_type >>> => %s\n" , attrval );
+//printf("<<<<<<<<<<<<<<>>>>>>>>>>\n");
+//printf("\n");
+
+//tmp->isvirtuel = attrval;
+
+
+       //     tmp->isvirtuel = 20;
+/*
+            attrval = xmlGetProp(node->xmlChildrenNode, "val");
+            sscanf(attrval, "%c", &(tmp->isvirtuel));
+            free(attrval);*/
+
+          //  parse_dia_string(node->xmlChildrenNode, tmp->isvirtuel);
+           // tmp->isvirtuel = "2";
+//            if ( attribute->xmlChildrenNode == 2) )
+//                tmp->isvirtuel = parse_boolean(node->xmlChildrenNode);
+            //myself->isvirtual = parse_boolean(attribute->xmlChildrenNode);
+
+
+        }
+        ///// <-| mon bordel /////////////////////////
+
+
+
         free(nodename);
         node = node->next;
     }
@@ -311,6 +347,7 @@ void make_javabean_methods(umlclass *myself) {
             parameter->key.isstatic = 0;
             parameter->key.isconstant = 0;
             parameter->key.isabstract = 0;
+//            parameter->key.isvirtuel = 0;
             parameter->key.visibility = '0';
             parameter->next = NULL;
             operation->key.parameters = parameter;
@@ -325,6 +362,7 @@ void make_javabean_methods(umlclass *myself) {
             strncat(operation->key.attr.name, tmpname, SMALL_BUFFER - 1);
             free(tmpname);
             operation->key.attr.isabstract = 0;
+//            operation->key.attr.isvirtuel = 0;
             operation->key.attr.isstatic = 0;
             operation->key.attr.isconstant = 0;
             operation->key.attr.visibility = '0';
@@ -352,6 +390,7 @@ void make_javabean_methods(umlclass *myself) {
             strcat(operation->key.implementation, ";");
 
             operation->key.attr.isabstract = 0;
+//            operation->key.attr.isvirtuel = 0;
             operation->key.attr.isstatic = 0;
             operation->key.attr.isconstant = 0;
             operation->key.attr.visibility = '0';
@@ -490,8 +529,30 @@ umlclasslist parse_class(xmlNodePtr class) {
                 make_javabean_methods(myself);
             }
         } else if ( eq("templates", attrname) ) {
+
             myself->templates = parse_templates(attribute->xmlChildrenNode);
+
         }
+ ///// mon bordel |-> /////////////////////////
+        else if ( eq("inheritance_type", attrname) ) {
+            //tmp->isvirtuel = 20;
+            myself->isvirtuel = 2;
+/*
+            attrval = xmlGetProp(node->xmlChildrenNode, "val");
+            sscanf(attrval, "%c", &(tmp->isvirtuel));
+            free(attrval);*/
+
+          //  parse_dia_string(node->xmlChildrenNode, tmp->isvirtuel);
+           // tmp->isvirtuel = "2";
+//            if ( attribute->xmlChildrenNode == 2) )
+//                tmp->isvirtuel = parse_boolean(node->xmlChildrenNode);
+            //myself->isvirtual = parse_boolean(attribute->xmlChildrenNode);
+
+
+        }
+        ///// <-| mon bordel /////////////////////////
+
+
         free(attrname);
         attribute = attribute->next;
     }
@@ -884,3 +945,14 @@ umlclasslist parse_diagram(char *diafile) {
 
     return classlist;
 }
+
+
+//        ///// mon bordel |-> /////////////////////////
+//        } else if ( eq("inheritance_type", attrname) ) {
+//            if ( attribute->xmlChildrenNode == 2) )
+//
+//            //myself->isvirtual = parse_boolean(attribute->xmlChildrenNode);
+//
+//
+//        }
+//        ///// <-| mon bordel /////////////////////////
