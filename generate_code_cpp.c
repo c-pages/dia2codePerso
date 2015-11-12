@@ -341,22 +341,9 @@ print("\n");
 
             /* print operation */
             if (umlo->key.attr.isabstract || is_valuetype || eq (umlo->key.attr.isvirtuel , "1")  ) {
-                emit ("virtual ");
+                print ("virtual ");
                 umlo->key.attr.value[0] = '0';
             }
-
-
-
-
-
-////if (umlo->key.attr.isvirtuel == '2' )
-//if (    eq (umlo->key.attr.isvirtuel , "2") )
-//    print ( "#################### pouet pouet """"""""""""""""""""""""""""\n");
-//
-//
-////                    umlo->key.attr.name[0] != '~')
-//
-//print (">>>>>>>>>>>>>> isvirtuel: %s <<<<<<<<<<<<<<<<<<\n" , umlo->key.attr.isvirtuel);
 
 
 
@@ -371,9 +358,9 @@ print("\n");
 
 
             if (strlen (umlo->key.attr.type) > 0) {
-                emit ("%s ", cppname (umlo->key.attr.type));
+                print ("%s ", cppname (umlo->key.attr.type));
             }
-            emit ("%s (", umlo->key.attr.name);
+            print ("%s (", umlo->key.attr.name);
             tmpa = umlo->key.parameters;
             while (tmpa != NULL) {
                 emit ("%s %s", tmpa->key.type, tmpa->key.name);
@@ -931,9 +918,25 @@ gen_declBody (declaration *d)
     char *stype;
     umlclassnode *node;
     umlattrlist umla;
+    umloplist umlop;
 
     if (d == NULL)
         return;
+
+    node = d->u.this_class;
+    stype = node->key->stereotype;
+    name = node->key->name;
+    umla = node->key->attributes;
+    umlop = node->key->operations;
+
+    // on passe le cpp si pas de fonctions (ni de static a declarer ?)
+    if ( umlop == NULL ){
+        printf("\n\n    ------> pas de methodes ici : %s", name );
+        return;
+    }
+
+
+
 
     if (d->decl_kind == dk_module) {
         name = d->u.this_module->pkg->name;
@@ -949,10 +952,6 @@ gen_declBody (declaration *d)
         return;
     }
 
-    node = d->u.this_class;
-    stype = node->key->stereotype;
-    name = node->key->name;
-    umla = node->key->attributes;
 
     if (strlen (stype) == 0) {
         gen_body (node);
@@ -973,86 +972,87 @@ gen_declBody (declaration *d)
         print ("const %s %s = %s;\n\n", cppname (umla->key.type), name,
                                                  umla->key.value);
 
-    } else if (is_enum_stereo (stype)) {
-        print ("enum %s {\n", name);
-        indentlevel++;
-        while (umla != NULL) {
-            char *literal = umla->key.name;
-            check_umlattr (&umla->key, name);
-            if (strlen (umla->key.type) > 0)
-                fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
-            print ("%s", literal);
-            if (strlen (umla->key.value) > 0)
-                print (" = %s", umla->key.value);
-            if (umla->next)
-                emit (",");
-            emit ("\n");
-            umla = umla->next;
-        }
-        indentlevel--;
-        print ("};\n\n");
-
-    } else if (is_struct_stereo (stype)) {
-        print ("struct %s {\n", name);
-        indentlevel++;
-        while (umla != NULL) {
-            check_umlattr (&umla->key, name);
-            print ("%s %s", cppname (umla->key.type), umla->key.name);
-            if (strlen (umla->key.value) > 0)
-                fprintf (stderr, "%s/%s: ignoring value\n",
-                                 name, umla->key.name);
-            emit (";\n");
-            umla = umla->next;
-        }
-        indentlevel--;
-        print ("};\n\n");
-
-    } else if (eq (stype, "CORBAException")) {
-        fprintf (stderr, "%s: CORBAException not yet implemented\n", name);
-
-    } else if (eq (stype, "CORBAUnion")) {
-        umlattrnode *sw = umla;
-        if (sw == NULL) {
-            fprintf (stderr, "Error: attributes not set at union %s\n", name);
-            exit (1);
-        }
-        fprintf (stderr, "%s: CORBAUnion not yet fully implemented\n", name);
-        print ("class %s {  // CORBAUnion\n", name);
-        print ("public:\n", name);
-        indentlevel++;
-        print ("%s _d();  // body TBD\n\n", umla->key.type);
-        umla = umla->next;
-        while (umla != NULL) {
-            check_umlattr (&umla->key, name);
-            print ("%s %s ();  // body TBD\n",
-                   cppname (umla->key.type), umla->key.name);
-            print ("void %s (%s _value);  // body TBD\n\n", umla->key.name,
-                   cppname (umla->key.type));
-            umla = umla->next;
-        }
-        indentlevel--;
-        print ("};\n\n");
-
-    } else if (is_typedef_stereo (stype)) {
-        /* Conventions for CORBATypedef:
-           The first (and only) attribute contains the following:
-           Name:   Empty - the name is taken from the class.
-           Type:   Name of the original type which is typedefed.
-           Value:  Optionally contains array dimension(s) of the typedef.
-                   These dimensions are given in square brackets, e.g.
-                   [3][10]
-         */
-        if (umla == NULL) {
-            fprintf (stderr, "Error: first attribute (impl type) not set "
-                             "at typedef %s\n", name);
-            exit (1);
-        }
-        if (strlen (umla->key.name) > 0)  {
-            fprintf (stderr, "Warning: typedef %s: ignoring name field "
-                        "in implementation type attribute\n", name);
-        }
-        print ("typedef %s %s%s;\n\n", cppname (umla->key.type), name,
-                                                umla->key.value);
+//    }
+//    else if (is_enum_stereo (stype)) {
+//        print ("enum %s {\n", name);
+//        indentlevel++;
+//        while (umla != NULL) {
+//            char *literal = umla->key.name;
+//            check_umlattr (&umla->key, name);
+//            if (strlen (umla->key.type) > 0)
+//                fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
+//            print ("%s", literal);
+//            if (strlen (umla->key.value) > 0)
+//                print (" = %s", umla->key.value);
+//            if (umla->next)
+//                emit (",");
+//            emit ("\n");
+//            umla = umla->next;
+//        }
+//        indentlevel--;
+//        print ("};\n\n");
+//
+//    } else if (is_struct_stereo (stype)) {
+//        print ("struct %s {\n", name);
+//        indentlevel++;
+//        while (umla != NULL) {
+//            check_umlattr (&umla->key, name);
+//            print ("%s %s", cppname (umla->key.type), umla->key.name);
+//            if (strlen (umla->key.value) > 0)
+//                fprintf (stderr, "%s/%s: ignoring value\n",
+//                                 name, umla->key.name);
+//            emit (";\n");
+//            umla = umla->next;
+//        }
+//        indentlevel--;
+//        print ("};\n\n");
+//
+//    } else if (eq (stype, "CORBAException")) {
+//        fprintf (stderr, "%s: CORBAException not yet implemented\n", name);
+//
+//    } else if (eq (stype, "CORBAUnion")) {
+//        umlattrnode *sw = umla;
+//        if (sw == NULL) {
+//            fprintf (stderr, "Error: attributes not set at union %s\n", name);
+//            exit (1);
+//        }
+//        fprintf (stderr, "%s: CORBAUnion not yet fully implemented\n", name);
+//        print ("class %s {  // CORBAUnion\n", name);
+//        print ("public:\n", name);
+//        indentlevel++;
+//        print ("%s _d();  // body TBD\n\n", umla->key.type);
+//        umla = umla->next;
+//        while (umla != NULL) {
+//            check_umlattr (&umla->key, name);
+//            print ("%s %s ();  // body TBD\n",
+//                   cppname (umla->key.type), umla->key.name);
+//            print ("void %s (%s _value);  // body TBD\n\n", umla->key.name,
+//                   cppname (umla->key.type));
+//            umla = umla->next;
+//        }
+//        indentlevel--;
+//        print ("};\n\n");
+//
+//    } else if (is_typedef_stereo (stype)) {
+//        /* Conventions for CORBATypedef:
+//           The first (and only) attribute contains the following:
+//           Name:   Empty - the name is taken from the class.
+//           Type:   Name of the original type which is typedefed.
+//           Value:  Optionally contains array dimension(s) of the typedef.
+//                   These dimensions are given in square brackets, e.g.
+//                   [3][10]
+//         */
+//        if (umla == NULL) {
+//            fprintf (stderr, "Error: first attribute (impl type) not set "
+//                             "at typedef %s\n", name);
+//            exit (1);
+//        }
+//        if (strlen (umla->key.name) > 0)  {
+//            fprintf (stderr, "Warning: typedef %s: ignoring name field "
+//                        "in implementation type attribute\n", name);
+//        }
+//        print ("typedef %s %s%s;\n\n", cppname (umla->key.type), name,
+//                                                umla->key.value);
     } else {
 
         gen_body (node);
@@ -1097,70 +1097,101 @@ generate_code_cppFICHER_CPP (batch *b)
         char *name, *tmpname;
         char filename[BIG_BUFFER];
 
-        if (d->decl_kind == dk_module) {
-            name = d->u.this_module->pkg->name;
-        } else {         /* dk_class */
-            name = d->u.this_class->key->name;
-        }
-        sprintf (filename, "%s.%s", name, body_file_ext);
 
 
 
-        spec = open_outfile (filename, b);
-        if (spec == NULL) {
-            d = d->next;
-            continue;
-        }
-
-        tmpname = strtoupper(name);
-
-        /* add license to the header */
-        if (b->license != NULL) {
-            char lc;
-            rewind (licensefile);
-            while ((lc = fgetc (licensefile)) != EOF)
-                print ("%c", lc);
-        }
+//        ///////////////////////////////////////////////////////////////////////
+//        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
+//        if ( d->u.this_class->key->operations == NULL ){
+//            printf("\n\n    ------> pas de methodes ici : %s", name );
+//        } else {
+//        ///////////////////////////////////////////////////////////////////////
 
 
 
 
-        print("/////////////////////////////////////////////////\n");
-        print("// Headers\n");
-        print("/////////////////////////////////////////////////\n");
-
-        print("#include <%s.h>\n",name );
-/*
-        includes = NULL;
-        determine_includes (d, b);
-        if (use_corba)
-            print ("#include <p_orb.h>\n\n");
-        if (includes) {
-            namelist incfile = includes;
-            while (incfile != NULL) {
-                if (!eq (incfile->name, name)) {
-                    print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-                }
-                incfile = incfile->next;
+            if (d->decl_kind == dk_module) {
+                name = d->u.this_module->pkg->name;
+            } else {         /* dk_class */
+                name = d->u.this_class->key->name;
             }
+            sprintf (filename, "%s.%s", name, body_file_ext);
+
+
+
+            spec = open_outfile (filename, b);
+            if (spec == NULL) {
+                d = d->next;
+                continue;
+            }
+
+            tmpname = strtoupper(name);
+
+            /* add license to the header */
+            if (b->license != NULL) {
+                char lc;
+                rewind (licensefile);
+                while ((lc = fgetc (licensefile)) != EOF)
+                    print ("%c", lc);
+            }
+
+
+
+
+            print("/////////////////////////////////////////////////\n");
+            print("// Headers\n");
+            print("/////////////////////////////////////////////////\n");
+
+            print("#include <%s.h>\n",name );
+    /*
+            includes = NULL;
+            determine_includes (d, b);
+            if (use_corba)
+                print ("#include <p_orb.h>\n\n");
+            if (includes) {
+                namelist incfile = includes;
+                while (incfile != NULL) {
+                    if (!eq (incfile->name, name)) {
+                        print ("#include \"%s.%s\"\n", incfile->name, file_ext);
+                    }
+                    incfile = incfile->next;
+                }
+                print ("\n");
+            }*/
+
             print ("\n");
-        }*/
-
-        print ("\n");
-
-        gen_declBody (d);
-
-        indentlevel = 0;  /* just for safety (should be 0 already) */
 
 
 
 
 
 
+    //
+    //    // on passe le cpp si pas de fonctions (ni de static a declarer ?)
+    //    if ( d->u.this_class->key->operations == NULL ){
+    //        printf("\n\n    ------> pas de methodes ici : %s", name );
+    //        return;
+    //    }
+
+            gen_declBody (d);
+
+            indentlevel = 0;  /* just for safety (should be 0 already) */
 
 
 
-        fclose (spec);
+
+
+
+
+
+
+            fclose (spec);
+
+//        ///////////////////////////////////////////////////////////////////////
+//         } //  fin du if ( d->u.this_class->key->operations == NULL )
+//        ///////////////////////////////////////////////////////////////////////
+
+
 
         //  ----------------------------------------------------------------------------------------------------------------------------------------------------
 

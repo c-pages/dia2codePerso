@@ -1,39 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="generate_code_c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="source_parser.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2237" topLine="34" />
+			<Cursor1 position="6233" topLine="161" />
 		</Cursor>
 	</File>
-	<File name="comment_helper.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="parse_diagram.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1075" topLine="0" />
+			<Cursor1 position="7761" topLine="207" />
 		</Cursor>
 	</File>
-	<File name="generate_code_python.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7396" topLine="150" />
-		</Cursor>
-	</File>
-	<File name="generate_code_ada.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="18809" topLine="591" />
-		</Cursor>
-	</File>
-	<File name="decls.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3137" topLine="132" />
-		</Cursor>
-	</File>
-	<File name="generate_code_cpp.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21767" topLine="747" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6135" topLine="39" />
+			<Cursor1 position="12368" topLine="248" />
 		</Cursor>
 		<Folding>
 			<Collapse line="0" />
@@ -42,39 +22,59 @@
 			<Collapse line="49" />
 		</Folding>
 	</File>
-	<File name="parse_diagram.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="generate_code_python.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="16430" topLine="428" />
+			<Cursor1 position="7396" topLine="150" />
 		</Cursor>
 	</File>
-	<File name="source_parser.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="generate_code_java.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6233" topLine="161" />
+			<Cursor1 position="2549" topLine="66" />
 		</Cursor>
 	</File>
-	<File name="dia2code.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="generate_code_cpp.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9313" topLine="334" />
+			<Cursor1 position="26307" topLine="1019" />
+		</Cursor>
+	</File>
+	<File name="generate_code_c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2237" topLine="34" />
+		</Cursor>
+	</File>
+	<File name="generate_code_as3.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2862" topLine="71" />
+		</Cursor>
+	</File>
+	<File name="generate_code_ada.c" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1497" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="dia2code.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4192" topLine="132" />
+		</Cursor>
+	</File>
+	<File name="dia2code.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9496" topLine="350" />
+		</Cursor>
+	</File>
+	<File name="decls.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3479" topLine="132" />
+		</Cursor>
+	</File>
+	<File name="comment_helper.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1619" topLine="15" />
 		</Cursor>
 	</File>
 	<File name="code_generators.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1171" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="dia2code.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2415" topLine="58" />
-		</Cursor>
-	</File>
-	<File name="generate_code_java.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="generate_code_as3.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
