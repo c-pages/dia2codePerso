@@ -671,6 +671,7 @@ generate_code_cpp (batch *b)
         tmplist = tmplist->next;
     }
 
+
     /* Generate a file for each outer declaration.  */
     d = decls;
     while (d != NULL) {
@@ -678,95 +679,209 @@ generate_code_cpp (batch *b)
         char filename[BIG_BUFFER];
 
         if (d->decl_kind == dk_module) {
-            printf("---->par là 1 ! namespace?\n");
-            name = d->u.this_module->pkg->name;
-        } else {         /* dk_class */
+
+            char* nomEspace;
+
+            nomEspace = d->u.this_module->pkg->name;
+
+            //printf ("namespace <-------------- yeah : %s\n", nomEspace );
+
+            //indentlevel++;
+            declaration * dClass = d->u.this_module->contents;
+            while (dClass != NULL) {
+
+                char * name = dClass->u.this_module->pkg->name;
+
+               // sprintf (filename, "%s.%s", name, file_ext);
+
+
+                sprintf (filename, "%s.%s", name, file_ext);
+
+
+
+
+
+                spec = open_outfile (filename, b);
+                if (spec == NULL) {
+                    dClass = dClass->next;
+                    continue;
+                }
+
+                tmpname = strtoupper(name);
+
+
+                //print ("  -> class dans namespace <-------------- hop : %s\n", nomEspace );
+
+
+                print("#ifndef %s__H\n", tmpname);
+                print("#define %s__H\n\n", tmpname);
+
+
+
+
+                print("/////////////////////////////////////////////////\n");
+                print("// Headers\n");
+                print("/////////////////////////////////////////////////\n");
+
+
+                includes = NULL;
+                determine_includes (dClass, b);
+                if (use_corba)
+                    print ("#include <p_orb.h>\n\n");
+                if (includes) {
+                    namelist incfile = includes;
+                    while (incfile != NULL) {
+                        if (!eq (incfile->name, name)) {
+                            print ("#include \"%s.%s\"\n", incfile->name, file_ext);
+                        }
+                        incfile = incfile->next;
+                    }
+                    print ("\n");
+                }
+
+                print ("\n\n");
+
+                print ( "namespace %s {\n\n" , nomEspace );
+
+
+
+                gen_decl (dClass);
+
+
+                print ( "} // fin namespace %s\n\n" , nomEspace );
+
+                indentlevel = 0;  /* just for safety (should be 0 already) */
+                print("#endif\n");
+
+
+
+
+
+
+                print("\n");
+                print("\n");
+                print("////////////////////////////////////////////////////////////\n");
+                print("/// \class %s\n", name );
+                print("/// \ingroup \n");
+                print("///\n");
+                print("/// \see \n");
+                print("///\n");
+                print("////////////////////////////////////////////////////////////\n");
+
+
+                fclose (spec);
+
+
+
+                dClass = dClass->next;
+            }
+
+
+
+
+
+
+
+
+        }
+
+        else {         /* dk_class */
+
+
+
             printf("---->par là 2 !\n");
             name = d->u.this_class->key->name;
-        }
-        sprintf (filename, "%s.%s", name, file_ext);
-
-
-
-
-        spec = open_outfile (filename, b);
-        if (spec == NULL) {
-            d = d->next;
-            continue;
-        }
-
-        tmpname = strtoupper(name);
-        print("#ifndef %s__H\n", tmpname);
-        print("#define %s__H\n\n", tmpname);
-
-        /* add license to the header */
-        if (b->license != NULL) {
-            char lc;
-            rewind (licensefile);
-            while ((lc = fgetc (licensefile)) != EOF)
-                print ("%c", lc);
-        }
 
 
 
 
 
-
-        print("/////////////////////////////////////////////////\n");
-        print("// Headers\n");
-        print("/////////////////////////////////////////////////\n");
+            sprintf (filename, "%s.%s", name, file_ext);
 
 
-        includes = NULL;
-        determine_includes (d, b);
-        if (use_corba)
-            print ("#include <p_orb.h>\n\n");
-        if (includes) {
-            namelist incfile = includes;
-            while (incfile != NULL) {
-                if (!eq (incfile->name, name)) {
-                    print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-                }
-                incfile = incfile->next;
+
+
+
+            spec = open_outfile (filename, b);
+//            if (spec == NULL) {
+////                d = d->next;
+////                continue;
+//            }
+
+            tmpname = strtoupper(name);
+            print("#ifndef %s__H\n", tmpname);
+            print("#define %s__H\n\n", tmpname);
+
+            /* add license to the header */
+            if (b->license != NULL) {
+                char lc;
+                rewind (licensefile);
+                while ((lc = fgetc (licensefile)) != EOF)
+                    print ("%c", lc);
             }
+
+
+
+
+
+
+            print("/////////////////////////////////////////////////\n");
+            print("// Headers\n");
+            print("/////////////////////////////////////////////////\n");
+
+
+            includes = NULL;
+            determine_includes (d, b);
+            if (use_corba)
+                print ("#include <p_orb.h>\n\n");
+            if (includes) {
+                namelist incfile = includes;
+                while (incfile != NULL) {
+                    if (!eq (incfile->name, name)) {
+                        print ("#include \"%s.%s\"\n", incfile->name, file_ext);
+                    }
+                    incfile = incfile->next;
+                }
+                print ("\n");
+            }
+
             print ("\n");
+
+
+            gen_decl (d);
+
+
+            print("#endif\n");
+
+
+
+
+
+
+            print("\n");
+            print("\n");
+            print("////////////////////////////////////////////////////////////\n");
+            print("/// \class %s\n", name );
+            print("/// \ingroup \n");
+            print("///\n");
+            print("/// \see \n");
+            print("///\n");
+            print("////////////////////////////////////////////////////////////\n");
+
+//            indentlevel = 0;  /* just for safety (should be 0 already) */
+
+
+
+
+            fclose (spec);
+
+            //  ----------------------------------------------------------------------------------------------------------------------------------------------------
+
         }
-
-        print ("\n");
-
-
-        gen_decl (d);
-
-
-
-        indentlevel = 0;  /* just for safety (should be 0 already) */
-        print("#endif\n");
-
-
-
-
-
-
-        print("\n");
-        print("\n");
-        print("////////////////////////////////////////////////////////////\n");
-        print("/// \class %s\n", name );
-        print("/// \ingroup \n");
-        print("///\n");
-        print("/// \see \n");
-        print("///\n");
-        print("////////////////////////////////////////////////////////////\n");
-
-
-
-
-        fclose (spec);
-
-        //  ----------------------------------------------------------------------------------------------------------------------------------------------------
-
         d = d->next;
-    }
 
+
+    }
 
 
 
@@ -906,7 +1021,7 @@ gen_declBody (declaration *d)
 
     // on passe le cpp si pas de fonctions (ni de static a declarer ?)
     if ( umlop == NULL ){
-        printf("\n\n    ------> pas de methodes ici : %s", name );
+       // printf("\n\n    ------> pas de methodes ici : %s", name );
         return;
     }
 
@@ -914,7 +1029,7 @@ gen_declBody (declaration *d)
 
     ////////////// UN MACHIN DE NAMESPACE |-> ////////////////////////
     if (d->decl_kind == dk_module) {
-        name = d->u.this_module->pkg->name;
+       // name = d->u.this_module->pkg->name;
     /*    print ("namespace %s {\n\n", name);
         indentlevel++;
         d = d->u.this_module->contents;
@@ -923,7 +1038,7 @@ gen_declBody (declaration *d)
             d = d->next;
         }
         indentlevel--;*/
-        print (" //------>>     on a un NAMSPACE : %s\n", name);
+        //print (" //------>>     on a un NAMSPACE : %s\n", name);
         return;
     }
 
@@ -1003,10 +1118,181 @@ generate_code_cppFICHER_CPP (batch *b)
 //        ///////////////////////////////////////////////////////////////////////
 
             if (d->decl_kind == dk_module) {
+
+
+
+
                 name = d->u.this_module->pkg->name;
-            } else {         /* dk_class */
-                name = d->u.this_class->key->name;
+
+
+
+
+                char* nomEspace;
+
+                nomEspace = d->u.this_module->pkg->name;
+
+                //printf ("namespace CPP CPP CPPC PPC PPPC PCPPC PPPC PCPC P <-------------- yeah : %s\n", nomEspace );
+
+                //indentlevel++;
+                declaration * dClass = d->u.this_module->contents;
+                while (dClass != NULL) {
+
+
+                        name = dClass->u.this_class->key->name;
+                        sprintf (filename, "%s.%s", name, body_file_ext);
+
+
+                        spec = open_outfile (filename, b);
+                        if (spec == NULL) {
+                            dClass = dClass->next;
+                            continue;
+                        }
+
+                        tmpname = strtoupper(name);
+
+                        /* add license to the header */
+                        if (b->license != NULL) {
+                            char lc;
+                            rewind (licensefile);
+                            while ((lc = fgetc (licensefile)) != EOF)
+                                print ("%c", lc);
+                        }
+
+                        print("/////////////////////////////////////////////////\n");
+                        print("// Headers\n");
+                        print("/////////////////////////////////////////////////\n");
+                        print("#include <%s.h>\n",name );
+                        print ("\n");
+
+
+
+
+
+
+
+
+
+                        print ("\n\n");
+
+                        print ( "namespace %s {\n\n" , nomEspace );
+
+
+                        gen_declBody (dClass);
+
+
+                        print ( "} // fin namespace %s\n\n" , nomEspace );
+
+
+
+
+
+
+
+
+
+                        indentlevel = 0;  /* just for safety (should be 0 already) */
+
+
+                        fclose (spec);
+
+//
+//                    char * name = dClass->u.this_module->pkg->name;
+//
+//
+//
+//
+//                sprintf (filename, "%s.%s", name, body_file_ext);
+//
+//
+//
+//
+//
+//                spec = open_outfile (filename, b);
+//                if (spec == NULL) {
+//                    dClass = dClass->next;
+//                    continue;
+//                }
+//
+//                tmpname = strtoupper(name);
+//
+//
+//                print ("  -> class dans namespace <-------------- hop : %s\n", nomEspace );
+//
+//
+//                print("#ifndef %s__H\n", tmpname);
+//                print("#define %s__H\n\n", tmpname);
+//
+//
+//
+//
+//                print("/////////////////////////////////////////////////\n");
+//                print("// Headers\n");
+//                print("/////////////////////////////////////////////////\n");
+//
+//
+//                includes = NULL;
+//                determine_includes (dClass, b);
+//                if (use_corba)
+//                    print ("#include <p_orb.h>\n\n");
+//                if (includes) {
+//                    namelist incfile = includes;
+//                    while (incfile != NULL) {
+//                        if (!eq (incfile->name, name)) {
+//                            print ("#include \"%s.%s\"\n", incfile->name, file_ext);
+//                        }
+//                        incfile = incfile->next;
+//                    }
+//                    print ("\n");
+//                }
+//
+//                print ("\n\n");
+//
+//                print ( "namespace %s {\n\n" , nomEspace );
+//
+//
+//
+//                gen_declBody (dClass);
+//
+//
+//                print ( "} // fin namespace %s\n\n" , nomEspace );
+//
+//                indentlevel = 0;  /* just for safety (should be 0 already) */
+//                print("#endif\n");
+//
+//
+//
+//
+//
+//
+//                print("\n");
+//                print("\n");
+//                print("////////////////////////////////////////////////////////////\n");
+//                print("/// \class %s\n", name );
+//                print("/// \ingroup \n");
+//                print("///\n");
+//                print("/// \see \n");
+//                print("///\n");
+//                print("////////////////////////////////////////////////////////////\n");
+//
+//
+//                fclose (spec);
+//
+//
+//
+                dClass = dClass->next;
             }
+
+
+
+
+
+
+
+
+        }
+
+        else {          /* dk_class */
+            name = d->u.this_class->key->name;
             sprintf (filename, "%s.%s", name, body_file_ext);
 
 
@@ -1044,6 +1330,7 @@ generate_code_cppFICHER_CPP (batch *b)
 //        ///////////////////////////////////////////////////////////////////////
 
 
+        }
         d = d->next;
     }
 }
