@@ -198,31 +198,13 @@ gen_class (umlclassnode *node)
         print ("// %s\n", stype);
         is_valuetype = eq (stype, "CORBAValue");
     }
-    /*
 
-/// \brief
-///
-/// \param
-/// \param
-/// \return
-///
-/////////////////////////////////////////////////
+    print("/////////////////////////////////////////////////\n");
+    print("/// \\brief %s\n", node->key->comment);
+    print("///\n");
+    print("/////////////////////////////////////////////////\n");
 
-    print ( "/////////////////////////////////////////////////\n");
-
-    print("/// class %s - %s\n", name, node->key->comment);
-
-    */
-
-
-print("/////////////////////////////////////////////////\n");
-print("/// \\brief %s\n", node->key->comment);
-print("///\n");
-print("/////////////////////////////////////////////////\n");
-
-
-
- //   print("/// class %s - %s\n", name, node->key->comment);
+    //   print("/// class %s - %s\n", name, node->key->comment);
 
     if (node->key->templates != NULL) {
         umltemplatelist template = node->key->templates;
@@ -291,11 +273,11 @@ print("/////////////////////////////////////////////////\n");
         int tmpv = -1;
 
 
-print("\n");
-print("/////////////////////////////////////////////////\n");
-print("// Les methodes\n");
-print("/////////////////////////////////////////////////\n");
-print("\n");
+        print("\n");
+        print("/////////////////////////////////////////////////\n");
+        print("// Les methodes\n");
+        print("/////////////////////////////////////////////////\n");
+        print("\n");
 
 
 
@@ -438,11 +420,11 @@ print("\n");
 
 
 
-    print("\n");
-    print("/////////////////////////////////////////////////\n");
-    print("// Les membres\n");
-    print("/////////////////////////////////////////////////\n");
-    print("\n");
+            print("\n");
+            print("/////////////////////////////////////////////////\n");
+            print("// Les membres\n");
+            print("/////////////////////////////////////////////////\n");
+            print("\n");
 
 
 
@@ -509,25 +491,24 @@ gen_decl (declaration *d)
     if (d == NULL)
         return;
 
-    if (d->decl_kind == dk_module) {
-        name = d->u.this_module->pkg->name;
-        print ("namespace %s {\n\n", name);
-        indentlevel++;
-        d = d->u.this_module->contents;
-        while (d != NULL) {
-            gen_decl (d);
-            d = d->next;
-        }
-        indentlevel--;
-        print ("};\n\n", name);
-        return;
-    }
+//    if (d->decl_kind == dk_module) {
+//        name = d->u.this_module->pkg->name;
+//        print ("namespace %s {\n\n", name);
+//        indentlevel++;
+//        d = d->u.this_module->contents;
+//        while (d != NULL) {
+//            gen_decl (d);
+//            d = d->next;
+//        }
+//        indentlevel--;
+//        print ("};\n\n", name);
+//        return;
+//    }
 
     node = d->u.this_class;
     stype = node->key->stereotype;
     name = node->key->name;
     umla = node->key->attributes;
-
     if (strlen (stype) == 0) {
         gen_class (node);
         return;
@@ -548,6 +529,17 @@ gen_decl (declaration *d)
                                                  umla->key.value);
 
     } else if (is_enum_stereo (stype)) {
+
+
+        print( "/////////////////////////////////////////////////\n");
+        print( "/// \\brief %s\n" , node->key->comment );
+        print( "///\n");
+        print( "/////////////////////////////////////////////////\n");
+
+
+
+
+
         print ("enum %s {\n", name);
         indentlevel++;
         while (umla != NULL) {
@@ -556,10 +548,15 @@ gen_decl (declaration *d)
             if (strlen (umla->key.type) > 0)
                 fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
             print ("%s", literal);
+
             if (strlen (umla->key.value) > 0)
                 print (" = %s", umla->key.value);
             if (umla->next)
                 emit (",");
+
+            if ( strlen (umla->key.comment ) > 0)
+                print ("    ///< %s", umla->key.comment);
+
             emit ("\n");
             umla = umla->next;
         }
@@ -678,6 +675,8 @@ generate_code_cpp (batch *b)
         char *name, *tmpname;
         char filename[BIG_BUFFER];
 
+
+        // si c'est un namespace
         if (d->decl_kind == dk_module) {
 
             char* nomEspace;
@@ -691,6 +690,11 @@ generate_code_cpp (batch *b)
             while (dClass != NULL) {
 
                 char * name = dClass->u.this_module->pkg->name;
+
+
+
+//                printf("    ### A Passage %s ###\n..." , name);
+//                system("pause");
 
                // sprintf (filename, "%s.%s", name, file_ext);
 
@@ -755,25 +759,29 @@ generate_code_cpp (batch *b)
 
 
 
-
-
-
-                print("\n");
-                print("\n");
-                print("////////////////////////////////////////////////////////////\n");
-                print("/// \class %s\n", name );
-                print("/// \ingroup \n");
-                print("///\n");
-                print("/// \see \n");
-                print("///\n");
-                print("////////////////////////////////////////////////////////////\n");
-
+                if ( ! is_enum_stereo ( dClass->u.this_class->key->stereotype ) ) /* alors c'est une classe?!? ou pas ... */
+                {
+                    print("\n");
+                    print("\n");
+                    print("////////////////////////////////////////////////////////////\n");
+                    print("/// \class %s\n", name );
+                    print("/// \ingroup \n");
+                    print("///\n");
+                    print("/// \see \n");
+                    print("///\n");
+                    print("////////////////////////////////////////////////////////////\n");
+                }
 
                 fclose (spec);
 
 
+//                printf("    ### A Passage fin    ");
+//                system("pause");
 
                 dClass = dClass->next;
+
+//                printf("    A Passage fin 2 ###\n...");
+//                system("pause");
             }
 
 
@@ -784,15 +792,19 @@ generate_code_cpp (batch *b)
 
 
         }
-
+        // si c'est pas un namespace
         else {         /* dk_class */
 
 
 
-            printf("---->par là 2 !\n");
+
+
             name = d->u.this_class->key->name;
 
 
+
+//            printf("### B Passage %s ###\n..." , name);
+//            system("pause");
 
 
 
@@ -858,18 +870,25 @@ generate_code_cpp (batch *b)
 
 
 
-            print("\n");
-            print("\n");
-            print("////////////////////////////////////////////////////////////\n");
-            print("/// \class %s\n", name );
-            print("/// \ingroup \n");
-            print("///\n");
-            print("/// \see \n");
-            print("///\n");
-            print("////////////////////////////////////////////////////////////\n");
+            if ( ! is_enum_stereo ( d->u.this_class->key->stereotype ) ) /* alors c'est une classe?!? ou pas ... */
+            {
+                print("\n");
+                print("\n");
+                print("////////////////////////////////////////////////////////////\n");
+                print("/// \class %s\n", name );
+                print("/// \ingroup \n");
+                print("///\n");
+                print("/// \see \n");
+                print("///\n");
+                print("////////////////////////////////////////////////////////////\n");
+            }
 
 //            indentlevel = 0;  /* just for safety (should be 0 already) */
 
+
+//
+//                printf("    ### B Passage fin ###...");
+//                system("pause");
 
 
 
@@ -878,15 +897,26 @@ generate_code_cpp (batch *b)
             //  ----------------------------------------------------------------------------------------------------------------------------------------------------
 
         }
+
+
+
         d = d->next;
 
+//        printf("    A Passage NOEUD SUIVANT ###");
+//        system("pause");
+//        printf("\n\n");
 
     }
 
 
 
+//    printf("\n\n\n\n\n####### CREER CPP #######n...");
+//    system("pause");
+
     generate_code_cppFICHER_CPP (b);
 
+//    printf("\n####### FIN CREER CPP #######n...");
+//    system("pause");
 
 
 }
@@ -1110,6 +1140,9 @@ generate_code_cppFICHER_CPP (batch *b)
         char *name, *tmpname;
         char filename[BIG_BUFFER];
 
+
+//    printf("\n####### Nouveau noeud #######n...");
+//    system("pause");
 //        ///////////////////////////////////////////////////////////////////////
 //        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
 //        if ( d->u.this_class->key->operations == NULL ){
@@ -1117,6 +1150,38 @@ generate_code_cppFICHER_CPP (batch *b)
 //        } else {
 //        ///////////////////////////////////////////////////////////////////////
 
+
+
+
+        ///////////////////////////////////////////////////////////////////////
+        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
+//        if ( d->u.this_class->key->operations == NULL ){
+//        && is_enum_stereo ( d->u.this_class->key->stereotype ) ){
+//
+//            printf( "\n\n    ------> pas de CPP a ecrire ici: \n ");
+//
+//            d = d->next;
+//            continue;
+//        }
+        /////////////////////////////////////////////////////////////////////
+
+
+   if ( //d->u.this_class->key->operations == NULL ){
+         is_enum_stereo ( d->u.this_class->key->stereotype ) ){
+
+            printf( "\n\n    ------> pas de CPP a ecrire ici: c'est un enum\n ");
+//
+//            d = d->next;
+//            continue;
+        }
+
+
+
+
+
+
+
+            // si on est dans un namespace
             if (d->decl_kind == dk_module) {
 
 
@@ -1195,96 +1260,9 @@ generate_code_cppFICHER_CPP (batch *b)
 
                         fclose (spec);
 
-//
-//                    char * name = dClass->u.this_module->pkg->name;
-//
-//
-//
-//
-//                sprintf (filename, "%s.%s", name, body_file_ext);
-//
-//
-//
-//
-//
-//                spec = open_outfile (filename, b);
-//                if (spec == NULL) {
-//                    dClass = dClass->next;
-//                    continue;
-//                }
-//
-//                tmpname = strtoupper(name);
-//
-//
-//                print ("  -> class dans namespace <-------------- hop : %s\n", nomEspace );
-//
-//
-//                print("#ifndef %s__H\n", tmpname);
-//                print("#define %s__H\n\n", tmpname);
-//
-//
-//
-//
-//                print("/////////////////////////////////////////////////\n");
-//                print("// Headers\n");
-//                print("/////////////////////////////////////////////////\n");
-//
-//
-//                includes = NULL;
-//                determine_includes (dClass, b);
-//                if (use_corba)
-//                    print ("#include <p_orb.h>\n\n");
-//                if (includes) {
-//                    namelist incfile = includes;
-//                    while (incfile != NULL) {
-//                        if (!eq (incfile->name, name)) {
-//                            print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-//                        }
-//                        incfile = incfile->next;
-//                    }
-//                    print ("\n");
-//                }
-//
-//                print ("\n\n");
-//
-//                print ( "namespace %s {\n\n" , nomEspace );
-//
-//
-//
-//                gen_declBody (dClass);
-//
-//
-//                print ( "} // fin namespace %s\n\n" , nomEspace );
-//
-//                indentlevel = 0;  /* just for safety (should be 0 already) */
-//                print("#endif\n");
-//
-//
-//
-//
-//
-//
-//                print("\n");
-//                print("\n");
-//                print("////////////////////////////////////////////////////////////\n");
-//                print("/// \class %s\n", name );
-//                print("/// \ingroup \n");
-//                print("///\n");
-//                print("/// \see \n");
-//                print("///\n");
-//                print("////////////////////////////////////////////////////////////\n");
-//
-//
-//                fclose (spec);
-//
-//
-//
-                dClass = dClass->next;
+
+                        dClass = dClass->next;
             }
-
-
-
-
 
 
 
@@ -1292,6 +1270,8 @@ generate_code_cppFICHER_CPP (batch *b)
         }
 
         else {          /* dk_class */
+
+
             name = d->u.this_class->key->name;
             sprintf (filename, "%s.%s", name, body_file_ext);
 
@@ -1325,13 +1305,10 @@ generate_code_cppFICHER_CPP (batch *b)
 
             fclose (spec);
 
-//        ///////////////////////////////////////////////////////////////////////
-//         } //  fin du if ( d->u.this_class->key->operations == NULL )
-//        ///////////////////////////////////////////////////////////////////////
-
-
         }
-        d = d->next;
+
+    d = d->next;
+
     }
 }
 

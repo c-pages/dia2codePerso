@@ -332,7 +332,8 @@ parameter = -1;   /* error */
     param_list_destroy();
 
 
-printf("Press any key to continue...");
+printf ("Creation CPP reussi, ");
+
 
    system("pause");
 
