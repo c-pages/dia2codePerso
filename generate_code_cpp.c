@@ -318,31 +318,37 @@ gen_class (umlclassnode *node)
             }
 
 
-
-
-
-            /* print operation */
-            if (umlo->key.attr.isabstract || is_valuetype || eq (umlo->key.attr.isvirtuel , "1")  ) {
-                print ("virtual ");
-                umlo->key.attr.value[0] = '0';
-            }
-
-
-
+            // pour l'indentation //
+            print ("");
+            //////////// static  ////////////
             if (umlo->key.attr.isstatic) {
                 if (is_valuetype)
-                    fprintf (stderr, "CORBAValue %s/%s: static not supported\n",
-                                     name, umlo->key.attr.name);
+                    fprintf (stderr, "CORBAValue %s/%s: static not supported\n", name, umlo->key.attr.name);
                 else
                     emit ("static ");
             }
 
+            //////////// abstrait  ////////////
+            else if (umlo->key.attr.isabstract || is_valuetype   ) {
+                printf(" --> on a une methode abstraite\n");
+                emit ("virtual ");
+                umlo->key.attr.value[0] = '0';
+
+            //////////// virtuel  ////////////
+            } else if ( eq (umlo->key.attr.isvirtuel , "1") ) {
+                printf(" --> on a une methode virtuelle\n");
+                emit ("virtual ");
+            }
+//
+
+
+
 
 
             if (strlen (umlo->key.attr.type) > 0) {
-                print ("%s ", cppname (umlo->key.attr.type));
+                emit ("%s ", cppname (umlo->key.attr.type));
             }
-            print ("%s (", umlo->key.attr.name);
+            emit ("%s (", umlo->key.attr.name);
             tmpa = umlo->key.parameters;
             while (tmpa != NULL) {
                 emit ("%s %s", tmpa->key.type, tmpa->key.name);
@@ -528,6 +534,9 @@ gen_decl (declaration *d)
         print ("const %s %s = %s;\n\n", cppname (umla->key.type), name,
                                                  umla->key.value);
 
+
+
+    /////// enum /////////////
     } else if (is_enum_stereo (stype)) {
 
 
@@ -563,7 +572,12 @@ gen_decl (declaration *d)
         indentlevel--;
         print ("};\n\n");
 
-    } else if (is_struct_stereo (stype)) {
+    }
+
+
+
+    /////// struct /////////////
+    else if (is_struct_stereo (stype)) {
         print ("struct %s {\n", name);
         indentlevel++;
         while (umla != NULL) {
@@ -624,6 +638,9 @@ gen_decl (declaration *d)
         }
         print ("typedef %s %s%s;\n\n", cppname (umla->key.type), name,
                                                 umla->key.value);
+
+
+    /////// classe /////////////
     } else {
         gen_class (node);
     }
@@ -913,7 +930,7 @@ generate_code_cpp (batch *b)
 //    printf("\n\n\n\n\n####### CREER CPP #######n...");
 //    system("pause");
 
-    generate_code_cppFICHER_CPP (b);
+    generate_code_cpp_Body (b);
 
 //    printf("\n####### FIN CREER CPP #######n...");
 //    system("pause");
@@ -969,6 +986,14 @@ gen_body (umlclassnode *node)
 
 
     if (node->key->operations != NULL) {
+
+
+//
+//        print ("\n/////////////////////////////////////////////////\n");
+//        print ("// les méthodes \n");
+//        print ("/////////////////////////////////////////////////\n\n");
+
+
         umloplist umlo = node->key->operations;
         int tmpv = -1;
 
@@ -1103,7 +1128,7 @@ gen_declBody (declaration *d)
 }
 
 void
-generate_code_cppFICHER_CPP (batch *b)
+generate_code_cpp_Body (batch *b)
 {
     declaration *d;
     umlclasslist tmplist = b->classlist;
