@@ -23,6 +23,7 @@
 #include "dia2code.h"
 #include "decls.h"
 #include "includes.h"
+#include <string.h>
 
 #define SPEC_EXT "h"
 #define BODY_EXT "cpp"
@@ -187,6 +188,217 @@ check_visibility (int *curr_vis, int new_vis)
     indentlevel++;
 }
 
+
+
+
+
+
+
+char* supprimCharAt(char * chaine1, int i){
+
+    while(chaine1[i]!='\0'){
+      chaine1[i]=chaine1[i+1];
+      i++;
+    }
+    return chaine1;
+}
+
+//void majuscule(char *chaine)
+//{
+//    int i = 0;
+//
+//    //Tant que nous ne sommes pas arrivés a la fin de la chaine, continuer
+//    while (chaine[i] != '\0')
+//    {
+//        /*si chaine[1] est une minuscule
+//         *Car les minuscules se situent entre 97 et 122 inclusivement
+//         */
+//        if (chaine[i]  >= 97 &&  chaine[i] <= 122)
+//
+//            //Convertir en majuscules
+//            chaine[i] = chaine[i] - 32;
+//        i++;
+//    }
+//}
+
+//strcmp
+static void creerAccesseurs ( umlclassnode *node )
+{
+
+
+
+    umloplist umlo = node->key->operations;
+    umlattrlist umlAtt = node->key->attributes;
+
+    if ( umlAtt != NULL ){
+        emit ("\npublic:\n");
+    } else {
+        return;
+    }
+
+
+    while (umlAtt != NULL) {
+
+            char  nomAtt[80];
+             strcpy ( nomAtt , umlAtt->key.name );
+//            nomAtt =  umlAtt->key.name;
+            char* teste = strstr( nomAtt , "m_");
+
+            char nomFonctionGET[80];
+            char nomFonctionSET[80];
+
+
+
+
+//            char prefixeASupprimer = "m_";
+
+
+
+
+
+            /////////////////////////////////////////////////////////////////////////////////
+            //////////////// ACCESSEUR //////////////////////////////////////////////////////
+            /////////////////////////////////////////////////////////////////////////////////
+
+                char  nomAttAffiche[80];
+                strcpy ( nomAttAffiche , nomAtt );
+                if (teste != NULL )
+                    if ( ! strcmp ( teste , nomAttAffiche  )) {
+                        supprimCharAt( nomAttAffiche, 0);
+                        supprimCharAt( nomAttAffiche, 0);
+                    }
+
+                // si minuscule => majuscule
+                if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
+                    nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+                strcpy ( nomFonctionGET , nomAttAffiche );
+                strcpy ( nomFonctionSET , nomAttAffiche );
+
+                char  GET[80]= "get";
+                char  SET[80] = "set";
+
+                strcat ( GET , nomFonctionGET );
+                strcat ( SET , nomFonctionSET );
+
+
+
+
+
+
+
+                // LE GET ///////////////
+//                print("/////////////////////////////////////////////////\n");
+                print("///< Definir %s\n", nomAtt);
+//                print("///\n");
+//                print("/////////////////////////////////////////////////\n");
+                print("void %s( %s val ){ %s = val; };\n\n", SET, umlAtt->key.type, nomAtt );
+
+
+
+
+
+                // LE GET ///////////////
+//                print("/////////////////////////////////////////////////\n");
+                print("///< Acceder à %s\n", nomAtt);
+//                print("///\n");
+//                print("/////////////////////////////////////////////////\n");
+                print("%s %s () const { return %s; };\n\n",  umlAtt->key.type, GET, nomAtt );
+
+
+
+
+
+
+
+
+
+//
+//                print("/////////////////////////////////////////////////\n");
+//                print("/// \\brief Definir %s\n", umlo->key.attr.comment);
+//                print("///\n");
+//
+//                tmpa = umlo->key.parameters;
+//                while (tmpa != NULL) {
+//                     print("/// \\param %s\t\t %s\n",
+//                           tmpa->key.name,
+//                           //kind_str(tmpa->key.kind),
+//                           tmpa->key.comment);
+//                           tmpa = tmpa->next;
+//                }
+//                print("/////////////////////////////////////////////////\n");
+//            }
+
+/*
+            // pour l'indentation //
+            print ("");
+
+
+
+
+
+            if (strlen (umlo->key.attr.type) > 0) {
+                emit ("%s ", cppname (umlo->key.attr.type));
+            }
+            emit ("%s (", umlo->key.attr.name);
+            tmpa = umlo->key.parameters;
+            while (tmpa != NULL) {
+                emit ("%s %s", tmpa->key.type, tmpa->key.name);
+                if (tmpa->key.value[0] != 0) {
+                    if (is_valuetype)
+                        fprintf (stderr, "CORBAValue %s/%s: param default "
+                                 "not supported\n", name, umlo->key.attr.name);
+                    else
+                       emit (" = %s", tmpa->key.value);
+                }
+                tmpa = tmpa->next;
+                if (tmpa != NULL) {
+                    emit (", ");
+                }
+            }
+            emit (")");
+            if (umlo->key.attr.isconstant) {
+                emit (" const");
+            }
+            if (umlo->key.attr.value[0]) {
+                // virtual
+                if ((umlo->key.attr.isabstract || is_valuetype) &&
+                    umlo->key.attr.name[0] != '~')
+                    emit (" = %s", umlo->key.attr.value);
+            }
+            emit (";\n\n");*/
+//            umlo = umlo->next;
+      //  }
+
+
+
+
+
+
+
+
+
+
+
+//            if ( eq ( nomAtt[0] , "m"))
+//                printf ("       -> on a un M\n" );
+
+
+
+            // suivant
+            umlAtt = umlAtt->next;
+    }
+
+//    if (node->key->attributes != NULL) {
+//
+//            umlattrlist tmpa = umlo->key.parameters;
+//
+
+
+
+}
+
+
 static void
 gen_class (umlclassnode *node)
 {
@@ -199,10 +411,16 @@ gen_class (umlclassnode *node)
         is_valuetype = eq (stype, "CORBAValue");
     }
 
-    print("/////////////////////////////////////////////////\n");
-    print("/// \\brief %s\n", node->key->comment);
-    print("///\n");
-    print("/////////////////////////////////////////////////\n");
+
+    if ( strlen ( node->key->comment ) > 0 ) {
+
+        print("/////////////////////////////////////////////////\n");
+        print("/// \\brief %s\n", node->key->comment);
+        print("///\n");
+        print("/////////////////////////////////////////////////\n");
+    }
+
+
 
     //   print("/// class %s - %s\n", name, node->key->comment);
 
@@ -272,17 +490,16 @@ gen_class (umlclassnode *node)
         umloplist umlo = node->key->operations;
         int tmpv = -1;
 
-
-        print("\n");
-        print("/////////////////////////////////////////////////\n");
-        print("// Les methodes\n");
-        print("/////////////////////////////////////////////////\n");
-        print("\n");
-
-
+//
+//        print("\n");
+//        print("/////////////////////////////////////////////////\n");
+//        print("// Les methodes\n");
+//        print("/////////////////////////////////////////////////\n");
+//        print("\n");
 
 
 
+        creerAccesseurs ( node );
 
         if (is_valuetype) {
             indentlevel--;
@@ -993,6 +1210,7 @@ gen_body (umlclassnode *node)
 //        print ("// les méthodes \n");
 //        print ("/////////////////////////////////////////////////\n\n");
 
+//        creerAccesseurs ( node );
 
         umloplist umlo = node->key->operations;
         int tmpv = -1;

@@ -179,10 +179,11 @@
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_c.c
 	"dia2code.h"
 
-1447424524 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
+1447525218 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
 	"dia2code.h"
 	"decls.h"
 	"includes.h"
+	<string.h>
 
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_csharp.c
 	"dia2code.h"
