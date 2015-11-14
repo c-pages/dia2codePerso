@@ -499,7 +499,7 @@ gen_class (umlclassnode *node)
 
 
 
-        creerAccesseurs ( node );
+        //creerAccesseurs ( node );
 
         if (is_valuetype) {
             indentlevel--;
