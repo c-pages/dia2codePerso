@@ -744,8 +744,8 @@ umlclasslist parse_diagram(char *diafile) {
             char *multiplicity_a = NULL, *multiplicity_b = NULL;
             char direction = 0;
             char composite = 0;
-            char visibility_a = 0;
-            char visibility_b = 0;
+            char visibility_a = '0';
+            char visibility_b = '0';
 
             xmlNodePtr attribute = object->xmlChildrenNode;
 
@@ -793,11 +793,16 @@ umlclasslist parse_diagram(char *diafile) {
 //
 //    //                            visibility_a
 
-                            printf ( "  PARSE : tmpVisibility A : \n" );
                         xmlChar *tmpvisibl = xmlGetProp(child, "val");
+                            printf ( "  PARSE : par la 1\n");
+                        sscanf(tmpvisibl, "%c", &visibility_a);
+                            printf ( "  PARSE : par la 2\n");
 
-                            visibility_a = tmpvisibl;
+//                            visibility_a = tmpvisibl;
+                        //    printf ( "  PARSE : tmpVisibility A : %s\n", visibility_a );
+                            printf ( "  PARSE : par la 3\n");
 
+                        free(tmpvisibl);
 
 
                         }
@@ -806,15 +811,16 @@ umlclasslist parse_diagram(char *diafile) {
 
 
 
-                            printf ( "  PARSE : tmpVisibility B : \n" );
                         xmlChar *tmpvisibl = xmlGetProp(child, "val");
+                        sscanf(tmpvisibl, "%c", &visibility_b);
 
-                            visibility_b = tmpvisibl;
+//                            printf ( "  PARSE : tmpVisibility B : %s\n", visibility_a );
 
 //                                xmlChar *attrVisibility = xmlGetProp(attribute, "visibility_b") ;
 //                                xmlChar *tmpVisibility = xmlGetProp(attrVisibility, "val") ;
 //                                printf ( "  PARSE : tmpVisibility B : %s\n" , tmpVisibility);
 //                                direction = 0;
+                        free(tmpvisibl);
                         }
 
 
