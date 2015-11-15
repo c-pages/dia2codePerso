@@ -177,6 +177,7 @@ struct umlassocnode {
     char composite;
     struct umlassocnode * next;
     char multiplicity[10]; /* association can declare multiplicity */
+    char visibility;
 };
 typedef struct umlassocnode umlassocnode;
 

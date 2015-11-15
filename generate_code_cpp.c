@@ -456,36 +456,11 @@ gen_class (umlclassnode *node)
     emit (" {\n");
     indentlevel++;
 
-    if (node->associations != NULL) {
-        umlassoclist assoc = node->associations;
-        print ("// Associations\n");
 
 
 
 
-
-        /*
-         * The associations are mapped as private members.
-         * Is that really what we want?
-         * (For example, other UML tools additionally generate
-         * setters/getters.)  Ideas and comments welcome.
-        */
-        while (assoc != NULL) {
-            umlclassnode *ref;
-            if (assoc->name[0] != '\0')
-            {
-                ref = find_by_name (gb->classlist, assoc->key->name);
-                print ("");
-                if (ref != NULL)
-                    emit ("%s", fqname (ref, !assoc->composite));
-                else
-                    emit ("%s", cppname (assoc->key->name));
-                emit (" %s;\n", assoc->name);
-            }
-            assoc = assoc->next;
-        }
-    }
-
+    //////// les OPERATIONS  ////////
     if (node->key->operations != NULL) {
         umloplist umlo = node->key->operations;
         int tmpv = -1;
@@ -535,8 +510,10 @@ gen_class (umlclassnode *node)
             }
 
 
-            // pour l'indentation //
+            // pour l'indentation
             print ("");
+
+
             //////////// static  ////////////
             if (umlo->key.attr.isstatic) {
                 if (is_valuetype)
@@ -596,7 +573,21 @@ gen_class (umlclassnode *node)
         }
     }
 
-    if (node->key->attributes != NULL) {
+
+    //////// les ATTRIBUTS  et ASSOCIATIONS  ////////
+    if (  node->associations != NULL || node->key->attributes != NULL ) {
+
+        print("\n");
+        print("/////////////////////////////////////////////////\n");
+        print("// Les membres\n");
+        print("/////////////////////////////////////////////////\n");
+        print("\n");
+
+     }
+
+
+    //////// entete  attributs  ////////
+    if (node->key->attributes != NULL ) {
         umlattrlist umla = node->key->attributes;
         if (is_valuetype) {
             print ("// Public state members\n");
@@ -643,14 +634,9 @@ gen_class (umlclassnode *node)
 
 
 
-            print("\n");
-            print("/////////////////////////////////////////////////\n");
-            print("// Les membres\n");
-            print("/////////////////////////////////////////////////\n");
-            print("\n");
 
 
-
+            //////// les ATTRIBUTS  ////////
             while (umla != NULL) {
                 check_visibility (&tmpv, umla->key.visibility);
 
@@ -672,9 +658,185 @@ gen_class (umlclassnode *node)
 
                 umla = umla->next;
             }
+
         }
     }
 
+
+    //////// les ASSOCIATIONS  ////////
+    if (node->associations != NULL) {
+        umlassoclist assoc = node->associations;
+      //  print ("// Associations\n");
+
+
+        printf ("------> ASSOCIATIONS\n");
+       // emit ("\nprivate:\n");
+
+            int tmpv = -1;
+        while (assoc != NULL) {
+
+            printf ("-----------------------> ASSOCIATIONS : %s\n" ,assoc->key->name);
+            //assoc->key->
+            //            check_visibility ( &tmpv, umla->key.visibility);
+           //  check_visibility ( &tmpv, assoc->key->attributes->key.visibility );
+
+
+            umlclassnode *ref;
+
+            ///////// association ayant un nom ////////////////
+            //            if (assoc->name[0] != '\0')
+            //            {
+                         //   printf ("------> association AVEC nom !!!: \n");
+
+               ref = find_by_name (gb->classlist, assoc->key->name);
+                print ("");
+
+//                printf ("------> assoc->name : %s\n", assoc->name);
+                printf ("------> assoc->key->name : %s\n", assoc->key->name);
+                printf ("------> assoc->key->attributes : %s\n", assoc->key->attributes);
+                printf ("------> assoc->key->attributes->key->name : %s\n", assoc->key->attributes->key.name);
+//                printf ("------> assoc->key->attributes->key->type : %s\n", assoc->key->attributes->key.type);
+//                printf ("------> assoc->key->comment : %s\n", assoc->key->comment);
+
+
+                /////// TYPEDEF /////////////////
+                if ( eq ( "typedef", assoc->key->stereotype))
+                {
+                    emit ("typedef %s ", assoc->key->attributes->key.type );
+                    emit ("%s;", assoc->key->name);
+                    if ( strlen( assoc->key->comment ) >0 )
+                        emit ("    ///<  %s", assoc->key->comment );
+
+                    emit("\n");
+
+                }
+
+                /////// ENUM /////////////////
+                else if  ( eq ( "enum", assoc->key->stereotype) || eq ( "enumeration", assoc->key->stereotype) )
+                {
+
+                    umlattrlist umla = assoc->key->attributes;
+
+                    printf ( "########## ENUMERATION\n");
+
+
+                    emit( "/////////////////////////////////////////////////\n");
+                    print( "/// \\brief %s\n" , assoc->key->comment );
+                    print( "///\n");
+                    print( "/////////////////////////////////////////////////\n");
+
+
+                    print ("enum %s {\n", assoc->key->name);
+                    indentlevel++;
+
+
+
+                    while (umla != NULL) {
+                        char *literal = umla->key.name;
+                        check_umlattr (&umla->key, name);
+                        if (strlen (umla->key.type) > 0)
+                            fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
+                        print ("%s", literal);
+
+                        if (strlen (umla->key.value) > 0)
+                            print (" = %s", umla->key.value);
+                        if (umla->next)
+                            emit (",");
+
+                        if ( strlen (umla->key.comment ) > 0)
+                            print ("    ///< %s", umla->key.comment);
+
+                        emit ("\n");
+                        umla = umla->next;
+                    }
+                    indentlevel--;
+                    print ("};\n\n");
+                }
+
+                /////// CLASSES ASSOCIéES /////////////////
+                else {
+
+                    //////// MULTIPLICITé /////////
+                    int bVector = 0;
+                    if (eq ( assoc->multiplicity, "*" ))
+                        bVector = 1;
+                    if (eq ( assoc->multiplicity, "0..*" ))
+                        bVector = 1;
+                    if (bVector)
+                        emit ("std::vector<");
+
+                    if (ref != NULL){
+                        emit ("%s", fqname (ref, !assoc->composite));
+                    }  else {
+                        emit ("%s", cppname (assoc->key->name));
+                    }
+
+                    if (bVector)
+                        emit ("> ");
+
+                    emit (" %s;\n", assoc->name);
+                }
+
+/*
+//            }
+////            ///////// association sans nom ////////////////
+//            else {
+//
+//                printf ("------> association SANS nom !!!: \n");
+//                ref = find_by_name (gb->classlist, assoc->key->name);
+//                print ("");
+//
+//                printf ("------> assoc->name : %s\n", assoc->name);
+//                printf ("------> assoc->key->name : %s\n", assoc->key->name);
+//                printf ("------> assoc->key->attributes : %s\n", assoc->key->attributes);
+//                printf ("------> assoc->key->attributes->key->name : %s\n", assoc->key->attributes->key.name);
+//                printf ("------> assoc->key->attributes->key->type : %s\n", assoc->key->attributes->key.type);
+//
+//
+//                /////// TYPEDEF /////////////////
+//                if ( eq ( "typedef", assoc->key->stereotype))
+//                {
+//                    emit ("typedef %s ", assoc->key->attributes->key.type );
+//                    emit ("%s;", assoc->key->attributes->key.name);
+//                }
+//
+//
+//                else {
+//
+//                    //////// MULTIPLICITé /////////
+//                    int bVector = 0;
+//                    if (eq ( assoc->multiplicity, "*" ))
+//                        bVector = 1;
+//                    if (eq ( assoc->multiplicity, "0..*" ))
+//                        bVector = 1;
+//                    if (bVector)
+//                        emit ("std::vector<");
+//
+//                    if (ref != NULL){
+//                        emit ("%s", fqname (ref, !assoc->composite));
+//                    }  else {
+//                        emit ("%s", cppname (assoc->key->name));
+//                    }
+//
+//                    if (bVector)
+//                        emit ("> ");
+//
+//                    emit (" %s;\n", assoc->name);
+//                }
+//
+//
+//
+//
+//            }
+*/
+
+
+            assoc = assoc->next;
+        }
+    }
+
+
+    //////// les ATTRIBUTS  ////////
     if (node->key->attributes != NULL && is_valuetype) {
         umlattrlist umla = node->key->attributes;
         emit ("\n");
@@ -686,16 +848,18 @@ gen_class (umlclassnode *node)
             print ("");
             if (ref != NULL) {
                 emit ("%s", fqname (ref, is_oo_class (ref->key)));
-                /*
-                 * FIXME: Find a better way to decide whether to use
-                 * a pointer.
-                */
             } else
                 emit ("%s", cppname (umla->key.type));
             emit (" _%s;\n", umla->key.name);
             umla = umla->next;
         }
     }
+
+
+
+
+
+
 
     indentlevel--;
     print ("};\n\n");
@@ -1409,21 +1573,63 @@ generate_code_cpp_Body (batch *b)
         /////////////////////////////////////////////////////////////////////
 
 
-   if ( //d->u.this_class->key->operations == NULL ){
-         is_enum_stereo ( d->u.this_class->key->stereotype ) ){
 
-            printf( "\n\n    ------> pas de CPP a ecrire ici: c'est un enum\n ");
-//
-//            d = d->next;
-//            continue;
+//////////////// On regarde si on a besoin de faire un fichier cpp    ///////////////////////////////////////////////////////////////
+
+        printf( "\non creer le CPP ?\n\n ");
+
+        /////  ENUM /////
+        if ( is_enum_stereo ( d->u.this_class->key->stereotype ) ){
+//            printf( "    ------> pas de CPP a ecrire ici, on a un enum : %s\n", d->u.this_module->pkg->name);
+            d = d->next;
+            continue;
+        }
+
+        /////  classes :  /////
+        if (d->decl_kind != dk_module) {
+
+            int creerLeCPP = 0;
+
+            /////  si il n'ya a pas de static a initialiser /////
+            if ( d->u.this_class->key->attributes != NULL) {
+                int    testStatic = 0;
+                umlattrlist umla = d->u.this_class->key->attributes;
+
+                while (umla != NULL) {
+                    if (  umla->key.isstatic )
+                        testStatic = 1;
+
+                    umla = umla->next;
+                }
+
+                if ( !testStatic){
+//                    printf( "    ------> pas de CPP a ecrire ici, on a des static : %s\n", d->u.this_class->key->name);
+                    creerLeCPP = 1;
+                }
+            }
+
+            /////  Pas d'operations /////
+            if ( d->u.this_class->key->operations == NULL && creerLeCPP ){
+//                printf( "    ------> pas de CPP a ecrire ici, on a pas d'operations : %s\n", d->u.this_class->key->name);
+                creerLeCPP = 0;
+            }
+
+            if ( creerLeCPP )
+            {
+                printf( "------> on ceer le CPP\n");
+            }
+            else{
+                printf( "------> on ceer PAS le CPP\n");
+                d = d->next;
+                continue;
+            }
+
+
         }
 
 
 
-
-
-
-
+//////////////// On ecris le fichier cpp    ///////////////////////////////////////////////////////////////
             // si on est dans un namespace
             if (d->decl_kind == dk_module) {
 
@@ -1554,4 +1760,27 @@ generate_code_cpp_Body (batch *b)
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

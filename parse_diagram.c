@@ -97,7 +97,7 @@ void adddependency(umlclasslist dependent, umlclasslist dependee) {
 }
 
 void addaggregate(char *name, char composite, umlclasslist base,
-                  umlclasslist associate, char *multiplicity) {
+                  umlclasslist associate, char *multiplicity, char visibility) {
     umlassoclist tmp;
     tmp = NEW (umlassocnode);
     if (name != NULL && strlen (name) > 2)
@@ -108,6 +108,16 @@ void addaggregate(char *name, char composite, umlclasslist base,
         sprintf(tmp->multiplicity, "1");
     tmp->key = base->key;
     tmp->composite = composite;
+    tmp->visibility = visibility;
+
+//    if (visibility != NULL)
+//        sscanf(visibility, sscanfmt(), tmp->visibility);
+////        tmp->visibility = visibility;
+//    else
+//        sprintf(tmp->visibility, "1");
+////        tmp->visibility = '1';
+
+
     tmp->next = associate->associations;
     associate->associations = tmp;
 }
@@ -122,12 +132,12 @@ void inherit_realize ( umlclasslist classlist, char * base, char * derived ) {
 }
 
 void associate ( umlclasslist classlist, char * name, char composite,
-                 char * base, char * aggregate, char *multiplicity) {
+                 char * base, char * aggregate, char *multiplicity, char visibility) {
     umlclasslist umlbase, umlaggregate;
     umlbase = find(classlist, base);
     umlaggregate = find(classlist, aggregate);
     if ( umlbase != NULL && umlaggregate != NULL) {
-        addaggregate(name, composite, umlbase, umlaggregate, multiplicity);
+        addaggregate(name, composite, umlbase, umlaggregate, multiplicity, visibility);
     }
 }
 
@@ -734,6 +744,9 @@ umlclasslist parse_diagram(char *diafile) {
             char *multiplicity_a = NULL, *multiplicity_b = NULL;
             char direction = 0;
             char composite = 0;
+            char visibility_a = 0;
+            char visibility_b = 0;
+
             xmlNodePtr attribute = object->xmlChildrenNode;
 
             while (attribute != NULL) {
@@ -743,12 +756,22 @@ umlclasslist parse_diagram(char *diafile) {
                     xmlNodePtr child = attribute->xmlChildrenNode;
                     if ( eq("direction", attrtype) ) {
                         xmlChar *tmptype = xmlGetProp(child, "val");
+
                         if ( eq(tmptype, "0") ) {
                             direction = 1;
                         }
                         else {
                             direction = 0;
                         }
+
+//
+//                        printf ( "  PARSE : direction : %s\n", tmptype);
+//                        //if (direction)
+//
+//
+
+
+
                         free(tmptype);
                     }
                     else if ( eq("assoc_type", attrtype) ) {
@@ -761,7 +784,62 @@ umlclasslist parse_diagram(char *diafile) {
                         }
                         free(tmptype);
                     }
+
+                    else if ( eq(attrtype, "visibility_a") ) {
+//                                direction = 1;
+//
+//                                xmlChar *attrVisibility = xmlGetProp(attribute, "visibility_a") ;
+//                                xmlChar *tmpVisibility = xmlGetProp(attrVisibility, "val") ;
+//
+//    //                            visibility_a
+
+                            printf ( "  PARSE : tmpVisibility A : \n" );
+                        xmlChar *tmpvisibl = xmlGetProp(child, "val");
+
+                            visibility_a = tmpvisibl;
+
+
+
+                        }
+                    else if (eq(attrtype, "visibility_b") ) {
+
+
+
+
+                            printf ( "  PARSE : tmpVisibility B : \n" );
+                        xmlChar *tmpvisibl = xmlGetProp(child, "val");
+
+                            visibility_b = tmpvisibl;
+
+//                                xmlChar *attrVisibility = xmlGetProp(attribute, "visibility_b") ;
+//                                xmlChar *tmpVisibility = xmlGetProp(attrVisibility, "val") ;
+//                                printf ( "  PARSE : tmpVisibility B : %s\n" , tmpVisibility);
+//                                direction = 0;
+                        }
+
+
+//                    else if ( eq("visibility_a", attrtype) ) {
+//                        xmlChar *tmptype = xmlGetProp(child, "val");
+//                        if ( eq(tmptype, "1") ) {
+//                            composite = 0;
+//                        }
+//                        else {
+//                            composite = 1;
+//                        }
+//                        free(tmptype);
+//                    }
+//
+
+
+
+
+
+
                     else if ( child->xmlChildrenNode ) {
+
+                        printf ( "  PARSE : if ( child->xmlChildrenNode )\n" );
+
+
                         xmlNodePtr grandchild = child->xmlChildrenNode;
                         if ( eq(attrtype, "name") ) {
                             name = grandchild->content;
@@ -778,6 +856,25 @@ umlclasslist parse_diagram(char *diafile) {
                         else if ( eq(attrtype, "multipicity_b") ) {
                             multiplicity_b = grandchild->content;
                         }
+
+                        else if ( eq(attrtype, "multipicity_a") ) {
+                            multiplicity_a = grandchild->content;
+                            xmlChar *tmptype = xmlGetProp(child, "val");
+                        }
+
+
+                            //printf ( "  PARSE : direction : %s\n", tmptype);
+                            //if (direction)
+
+
+
+
+
+                          //  free(tmptype);
+
+
+
+
                         else if ( eq(attrtype, "ends") ) {
                             if ( eq(child->name, "composite") ) {
 				while (grandchild) {
@@ -831,14 +928,23 @@ umlclasslist parse_diagram(char *diafile) {
 
             if (end1 != NULL && end2 != NULL) {
                 char *thisname = name;
+
+
                 if (direction == 1) {
                     if (thisname == NULL || !*thisname || eq("##", thisname))
                         thisname = name_a;
-                    associate(classlist, thisname, composite, end1, end2, multiplicity_a);
+
+
+                    associate(classlist, thisname, composite, end1, end2, multiplicity_a, visibility_a);
+
+
                 } else {
+
                     if (thisname == NULL || !*thisname || eq("##", thisname))
                         thisname = name_b;
-                    associate(classlist, thisname, composite, end2, end1, multiplicity_b);
+
+                    associate(classlist, thisname, composite, end2, end1, multiplicity_b, visibility_b);
+
                 }
                 free(end1);
                 free(end2);
