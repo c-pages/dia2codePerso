@@ -145,6 +145,39 @@ cppname (char *name)
 }
 
 
+
+
+
+
+static char *
+fqnameSHARED (umlclassnode *node, int use_ref_type)
+{
+    static char buf[BIG_BUFFER];
+
+    buf[0] = '\0';
+    if (node == NULL)
+        return buf;
+
+
+    if (use_ref_type)
+        strcat (buf, "std::shared_ptr<");
+    if (node->key->package != NULL) {
+        umlpackagelist pkglist = make_package_list (node->key->package);
+        while (pkglist != NULL) {
+            strcat (buf, pkglist->key->name);
+            strcat (buf, "::");
+            pkglist = pkglist->next;
+        }
+    }
+    strcat (buf, node->key->name);
+    if (use_ref_type)
+        strcat (buf, ">");
+    return buf;
+}
+
+
+
+
 static char *
 fqname (umlclassnode *node, int use_ref_type)
 {
@@ -426,8 +459,6 @@ gen_class (umlclassnode *node)
 
 
 
-    //   print("/// class %s - %s\n", name, node->key->comment);
-
     if (node->key->templates != NULL) {
         umltemplatelist template = node->key->templates;
         if (is_valuetype) {
@@ -464,14 +495,43 @@ gen_class (umlclassnode *node)
 
 
 
-    //////// les ASSOCIATIONS  ////////
+    //////// les ENUMS associés et TYPEDEF associés  ////////
     if (node->associations != NULL) {
+        umlassoclist assoc = node->associations;
+
+
+        // on regarde si on ecrit l'entete des declarations
+        int testPresent = 0;
+        while (assoc != NULL) {
+
+                if  ( eq ( "enum", assoc->key->stereotype)
+                     || eq ( "enumeration", assoc->key->stereotype)
+                     || ( eq ( "typedef", assoc->key->stereotype) && strlen (assoc->name)==0) )
+                     {
+                        testPresent = 1;
+                        break;
+                     }
+            assoc = assoc->next;
+        }
+        if (testPresent){
+
+            emit("\n");
+            emit("/////////////////////////////////////////////////\n");
+            emit("// Enums & typedefs\n");
+            emit("/////////////////////////////////////////////////\n");
+
+
+        }
+
+
+
+
 
 
         tmpv = -1;
 
         //////// les enums  ////////
-        umlassoclist assoc = node->associations;
+        assoc = node->associations;
         while (assoc != NULL) {
                 /////// ENUM /////////////////
                 if  ( eq ( "enum", assoc->key->stereotype) || eq ( "enumeration", assoc->key->stereotype) )
@@ -485,7 +545,6 @@ gen_class (umlclassnode *node)
 
                     print( "/////////////////////////////////////////////////\n");
                     print( "/// \\brief %s\n" , assoc->key->comment );
-                    print( "///\n");
                     print( "/////////////////////////////////////////////////\n");
 
 
@@ -526,6 +585,16 @@ gen_class (umlclassnode *node)
 
                 if ( eq ( "typedef", assoc->key->stereotype))
                 {
+
+                    // s'il y a un nom a l'association ou au membre
+                    // on doit l'importer en tant que membre
+                    if ( strlen (assoc->name) >0 )
+                    {
+                        assoc = assoc->next;
+                        continue;
+                    }
+
+
                     check_visibility ( &tmpv, assoc->visibility );
                     print ("typedef %s ", assoc->key->attributes->key.type );
                     emit ("%s;", assoc->key->name);
@@ -545,24 +614,16 @@ gen_class (umlclassnode *node)
     }
 
 
-
     //////// les OPERATIONS  ////////
     if (node->key->operations != NULL) {
         umloplist umlo = node->key->operations;
         tmpv = -1;
 
-//
-//        print("\n");
-//        print("/////////////////////////////////////////////////\n");
-//        print("// Les methodes\n");
-//        print("/////////////////////////////////////////////////\n");
-//        print("\n");
 
-        emit("\n");
+        emit("\n\n");
         emit("/////////////////////////////////////////////////\n");
-        emit("// Les methodes\n");
+        emit("// Méthodes\n");
         emit("/////////////////////////////////////////////////\n");
-        emit("\n");
 
 
         //creerAccesseurs ( node );
@@ -665,8 +726,16 @@ gen_class (umlclassnode *node)
     }
 
 
-    //////// les ATTRIBUTS  ////////
-    if (node->key->attributes != NULL ) {
+    //////// les MEMBRES et membres associés  ////////
+    if (node->key->attributes != NULL || node->associations != NULL ) {
+
+
+        emit("\n\n");
+        emit("/////////////////////////////////////////////////\n");
+        emit("// Membres\n");
+        emit("/////////////////////////////////////////////////\n");
+
+
         umlattrlist umla = node->key->attributes;
         if (is_valuetype) {
             print ("// Public state members\n");
@@ -714,8 +783,20 @@ gen_class (umlclassnode *node)
         //////// les classes associés ////////
         umlassoclist assoc = node->associations;
         while (assoc != NULL) {
-                if ( ! eq ( "typedef", assoc->key->stereotype) && ! eq ( "enum", assoc->key->stereotype) && ! eq ( "enumeration", assoc->key->stereotype))
+                if ( ! eq ( "enum", assoc->key->stereotype) && ! eq ( "enumeration", assoc->key->stereotype))
                 {
+
+
+
+                    // s'il y a un nom a l'association ou au membre
+                    // on doit l'importer en tant que membre
+                    if ( eq ( "typedef", assoc->key->stereotype)
+                    && strlen (assoc->name)  == 0 )
+                    {
+                        assoc = assoc->next;
+                        continue;
+                    }
+
 
                     check_visibility ( &tmpv, assoc->visibility );
 
@@ -727,7 +808,6 @@ gen_class (umlclassnode *node)
                     //            {
                     //   printf ("------> association AVEC nom !!!: \n");
 
-                    ref = find_by_name (gb->classlist, assoc->key->name);
                     print ("");
 
 
@@ -740,8 +820,15 @@ gen_class (umlclassnode *node)
                     if (bVector)
                         emit ("std::vector<");
 
-                    if (ref != NULL)
-                        emit ("%s", fqname (ref, !assoc->composite));
+
+
+
+                    ////////  ? /////////
+                    ref = find_by_name (gb->classlist, assoc->key->name);
+                    if (ref != NULL){
+
+                        emit ("%s", fqnameSHARED (ref, !assoc->composite));
+                    }
                     else
                         emit ("%s", cppname (assoc->key->name));
 
@@ -792,6 +879,7 @@ gen_class (umlclassnode *node)
 
     }
 
+
     //////// ???? ATTRIBUTS  ???? ////////
     if (node->key->attributes != NULL && is_valuetype) {
         umlattrlist umla = node->key->attributes;
@@ -814,13 +902,8 @@ gen_class (umlclassnode *node)
 
 
 
-
-
-
-
-
     indentlevel--;
-    print ("};\n\n");
+    print ("\n}; // fin class %s\n\n", name );
 
 
 }
@@ -1029,9 +1112,16 @@ generate_code_cpp (batch *b)
 
     /* Generate a file for each outer declaration.  */
     d = decls;
+    printf ( "### d != NULL  ? \n", d != NULL );
     while (d != NULL) {
         char *name, *tmpname;
         char filename[BIG_BUFFER];
+
+        printf ( "### NAMESPACE  ? \n");
+        // si c'est un namespace
+        if (d->decl_kind == dk_module)
+               printf ( "### C EST UN NAMESPACE ###\n");
+        else   printf ( "### C EST UN  PAS    NAMESPACE ###\n");
 
 
         // si c'est un namespace
@@ -1059,6 +1149,7 @@ generate_code_cpp (batch *b)
                          || eq ( dClass->u.this_class->key->stereotype, "enumeration" )
                          || eq ( dClass->u.this_class->key->stereotype, "typedef" ) )
                 {
+//                        printf ("#######--> par ici (2) \n" );
 
 
                     declaration *dTest;
@@ -1078,7 +1169,7 @@ generate_code_cpp (batch *b)
                             printf ("--------> ASSOCIATIONS ! : %s\n" , dTest->u.this_class->key->name );
 
                             while (assoc != NULL) {
-                                printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
+                                    printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
 //
 //                                    printf ("#######--> par ici (5) \n" );
 //                                    printf ("#######--> par ici : %s\n", assoc->key->name );
@@ -1467,12 +1558,12 @@ generate_code_cpp (batch *b)
 
 
 
-//    printf("\n\n\n\n\n####### CREER CPP #######n...");
+   printf("\n\n\n\n\n####### CREER CPP  #######\n...");
 //    system("pause");
 
     generate_code_cpp_Body (b);
 
-//    printf("\n####### FIN CREER CPP #######n...");
+//    printf("\n####### FIN CREER CPP #######\n...");
 //    system("pause");
 
 
@@ -1782,14 +1873,14 @@ generate_code_cpp_Body (batch *b)
                 while (dClass != NULL) {
 
 
-                        printf( "    ------> stereotype : %s\n", dClass->u.this_class->key->stereotype);
+                        printf( "---> besoin d'un CPP ? : %s\n", dClass->u.this_class->key->name );
 
                         /////  TYPEDEF /////
                         if ( eq ( dClass->u.this_class->key->stereotype , "typedef") ){
-                            printf( "    ------> pas de CPP a ecrire ici, on a un TYPEDEF : %s\n", d->u.this_class->key->name);
+                            printf( "    ------> c'est un TYPEDEF, on quite.\n");
                             dClass = dClass->next;
                             continue;
-                        }
+                        } else  printf( "    ------> c'est PAS un TYPEDEF, on continue ...\n");
 
 
 
@@ -1798,10 +1889,10 @@ generate_code_cpp_Body (batch *b)
 
                         /////  ENUM /////
                         if ( is_enum_stereo ( dClass->u.this_class->key->stereotype ) ){
-                            printf( "    ------> pas de CPP a ecrire ici, on a un ENUM : %s\n", d->u.this_class->key->name);
+                            printf( "    ------> c'est un ENUM, on quite.\n");
                             dClass = dClass->next;
                             continue;
-                        }
+                        } else  printf( "    ------> c'est PAS un ENUM, on continue ...\n");
 
 
 
@@ -1825,23 +1916,25 @@ generate_code_cpp_Body (batch *b)
                                 }
 
                                 if ( !testStatic){
-                //                    printf( "    ------> pas de CPP a ecrire ici, on a des static : %s\n", d->u.this_class->key->name);
+                                    printf( "    ------> il n'y a PAS de STATIC, on continue ...\n");
                                     creerLeCPP = 1;
                                 }
                             }
 
                             /////  Pas d'operations /////
                             if ( dClass->u.this_class->key->operations == NULL && creerLeCPP ){
-                //                printf( "    ------> pas de CPP a ecrire ici, on a pas d'operations : %s\n", d->u.this_class->key->name);
+                                printf( "    ------> pas d'OPERATIONS ici\n");
                                 creerLeCPP = 0;
-                            }
+                            } else creerLeCPP = 1;
+
+
 
                             if ( creerLeCPP )
                             {
-                //                printf( "------> on ceer le CPP\n");
+                                printf( "------> on ceer le CPP\n");
                             }
                             else{
-                //                printf( "------> on ceer PAS le CPP\n");
+                                printf( "------> on ceer PAS le CPP\n");
                                 dClass = dClass->next;
                                 continue;
                             }

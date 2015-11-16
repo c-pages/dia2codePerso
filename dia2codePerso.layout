@@ -1,52 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="comment_helper.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1619" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="code_generators.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1171" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="generate_code_java.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2549" topLine="66" />
-		</Cursor>
-	</File>
-	<File name="generate_code_php_five.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5350" topLine="151" />
-		</Cursor>
-	</File>
-	<File name="generate_code_python.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7396" topLine="150" />
-		</Cursor>
-	</File>
-	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="12335" topLine="265" />
-		</Cursor>
-		<Folding>
-			<Collapse line="0" />
-			<Collapse line="8" />
-			<Collapse line="27" />
-			<Collapse line="49" />
-		</Folding>
-	</File>
-	<File name="parse_diagram.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3155" topLine="88" />
-		</Cursor>
-	</File>
-	<File name="source_parser.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6233" topLine="161" />
-		</Cursor>
-	</File>
 	<File name="decls.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1854" topLine="132" />
@@ -85,6 +39,52 @@
 	<File name="generate_code_cpp.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-2" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="24497" topLine="809" />
+		</Cursor>
+	</File>
+	<File name="generate_code_java.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2549" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="comment_helper.c" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1619" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="code_generators.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="generate_code_php_five.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5350" topLine="151" />
+		</Cursor>
+	</File>
+	<File name="generate_code_python.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7396" topLine="150" />
+		</Cursor>
+	</File>
+	<File name="main.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="12335" topLine="265" />
+		</Cursor>
+		<Folding>
+			<Collapse line="0" />
+			<Collapse line="8" />
+			<Collapse line="27" />
+			<Collapse line="49" />
+		</Folding>
+	</File>
+	<File name="parse_diagram.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3155" topLine="88" />
+		</Cursor>
+	</File>
+	<File name="source_parser.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6233" topLine="161" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

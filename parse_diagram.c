@@ -794,13 +794,14 @@ umlclasslist parse_diagram(char *diafile) {
 //    //                            visibility_a
 
                         xmlChar *tmpvisibl = xmlGetProp(child, "val");
-                            printf ( "  PARSE : par la 1\n");
+//                        printf ( "  PARSE : par la 1\n");
+
                         sscanf(tmpvisibl, "%c", &visibility_a);
-                            printf ( "  PARSE : par la 2\n");
+//                        printf ( "  PARSE : par la 2\n");
 
 //                            visibility_a = tmpvisibl;
                         //    printf ( "  PARSE : tmpVisibility A : %s\n", visibility_a );
-                            printf ( "  PARSE : par la 3\n");
+//                            printf ( "  PARSE : par la 3\n");
 
                         free(tmpvisibl);
 
