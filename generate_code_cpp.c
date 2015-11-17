@@ -432,11 +432,116 @@ static void creerAccesseurs ( umlclassnode *node )
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+static int
+besoinHeader ( declaration * dClass, declaration * dContents ){
+
+            //    printf ("#######--> par ici (2) \n" );
+
+                // on regarde si on a besoin de faire un fichier *.h
+                if ( eq ( dClass->u.this_class->key->stereotype, "enum" )
+                ||   eq ( dClass->u.this_class->key->stereotype, "enumeration" )
+                ||   eq ( dClass->u.this_class->key->stereotype, "typedef" ) )
+                {
+
+                    declaration *dTest;
+                    dTest = dContents;
+
+                    int b_present = 0;
+                    while (dTest!= NULL) {
+//                        printf ("#######--> par ici (2) \n" );
+
+                        umlassoclist  assoc = dTest->u.this_class->associations;
+//                        printf ("#######--> par ici (3) \n" );
+
+                        if ( assoc != NULL){
+
+//                            printf ("#######--> par ici (4) \n" );
+
+                         //   printf ("--------> ASSOCIATIONS ! : %s\n" , dTest->u.this_class->key->name );
+
+                            while (assoc != NULL) {
+                                 //   printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
+//
+//                                    printf ("#######--> par ici (5) \n" );
+//                                    printf ("#######--> par ici : %s\n", assoc->key->name );
+//                                    printf ("#######--> par ici (6) \n" );
+                                if ( eq ( assoc->key->name, dClass->u.this_class->key->name ) )
+                                {
+                                   // printf ("#######--> par ici ! \n" );
+                                    //printf ("#######--> par ici ! \n" );
+                                    b_present = 1;
+                                    break ;
+                                }
+//
+//
+                                assoc = assoc->next;
+//                                    printf ("#######--> par ici (6) \n" );
+                            }
+//                                    printf ("#######--> par ici (7) \n" );
+
+
+
+                        }
+                        if ( b_present ) break;
+                        dTest=dTest->next;
+                    }
+                    if ( b_present ){
+                       // printf ("------------------------> non, pas besoin de fichier\n");
+                        return 0;
+                    }
+                    else{
+                       // printf ("------------------------> oui\n");
+                        return 1;
+                    }
+
+
+                } // c'est une classe, on ecrit
+                else return 1;
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static void
 gen_class (umlclassnode *node)
 {
 
-
+    printf ( "gen_class\n");
     char *name = node->key->name;
     char *stype = node->key->stereotype;
     int is_valuetype = 0;
@@ -495,7 +600,8 @@ gen_class (umlclassnode *node)
 
 
 
-    //////// les ENUMS associés et TYPEDEF associés  ////////
+    tmpv = -1;
+    //////// les ENUMS associés et TYPEDEF associés et USING ////////
     if (node->associations != NULL) {
         umlassoclist assoc = node->associations;
 
@@ -506,6 +612,7 @@ gen_class (umlclassnode *node)
 
                 if  ( eq ( "enum", assoc->key->stereotype)
                      || eq ( "enumeration", assoc->key->stereotype)
+                     || eq ( "using", assoc->key->stereotype)
                      || ( eq ( "typedef", assoc->key->stereotype) && strlen (assoc->name)==0) )
                      {
                         testPresent = 1;
@@ -540,7 +647,7 @@ gen_class (umlclassnode *node)
 
                     umlattrlist umla = assoc->key->attributes;
 
-                    printf ( "########## ENUMERATION\n");
+                   // printf ( "########## ENUMERATION\n");
 
 
                     print( "/////////////////////////////////////////////////\n");
@@ -578,6 +685,36 @@ gen_class (umlclassnode *node)
             assoc = assoc->next;
         }
 
+        //////// les uing  ////////
+        assoc = node->associations;
+        while (assoc != NULL) {
+
+                if ( eq ( "using", assoc->key->stereotype))
+                {
+
+//                    // s'il y a un nom a l'association ou au membre
+//                    // on doit l'importer en tant que membre
+//                    if ( strlen (assoc->name) >0 )
+//                    {
+//                        assoc = assoc->next;
+//                        continue;
+//                    }
+
+
+                    check_visibility ( &tmpv, assoc->visibility );
+                    print ("using %s ", assoc->key->attributes->key.type );
+                    emit ("%s;", assoc->key->name);
+                    if ( strlen( assoc->key->comment ) >0 )
+                        emit ("    ///< %s", assoc->key->comment );
+
+                    emit("\n");
+
+                }
+
+            assoc = assoc->next;
+        }
+
+
 
         //////// les typedefs  ////////
         assoc = node->associations;
@@ -614,6 +751,7 @@ gen_class (umlclassnode *node)
     }
 
 
+    tmpv = -1;
     //////// les OPERATIONS  ////////
     if (node->key->operations != NULL) {
         umloplist umlo = node->key->operations;
@@ -676,13 +814,13 @@ gen_class (umlclassnode *node)
 
             //////////// abstrait  ////////////
             else if (umlo->key.attr.isabstract || is_valuetype   ) {
-                printf(" --> on a une methode abstraite\n");
+                //printf(" --> on a une methode abstraite\n");
                 emit ("virtual ");
                 umlo->key.attr.value[0] = '0';
 
             //////////// virtuel  ////////////
             } else if ( eq (umlo->key.attr.isvirtuel , "1") ) {
-                printf(" --> on a une methode virtuelle\n");
+                //printf(" --> on a une methode virtuelle\n");
                 emit ("virtual ");
             }
 //
@@ -726,6 +864,7 @@ gen_class (umlclassnode *node)
     }
 
 
+    tmpv = -1;
     //////// les MEMBRES et membres associés  ////////
     if (node->key->attributes != NULL || node->associations != NULL ) {
 
@@ -783,7 +922,7 @@ gen_class (umlclassnode *node)
         //////// les classes associés ////////
         umlassoclist assoc = node->associations;
         while (assoc != NULL) {
-                if ( ! eq ( "enum", assoc->key->stereotype) && ! eq ( "enumeration", assoc->key->stereotype))
+                if ( ! eq ( "enum", assoc->key->stereotype) && ! eq ( "enumeration", assoc->key->stereotype) )
                 {
 
 
@@ -908,6 +1047,22 @@ gen_class (umlclassnode *node)
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static void
 gen_decl (declaration *d)
 {
@@ -959,8 +1114,8 @@ gen_decl (declaration *d)
 
 
 
-    /////// enum /////////////
-    }
+
+    }/////// enum /////////////
     else if (is_enum_stereo (stype)) {
 
 
@@ -1076,216 +1231,31 @@ gen_decl (declaration *d)
 }
 
 
-void
-generate_code_cpp (batch *b)
-{
-
-    declaration *d;
-    umlclasslist tmplist = b->classlist;
-    FILE *licensefile = NULL;
-
-    gb = b;
-
-    if (file_ext == NULL)
-        file_ext = "h";
-
-    if (body_file_ext == NULL)
-        body_file_ext = "cpp";
 
 
-    /* open license file */
-    if (b->license != NULL) {
-        licensefile = fopen (b->license, "r");
-        if (!licensefile) {
-            fprintf (stderr, "Can't open the license file.\n");
-            exit (1);
-        }
-    }
-
-    while (tmplist != NULL) {
-        if (! (is_present (b->classes, tmplist->key->name) ^ b->mask)) {
-            push (tmplist, b);
-        }
-        tmplist = tmplist->next;
-    }
+static void
+ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char * file_ext ){
+    //printf ("  -> ecrire_Head 0 <-------------- \n" );
 
 
-    /* Generate a file for each outer declaration.  */
-    d = decls;
-    printf ( "### d != NULL  ? \n", d != NULL );
-    while (d != NULL) {
-        char *name, *tmpname;
-        char filename[BIG_BUFFER];
-
-        printf ( "### NAMESPACE  ? \n");
-        // si c'est un namespace
-        if (d->decl_kind == dk_module)
-               printf ( "### C EST UN NAMESPACE ###\n");
-        else   printf ( "### C EST UN  PAS    NAMESPACE ###\n");
-
-
-        // si c'est un namespace
-        if (d->decl_kind == dk_module) {
-
-            char* nomEspace;
-
-            nomEspace = d->u.this_module->pkg->name;
-
-            //printf ("namespace <-------------- yeah : %s\n", nomEspace );
-
-            //indentlevel++;
-            declaration * dClass = d->u.this_module->contents;
-            while (dClass != NULL) {
+    char filename[256];
 
 
 
-
-
-                // on regarde si on a besoin de faire un fichier *.h
-               // declaration * dClass = d;
-                printf ("------------------------> faire un fichier *.h ? %s\n" , dClass->u.this_class->key->name );
-
-                if (  eq ( dClass->u.this_class->key->stereotype, "enum" )
-                         || eq ( dClass->u.this_class->key->stereotype, "enumeration" )
-                         || eq ( dClass->u.this_class->key->stereotype, "typedef" ) )
-                {
-//                        printf ("#######--> par ici (2) \n" );
-
-
-                    declaration *dTest;
-                    dTest = d->u.this_module->contents;
-
-                    int b_present = 0;
-                    while (dTest!= NULL) {
-//                        printf ("#######--> par ici (2) \n" );
-
-                        umlassoclist  assoc = dTest->u.this_class->associations;
-//                        printf ("#######--> par ici (3) \n" );
-
-                        if ( assoc != NULL){
-
-//                            printf ("#######--> par ici (4) \n" );
-
-                            printf ("--------> ASSOCIATIONS ! : %s\n" , dTest->u.this_class->key->name );
-
-                            while (assoc != NULL) {
-                                    printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
-//
-//                                    printf ("#######--> par ici (5) \n" );
-//                                    printf ("#######--> par ici : %s\n", assoc->key->name );
-//                                    printf ("#######--> par ici (6) \n" );
-                                if ( eq ( assoc->key->name, dClass->u.this_class->key->name ) )
-                                {
-                                    printf ("#######--> par ici ! \n" );
-                                    //printf ("#######--> par ici ! \n" );
-                                    b_present = 1;
-                                    break ;
-                                }
-//
-//
-                                assoc = assoc->next;
-//                                    printf ("#######--> par ici (6) \n" );
-                            }
-//                                    printf ("#######--> par ici (7) \n" );
-
-
-
-                        }
-                        if ( b_present ) break;
-                        dTest=dTest->next;
-                    }
-                    if ( b_present ){
-                        printf ("------------------------> OUI, pas besoin de fichier\n");
-                        dClass = dClass->next;
-                        continue;
-                    }
-                    else
-                        printf ("------------------------> NON\n");
-
-                }
-
-
-
-
-//
-//                // on regarde si on a besoin de faire un fichier *.h
-//                printf ("------------------------> faire un fichier *.h ? %s\n" , dClass->u.this_class->key->name );
-//
-//                if ( eq ( dClass->u.this_class->key->stereotype, "enum" )
-//                         || eq ( dClass->u.this_class->key->stereotype, "enumeration" )
-//                         || eq ( dClass->u.this_class->key->stereotype, "typedef" ) )
-//                {
-//                    printf ("#######--> par ici ! \n" );
-//
-//                    declaration *dTest;
-//                    dTest = d;
-//                    printf ("#######--> par ici (2) \n" );
-//
-//                    while (dTest!= NULL) {
-//                        printf ("#######--> par ici (3) \n" );
-//
-//                        printf ("   ------------------------> associations ! : %s\n" , dTest->u.this_class->key->name );
-//                        umlassoclist  assoc = dTest->u.this_class->associations;
-//                        if ( assoc != NULL){
-//
-//                            printf ("#######--> par ici (4) \n" );
-////                            while (assoc != NULL) {
-//////
-////                                    printf ("#######--> par ici (5) \n" );
-////                                    printf ("#######--> par ici : %s\n", assoc->key->name );
-////                                    printf ("#######--> par ici (6) \n" );
-////////                                if ( eq ( assoc->name, dClass->u.this_class->key->name ) )
-////////                                    printf ("#######--> par ici ! \n" );
-//////
-//////
-////                                assoc = assoc->next;
-////                                    printf ("#######--> par ici (6) \n" );
-////                            }
-////                                    printf ("#######--> par ici (7) \n" );
-//
-//
-//
-//                        }
-//
-//                        dTest=dTest->next;
-//                    }
-//                    printf ("------------------------> NON\n");
-//
-//                }
-
-
-
-
-
-
-
-                // si besoin d'un *.h -> on continue
-                char * name = dClass->u.this_module->pkg->name;
-
-
-
-//                printf("    ### A Passage %s ###\n..." , name);
-//                system("pause");
-
-               // sprintf (filename, "%s.%s", name, file_ext);
-
-
-                sprintf (filename, "%s.%s", name, file_ext);
-
-
+    sprintf (filename, "%s.%s", name, file_ext );
 
 
 
                 spec = open_outfile (filename, b);
                 if (spec == NULL) {
                     dClass = dClass->next;
-                    continue;
+                    return;
                 }
 
-                tmpname = strtoupper(name);
+                char* tmpname = strtoupper(name);
 
 
-                //print ("  -> class dans namespace <-------------- hop : %s\n", nomEspace );
+               // print ("  -> ecrire_Head 1 <-------------- hop : %s\n", nomEspace );
 
 
                 print("#ifndef %s__H\n", tmpname);
@@ -1316,21 +1286,25 @@ generate_code_cpp (batch *b)
 
                 print ("\n\n");
 
-                print ( "namespace %s {\n\n" , nomEspace );
+
+                if ( strlen(nomEspace) >0 )
+                    print ( "namespace %s {\n\n" , nomEspace );
 
 
 
                 gen_decl (dClass);
 
 
-                print ( "} // fin namespace %s\n\n" , nomEspace );
 
-                indentlevel = 0;  /* just for safety (should be 0 already) */
+                if ( strlen(nomEspace) >0 )
+                    print ( "} // fin namespace %s\n\n" , nomEspace );
+
+                indentlevel = 0;  //just for safety (should be 0 already)
                 print("#endif\n");
 
 
 
-                if ( ! is_enum_stereo ( dClass->u.this_class->key->stereotype ) ) /* alors c'est une classe?!? ou pas ... */
+                if ( ! is_enum_stereo ( dClass->u.this_class->key->stereotype ) ) /// alors c'est une classe?!? ou pas ...
                 {
                     print("\n");
                     print("\n");
@@ -1346,219 +1320,239 @@ generate_code_cpp (batch *b)
                 fclose (spec);
 
 
-//                printf("    ### A Passage fin    ");
-//                system("pause");
+}
 
-                dClass = dClass->next;
+void
+generate_code_cpp (batch *b)
+{
+/*
+    ///////// DEBUG ////////////////
+    printf( " DEBUG 1\n" );
+    while ( b->classlist != NULL )
+    {
+        printf( " generate_code_cpp : %s\n", b->classlist->key->name );
+        b->classlist = b->classlist->next;
+    }
+    printf( " DEBUG 1 fin \n\n" );
+    ///////// DEBUG ////////////////
 
-//                printf("    A Passage fin 2 ###\n...");
-//                system("pause");
-            }
+
+*/
 
 
 
 
 
+    declaration *d;
+    umlclasslist tmplist = b->classlist;
+    umlclasslist tmplist2 = b->classlist;
+    umlclasslist listClean;
+
+    FILE *licensefile = NULL;
+
+    gb = b;
+
+    if (file_ext == NULL)
+        file_ext = "h";
+
+    if (body_file_ext == NULL)
+        body_file_ext = "cpp";
 
 
-
+    /* open license file */
+    if (b->license != NULL) {
+        licensefile = fopen (b->license, "r");
+        if (!licensefile) {
+            fprintf (stderr, "Can't open the license file.\n");
+            exit (1);
         }
+    }
+
+//
+//
+//    while (tmplist != NULL) {
+//        //printf ( "generate_code_cpp 01 :  tmplist = %s \n", tmplist->key->name );
+//        if (! (is_present (b->classes, tmplist->key->name) ^ b->mask)) {
+//           // printf ( "  ->  par ici\n", tmplist->key->name );
+//            push (tmplist, b);
+//        }
+//        tmplist = tmplist->next;
+//    }
 
 
-        // si c'est pas un namespace
-        else {         /* dk_class */
+
+    ///////////// mon bordel |--> //////////////////////////////////////////////////////
+    tmplist2 = b->classlist;
+    while ( tmplist2 != NULL ) {
+
+//        if ( tmplist2 != NULL ) {
+            printf ( "  -> test doublons : %s\n", tmplist2->key->name );
+            umlclasslist tmplist3 = tmplist2;
+            while ( tmplist3 != NULL ) {
+                printf ( "      -> tmplist3 : %s\n", tmplist3->key->name );
+                if ( tmplist3->key  != tmplist2->key
+                &&   eq ( tmplist3->key->name        , tmplist2->key->name       )
+                &&   eq ( tmplist3->key->stereotype  , tmplist2->key->stereotype ) )
+                    printf( "       -----> identiques mais differents\n" );
+/*
+                if ( eq ( tmplist3->key->name        , tmplist2->key->name       )
+                &&   eq ( tmplist3->key->stereotype  , tmplist2->key->stereotype ) ){
+                    printf( "       -----> memeNom et meme stereo\n" );
+//                    printf( "   On compare les attributs et memeNom et meme stereo\n" );
+                }
+*/
+                tmplist3 = tmplist3->next;
+
+            }
+//        }
+        tmplist2 = tmplist2->next;
+
+    }
+
+//                if ( eq ( classlistTest->key->name        , tmplist->key->name       )
+//                &&   eq ( classlistTest->key->stereotype  , tmplist->key->stereotype ) ){
+//                    printf( "  -> memeNom et meme stereo\n" );
+//                    printf( "   On compare les attributs et memeNom et meme stereo\n" );
+//                }
+            /*
+        umlpackagelist tmppcklist = packagelist;
+        while ( tmppcklist != NULL ) {
+            if ( is_inside(&dummypcklist->key->geom, &tmppcklist->key->geom) ) {
+                if ( tmppcklist->key->parent == NULL ) {
+                    tmppcklist->key->parent = dummypcklist->key;
+                } else {
+                    if ( ! is_inside ( &dummypcklist->key->geom, &tmppcklist->key->parent->geom ) ) {
+                        tmppcklist->key->parent = dummypcklist->key;
+                    }
+                }
+            }
+            tmppcklist = tmppcklist->next;
+        }*/
+    ///////////// <--| mon bordel /////////////////////////////////////////////////////////////
 
 
-                printf ("--> on regarde si on a besoin de faire un fichier\n");
 
+
+/*
+    ///////// DEBUG ////////////////
+    printf( " DEBUG 2\n" );
+    while ( tmplist != NULL )
+    {
+        printf( " generate_code_cpp : %s\n", tmplist->key->name );
+        tmplist = tmplist->next;
+    }
+    printf( " DEBUG 2 fin \n\n" );
+    ///////// DEBUG ////////////////*/
+
+    ///////// DEBUG ////////////////
+//    printf( " DEBUG 1--------------\n" );
+//    int i = 0;
+//    while ( b->classlist != NULL )
+//    {
+//        printf( "       DEBUG : %s\n", b->classlist->key->name );
+//
+//        if (i==0) push (listClean, b->classlist->key);
+//        else {
+//            while (listClean != NULL) {
+//                printf ( "          ---------> tmplist = %s \n", listClean->key->name );
+//                listClean = listClean->next;
+//            }
+//        }
+//        i++;
+//        b->classlist = b->classlist->next;
+//    }
+//    printf( " DEBUG 1 suite ------------------------------\n" );
+//
+//     while (listClean != NULL) {
+//        printf ( " ---------> listClean = %s \n", listClean->key->name );
+//        listClean = listClean->next;
+//    }
+//
+//
+//
+//    printf( " DEBUG 1 fin ------------------\n\n" );
+//    ///////// DEBUG ////////////////
+
+
+    // Generate a file for each outer declaration.
+    d = decls;
+    while (d != NULL) {
+
+
+
+        char *name, *tmpname;
+        char filename[BIG_BUFFER];
+        char* nomEspace ="";
+        declaration * dClass;
+
+
+        // si c'est un namespace
+        if (d->decl_kind == dk_module) {
+
+
+            nomEspace = d->u.this_module->pkg->name;
+
+            printf ("namespace <-------------- %s\n", nomEspace );
+
+            //indentlevel++;
+            dClass = d->u.this_module->contents;
+
+            while (dClass != NULL) {
+
+         printf ( "generate_code_cpp ------------------------------------ \n");
+           //     printf ( "generate_code_cpp 04 :  dClass = %s \n", dClass->u.this_class->key->name );
 
                 // on regarde si on a besoin de faire un fichier *.h
-                declaration * dClass = d;
-                printf ("------------------------> faire un fichier *.h ? %s\n" , dClass->u.this_class->key->name );
-
-                if (  eq ( dClass->u.this_class->key->stereotype, "enum" )
-                         || eq ( dClass->u.this_class->key->stereotype, "enumeration" )
-                         || eq ( dClass->u.this_class->key->stereotype, "typedef" ) )
-                {
-
-
-                    declaration *dTest;
-                    dTest = d;
-//                    printf ("#######--> par ici (2) \n" );
-
-                    int b_present = 0;
-                    while (dTest!= NULL) {
-//                        printf ("#######--> par ici (3) \n" );
-
-                        umlassoclist  assoc = dTest->u.this_class->associations;
-                        if ( assoc != NULL){
-                        printf ("--------> ASSOCIATIONS ! : %s\n" , dTest->u.this_class->key->name );
-
-                            while (assoc != NULL) {
-                            printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
-//
-//                                    printf ("#######--> par ici (5) \n" );
-//                                    printf ("#######--> par ici : %s\n", assoc->key->name );
-//                                    printf ("#######--> par ici (6) \n" );
-                                if ( eq ( assoc->key->name, dClass->u.this_class->key->name ) )
-                                {
-                                    printf ("#######--> par ici ! \n" );
-                                    //printf ("#######--> par ici ! \n" );
-                                    b_present = 1;
-                                    break ;
-                                }
-//
-//
-                                assoc = assoc->next;
-//                                    printf ("#######--> par ici (6) \n" );
-                            }
-//                                    printf ("#######--> par ici (7) \n" );
-
-
-
-                        }
-                        if ( b_present ) break;
-                        dTest=dTest->next;
-                    }
-                    if ( b_present ){
-                        printf ("------------------------> OUI, pas besoin de fichier\n");
-                        d = d->next;
+                if ( ! besoinHeader ( dClass , d->u.this_module->contents ) ) {
+                        //printf ("------------------------> PAS besoin d'un header\n");
+                        dClass = dClass->next;
                         continue;
-                    }
-                    else
-                        printf ("------------------------> NON\n");
-
                 }
+                //else printf ("------------------------> besoin d'un header\n");
 
+                // si besoin d'un *.h -> on continue
+                name = dClass->u.this_module->pkg->name;
 
+                /////////////////////////////////////
+                ecrire_Head ( dClass, b, name , nomEspace , file_ext);
+                /////////////////////////////////////
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            name = d->u.this_class->key->name;
-
-
-
-//            printf("### B Passage %s ###\n..." , name);
-//            system("pause");
-
-
-
-            sprintf (filename, "%s.%s", name, file_ext);
-
-
-
-
-
-            spec = open_outfile (filename, b);
-//            if (spec == NULL) {
-////                d = d->next;
-////                continue;
-//            }
-
-            tmpname = strtoupper(name);
-            print("#ifndef %s__H\n", tmpname);
-            print("#define %s__H\n\n", tmpname);
-
-            /* add license to the header */
-            if (b->license != NULL) {
-                char lc;
-                rewind (licensefile);
-                while ((lc = fgetc (licensefile)) != EOF)
-                    print ("%c", lc);
+                dClass = dClass->next;
             }
 
 
 
+        } // si c'est pas dans un namespace
+        else {
 
 
+            printf ("pas namespace <-------------- \n" );
+         printf ( "generate_code_cpp ------------------------------------ \n");
+            //printf ( "generate_code_cpp 05 :  d = %s \n", d->u.this_class->key->name );
 
-            print("/////////////////////////////////////////////////\n");
-            print("// Headers\n");
-            print("/////////////////////////////////////////////////\n");
 
-
-            includes = NULL;
-            determine_includes (d, b);
-            if (use_corba)
-                print ("#include <p_orb.h>\n\n");
-            if (includes) {
-                namelist incfile = includes;
-                while (incfile != NULL) {
-                    if (!eq (incfile->name, name)) {
-                        print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-                    }
-                    incfile = incfile->next;
-                }
-                print ("\n");
+            // on regarde si on a besoin de faire un fichier *.h
+            if ( ! besoinHeader ( d , d ) ) {
+//                    printf ("------------------------> PAS besoin d'un header\n");
+                    d = d->next;
+                    continue;
             }
 
-            print ("\n");
+            // si besoin d'un *.h -> on continue
+            char * name = d->u.this_module->pkg->name;
 
-
-            gen_decl (d);
-
-
-            print("#endif\n");
-
-
-
-
-
-
-            if ( ! is_enum_stereo ( d->u.this_class->key->stereotype ) ) /* alors c'est une classe?!? ou pas ... */
-            {
-                print("\n");
-                print("\n");
-                print("////////////////////////////////////////////////////////////\n");
-                print("/// \class %s\n", name );
-                print("/// \ingroup \n");
-                print("///\n");
-                print("/// \see \n");
-                print("///\n");
-                print("////////////////////////////////////////////////////////////\n");
-            }
-
-//            indentlevel = 0;  /* just for safety (should be 0 already) */
-
-
-//
-//                printf("    ### B Passage fin ###...");
-//                system("pause");
-
-
-
-            fclose (spec);
-
-            //  ----------------------------------------------------------------------------------------------------------------------------------------------------
+            /////////////////////////////////////
+            ecrire_Head ( d, b, name , nomEspace , file_ext);
+            /////////////////////////////////////
 
         }
-
-
-
         d = d->next;
-
-//        printf("    A Passage NOEUD SUIVANT ###");
-//        system("pause");
-//        printf("\n\n");
 
     }
 
 
 
-   printf("\n\n\n\n\n####### CREER CPP  #######\n...");
+  // printf("\n\n\n\n\n####### CREER CPP  #######\n...");
 //    system("pause");
 
     generate_code_cpp_Body (b);
@@ -1568,8 +1562,6 @@ generate_code_cpp (batch *b)
 
 
 }
-
-
 
 
 
@@ -1618,11 +1610,6 @@ gen_body (umlclassnode *node)
 
     if (node->key->operations != NULL) {
 
-
-//
-//        print ("\n/////////////////////////////////////////////////\n");
-//        print ("// les méthodes \n");
-//        print ("/////////////////////////////////////////////////\n\n");
 
 //        creerAccesseurs ( node );
 
@@ -1873,14 +1860,14 @@ generate_code_cpp_Body (batch *b)
                 while (dClass != NULL) {
 
 
-                        printf( "---> besoin d'un CPP ? : %s\n", dClass->u.this_class->key->name );
+                        //printf( "---> besoin d'un CPP ? : %s\n", dClass->u.this_class->key->name );
 
                         /////  TYPEDEF /////
                         if ( eq ( dClass->u.this_class->key->stereotype , "typedef") ){
-                            printf( "    ------> c'est un TYPEDEF, on quite.\n");
+//                            printf( "    ------> c'est un TYPEDEF, on quite.\n");
                             dClass = dClass->next;
                             continue;
-                        } else  printf( "    ------> c'est PAS un TYPEDEF, on continue ...\n");
+                        } //else  printf( "    ------> c'est PAS un TYPEDEF, on continue ...\n");
 
 
 
@@ -1889,10 +1876,10 @@ generate_code_cpp_Body (batch *b)
 
                         /////  ENUM /////
                         if ( is_enum_stereo ( dClass->u.this_class->key->stereotype ) ){
-                            printf( "    ------> c'est un ENUM, on quite.\n");
+                           // printf( "    ------> c'est un ENUM, on quite.\n");
                             dClass = dClass->next;
                             continue;
-                        } else  printf( "    ------> c'est PAS un ENUM, on continue ...\n");
+                        } //else  printf( "    ------> c'est PAS un ENUM, on continue ...\n");
 
 
 
@@ -1916,14 +1903,14 @@ generate_code_cpp_Body (batch *b)
                                 }
 
                                 if ( !testStatic){
-                                    printf( "    ------> il n'y a PAS de STATIC, on continue ...\n");
+                                    //printf( "    ------> il n'y a PAS de STATIC, on continue ...\n");
                                     creerLeCPP = 1;
                                 }
                             }
 
                             /////  Pas d'operations /////
                             if ( dClass->u.this_class->key->operations == NULL && creerLeCPP ){
-                                printf( "    ------> pas d'OPERATIONS ici\n");
+                                //printf( "    ------> pas d'OPERATIONS ici\n");
                                 creerLeCPP = 0;
                             } else creerLeCPP = 1;
 
@@ -1931,10 +1918,10 @@ generate_code_cpp_Body (batch *b)
 
                             if ( creerLeCPP )
                             {
-                                printf( "------> on ceer le CPP\n");
+                                //printf( "------> on ceer le CPP\n");
                             }
                             else{
-                                printf( "------> on ceer PAS le CPP\n");
+                                //printf( "------> on ceer PAS le CPP\n");
                                 dClass = dClass->next;
                                 continue;
                             }

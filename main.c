@@ -315,6 +315,13 @@ parameter = -1;   /* error */
     /* We build the class list from the dia file here */
     thisbatch->classlist = parse_diagram(infile);
 
+
+
+
+
+
+
+
     thisbatch->outdir = outdir;
     thisbatch->license = license;
     thisbatch->clobber = clobber;
@@ -332,10 +339,8 @@ parameter = -1;   /* error */
     param_list_destroy();
 
 
-printf ("Creation CPP reussi, ");
-
-
-   system("pause");
+    printf ("Creation CPP reussi, ");
+    system("pause");
 
 
     return 0;

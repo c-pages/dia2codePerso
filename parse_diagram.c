@@ -16,6 +16,7 @@
  ***************************************************************************/
 
 #include "parse_diagram.h"
+#include "string.h"
 
 #ifndef MIN
 #define MIN(x, y) (x < y ? x : y)
@@ -484,6 +485,7 @@ umlpackagelist parse_package(xmlNodePtr package) {
 }
 
 umlclasslist parse_class(xmlNodePtr class) {
+
     xmlNodePtr attribute;
     xmlChar *attrname;
     umlclasslist listmyself;
@@ -500,8 +502,10 @@ umlclasslist parse_class(xmlNodePtr class) {
     listmyself->next = NULL;
 
     attribute = class->xmlChildrenNode;
+
     while ( attribute != NULL ) {
         attrname = xmlGetProp(attribute, "name");
+
         /* fix a segfault - dia files contains *also* some rare tags without any "name" attribute : <dia:parent  for ex.  */
         if( attrname == NULL ) {
             attribute = attribute->next;
@@ -617,7 +621,7 @@ void lolipop_implementation(umlclasslist classlist, xmlNodePtr object) {
     }
 }
 
-void recursive_search(xmlNodePtr node, xmlNodePtr * object) {
+void recursive_search( xmlNodePtr node, xmlNodePtr * object ) {
     xmlNodePtr child;
     if ( *object != NULL ) {
         return;
@@ -667,13 +671,123 @@ xmlNodePtr getNextObject(xmlNodePtr from) {
     return NULL;
 }
 
+umlclasslist
+nettoyage_liste ( umlclasslist  classlist ){
+
+
+        umlclasslist classlistPropre = NULL, classlistGlobal  = NULL,endlist = NULL;
+        classlistGlobal = classlist;
+
+        const char *listeNOMS;
+        const char *listeType;
+
+//        string[] listeNOMS = NULL;
+
+
+        printf ( "sizeof(listeNOMS) : %zu  \n", sizeof(listeNOMS)  );
+        int i =0;
+        while (classlist != NULL) {
+        //    printf ( "NETTOYAGE_LISTE : %s\n" , classlist->key->name );
+//            printf ( "  size : %zu\n" , sizeof(classlist ));
+
+
+
+//strcpy(arr[0], "blah");
+//
+//                listeNOMS[i] = classlistPropre->key->name;
+      //  printf ( "listeNOMS[i] : %d   \n", i   );
+//                listeType[i] = classlistPropre->key->stereotype;
+//
+//                int b_test = 0;
+//
+//                if (b_test)
+//                {
+//                    printf ( "     -> b_test ! \n" );
+//                };
+
+            i=i+1;
+            classlist=classlist->next;
+        }
+
+
+        printf ( "sizeof(listeNOMS) : %zu  \n", sizeof(listeNOMS)  );
+      /*      printf ( "02 - PARSE : NETTOYAGE_LISTE\n");
+        umlclasslist classlistPropre = NULL, endlist = NULL;
+
+        umlclasslist listeGlobal;
+
+        listeGlobal = classlist;
+//        memcpy ( listeGlobal, classlist, sizeof(classlist));
+
+
+        printf ( "\n" );
+
+        while (classlist != NULL) {
+
+
+            // premier passage
+            if ( classlistPropre == NULL ) {
+                classlistPropre = endlist = classlist;
+
+            // le reste
+            } else {
+                int bTest = 0;
+                umlclasslist  listeAChercher = classlistPropre;
+
+
+                printf ( "02 - PARSE : class a tester : %s\n", classlist->key->name);
+                while (listeAChercher != NULL) {
+
+
+                    // s' il sont identiques on les merge
+                    printf ( "      avec : %s\n", listeAChercher->key->name  );
+                    if ( eq ( listeAChercher->key->name , classlist->key->name )
+                      && eq ( listeAChercher->key->stereotype , classlist->key->stereotype) )
+                    {
+                        printf ( "     -> Identiques ! on va les MERGER: %s et %s\n", listeAChercher->key->name , classlist->key->name );
+//                        endlist->next = classlist;
+//                        endlist = classlist;
+                        break;
+                    }
+
+                    // sinon, on l'ajoute
+
+                    listeAChercher = listeAChercher->next;
+                }
+
+
+
+            }
+
+            classlist = classlist->next;
+
+        }
+
+        printf ( "\n" );
+        while (classlistPropre != NULL) {
+
+            printf ( "03 - PARSE : classlistPropre : %s\n", classlistPropre->key->name);
+
+
+            classlistPropre = classlistPropre->next;
+
+        }
+        printf ( "\n" );*/
+//        for ( i=0; i<sizeof(listeNOMS); i++ )
+//            printf ( "%d  \n", i  );
+
+}
+
+
 umlclasslist parse_diagram(char *diafile) {
     xmlDocPtr ptr;
     xmlChar *end1 = NULL;
     xmlChar *end2 = NULL;
 
     xmlNodePtr object = NULL;
+    xmlNodePtr objectTest = NULL;
     umlclasslist classlist = NULL, endlist = NULL;
+    umlclasslist classlistTest = NULL;
     umlpackagelist packagelist = NULL, dummypcklist, endpcklist = NULL;
 
     ptr = xmlParseFile(diafile);
@@ -685,27 +799,108 @@ umlclasslist parse_diagram(char *diafile) {
 
     /* we search for the first "object" node */
     recursive_search( ptr->xmlRootNode->xmlChildrenNode->next, &object );
+    //recursive_search( ptr->xmlRootNode->xmlChildrenNode->next, &objectTest );
 
     while (object != NULL) {
-        xmlChar *objtype = xmlGetProp(object, "type");
+    objectTest = object;
         /* Here we have a Dia object */
+        xmlChar *objtype = xmlGetProp(object, "type");
         if ( eq("UML - Class", objtype) ) {
             /* Here we have a class definition */
+
+
+
+
+
             umlclasslist tmplist = parse_class(object);
             if (tmplist != NULL) {
+
+                printf ( "00 - PARSE : Class : %s --------------------\n", tmplist->key->name);
+
+
                 /* We get the ID of the object here*/
                 xmlChar *objid = xmlGetProp(object, "id");
                 sscanf(objid, "%79s", tmplist->key->id);
                 free(objid);
 
+
+
+
                 /* We insert it here*/
                 if ( classlist == NULL ) {
                     classlist = endlist = tmplist;
                 } else {
+
+//
+//
+////                    ///////////// mon bordel |--> /////////////
+//    classlistTest = classlist;
+//    while ( classlistTest != NULL ) {
+//
+//
+//                printf ( "  01 - PARSE : classlistTest : %s\n", classlistTest->key->name );
+//
+//                if ( eq ( classlistTest->key->name        , tmplist->key->name       )
+//                &&   eq ( classlistTest->key->stereotype  , tmplist->key->stereotype ) ){
+//                    printf( "  -> memeNom et meme stereo\n" );
+//                    printf( "   On compare les attributs et memeNom et meme stereo\n" );
+//                }
+//            /*
+//        umlpackagelist tmppcklist = packagelist;
+//        while ( tmppcklist != NULL ) {
+//            if ( is_inside(&dummypcklist->key->geom, &tmppcklist->key->geom) ) {
+//                if ( tmppcklist->key->parent == NULL ) {
+//                    tmppcklist->key->parent = dummypcklist->key;
+//                } else {
+//                    if ( ! is_inside ( &dummypcklist->key->geom, &tmppcklist->key->parent->geom ) ) {
+//                        tmppcklist->key->parent = dummypcklist->key;
+//                    }
+//                }
+//            }
+//            tmppcklist = tmppcklist->next;
+//        }*/
+//        classlistTest = classlistTest->next;
+//    }
+////                    ///////////// <--| mon bordel /////////////
+
+
+
+
+
+
+
                     endlist->next = tmplist;
                     endlist = tmplist;
                 }
             }
+
+
+
+//            ///////////// mon bordel |--> /////////////
+//            // on cherche une autre classe avec le meme nom ?
+//
+//            while (objectTest != NULL) {
+//                umlclasslist tmplistTest = parse_class(objectTest);
+//
+//                //xmlChar *objtypeTestNom = xmlGetProp(objectTest, "name");
+//
+//                printf ( "  01 - PARSE : tmplistTest : %s\n", tmplistTest->key->name );
+//
+//
+//                if ( eq ( tmplistTest->key->name        , tmplist->key->name       )
+//                &&   eq ( tmplistTest->key->stereotype  , tmplist->key->stereotype ) ){
+//                    printf( "  -> memeNom et meme stereo\n" );
+//                }
+//
+//                objectTest = getNextObject(objectTest);
+//            }
+//            ///////////// <--| mon bordel /////////////
+
+
+
+
+
+
         } else if ( eq("UML - LargePackage", objtype) || eq("UML - SmallPackage", objtype) ) {
             umlpackagelist tmppcklist = parse_package(object);
             if ( tmppcklist != NULL ) {
@@ -727,6 +922,14 @@ umlclasslist parse_diagram(char *diafile) {
         object = getNextObject(object);
     }
 
+//        while (classlist != NULL) {
+//
+//                printf ( "01 - PARSE : classlist : %s\n", classlist->key->name);
+//            classlist = classlist->next;
+//
+//        }
+
+
     /* Second pass - Implementations and associations */
 
     /* The association is done as a queue, so we must first put in
@@ -739,7 +942,10 @@ umlclasslist parse_diagram(char *diafile) {
 
     while ( object != NULL ) {
         xmlChar *objtype = xmlGetProp(object, "type");
+
+
         if ( eq("UML - Association", objtype) ) {
+
             char *name = NULL, *name_a = NULL, *name_b = NULL;
             char *multiplicity_a = NULL, *multiplicity_b = NULL;
             char direction = 0;
@@ -786,56 +992,19 @@ umlclasslist parse_diagram(char *diafile) {
                     }
 
                     else if ( eq(attrtype, "visibility_a") ) {
-//                                direction = 1;
-//
-//                                xmlChar *attrVisibility = xmlGetProp(attribute, "visibility_a") ;
-//                                xmlChar *tmpVisibility = xmlGetProp(attrVisibility, "val") ;
-//
-//    //                            visibility_a
-
                         xmlChar *tmpvisibl = xmlGetProp(child, "val");
-//                        printf ( "  PARSE : par la 1\n");
 
                         sscanf(tmpvisibl, "%c", &visibility_a);
-//                        printf ( "  PARSE : par la 2\n");
-
-//                            visibility_a = tmpvisibl;
-                        //    printf ( "  PARSE : tmpVisibility A : %s\n", visibility_a );
-//                            printf ( "  PARSE : par la 3\n");
 
                         free(tmpvisibl);
 
 
                         }
                     else if (eq(attrtype, "visibility_b") ) {
-
-
-
-
                         xmlChar *tmpvisibl = xmlGetProp(child, "val");
                         sscanf(tmpvisibl, "%c", &visibility_b);
-
-//                            printf ( "  PARSE : tmpVisibility B : %s\n", visibility_a );
-
-//                                xmlChar *attrVisibility = xmlGetProp(attribute, "visibility_b") ;
-//                                xmlChar *tmpVisibility = xmlGetProp(attrVisibility, "val") ;
-//                                printf ( "  PARSE : tmpVisibility B : %s\n" , tmpVisibility);
-//                                direction = 0;
                         free(tmpvisibl);
-                        }
-
-
-//                    else if ( eq("visibility_a", attrtype) ) {
-//                        xmlChar *tmptype = xmlGetProp(child, "val");
-//                        if ( eq(tmptype, "1") ) {
-//                            composite = 0;
-//                        }
-//                        else {
-//                            composite = 1;
-//                        }
-//                        free(tmptype);
-//                    }
-//
+                    }
 
 
 
@@ -844,7 +1013,7 @@ umlclasslist parse_diagram(char *diafile) {
 
                     else if ( child->xmlChildrenNode ) {
 
-                        printf ( "  PARSE : if ( child->xmlChildrenNode )\n" );
+                        //printf ( "  PARSE : if ( child->xmlChildrenNode )\n" );
 
 
                         xmlNodePtr grandchild = child->xmlChildrenNode;
@@ -957,7 +1126,8 @@ umlclasslist parse_diagram(char *diafile) {
                 free(end2);
             }
 
-        } else if ( eq("UML - Dependency", objtype) ) {
+        }
+        else if ( eq("UML - Dependency", objtype) ) {
             xmlNodePtr attribute = object->xmlChildrenNode;
             while ( attribute != NULL ) {
                 if ( eq("connections", attribute->name) ) {
@@ -969,7 +1139,8 @@ umlclasslist parse_diagram(char *diafile) {
                 }
                 attribute = attribute->next;
             }
-        } else if ( eq("UML - Realizes", objtype) ) {
+        }
+        else if ( eq("UML - Realizes", objtype) ) {
             xmlNodePtr attribute = object->xmlChildrenNode;
             while ( attribute != NULL ) {
                 if ( eq("connections", attribute->name) ) {
@@ -981,7 +1152,8 @@ umlclasslist parse_diagram(char *diafile) {
                 }
                 attribute = attribute->next;
             }
-        } else if ( eq("UML - Implements", objtype) ) {
+        }
+        else if ( eq("UML - Implements", objtype) ) {
             lolipop_implementation(classlist, object);
         }
         free(objtype);
@@ -1055,6 +1227,20 @@ umlclasslist parse_diagram(char *diafile) {
         }
         dummypcklist = dummypcklist->next;
     }
+
+
+//    nettoyage_liste ( classlist );
+//        while (classlist != NULL) {
+//
+//                printf ( "01 - PARSE : classlist : %s\n", classlist->key->name);
+//            classlist = classlist->next;
+//
+//        }
+
+
+
+
+
 
     return classlist;
 }

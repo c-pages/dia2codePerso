@@ -179,7 +179,7 @@
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_c.c
 	"dia2code.h"
 
-1447683576 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
+1447754929 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
 	"dia2code.h"
 	"decls.h"
 	"includes.h"
@@ -230,8 +230,9 @@
 1404759383 source:r:\06 - c++\dia2codeperso\includes.c
 	"includes.h"
 
-1447677004 source:r:\06 - c++\dia2codeperso\parse_diagram.c
+1447754481 source:r:\06 - c++\dia2codeperso\parse_diagram.c
 	"parse_diagram.h"
+	"string.h"
 
 1404759383 source:r:\06 - c++\dia2codeperso\scan_tree.c
 	"dia2code.h"
@@ -240,7 +241,7 @@
 	"dia2code.h"
 	"source_parser.h"
 
-1447416986 source:r:\06 - c++\dia2codeperso\main.c
+1447750439 source:r:\06 - c++\dia2codeperso\main.c
 	"dia2code.h"
 	"code_generators.h"
 	"parse_diagram.h"
