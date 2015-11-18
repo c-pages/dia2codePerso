@@ -2,7 +2,7 @@
 1447344874 source:r:\06 - c++\dia2codeperso\comment_helper.c
 	"dia2code.h"
 
-1447601935 r:\06 - c++\dia2codeperso\dia2code.h
+1447853976 r:\06 - c++\dia2codeperso\dia2code.h
 	<string.h>
 	<ctype.h>
 	<stdio.h>
@@ -150,9 +150,13 @@
 1404759383 r:\06 - c++\dia2codeperso\decls.h
 	"dia2code.h"
 
-1447295233 source:r:\06 - c++\dia2codeperso\dia2code.c
+1447857244 source:r:\06 - c++\dia2codeperso\dia2code.c
 	"dia2code.h"
 	<errno.h>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<locale.h>
 
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_ada.c
 	"dia2code.h"
@@ -179,7 +183,7 @@
 1404759383 source:r:\06 - c++\dia2codeperso\generate_code_c.c
 	"dia2code.h"
 
-1447848842 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
+1447850732 source:r:\06 - c++\dia2codeperso\generate_code_cpp.c
 	"dia2code.h"
 	"decls.h"
 	"includes.h"
@@ -241,8 +245,11 @@
 	"dia2code.h"
 	"source_parser.h"
 
-1447750439 source:r:\06 - c++\dia2codeperso\main.c
+1447855337 source:r:\06 - c++\dia2codeperso\main.c
 	"dia2code.h"
 	"code_generators.h"
 	"parse_diagram.h"
+	<windows.h>
+	<stdio.h>
+	<locale.h>
 

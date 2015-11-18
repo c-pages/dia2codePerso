@@ -315,6 +315,8 @@ int d2c_backup(char *filename);
 void d2c_log( int level, char * msg );
 
 #define TAG fprintf(stderr, "%s %d\n", __FILE__, __LINE__);
+//#define TAG fwprintf(stderr, "%s %d\n", __FILE__, __LINE__);
+//#define TAG wprintf(stderr, "%s %d\n", 233, , __FILE__, __LINE__);
 #define eq  !strcmp
 
 struct param_list

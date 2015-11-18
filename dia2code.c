@@ -18,6 +18,14 @@
 #include "dia2code.h"
 #include <errno.h>
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+
+#include <locale.h>
+
+
+
 char * d2c_indentstring = "   ";
 int d2c_indentposition = 0;
 
@@ -280,18 +288,79 @@ char *spc()
 
 FILE *spec = NULL, *body = NULL;
 
+char* remplacer(const char *str, const char *oldstr,
+                const char *newstr, int *count)
+{
+   const char *tmp = str;
+   char *result;
+   int   found = 0;
+   int   length, reslen;
+   int   oldlen = strlen(oldstr);
+   int   newlen = strlen(newstr);
+   int   limit = (count != NULL && *count > 0) ? *count : -1;
+
+   /* Compte le nombre de fois que la chaine originale est trouvée */
+   while ((tmp = strstr(tmp, oldstr)) != NULL && found != limit)
+      found++, tmp += oldlen; /* Reprend après la chaine trouvée */
+
+   /* Calcule l'espace mémoire nécessaire pour la nouvelle chaine */
+   length = strlen(str) + found * (newlen - oldlen);
+   if ( (result = (char *)malloc(length+1)) == NULL) {
+      fprintf(stderr, "Not enough memory\n");
+      found = -1;
+   } else {
+      tmp = str;
+      limit = found; /* Compteur à rebours */
+      reslen = 0;  /* longueur en cours du résultat */
+      /* Pour chaque sous-chaine trouvée, on met celle de remplacement */
+      while ((limit-- > 0) && (tmp = strstr(tmp, oldstr)) != NULL) {
+         length = (tmp - str); /* Nombre de caractères inchangés */
+         strncpy(result + reslen, str, length); /* Copie partie inchangée */
+         strcpy(result + (reslen += length), newstr); /* Ajoute newstr */
+         reslen += newlen;
+         tmp += oldlen;
+         str = tmp;
+      }
+      strcpy(result + reslen, str); /* Ajoute fin de la chaine inchangée */
+   }
+   if (count != NULL) *count = found;
+//   printf ( "RESULTAT REMPLACEMENT : %s\n", result );
+   return result;
+}
+
+const char *  cleanAccents ( char* txt )
+{
+    txt = remplacer( txt , "Ã©", "é" , NULL);
+    txt = remplacer( txt , "Ã¨", "è" , NULL);
+
+    txt = remplacer( txt , "Ã ", "à" , NULL);
+    txt = remplacer( txt , "Ã§", "ç" , NULL);
+    txt = remplacer( txt , "Ã´", "ô" , NULL);
+
+    txt = remplacer( txt , "Ã¢", "â" , NULL);
+    txt = remplacer( txt , "Ãª", "ê" , NULL);
+    return txt;
+}
+
 /* Auxiliary define for the emit/print functions  */
 #define var_arg_to_str(first_arg) \
     va_list vargu; \
     char str[LARGE_BUFFER]; \
     va_start (vargu, first_arg); \
-    vsnprintf (str, LARGE_BUFFER, first_arg, vargu); \
+    vsnprintf (str, LARGE_BUFFER, first_arg, vargu  ); \
     va_end (vargu)
+
 
 void emit (char *msg, ...)
 {
+
+    setlocale (LC_ALL,"");
+
     var_arg_to_str (msg);
-    fputs (str, spec);
+
+    char * txtAvecAccents = cleanAccents ( str );
+//    CharToOem ( str, spec );
+    fputs ( txtAvecAccents , spec);
 }
 
 void ebody (char *msg, ...)
@@ -309,12 +378,28 @@ void eboth (char *msg, ...)
         fputs (str, body);
 }
 
-
 void print (char *msg, ...)
 {
+
+    setlocale (LC_ALL,"");
+
     var_arg_to_str (msg);
-    fprintf (spec, "%s%s", spc(), str);
+
+    char * txtAvecAccents = cleanAccents ( str );
+
+//    printf ( "%s" ,txtAvecAccents );
+//    CharToOem ( str, spec );
+    fprintf (spec, "%s%s", spc(),  txtAvecAccents  );
 }
+
+void printBACK (char *msg, ...)
+{
+    setlocale (LC_ALL,"");
+
+    var_arg_to_str (msg);
+    fwprintf (spec, "%s%s", spc(), str);
+}
+
 
 void pbody (char *msg, ...)
 {

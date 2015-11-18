@@ -19,6 +19,11 @@
 #include "code_generators.h"
 #include "parse_diagram.h"
 
+
+#include <windows.h>
+#include <stdio.h>
+#include <locale.h>
+
 int process_initialization_file(char *filename, int exit_if_not_found);
 
 #define DEFAULT_TARGET 0
@@ -70,6 +75,7 @@ int bOpenBraceOnNewline = 1; /* This should also be a command-line parameter */
 int main(int argc, char **argv) {
 
 
+    setlocale (LC_ALL,"");
 
 
     int i;
@@ -339,7 +345,7 @@ parameter = -1;   /* error */
     param_list_destroy();
 
 
-    printf ("Creation CPP reussi, ");
+    printf ("Création CPP réussi, ");
     system("pause");
 
 
@@ -437,6 +443,9 @@ void parse_command(char *name, char *value)
 
 int process_initialization_file(char *filename, int exit_if_not_found)
 {
+
+    setlocale (LC_ALL,"");
+
     FILE *f = fopen(filename, "r");
     int line = 0;
     int slen;
