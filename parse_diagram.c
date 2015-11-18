@@ -612,7 +612,7 @@ void lolipop_implementation(umlclasslist classlist, xmlNodePtr object) {
         popo->next = NULL;
         sprintf(popo->key->id, "00");
         sscanf(name, sscanfmt(), popo->key->name);
-        sprintf(popo->key->stereotype, "popo");
+        sprintf(popo->key->stereotype, "Interface");
         popo->key->isabstract = 1;
         popo->key->attributes = NULL;
         popo->key->operations = NULL;
@@ -830,44 +830,6 @@ umlclasslist parse_diagram(char *diafile) {
                 if ( classlist == NULL ) {
                     classlist = endlist = tmplist;
                 } else {
-
-//
-//
-////                    ///////////// mon bordel |--> /////////////
-//    classlistTest = classlist;
-//    while ( classlistTest != NULL ) {
-//
-//
-//                printf ( "  01 - PARSE : classlistTest : %s\n", classlistTest->key->name );
-//
-//                if ( eq ( classlistTest->key->name        , tmplist->key->name       )
-//                &&   eq ( classlistTest->key->stereotype  , tmplist->key->stereotype ) ){
-//                    printf( "  -> memeNom et meme stereo\n" );
-//                    printf( "   On compare les attributs et memeNom et meme stereo\n" );
-//                }
-//            /*
-//        umlpackagelist tmppcklist = packagelist;
-//        while ( tmppcklist != NULL ) {
-//            if ( is_inside(&dummypcklist->key->geom, &tmppcklist->key->geom) ) {
-//                if ( tmppcklist->key->parent == NULL ) {
-//                    tmppcklist->key->parent = dummypcklist->key;
-//                } else {
-//                    if ( ! is_inside ( &dummypcklist->key->geom, &tmppcklist->key->parent->geom ) ) {
-//                        tmppcklist->key->parent = dummypcklist->key;
-//                    }
-//                }
-//            }
-//            tmppcklist = tmppcklist->next;
-//        }*/
-//        classlistTest = classlistTest->next;
-//    }
-////                    ///////////// <--| mon bordel /////////////
-
-
-
-
-
-
 
                     endlist->next = tmplist;
                     endlist = tmplist;
