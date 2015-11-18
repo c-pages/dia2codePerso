@@ -815,7 +815,7 @@ umlclasslist parse_diagram(char *diafile) {
             umlclasslist tmplist = parse_class(object);
             if (tmplist != NULL) {
 
-                printf ( "00 - PARSE : Class : %s --------------------\n", tmplist->key->name);
+//                printf ( "00 - PARSE : Class : %s --------------------\n", tmplist->key->name);
 
 
                 /* We get the ID of the object here*/
