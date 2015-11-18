@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Release" />
-	<File name="generate_code_cpp.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="generate_code_cpp.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="45736" topLine="1278" />
 		</Cursor>
@@ -12,12 +12,12 @@
 			<Collapse line="1369" />
 		</Folding>
 	</File>
-	<File name="generate_code_php_five.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="generate_code_php_five.c" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="5350" topLine="151" />
 		</Cursor>
 	</File>
-	<File name="dia2code.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="dia2code.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="15994" topLine="605" />
 		</Cursor>
@@ -47,7 +47,7 @@
 			<Cursor1 position="998" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="9849" topLine="220" />
 		</Cursor>
@@ -56,9 +56,6 @@
 		<Cursor>
 			<Cursor1 position="4969" topLine="130" />
 		</Cursor>
-		<Folding>
-			<Collapse line="674" />
-		</Folding>
 	</File>
 	<File name="parse_diagram.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -75,9 +72,9 @@
 			<Cursor1 position="6233" topLine="161" />
 		</Cursor>
 	</File>
-	<File name="decls.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="decls.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3480" topLine="115" />
+			<Cursor1 position="3137" topLine="101" />
 		</Cursor>
 	</File>
 	<File name="generate_code_python.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -85,12 +82,12 @@
 			<Cursor1 position="7396" topLine="150" />
 		</Cursor>
 	</File>
-	<File name="decls.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="decls.h" open="1" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="892" topLine="0" />
+			<Cursor1 position="1457" topLine="17" />
 		</Cursor>
 	</File>
-	<File name="dia2code.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="dia2code.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4794" topLine="76" />
 		</Cursor>

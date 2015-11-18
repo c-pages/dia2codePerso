@@ -3,6 +3,14 @@
 declaration *decls = NULL;
 static namelist tmp_classes = NULL;
 
+static char *sscanfmt()
+{
+    static char buf[16];
+    sprintf (buf, "#%%%d[^#]#", SMALL_BUFFER - 1);
+    return buf;
+}
+
+
 int use_corba = 0;
 
 module *
@@ -121,6 +129,153 @@ append_decl (declaration *d)
     return d;
 }
 
+
+
+ void   mergeAttributs( umlclassnode * classDest, umlclassnode * classACopier ){
+
+    //////// MERGE ATTRIBUTS /////////
+    umlattrlist listeDest = classDest->key->attributes;
+    umlattrlist listACopier = classACopier->key->attributes;
+
+//    printf ( "\n    ----- mergeAttributs ------------\n" );
+    while ( listACopier != NULL ) {
+        int bCopier = 1;
+ //       printf ( "      -----> on cherche  %s?\n",   listACopier->key.name );
+        umlattrlist listDestTemp = listeDest;
+        // on compare les attributs a copier
+        while ( listDestTemp != NULL ) {
+//            printf ( "          ----->  %s?\n",  listDestTemp->key.name  );
+             //  on compare les noms des attributs
+            if (  eq ( listDestTemp->key.name , listACopier->key.name ) ){
+                bCopier = 0;
+            }
+
+            listDestTemp = listDestTemp->next;
+        }
+        if ( bCopier )
+        {
+//            printf( "               -----> on copie : %s dans la dest.\n" ,listACopier->key.name );
+
+            umlattrlist nodeCopy;
+            nodeCopy = NEW (umlattrnode);
+            nodeCopy->key = listACopier->key;
+            nodeCopy->next = classDest->key->attributes;
+            classDest->key->attributes = nodeCopy;
+        }
+//      else      printf( "               -----> attribut deja présent, on continue...\n" );
+
+        listACopier = listACopier->next;
+
+    }
+//    printf ( "  ----- FIN mergeAttributs ------------\n\n" );
+
+
+}
+
+
+ void   mergeOperations( umlclassnode * classDest, umlclassnode * classACopier ){
+
+    //////// MERGE OPERATIONS /////////
+    umloplist listeOpDest = classDest->key->operations;
+    umloplist listOpACopier = classACopier->key->operations;
+
+  //  printf ( "\n    ----- mergeOperations ------------\n" );
+    while ( listOpACopier != NULL ) {
+        int bCopier = 1;
+   //     printf ( "      -----> on cherche  %s?\n",   listOpACopier->key.attr.name );
+        umloplist listDestTemp = listeOpDest;
+        // on compare les attributs a copier
+        while ( listDestTemp != NULL ) {
+   //         printf ( "          ----->  %s?\n",  listDestTemp->key.attr.name );
+            //  on compare les noms des attributs
+            if (  eq ( listDestTemp->key.attr.name , listOpACopier->key.attr.name ) ){
+                bCopier = 0;
+            }
+
+            listDestTemp = listDestTemp->next;
+        }
+        if ( bCopier )
+        {
+   //         printf( "               -----> on copie : %s dans la dest.\n" ,listOpACopier->key.attr.name );
+
+            umloplist nodeCopy;
+            nodeCopy = NEW (umlopnode);
+            nodeCopy->key = listOpACopier->key;
+            nodeCopy->next = classDest->key->operations;
+            classDest->key->operations = nodeCopy;
+
+
+        }
+      //   else   printf( "               -----> attribut deja présent, on continue...\n" );
+
+        listOpACopier = listOpACopier->next;
+
+    }
+//printf ( "  ----- FIN mergeOperations ------------\n\n" );
+
+ }
+
+ void   mergeAssociations( umlclassnode * classDest, umlclassnode * classACopier ){
+
+    //////// MERGE OPERATIONS /////////
+    umlassoclist listeOpDest = classDest->associations;
+    umlassoclist listOpACopier = classACopier->associations;
+    printf ( "\n    ----- mergeAssociations ------------\n" );
+    while ( listOpACopier != NULL ) {
+        int bCopier = 1;
+//        printf ( "      -----> assoc->key->name  %s?\n",   listOpACopier->key->name );
+        printf ( "      -----> assoc->name %s?\n",   listOpACopier->name );
+
+        umlassoclist listDestTemp = listeOpDest;
+        // on compare les attributs a copier
+        while ( listDestTemp != NULL ) {
+            printf ( "          ----->  %s?\n",  listDestTemp->name );
+            //  on compare les noms des attributs
+            if (  eq ( listDestTemp->name , listOpACopier->name ) ){
+                bCopier = 0;
+            }
+
+            listDestTemp = listDestTemp->next;
+        }
+        if ( bCopier )
+        {
+            printf( "               -----> on copie : %s dans la dest.\n" ,listOpACopier->name );
+/*
+            umlassoclist nodeCopy;
+            nodeCopy = NEW (umlassocnode);
+            nodeCopy->key = listOpACopier;
+            nodeCopy->next = classDest->associations;
+            classDest->associations = nodeCopy;
+
+            */
+            umlassoclist tmp;
+            tmp = NEW (umlassocnode);
+            if (listOpACopier->name != NULL)
+                sscanf(listOpACopier->name, "%s"/*sscanfmt()*/, tmp->name);
+            printf( "               -----> tmp->name :%s\n" ,tmp->name );
+            if (listOpACopier->multiplicity != NULL)
+                sscanf(listOpACopier->multiplicity, sscanfmt(), tmp->multiplicity);
+            else
+                sprintf(tmp->multiplicity, "1");
+
+            tmp->key = listOpACopier->key;
+            tmp->composite = listOpACopier->composite;
+            tmp->visibility = listOpACopier->visibility;
+
+
+            tmp->next = classDest->associations;
+            classDest->associations = tmp;
+
+            //listOpACopier->
+        } else
+            printf( "               -----> association deja présent, on continue...\n" );
+
+        listOpACopier = listOpACopier->next;
+
+    }
+    printf ( "  ----- FIN mergeAssociations ------------\n\n" );
+
+ }
 void
 push (umlclassnode *node, batch *b)
 {
@@ -129,15 +284,30 @@ push (umlclassnode *node, batch *b)
     declaration *d;
     namelist l_tmp;
 
-    if (node == NULL || find_class (node) != NULL) {
+    if (node == NULL ) {
         return;
     }
+
+    declaration * dClassExistant = find_class (node);
+    if ( dClassExistant != NULL) {
+        // j'ajoute les attributs, operations, assoc...
+
+        mergeAttributs ( dClassExistant->u.this_class , node );
+        mergeOperations ( dClassExistant->u.this_class , node );
+        mergeAssociations ( dClassExistant->u.this_class , node );
+
+        return;
+    }
+
+
+
+
 
     l_tmp = NEW (namenode);
     l_tmp->name = strdup (node->key->name);
     l_tmp->next = tmp_classes;
     tmp_classes = l_tmp;
-    
+
     used_classes = list_classes (node, b);
     /* Make sure all classes that this one depends on are already pushed. */
     tmpnode = used_classes;
