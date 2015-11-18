@@ -1328,235 +1328,118 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
 }
 
 
-void
-mergedAttributs ( umlattrlist attrListDest ,  umlattrlist  attrListSource ){
-
-    printf ( "MERGE PARAM-------------- 1\n");
-//    umlattrlist  attrListSource = nodeSource->attributes;
-    umlattrlist  attrListDestTEMP   = NULL;
-/*
-//
-//
-///////////////// copie des attributs//////////////
-//    if ( nodeSource->attributes != NULL ) {
-////        if ( nodeSource->attributes->key.visibility <= nodeDest->attributes->key.visibility ) {
-//            nodeSource->attributes->next = insert_attribute(nodeDest->attributes, nodeSource->attributes->next);
-////            return l;
-////        } else {
-////            nodeDest->attributes->next = nodeSource->attributes;
-//     //       return n;
-////        }
-////    } else {
-//      //  return n;
-//    }
-//
-//
-///////////////// copie des attributs//////////////
-//    if ( nodeSource->operations != NULL ) {
-//   //     if ( nodeSource->operations->key.visibility <= nodeDest->operations->key.visibility ) {
-//            nodeSource->operations->next = insert_attribute(nodeDest->operations, nodeSource->operations->next);
-////            return l;
-//  //      } else {
-//   //         nodeDest->operations->next = nodeSource->operations;
-//     //       return n;
-//   //     }
-//   // } else {
-//      //  return n;
-//    }
-
-*/
-
-
-/*
-
-//    while ( attrListSource != NULL ) {
-//        umlattrlist tmp;
-//        tmp = NEW (umlattrnode);
-//        tmp->key = attrListSource->key;
-//        tmp->next = nodeDest->attributes;
-//        nodeDest->attributes = tmp;
-//        // suivant
-//        free( tmp);
-//        attrListSource=attrListSource->next;
-//    }
-*/
-
-
-/////////////// copie des attributs//////////////
-    while ( attrListSource != NULL ) {
-        umlattrlist tmp;
-        tmp = NEW (umlattrnode);
-        tmp->key = attrListSource->key;
-        tmp->next = attrListDestTEMP;
-        attrListDestTEMP = tmp;
-        attrListSource=attrListSource->next;
+ void   listerAttributs( umlattrlist liste )
+ {
+    // pour chaque attributs à copier
+    printf ( "------------------\n" );
+    while ( liste != NULL ) {
+        printf ( "  #  Attr : %s\n", liste->key.name );
+        liste = liste->next;
     }
-   // return attrListDestTEMP;
+    printf ( "------------------\n" );
+ }
 
-    attrListDest->next = attrListDestTEMP;
-
-    printf ( "--------MERGE RESULT  -------------------------------------\n");
-    while ( attrListDestTEMP != NULL ) {
-        printf ( "      ----------%s\n", attrListDestTEMP->key.name );
-        attrListDestTEMP=attrListDestTEMP->next;
-    }
-    printf ( "--------MERGE RESULT  -------------------------------------\n");
-
-
-
-    printf ( "--------attrListDest->attributes RESULT  -------------------------------------\n");
-    while ( attrListDest != NULL ) {
-        printf ( "      ----------%s\n", attrListDest->key.name );
-        attrListDest=attrListDest->next;
-    }
-    printf ( "--------attrListDest->attributes RESULT  -------------------------------------\n");
-///////////////////////////////
-
-//
-//
-// /*   while ( attrListDest != NULL ) {
-//
-////
-////    umlattrlist tmp;
-////    tmp = NEW (umlattrnode);
-////    tmp->key = attrListDest->key;
-////    tmp->next = attrListRESULT;
-////    attrListRESULT->key = tmp->key;
-//
-//
-//
-//
-////        umlattrlist tmp;
-////        tmp = NEW (umlattrnode);
-////        tmp->key = attrListDest->key;
-////        tmp->next = attrListDest;
-////
-////        attrListRESULT->key = tmp->key;
-////        attrListRESULT->next = tmp;
-//
-////        tmp->next = attrListRESULT->parents;
-////        attrListRESULT->parents = tmp;
-//
-//
-//        attrListDest = attrListDest->next;
-//    }*/
-//
-//    printf ( "MERGE RESULTAT--------------------------------------\n");
-//    umlattrlist  attrListAffiche  = attrListRESULT;
-//    while ( attrListAffiche != NULL ) {
-//        printf ( "MERGE attrListAffiche ----------%s\n", attrListAffiche->key.name );
-//        attrListAffiche=attrListAffiche->next;
-//    }
-//    printf ( "MERGE RESULTAT-------------------------------------\n" );
-////    printf ( "MERGE PARAM-FIN----------\n\n", attrList->key.name );
-///*
-//    while ( attrList != NULL ) {
-//
-//        printf ( " MERGE PARAM source -> %s\n", attrList->key.name );
-//
-//        attrListDest = nodeDest->attributes;
-//
-//        int bExisteDsDest = 0;
-//        while ( attrListDest != NULL ) {
-//
-//            printf ( " MERGE PARAM dest -> %s\n", attrListDest->key.name );
-//            if ( ! eq ( attrListDest->key.name , attrList->key.name ))
-//            {
-//
-//                printf ( "          copie de l'attribut :%s\n" , attrList->key.name );
-//
-//
-//
-//
-//
-//
-//                //////// copie de l'attribut ////////////////
-//                umlattrnode * tmpNode;
-//                tmpNode = NEW (umlattrnode);
-//
-//                if (attrList->key.name  != NULL && strlen (attrList->key.name ) > 2 )
-//                    sscanf(attrList->key.name , sscanfmt(), tmpNode->key.name);
-//
-//                if (attrList->key.comment != NULL && strlen (attrList->key.comment ) > 0 )
-//                    sscanf(attrList->key.comment, sscanfmt(), tmpNode->key.comment );
-//
-//                nodeDest->attributes->next = tmpNode;
-//                nodeDest->attributes = tmpNode;
-//
-//
-//
-//            }
-//
-//            attrListDest = attrListDest->next;
-//        }
-//
-//        if ( bExisteDsDest )
-//            printf ( "          param existant.\n");
-//        else {
-//
-//
-//
-//        }
-//
-//
-//        attrList = attrList->next;
-//    }
-//
-//    ///// les associations //////
-//
-//    ///// les methodes //////
-//
-//
-//
-//    while ( attrList != NULL ) {
-//        printf ( "MERGE PARAM-FIN----------\n\n", attrList->key.name );
-//        attrList=attrList->next;
-//    }
-//    printf ( "MERGE PARAM-FIN----------\n\n", attrList->key.name );
-//    */
-}
-
-
-
- void   mergeAttributs()
+ void   mergeAttributs( umlclass * classDest, umlclass * classACopier )
 {
 
-                    // pour chaque attributs de la classe en cours
-                    while ( listeTEMPClasses->key->attributes != NULL ) {
-                        j++;
-                        umlattrlist listeTEMP = NULL;
+    umlattrlist listeDest = classDest->attributes;
+    umlattrlist listACopier = classACopier->attributes;
+    umlattrlist listTemp = NULL;
+//    umlattrlist listDestTemp ;
 
-                        // on compare les attributs
-                        while ( listeClasses->key->attributes != NULL ) {
-                            printf ( "    j: %d -> listeClasses : %s\n", j,  listeClasses->key->name );
+    printf ( "\n    ----- mergeAttributs ------------\n" );
 
-                             // si on compare la classe avec elle meme, on passe
-                            if ( eq ( listeTEMPClasses->key->attributes->key.name , listeClasses->key->attributes->key.name ) ){
-                                printf( "       -> c'est une seule et meme classe\n" );
-                                listeTEMPClasses=listeTEMPClasses->next;
-                                continue;
-                            }
+    // pour chaque attributs à copier
+    while ( listACopier != NULL ) {
+        int bCopier = 1;
+        printf ( "      -----> on cherche  %s?\n",   listACopier->key.name );
+        umlattrlist listDestTemp = listeDest;
+        // on compare les attributs a copier
+        while ( listDestTemp != NULL ) {
+            printf ( "          ----->  %s?\n",  listDestTemp->key.name  );
 
-                            if ( eq ( listeTEMPClasses->key->attributes->key.name        , listeClasses->key->attributes->key.name       ) )
-                            {
+             //  on compare les noms des attributs
+            if (  eq ( listDestTemp->key.name , listACopier->key.name ) ){
+               // listACopier=listACopier->next;
+              //  continue;
+                bCopier = 0;
+            }
+            // sinon on ajoute l'attibut
+            else {
+            }
 
 
-            //                    printf( "       -----> on a nodes meme nom, meme stereotype\n" );
-                                printf( "       -----> on ajoute les parametres du second au premier\n\n" );
-            //                    umlattrnode nodeCopy =  new ( umlattrnode )
-                                umlattrlist nodeCopy;
-                                nodeCopy = NEW (umlattrnode);
-                                nodeCopy->key = listeTEMPClasses->key->attributes->key;
-                                nodeCopy->next = listeTEMP;
-                                listeTEMP = nodeCopy;
-                            }
-                            listeClasses->key->attributes = listeClasses->key->attributes->next;
-                        }
+            listDestTemp = listDestTemp->next;
+        }
+        if ( bCopier )
+        {
+            printf( "               -----> on copie : %s dans la dest.\n" ,listACopier->key.name );
 
-                       // listeClasses->key->attributes->next = listeTEMP;
-                        listeTEMPClasses->key->attributes = listeTEMPClasses->key->attributes->next;
+            umlattrlist nodeCopy;
+            nodeCopy = NEW (umlattrnode);
+            nodeCopy->key = listACopier->key;
+            nodeCopy->next = classDest->attributes;
+            classDest->attributes = nodeCopy;
+        } else
+            printf( "               -----> attribut deja présent, on continue...\n" );
 
-                    }
+
+
+        listACopier = listACopier->next;
+
+    }
+    /*
+    // pour chaque attributs de la classe destination
+    while ( listDestTemp != NULL ) {
+
+        // on compare les attributs a copier
+        while ( listACopier != NULL ) {
+            printf ( "      -----> %s == %s?\n",  listDestTemp->key.name ,  listACopier->key.name );
+
+             //  on compare les noms des attributs
+            if ( eq ( listDestTemp->key.name , listACopier->key.name ) ){
+                printf( "       -----> attribut existant dans la dest\n" );
+               // listACopier=listACopier->next;
+              //  continue;
+            }
+            // sinon on ajoute l'attibut
+            else {
+
+                printf( "           -----> on copie l'attibut dans la dest: %s\n" );
+
+                umlattrlist nodeCopy;
+                nodeCopy = NEW (umlattrnode);
+                nodeCopy->key = listACopier->key;
+                nodeCopy->next = listTemp;
+                listTemp = nodeCopy;
+            }
+            listACopier = listACopier->next;
+        }
+
+        listDestTemp = listDestTemp->next;
+
+    }
+    */
+    printf ( "  ----- FIN mergeAttributs ------------\n" );
+
+
+
+    umlattrlist listREsult = listTemp;
+    // on ajoute les attibuts trouvé dans la liste de destination
+
+/*
+    umlattrlist nodeCopy;
+    nodeCopy = NEW (umlattrnode);
+    nodeCopy->key = listACopier->key;
+    nodeCopy->next = listTemp;
+    listTemp = nodeCopy;
+    */
+
+   // classDest->attributes = listREsult;
+
+    printf ( "\n" );
+    //printf ( "----- FIN 2 mergeAttributs ------------\n\n" );
+
 }
 
 
@@ -1624,155 +1507,372 @@ generate_code_cpp (batch *b)
     listeClasses = b->classlist;
     umlclasslist    listeClassesResult = NULL;
 
-    umlclasslist tmplistRESULT = NULL, endlist = NULL;;
+    umlclasslist listClassesClean = NULL, endlist = NULL;;
+
     int i = 0;
+
+    //on creer une liste de classes unique ( au nom unique)
     // pour chaque classe du global
     while ( listeClasses != NULL ) {
             i++;
 
-//            if (i==1)
-//                listeClassesResult->next = listeClasses->key;
 
 
-            printf ( "  -> i: %d test doublons : %s\n", i, listeClasses->key->name );
+            //on regarde si la classe existe dans la liste de resulats
+            int testPresent = 0;
+            umlclasslist listeTEMPClasses = listClassesClean;
 
-            int testDoublons = 0;
-            int j =0;
-            umlclasslist listeTEMPClasses = listeClasses;
-
-            // on compart avec les autre classe chaque classe
+            // on compare avec les classes qu'on a deja ajouté a la classe
             while ( listeTEMPClasses != NULL ) {
-                j++;
+                // si on a deux classes avec le mme nom on quite
+                if ( eq ( listeTEMPClasses->key->name        , listeClasses->key->name )){
+                    testPresent = 1;
+                    printf( "       ---> c'est elle même, on continue\n" );
 
-                printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
-
-                 // si on a egalité avec  la classe avec elle meme, on passe
-                if ( listeTEMPClasses->key  == listeClasses->key ){
-                    printf( "       -> c'est une seule et meme classe\n" );
-                    listeTEMPClasses=listeTEMPClasses->next;
-                    continue;
+                    break;
                 }
 
-                // si meme nom de classe et de stereotype
-                if ( eq ( listeTEMPClasses->key->name        , listeClasses->key->name       )
-                &&   eq ( listeTEMPClasses->key->stereotype  , listeClasses->key->stereotype ) )
-                {
-
-
-
-                    // pour chaque attributs de la classe en cours
-                    while ( listeTEMPClasses->key->attributes != NULL ) {
-                        j++;
-                        umlattrlist listeTEMP = NULL;
-
-                        // on compare les attributs
-                        while ( listeClasses->key->attributes != NULL ) {
-                            printf ( "    j: %d -> listeClasses : %s\n", j,  listeClasses->key->name );
-
-                             // si on compare la classe avec elle meme, on passe
-                            if ( eq ( listeTEMPClasses->key->attributes->key.name , listeClasses->key->attributes->key.name ) ){
-                                printf( "       -> c'est une seule et meme classe\n" );
-                                listeTEMPClasses=listeTEMPClasses->next;
-                                continue;
-                            }
-
-                            if ( eq ( listeTEMPClasses->key->attributes->key.name        , listeClasses->key->attributes->key.name       ) )
-                            {
-
-
-            //                    printf( "       -----> on a nodes meme nom, meme stereotype\n" );
-                                printf( "       -----> on ajoute les parametres du second au premier\n\n" );
-            //                    umlattrnode nodeCopy =  new ( umlattrnode )
-                                umlattrlist nodeCopy;
-                                nodeCopy = NEW (umlattrnode);
-                                nodeCopy->key = listeTEMPClasses->key->attributes->key;
-                                nodeCopy->next = listeTEMP;
-                                listeTEMP = nodeCopy;
-                            }
-                            listeClasses->key->attributes = listeClasses->key->attributes->next;
-                        }
-
-                       // listeClasses->key->attributes->next = listeTEMP;
-                        listeTEMPClasses->key->attributes = listeTEMPClasses->key->attributes->next;
-
-                    }
-
-
-
-
-                   // attrListSource=attrListSource->next;
-
-
-                    //  on a nodes meme nom, meme stereotype
-                    //  => on ajoute les parametres du second au premier
-
-                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
-                    mergeAttributs ( listeClasses->key->attributes , listeTEMPClasses->key->attributes );
-
-                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
-//                    /////////////// copie des attributs//////////////
-//                    if ( nodeSource->attributes != NULL )
-//                        nodeSource->attributes->next = insert_attribute(nodeDest->attributes, nodeSource->attributes->next);
-//
-//
-//
-//                    /////////////// copie des operation//////////////
-//                    if ( nodeSource->operations != NULL )
-//                        nodeSource->operations->next = insert_attribute(nodeDest->operations, nodeSource->operations->next);
-
-
-
-                    testDoublons = 1;
-
-
-                }
-
-                listeTEMPClasses = listeTEMPClasses->next;
+                listeTEMPClasses=listeTEMPClasses->next;
             }
-                if ( ! testDoublons )
-                {
-                    printf( "           -----> pas de doublons, on ajoute dans la liste\n\n" );
-                       //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
-//                    mergedAttributs ( listeClasses->key->attributes , listeTEMPClasses->key->attributes );
-                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
-                   /* // on ajoute la classe dans tmplistRESULT
-                    umlclasslist tmp;
-                    tmp = NEW (umlclassnode);
-                    tmp->key = listeClasses->key;
+            // si on a pas trouvé de classe homonyme ou ajoute la classe
+            if ( ! testPresent)
+            {
+                umlclasslist nodeCopy;
+                nodeCopy = NEW (umlclassnode);
+                nodeCopy->key = listeClasses->key;
+                nodeCopy->next = listClassesClean;
+                listClassesClean = nodeCopy;
 
-                    // We insert it here
-                    if ( tmplistRESULT == NULL ) {
-                        tmplistRESULT = endlist = tmp;
-                    } else {
-                        endlist->next = tmp;
-                        endlist = tmp;
-                    }*/
+//                listClassesClean->key = listeClasses;
+            }
+        listeClasses = listeClasses->next;
+    }
+
+
+
+
+
+    umlclasslist    listeParseClassClean = listClassesClean;
+
+    listeClasses = b->classlist;
+/*
+
+    // pour chaques classes du dia
+    // on va merger les attributs, operations... dans la liste de classes uniques
+    i =0;
+    while ( listeClasses != NULL ) {
+
+        i++;
+
+        printf ( "---> (%d) rechercher les classes se nommant : %s\n", i, listeClasses->key->name );
+
+        int testDoublons = 0;
+        int j =0;
+        //umlclasslist listeTEMPClasses = listClassesClean;
+        listeParseClassClean = listClassesClean;
+
+        // on cherche les classes differentes mais meme nom
+        while ( listeParseClassClean != NULL ) {
+            j++;
+            printf ( "  ---> %d: %s et %s ?\n", j, listeClasses->key->name , listeParseClassClean->key->name );
+
+            //printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
+
+            // si on a egalité avec  la classe avec elle meme, on passe
+            if ( listeParseClassClean->key  == listeClasses->key ){
+               // testPresent = 1;
+                printf( "       ---> c'est elle même, on continue\n" );
+//                listeParseClassClean=listeParseClassClean->next;
+//                continue;
+            } else {
+                if ( eq ( listeParseClassClean->key->name , listeClasses->key->name ) )
+                {
+                    printf( "       ---> meme nom, on merge\n" );
+                    //////////// Merge les parametres du second dans le premier //////////////////////////
+                    mergeAttributs ( listeParseClassClean->key->attributes , listeClasses->key->attributes );
+                    //////////// Merge les parametres du second dans le premier //////////////////////////
 
                 }
 
-//      }
-
+            }
+            listeParseClassClean = listeParseClassClean->next;
+        }
+        listClassesClean = listeParseClassClean;
         listeClasses = listeClasses->next;
-
     }
 
+*/
+
+//    umlclasslist    listeClassesResult2 ;
+//
+//    listeClassesResult2 = listClassesClean;
 
 
 
-    printf( "|-------------> listeClasses\n" );
+
+
+
+
+
+
+    umlclasslist    listeAFFICHE = listClassesClean;
+
+    printf( "\n|-------------> LES CLASSES CLEAN\n" );
+    while ( listeAFFICHE != NULL ) {
+        printf ( "  %s\n", listeAFFICHE->key->name );
+//        while ( listeAFFICHE->key->attributes != NULL ) {
+//            printf ( "      attributes : %s\n", listeAFFICHE->key->attributes->key.name );
+//            listeAFFICHE->key->attributes = listeAFFICHE->key->attributes->next;
+//        }
+//        while ( listeAFFICHE->key->operations != NULL ) {
+//            printf ( "      operations : %s\n", listeAFFICHE->key->name );
+//            listeAFFICHE->key->operations = listeAFFICHE->key->operations->next;
+//        }
+        listeAFFICHE = listeAFFICHE->next;
+    }
+    printf( "|-------------> LES CLASSES CLEAN\n\n" );
+
+
+
+    umlclasslist    listeAttrClean = listClassesClean;
+
+
+
+
+
+
+
+
+        listeParseClassClean = listeAttrClean;
+
+    // pour chaques classes du dia
+    // on va merger les attributs, operations... dans la liste de classes uniques
+    i =0;
     while ( listeClasses != NULL ) {
-        printf ( "  classe : %s\n", listeClasses->key->name );
-        while ( listeClasses->key->attributes != NULL ) {
-            printf ( "      attributes : %s\n", listeClasses->key->attributes->key.name );
-            listeClasses->key->attributes = listeClasses->key->attributes->next;
+
+        i++;
+
+        printf ( "---> (%d) rechercher les classes se nommant : %s\n", i, listeClasses->key->name );
+
+        int testDoublons = 0;
+        int j =0;
+        //umlclasslist listeTEMPClasses = listClassesClean;
+        umlclasslist listeTEMPClasses = listeAttrClean;
+        // on cherche les classes differentes mais meme nom
+        while ( listeTEMPClasses != NULL ) {
+            j++;
+            printf ( "  ---> %d: %s et %s ?\n", j, listeClasses->key->name , listeTEMPClasses->key->name );
+
+            //printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
+
+            // si on a egalité avec  la classe avec elle meme, on passe
+            if ( listeTEMPClasses->key  == listeClasses->key ){
+               // testPresent = 1;
+                printf( "       ---> c'est elle même, on continue\n" );
+//                listeParseClassClean=listeParseClassClean->next;
+//                continue;
+            } else {
+                if ( eq ( listeTEMPClasses->key->name , listeClasses->key->name ) )
+                {
+                    printf( "       ---> meme nom, on merge\n" );
+                    listerAttributs ( listeTEMPClasses->key->attributes );
+                    //////////// Merge les parametres du second dans le premier //////////////////////////
+                    mergeAttributs ( listeTEMPClasses->key , listeClasses->key );
+                    //////////// Merge les parametres du second dans le premier //////////////////////////
+                    listerAttributs ( listeTEMPClasses->key->attributes );
+                }
+            }
+            listeTEMPClasses = listeTEMPClasses->next;
         }
-        while ( listeClasses->key->operations != NULL ) {
-            printf ( "      operations : %s\n", listeClasses->key->name );
-            listeClasses->key->operations = listeClasses->key->operations->next;
-        }
+        listeParseClassClean = listeTEMPClasses;
+        //listeAttrClean = listeParseClassClean;
         listeClasses = listeClasses->next;
     }
-    printf( "|-------------> listeClasses\n" );
+
+
+
+
+
+
+
+
+    listeAFFICHE = listeAttrClean;
+
+    printf( "\n|-------------> LES ATTRIBUTS CLEAN\n" );
+    while ( listeAFFICHE != NULL ) {
+        printf ( "  %s\n", listeAFFICHE->key->name );
+        while ( listeAFFICHE->key->attributes != NULL ) {
+            printf ( "      attributes : %s\n", listeAFFICHE->key->attributes->key.name );
+            listeAFFICHE->key->attributes = listeAFFICHE->key->attributes->next;
+        }
+//        while ( listeAFFICHE->key->operations != NULL ) {
+//            printf ( "      operations : %s\n", listeAFFICHE->key->name );
+//            listeAFFICHE->key->operations = listeAFFICHE->key->operations->next;
+//        }
+        listeAFFICHE = listeAFFICHE->next;
+    }
+    printf( "|-------------> LES ATTRIBUTS CLEAN\n\n" );
+
+
+/*
+listeAFFICHE = listeParseClass;
+
+    printf( "\n|-------------> LES ATTRIBUTS CLEAN\n" );
+    while ( listeAFFICHE != NULL ) {
+        printf ( "  %s\n", listeAFFICHE->key->name );
+        while ( tmplistRESULT->key->attributes != NULL ) {
+            printf ( "      attributes : %s\n", tmplistRESULT->key->attributes->key.name );
+            tmplistRESULT->key->attributes = tmplistRESULT->key->attributes->next;
+        }
+//        while ( tmplistRESULT->key->operations != NULL ) {
+//            printf ( "      operations : %s\n", tmplistRESULT->key->name );
+//            tmplistRESULT->key->operations = tmplistRESULT->key->operations->next;
+//        }
+        listeAFFICHE = listeAFFICHE->next;
+    }
+    printf( "|-------------> LES ATTRIBUTS CLEAN\n\n" );
+*/
+
+///*
+//    //tmplistRESULT
+//    umlclasslist    listeClassesResult = NULL;
+//    listeClasses = b->classlist;
+//
+//    while ( listeClasses != NULL ) {
+//    //tmplistRESULT
+//
+//
+//
+//
+//            printf ( "---> %d) rechercher les classes se nommant : %s\n", i, tmplistRESULT->key->name );
+//
+//            int testDoublons = 0;
+//            int j =0;
+//            umlclasslist listeTEMPClasses = tmplistRESULT;
+//
+//            // on compare avec les autre classe chaque classe
+//            while ( listeTEMPClasses != NULL ) {
+//                j++;
+//                printf ( "  ---> %d) %s ?\n", j, tmplistRESULT->key->name );
+//
+////                printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
+//
+//                // si on a egalité avec  la classe avec elle meme, on passe
+//                if ( listeTEMPClasses->key  == tmplistRESULT->key ){
+//                    testPresent = 1;
+//                    printf( "       ---> c'est elle même, on continue\n" );
+//                    listeTEMPClasses=listeTEMPClasses->next;
+//                    continue;
+//                }
+//
+//                // si meme nom de classe et de stereotype
+//                if ( eq ( listeTEMPClasses->key->name        , tmplistRESULT->key->name       )
+//                &&   eq ( listeTEMPClasses->key->stereotype  , tmplistRESULT->key->stereotype ) )
+//                {
+//                    testPresent = 1;
+//
+//                    printf( "       ---> c'est une autre classe avec le mm nom, => on merge\n" );
+//
+//
+//                    // pour chaque attributs de la classe en cours
+//                    while ( listeTEMPClasses->key->attributes != NULL ) {
+//                        j++;
+//                        umlattrlist listeTEMP = NULL;
+//
+//                        // on compare les attributs
+//                        while ( listeClasses->key->attributes != NULL ) {
+//                            printf ( "    j: %d -> listeClasses : %s\n", j,  listeClasses->key->name );
+//
+//                             // si on compare la classe avec elle meme, on passe
+//                            if ( eq ( listeTEMPClasses->key->attributes->key.name , listeClasses->key->attributes->key.name ) ){
+//                                printf( "       -> c'est une seule et meme classe\n" );
+//                                listeTEMPClasses=listeTEMPClasses->next;
+//                                continue;
+//                            }
+//
+//                            if ( eq ( listeTEMPClasses->key->attributes->key.name        , listeClasses->key->attributes->key.name       ) )
+//                            {
+//
+//
+//            //                    printf( "       -----> on a nodes meme nom, meme stereotype\n" );
+//                                printf( "       -----> on ajoute les parametres du second au premier\n\n" );
+//            //                    umlattrnode nodeCopy =  new ( umlattrnode )
+//                                umlattrlist nodeCopy;
+//                                nodeCopy = NEW (umlattrnode);
+//                                nodeCopy->key = listeTEMPClasses->key->attributes->key;
+//                                nodeCopy->next = listeTEMP;
+//                                listeTEMP = nodeCopy;
+//                            }
+//                            listeClasses->key->attributes = listeClasses->key->attributes->next;
+//                        }
+//
+//                       // listeClasses->key->attributes->next = listeTEMP;
+//                        listeTEMPClasses->key->attributes = listeTEMPClasses->key->attributes->next;
+//
+//                    }
+//*/
+//
+//
+//
+//                   // attrListSource=attrListSource->next;
+//
+//
+//                    //  on a nodes meme nom, meme stereotype
+//                    //  => on ajoute les parametres du second au premier
+//
+//                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
+//                    mergeAttributs ( tmplistRESULT->key->attributes , listeTEMPClasses->key->attributes );
+//
+//                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
+////                    /////////////// copie des attributs//////////////
+////                    if ( nodeSource->attributes != NULL )
+////                        nodeSource->attributes->next = insert_attribute(nodeDest->attributes, nodeSource->attributes->next);
+////
+////
+////
+////                    /////////////// copie des operation//////////////
+////                    if ( nodeSource->operations != NULL )
+////                        nodeSource->operations->next = insert_attribute(nodeDest->operations, nodeSource->operations->next);
+//
+//
+//
+//                    testDoublons = 1;
+//
+//
+//                }
+//
+//                listeTEMPClasses = listeTEMPClasses->next;
+//            }
+//                if ( ! testDoublons )
+//                {
+//                    printf( "           -----> pas de doublons, on ajoute dans la liste\n\n" );
+//                       //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
+////                    mergedAttributs ( listeClasses->key->attributes , listeTEMPClasses->key->attributes );
+//                    //////////////////////////////////////////////////// Merge les parametres du second dans le premier //////////////////////////
+//                    // on ajoute la classe dans tmplistRESULT
+//                    umlclasslist tmp;
+//                    tmp = NEW (umlclassnode);
+//                    tmp->key = listeClasses->key;
+//
+//                    // We insert it here
+//                    if ( tmplistRESULT == NULL ) {
+//                        tmplistRESULT = endlist = tmp;
+//                    } else {
+//                        endlist->next = tmp;
+//                        endlist = tmp;
+//                    }
+//
+//                }
+//
+////      }
+//
+//        listeClasses = listeClasses->next;
+//
+//    }
+//
+
+
+
 
 
     // Generate a file for each outer declaration.
