@@ -1,4 +1,0 @@
-<map id="gui::FenetreEncastree::initUI_fermer" name="gui::FenetreEncastree::initUI_fermer">
-<area shape="rect" id="node2" href="$classgui_1_1_gadget.html#adf55e6760cf3d4ef586ce87c07cfae7c" title="Demander la suppression de ce gadget. " alt="" coords="204,5,359,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="204,56,359,83"/>
-</map>

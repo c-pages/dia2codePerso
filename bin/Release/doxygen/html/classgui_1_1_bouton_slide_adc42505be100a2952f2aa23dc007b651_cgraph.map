@@ -1,7 +1,0 @@
-<map id="gui::BoutonSlide::BoutonSlide" name="gui::BoutonSlide::BoutonSlide">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton_slide.html#ade6e4cc4975666c3093005429f75f2cc" title="gui::BoutonSlide::creerUI" alt="" coords="220,80,387,107"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton_slide.html#aecaff7d22861a6685c75a3fda3adffa5" title="Actualise le model du Gadget. " alt="" coords="435,5,616,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180" title="Acceder à la position absolue (en remontant les ancetres). " alt="" coords="445,80,606,107"/>
-<area shape="rect" id="node5" href="$classgui_1_1_bouton_slide.html#a4823f37d96ebaf85988f120b7750c346" title="gui::BoutonSlide::initSkin" alt="" coords="441,131,609,157"/>
-<area shape="rect" id="node6" href="$classgui_1_1_gadget.html#a2e410ff9735e205cf2c50c82939876d8" title="Ajouter un enfant. " alt="" coords="457,181,593,208"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="gui::Fenetre::initLocalSkin" name="gui::Fenetre::initLocalSkin">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#accf9b24a70ea31e0f20c51f8af572ca7" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="234,5,362,32"/>
-<area shape="rect" id="node4" href="$classgui_1_1_fenetre.html#a3185ff7bf41be95a871c516f7ab23f5d" title="Definir le skin. " alt="" coords="227,56,369,83"/>
-<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a79e2ba12822701f8b18ca0760620d2f8" title="Constructeur. " alt="" coords="417,5,560,32"/>
-</map>

@@ -1,6 +1,0 @@
-<map id="gui::Fenetre::actualiser" name="gui::Fenetre::actualiser">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#a76f80ec814ed747d2a7700703a7a7d8f" title="les manipulation de drag et de redimensionnement. " alt="" coords="208,5,407,32"/>
-<area shape="rect" id="node4" href="$classgui_1_1_fenetre.html#a7ad2c3c4e3407461f3c8291a8738eaab" title="Mettre à jour les gémotries de la fenêtre. " alt="" coords="230,56,385,83"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#af2d0b7310b6a61f2e9feee6b52275462" title="demande au gadget et à ses ancetres une actualisation " alt="" coords="455,5,684,32"/>
-<area shape="rect" id="node5" href="$classgui_1_1_fenetre.html#a5da3277922ae281ba6f85f2dd8d4a0e8" title="mais à jour les styles des éléments de la fenêtre. " alt="" coords="485,56,653,83"/>
-</map>

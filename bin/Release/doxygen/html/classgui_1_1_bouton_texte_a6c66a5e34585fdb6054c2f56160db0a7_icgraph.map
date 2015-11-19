@@ -1,5 +1,0 @@
-<map id="gui::BoutonTexte::majGeom" name="gui::BoutonTexte::majGeom">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton_texte.html#a2ee4ed04c1e2a20836e38a250d56311e" title="initialisation du gadget. " alt="" coords="251,13,396,39"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton_texte.html#ab8059cd7c83e678dd8b3c9dba62a2363" title="Definir le skin de reference du bouton. " alt="" coords="237,63,409,90"/>
-<area shape="rect" id="node3" href="$classgui_1_1_bouton_texte.html#a5781fca8e5397fad46a7e7ca0ba39c48" title="Constructeur défaut. " alt="" coords="457,5,627,47"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="gui::Bouton::Bouton" name="gui::Bouton::Bouton">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#a1b12d0709354e3a6473b7b1f8b26ad6b" title="Actualiser les éléments. " alt="" coords="191,56,343,83"/>
-<area shape="rect" id="node3" href="$classgui_1_1_bouton.html#a05e442ae0753c39263fb3f0ecb14ce83" title="Actualise le style du label. " alt="" coords="391,56,543,83"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton.html#a35c1d06207bea0240c933b21d8615166" title="Definir Couleur du cadre. " alt="" coords="605,5,791,32"/>
-<area shape="rect" id="node5" href="$classgui_1_1_bouton.html#aca33078221377940fd6f67338da65a36" title="Definir l&#39;épaisseur du cadre. " alt="" coords="591,56,805,83"/>
-<area shape="rect" id="node6" href="$classgui_1_1_bouton.html#a24776a6e84b651ee535b303e9f663c8c" title="Definir Couleur du fond. " alt="" coords="617,107,779,133"/>
-</map>

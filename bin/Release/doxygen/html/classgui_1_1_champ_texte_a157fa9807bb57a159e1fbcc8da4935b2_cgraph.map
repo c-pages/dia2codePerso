@@ -1,4 +1,0 @@
-<map id="gui::ChampTexte::traiter_evenements" name="gui::ChampTexte::traiter_evenements">
-<area shape="rect" id="node2" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="252,5,407,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#af2d0b7310b6a61f2e9feee6b52275462" title="demande au gadget et à ses ancetres une actualisation " alt="" coords="215,56,444,83"/>
-</map>

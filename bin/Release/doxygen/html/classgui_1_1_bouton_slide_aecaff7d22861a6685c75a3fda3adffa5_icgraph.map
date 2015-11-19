@@ -1,6 +1,0 @@
-<map id="gui::BoutonSlide::majGeom" name="gui::BoutonSlide::majGeom">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton_slide.html#a3eab53f614b388d7ba84f6ae2e1e274b" title="Definir la longueurMax. " alt="" coords="235,5,456,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_bouton_slide.html#a11766c967297609d0098d237044d44a8" title="Definir la longueur Courante. " alt="" coords="247,57,443,98"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton_slide.html#adc42505be100a2952f2aa23dc007b651" title="Constructeur. " alt="" coords="504,141,671,182"/>
-<area shape="rect" id="node5" href="$classgui_1_1_bouton_slide.html#ade6e4cc4975666c3093005429f75f2cc" title="gui::BoutonSlide::creerUI" alt="" coords="262,173,429,200"/>
-</map>

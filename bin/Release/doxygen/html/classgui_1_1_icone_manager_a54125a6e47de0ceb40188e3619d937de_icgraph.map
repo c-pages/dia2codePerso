@@ -1,5 +1,0 @@
-<map id="gui::IconeManager::acceder" name="gui::IconeManager::acceder">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#accf9b24a70ea31e0f20c51f8af572ca7" title="Initialiser les gadgets ( boutons, titre...). " alt="" coords="193,5,321,32"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton_fleche.html#a4c1c412fec10c6cef927358237305b94" title="initialiser les elements de l&#39;UI de ce gadget. " alt="" coords="189,57,324,98"/>
-<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a79e2ba12822701f8b18ca0760620d2f8" title="Constructeur. " alt="" coords="372,5,515,32"/>
-</map>

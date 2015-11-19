@@ -1,4 +1,0 @@
-<map id="gui::FenetreEncastree::getSize" name="gui::FenetreEncastree::getSize">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre_encastree.html#aa0ef9f9010f20f9d96c950826f89fde6" title="Accesseur de la boundingBox en global. " alt="" coords="204,22,355,63"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180" title="Acceder à la position absolue (en remontant les ancetres). " alt="" coords="403,29,564,56"/>
-</map>

@@ -1,9 +1,0 @@
-<map id="gui::FenetreEncastree::initUI" name="gui::FenetreEncastree::initUI">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre_encastree.html#aaa900b28f22ddaf34dbc346439a9eb76" title="Initialiser l&#39;interface pour le bouton fermer. " alt="" coords="204,5,355,47"/>
-<area shape="rect" id="node4" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="403,67,557,94"/>
-<area shape="rect" id="node5" href="$classgui_1_1_fenetre_encastree.html#a595c4da7de253a053dbe5a5cbf8eaa8c" title="Initialiser l&#39;interface pour les bouton de redimensionnements. " alt="" coords="204,123,355,164"/>
-<area shape="rect" id="node6" href="$classgui_1_1_fenetre_encastree.html#a0be22b8ade05580a4374122255796c5d" title="Initialiser le Skin des bouton de l&#39;interface. " alt="" coords="204,188,355,229"/>
-<area shape="rect" id="node7" href="$classgui_1_1_fenetre_encastree.html#a4a86e93d7b596eed4cf174290acbae0d" title="mais à jour les styles des éléments de la fenêtre. " alt="" coords="405,276,555,317"/>
-<area shape="rect" id="node8" href="$classgui_1_1_fenetre_encastree.html#a8b335aec20648b67a6d16ce38c5c22f8" title="Mettre à jour les gémotries de la fenêtre. " alt="" coords="204,305,355,347"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#adf55e6760cf3d4ef586ce87c07cfae7c" title="Demander la suppression de ce gadget. " alt="" coords="403,13,557,39"/>
-</map>

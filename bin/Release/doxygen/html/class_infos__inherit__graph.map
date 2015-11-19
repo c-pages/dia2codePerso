@@ -1,5 +1,0 @@
-<map id="Infos" name="Infos">
-<area shape="rect" id="node2" href="$class_gadget.html" title="Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... " alt="" coords="81,80,145,107"/>
-<area shape="rect" id="node3" href="$class_transformable.html" title="Transformable" alt="" coords="5,5,108,32"/>
-<area shape="rect" id="node4" href="$class_drawable.html" title="Drawable" alt="" coords="133,5,207,32"/>
-</map>

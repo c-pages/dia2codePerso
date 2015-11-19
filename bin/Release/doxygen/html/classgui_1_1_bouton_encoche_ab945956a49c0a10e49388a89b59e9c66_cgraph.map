@@ -1,4 +1,0 @@
-<map id="gui::BoutonEncoche::init" name="gui::BoutonEncoche::init">
-<area shape="rect" id="node2" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="192,5,347,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_action.html#a71a73e6fb17daf972c7d1d6d6a5bcf02" title="Ajoute un ecouteur d&#39;evenement associé à une fonction lambda(FuncType) à executer lors du déclencheme..." alt="" coords="215,56,324,83"/>
-</map>

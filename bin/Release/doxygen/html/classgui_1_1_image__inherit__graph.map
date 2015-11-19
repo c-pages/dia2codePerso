@@ -1,4 +1,0 @@
-<map id="gui::Image" name="gui::Image">
-<area shape="rect" id="node2" href="$classgui_1_1_gadget.html" title="Classe virtuelle, la base commune aux gadgets formant l&#39;interface. " alt="" coords="116,80,205,107"/>
-<area shape="rect" id="node3" href="$classgui_1_1_action.html" title="Classe virtuelle permetant de lier des évenements à des fonctions. " alt="" coords="5,5,89,32"/>
-</map>

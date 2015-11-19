@@ -1,5 +1,0 @@
-<map id="gui::Gadget::demanderActualisation" name="gui::Gadget::demanderActualisation">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#a76f80ec814ed747d2a7700703a7a7d8f" title="les manipulation de drag et de redimensionnement. " alt="" coords="283,5,481,32"/>
-<area shape="rect" id="node4" href="$classgui_1_1_champ_texte.html#a157fa9807bb57a159e1fbcc8da4935b2" title="La gestion des évènements utilisateurs. " alt="" coords="301,57,463,98"/>
-<area shape="rect" id="node3" href="$classgui_1_1_fenetre.html#a5499f27e6618ce7527825c56b187a1e7" title="Actualiser les éléments. " alt="" coords="529,5,684,32"/>
-</map>

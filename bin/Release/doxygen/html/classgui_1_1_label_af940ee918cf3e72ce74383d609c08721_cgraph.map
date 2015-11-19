@@ -1,5 +1,0 @@
-<map id="gui::Label::actualiser" name="gui::Label::actualiser">
-<area shape="rect" id="node2" href="$classgui_1_1_gadget.html#af14fdc740572064ff3faf2a9dd8486fd" title="Accesseur état du Gadget. " alt="" coords="196,5,351,32"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#ae7da817bf98b4a13e5342515586a9af9" title="Actualiser les éléments. " alt="" coords="197,56,350,83"/>
-<area shape="rect" id="node4" href="$classgui_1_1_gadget.html#ab2bd5264b770b78ecc59d2f1b7486aa6" title="demande si le gadget est en attente de suppression " alt="" coords="399,56,561,83"/>
-</map>

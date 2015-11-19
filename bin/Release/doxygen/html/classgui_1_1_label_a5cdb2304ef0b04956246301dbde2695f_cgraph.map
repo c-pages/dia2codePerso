@@ -1,4 +1,0 @@
-<map id="gui::Label::getGlobalBounds" name="gui::Label::getGlobalBounds">
-<area shape="rect" id="node2" href="$classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180" title="Acceder à la position absolue (en remontant les ancetres). " alt="" coords="247,29,409,56"/>
-<area shape="rect" id="node3" href="$classgui_1_1_label.html#a1ca878608ba8b4219b6d4f8db804ea02" title="Accesseur de la boundingBox en local. " alt="" coords="239,80,417,107"/>
-</map>

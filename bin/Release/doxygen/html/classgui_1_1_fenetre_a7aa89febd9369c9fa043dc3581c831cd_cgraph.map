@@ -1,4 +1,0 @@
-<map id="gui::Fenetre::getSize" name="gui::Fenetre::getSize">
-<area shape="rect" id="node2" href="$classgui_1_1_fenetre.html#acae31932820bf735fc4293042a43e824" title="Accesseur de la boundingBox en global. " alt="" coords="196,29,395,56"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180" title="Acceder à la position absolue (en remontant les ancetres). " alt="" coords="443,29,604,56"/>
-</map>

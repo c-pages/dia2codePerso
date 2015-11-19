@@ -1,6 +1,0 @@
-<map id="gui::BoutonTexte::majGeom" name="gui::BoutonTexte::majGeom">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#a05e442ae0753c39263fb3f0ecb14ce83" title="Actualise le style du label. " alt="" coords="237,56,389,83"/>
-<area shape="rect" id="node3" href="$classgui_1_1_bouton.html#a35c1d06207bea0240c933b21d8615166" title="Definir Couleur du cadre. " alt="" coords="452,5,637,32"/>
-<area shape="rect" id="node4" href="$classgui_1_1_bouton.html#aca33078221377940fd6f67338da65a36" title="Definir l&#39;épaisseur du cadre. " alt="" coords="437,56,652,83"/>
-<area shape="rect" id="node5" href="$classgui_1_1_bouton.html#a24776a6e84b651ee535b303e9f663c8c" title="Definir Couleur du fond. " alt="" coords="464,107,625,133"/>
-</map>

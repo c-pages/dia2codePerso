@@ -1,9 +1,0 @@
-<map id="gui::Bouton::gerer_declenchements" name="gui::Bouton::gerer_declenchements">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton.html#a78ba380ce479631e18742179054d249d" title="La gestion du survol. " alt="" coords="185,123,369,149"/>
-<area shape="rect" id="node6" href="$classgui_1_1_bouton.html#af687c9bb8f175258aecdbd52868cb773" title="La gestion du survol. " alt="" coords="186,173,369,200"/>
-<area shape="rect" id="node7" href="$classgui_1_1_bouton.html#ae52786842ebf35b396e9d6580420f9a2" title="La gestion du survol. " alt="" coords="179,5,375,32"/>
-<area shape="rect" id="node8" href="$classgui_1_1_bouton.html#acf68a7a2541c1a11fb7c9b151a99f1be" title="La gestion du survol. " alt="" coords="179,57,376,98"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e" title="Renvois si le point (x,y) est contenu dans le gadget. " alt="" coords="430,67,573,93"/>
-<area shape="rect" id="node5" href="$classgui_1_1_action.html#ac44de0d5b38067e8ec6cf98ef16a6a77" title="Déclencher la fonction associé à l&#39;évenement. " alt="" coords="424,121,579,148"/>
-<area shape="rect" id="node4" href="$classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4" title="Acceder à la boundingBox global. " alt="" coords="627,67,823,93"/>
-</map>

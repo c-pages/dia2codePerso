@@ -1,7 +1,0 @@
-<map id="BtnSaisieCurseur" name="BtnSaisieCurseur">
-<area shape="rect" id="node2" href="$class_action.html" title="Classe communes aux gadgets interactifs (boutons, fenetres, etc... quasi tous en fait ( sauf Image et..." alt="" coords="19,5,77,32"/>
-<area shape="rect" id="node6" href="$class_groupe.html" title="Groupe" alt="" coords="60,81,124,108"/>
-<area shape="rect" id="node3" href="$class_gadget.html" title="Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... " alt="" coords="135,171,199,197"/>
-<area shape="rect" id="node4" href="$class_transformable.html" title="Transformable" alt="" coords="149,81,251,108"/>
-<area shape="rect" id="node5" href="$class_drawable.html" title="Drawable" alt="" coords="276,81,351,108"/>
-</map>

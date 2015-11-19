@@ -1,6 +1,0 @@
-<map id="gui::Contenant::contient" name="gui::Contenant::contient">
-<area shape="rect" id="node2" href="$classgui_1_1_contenant.html#a6e3ab5e79636f350c1ab5d04efaae38e" title="Accesseur de la boundingBox globale. " alt="" coords="213,22,383,63"/>
-<area shape="rect" id="node4" href="$classgui_1_1_gadget.html#a6050fe766b6ae8fc701025c2978cd33e" title="Renvois si le point (x,y) est contenu dans le gadget. " alt="" coords="227,112,369,139"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html#a978a62f695b2c7d96714f537fb1da180" title="Acceder à la position absolue (en remontant les ancetres). " alt="" coords="448,29,609,56"/>
-<area shape="rect" id="node5" href="$classgui_1_1_gadget.html#a59a5758a13c8dba8443f039dce709bb4" title="Acceder à la boundingBox global. " alt="" coords="431,112,627,139"/>
-</map>

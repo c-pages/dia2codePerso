@@ -1,6 +1,0 @@
-<map id="gui::BoutonEncoche" name="gui::BoutonEncoche">
-<area shape="rect" id="node2" href="$classgui_1_1_bouton.html" title="Gadget, simple bouton rectangulaire. " alt="" coords="109,185,197,212"/>
-<area shape="rect" id="node3" href="$classgui_1_1_gadget.html" title="Classe virtuelle, la base commune aux gadgets formant l&#39;interface. " alt="" coords="116,81,205,108"/>
-<area shape="rect" id="node7" href="$classgui_1_1_image.html" title="Gadget Un simple gadget permettant d&#39;afficher une image ou une couleur uni. " alt="" coords="221,185,303,212"/>
-<area shape="rect" id="node4" href="$classgui_1_1_action.html" title="Classe virtuelle permetant de lier des évenements à des fonctions. " alt="" coords="5,5,89,32"/>
-</map>

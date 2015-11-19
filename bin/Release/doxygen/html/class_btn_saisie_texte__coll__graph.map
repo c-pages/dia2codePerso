@@ -1,7 +1,0 @@
-<map id="BtnSaisieTexte" name="BtnSaisieTexte">
-<area shape="rect" id="node2" href="$class_action.html" title="Classe communes aux gadgets interactifs (boutons, fenetres, etc... quasi tous en fait ( sauf Image et..." alt="" coords="13,5,71,32"/>
-<area shape="rect" id="node6" href="$class_groupe.html" title="Groupe" alt="" coords="54,81,118,108"/>
-<area shape="rect" id="node3" href="$class_gadget.html" title="Classe communes Ã  tout les gadgets, gÃšre affichage actualisation, etc... " alt="" coords="129,171,193,197"/>
-<area shape="rect" id="node4" href="$class_transformable.html" title="Transformable" alt="" coords="143,81,245,108"/>
-<area shape="rect" id="node5" href="$class_drawable.html" title="Drawable" alt="" coords="270,81,345,108"/>
-</map>

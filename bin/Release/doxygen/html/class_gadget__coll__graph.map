@@ -1,6 +1,0 @@
-<map id="Gadget" name="Gadget">
-<area shape="rect" id="node4" href="$class_groupe.html" title="Groupe" alt="" coords="44,171,108,197"/>
-<area shape="rect" id="node2" href="$class_transformable.html" title="Transformable" alt="" coords="11,5,114,32"/>
-<area shape="rect" id="node3" href="$class_drawable.html" title="Drawable" alt="" coords="139,5,213,32"/>
-<area shape="rect" id="node5" href="$class_action.html" title="Classe communes aux gadgets interactifs (boutons, fenetres, etc... quasi tous en fait ( sauf Image et..." alt="" coords="5,81,64,108"/>
-</map>
