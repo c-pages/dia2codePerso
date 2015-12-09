@@ -36,7 +36,10 @@ void push_include (umlclassnode *node)
 {
     if (node->key->package != NULL) {
         umlpackagelist pkglist = make_package_list (node->key->package);
-        add_include (pkglist->key->name);
+        //////////////////////////////////////
+        // on cache pour ne pas inclure si c'est un package...
+        // add_include (pkglist->key->name);
+        //////////////////////////////////////
     } else {
         add_include (node->key->name);
     }
@@ -44,12 +47,14 @@ void push_include (umlclassnode *node)
 
 void determine_includes (declaration *d, batch *b)
 {
+    // si c'est un namespace ...
     if (d->decl_kind == dk_module) {
         declaration *inner = d->u.this_module->contents;
         while (inner != NULL) {
             determine_includes (inner, b);
             inner = inner->next;
         }
+    // sinon on push_include()...
     } else {
         umlclasslist cl = list_classes (d->u.this_class, b);
         while (cl != NULL) {
@@ -57,5 +62,7 @@ void determine_includes (declaration *d, batch *b)
             cl = cl->next;
         }
     }
+
+
 }
 
