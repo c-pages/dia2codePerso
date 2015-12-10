@@ -30,12 +30,18 @@
 
 #define eq  !strcmp
 
+
+// mes declarations ///////////
 int b_inclMemory ;
 int b_inclMap ;
 int b_inclVector ;
 int b_inclFunctional ;
 int b_inclSFMLGraph ;
 
+
+char listClassesIncl[1024] ="";
+
+//////////////////////////////
 
 static batch *gb;   /* The current batch being processed.  */
 static char *sscanfmt()
@@ -1034,6 +1040,12 @@ gen_class (umlclassnode *node)
                         continue;
                     }
 
+                    if ( eq ( "using", assoc->key->stereotype)
+                            && strlen (assoc->name)  == 0 )
+                    {
+                        assoc = assoc->next;
+                        continue;
+                    }
 
                     check_visibility ( &tmpv, assoc->visibility );
 
@@ -1194,10 +1206,11 @@ gen_decl (declaration *d)
 //        return;
 //    }
 
-    node = d->u.this_class;
+    node  = d->u.this_class;
     stype = node->key->stereotype;
-    name = node->key->name;
-    umla = node->key->attributes;
+    name  = node->key->name;
+    umla  = node->key->attributes;
+
     if (strlen (stype) == 0)
     {
         gen_class (node);
@@ -1414,92 +1427,96 @@ void ajouteIncludeType ( char* nom )
 
 
 
-            printf (" -------------------------------------\n");
-            printf (" ----b_inclMemory= %d\n" , b_inclMemory );
-            printf (" ----b_inclMap= %d\n" , b_inclMap );
-            printf (" ----b_inclVector= %d\n" , b_inclVector );
-            printf (" ----b_inclFunctional= %d\n" , b_inclFunctional );
-            printf (" ----b_inclSFMLGraph= %d\n" , b_inclSFMLGraph );
+//            printf (" -------------------------------------\n");
+//            printf (" ----b_inclMemory= %d\n" , b_inclMemory );
+//            printf (" ----b_inclMap= %d\n" , b_inclMap );
+//            printf (" ----b_inclVector= %d\n" , b_inclVector );
+//            printf (" ----b_inclFunctional= %d\n" , b_inclFunctional );
+//            printf (" ----b_inclSFMLGraph= %d\n" , b_inclSFMLGraph );
 
-     ////////    include <memory>   ////////////////////////
-            // si on a pas encore inclus
-            if ( ! b_inclMemory ) {
-                // si on trouve un type qui fait parti de l'include on l'ajoute
-                if ( strstr ( nom , "shared_ptr")        != NULL
-                ||   strstr ( nom , "std::shared_ptr")   != NULL
-                ||   strstr ( nom , "unique_ptr")        != NULL
-                ||   strstr ( nom , "std::unique_ptr")   != NULL
-                ||   strstr ( nom , "auto_ptr")          != NULL
-                ||   strstr ( nom , "std::auto_ptr")     != NULL )
-                {
-                    printf (" ->#include <memory>\n" );
-                    b_inclMemory = 1;
-                    print ("#include <memory>\n");
-                }
-            } // fin if ( ! b_inclMemory )
+    ////////    include <memory>   ////////////////////////
 
-            ////////    include <map>   ////////////////////////
-            // si on a pas encore inclus
-            if ( ! b_inclMap ) {
-                // si on trouve un type qui fait parti de l'include on l'ajoute
-                if ( strstr ( nom , "map")        != NULL
-                ||   strstr ( nom , "std::map")   != NULL )
-                {
-                    printf (" ->#include <map>\n" );
-                    b_inclMap = 1;
-                    print ("#include <map>\n");
-                }
-            } // fin if ( ! b_inclMap )
+    // si on a pas encore inclus
+    if ( ! b_inclMemory ) {
+        // si on trouve un type qui fait parti de l'include on l'ajoute
+        if ( strstr ( nom , "shared_ptr")        != NULL
+        ||   strstr ( nom , "std::shared_ptr")   != NULL
+        ||   strstr ( nom , "unique_ptr")        != NULL
+        ||   strstr ( nom , "std::unique_ptr")   != NULL
+        ||   strstr ( nom , "auto_ptr")          != NULL
+        ||   strstr ( nom , "std::auto_ptr")     != NULL )
+        {
+            printf (" ->#include <memory>\n" );
+            b_inclMemory = 1;
+            print ("#include <memory>\n");
+        }
+    } // fin if ( ! b_inclMemory )
 
-            ////////    include <vector>   ////////////////////////
-            // si on a pas encore inclus
-            if ( ! b_inclVector ) {
-                // si on trouve un type qui fait parti de l'include on l'ajoute
-                if ( strstr ( nom , "vector")        != NULL
-                ||   strstr ( nom , "std::vector")   != NULL )
-                {
-                    printf (" ->#include <vector>\n" );
-                    b_inclVector = 1;
-                    print ("#include <vector>\n");
-                }
-            } // fin if ( ! b_inclVector )
+    ////////    include <map>   ////////////////////////
+    // si on a pas encore inclus
+    if ( ! b_inclMap ) {
+        // si on trouve un type qui fait parti de l'include on l'ajoute
+        if ( strstr ( nom , "map")        != NULL
+        ||   strstr ( nom , "std::map")   != NULL )
+        {
+            printf (" ->#include <map>\n" );
+            b_inclMap = 1;
+            print ("#include <map>\n");
+        }
+    } // fin if ( ! b_inclMap )
 
-
-            ////////    include <functional>   ////////////////////////
-            // si on a pas encore inclus
-            if ( ! b_inclFunctional ) {
-                // si on trouve un type qui fait parti de l'include on l'ajoute
-                if ( strstr ( nom , "function")        != NULL
-                ||   strstr ( nom , "std::function")   != NULL )
-                {
-                    printf (" ->#include <functional>\n" );
-                    b_inclFunctional = 1;
-                    print ("#include <functional>\n");
-                }
-            } // fin if ( ! b_inclFunctional )
+    ////////    include <vector>   ////////////////////////
+    // si on a pas encore inclus
+    if ( ! b_inclVector ) {
+        // si on trouve un type qui fait parti de l'include on l'ajoute
+        if ( strstr ( nom , "vector")        != NULL
+        ||   strstr ( nom , "std::vector")   != NULL )
+        {
+            printf (" ->#include <vector>\n" );
+            b_inclVector = 1;
+            print ("#include <vector>\n");
+        }
+    } // fin if ( ! b_inclVector )
 
 
+    ////////    include <functional>   ////////////////////////
+    // si on a pas encore inclus
+    if ( ! b_inclFunctional ) {
+        // si on trouve un type qui fait parti de l'include on l'ajoute
+        if ( strstr ( nom , "function")        != NULL
+        ||   strstr ( nom , "std::function")   != NULL )
+        {
+            printf (" ->#include <functional>\n" );
+            b_inclFunctional = 1;
+            print ("#include <functional>\n");
+        }
+    } // fin if ( ! b_inclFunctional )
 
-            ////////    include <SFML>   ////////////////////////
-            // si on a pas encore inclus
-            if ( ! b_inclSFMLGraph ) {
-                // si on trouve un type qui fait parti de l'include on l'ajoute
-                if ( strstr ( nom , "sf::")        != NULL/*
-                ||   strstr ( umla->key.type , "std::function")   != NULL*/ )
-                {
-                    printf (" ->#include <SFML/Graphics.hpp> --> a partir d'un \"sf::\"\n" );
-                    b_inclSFMLGraph = 1;
-                    print ("#include <SFML/Graphics.hpp>\n");
-                }
-            } // fin if ( ! b_inclSFMLGraph )
 
 
-}
+    ////////    include <SFML>   ////////////////////////
+    // si on a pas encore inclus
+    if ( ! b_inclSFMLGraph ) {
+        // si on trouve un type qui fait parti de l'include on l'ajoute
+        if ( strstr ( nom , "sf::")        != NULL/*
+        ||   strstr ( umla->key.type , "std::function")   != NULL*/ )
+        {
+            printf (" ->#include <SFML/Graphics.hpp> --> a partir d'un \"sf::\"\n" );
+            b_inclSFMLGraph = 1;
+            print ("#include <SFML/Graphics.hpp>\n");
+        }
+    } // fin if ( ! b_inclSFMLGraph )
+
+
+} //
+
+
+
 
 static void
 ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char * file_ext )
 {
-    //printf ("  -> ecrire_Head 0 <-------------- \n" );
+
 
 
     char filename[256];
@@ -1520,7 +1537,6 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     char* tmpname = strtoupper(name);
 
 
-    // print ("  -> ecrire_Head 1 <-------------- hop : %s\n", nomEspace );
 
 
     print("#ifndef %s__H\n", tmpname);
@@ -1563,26 +1579,25 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     ///// MES includes ///////////////////////////////////////////////////////////////////////////////////////
 
     ///// includes des héritages ////////////
-    printf ("DEBUG-->   Debut\n");
+//    printf ("DEBUG-->   Debut\n");
     umlclassnode *node = dClass->u.this_class;
     umlclasslist parent = node->parents;
 
+    listClassesIncl[0] = '\0';
+
     while (parent != NULL)
     {
-        printf ("   DEBUG-->   boucle\n");
+        strcat ( listClassesIncl , parent->key->name );
+        strcat ( listClassesIncl , "/" );
+        printf ("listClassesIncl: %s\n" , listClassesIncl );
+
         print ("#include \"%s.%s\"\n", parent->key->name, file_ext);
         parent = parent->next;
     }
-    printf ("DEBUG-->   fin\n");
+//    printf ("DEBUG-->   fin\n");
 
 
     ///// includes des types connus ////////////
-//
-//    int b_inclMemory = 0;
-//    int b_inclMap = 0;
-//    int b_inclVector = 0;
-//    int b_inclFunctional = 0;
-//    int b_inclSFMLGraph = 0;
 
     b_inclMemory = 0;
     b_inclMap = 0;
@@ -1594,99 +1609,19 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     if (node->key->attributes != NULL  )
     {
         umlattrlist umla = node->key->attributes;
-
-
-
         while (umla != NULL)
         {
             printf (" ->membre ! => type : %s\n", umla->key.type );
+
             ajouteIncludeType ( umla->key.type );
-//            ////////    include <memory>   ////////////////////////
-//            // si on a pas encore inclus
-//            if ( ! b_inclMemory ) {
-//                // si on trouve un type qui fait parti de l'include on l'ajoute
-//                if ( strstr ( umla->key.type , "shared_ptr")        != NULL
-//                ||   strstr ( umla->key.type , "std::shared_ptr")   != NULL
-//                ||   strstr ( umla->key.type , "unique_ptr")        != NULL
-//                ||   strstr ( umla->key.type , "std::unique_ptr")   != NULL
-//                ||   strstr ( umla->key.type , "auto_ptr")          != NULL
-//                ||   strstr ( umla->key.type , "std::auto_ptr")     != NULL )
-//                {
-//                    printf (" ->#include <memory>\n" );
-//                    b_inclMemory = 1;
-//                    print ("#include <memory>\n");
-//                }
-//            } // fin if ( ! b_inclMemory )
-//
-//            ////////    include <map>   ////////////////////////
-//            // si on a pas encore inclus
-//            if ( ! b_inclMap ) {
-//                // si on trouve un type qui fait parti de l'include on l'ajoute
-//                if ( strstr ( umla->key.type , "map")        != NULL
-//                ||   strstr ( umla->key.type , "std::map")   != NULL )
-//                {
-//                    printf (" ->#include <map>\n" );
-//                    b_inclMap = 1;
-//                    print ("#include <map>\n");
-//                }
-//            } // fin if ( ! b_inclMap )
-//
-//            ////////    include <vector>   ////////////////////////
-//            // si on a pas encore inclus
-//            if ( ! b_inclVector ) {
-//                // si on trouve un type qui fait parti de l'include on l'ajoute
-//                if ( strstr ( umla->key.type , "vector")        != NULL
-//                ||   strstr ( umla->key.type , "std::vector")   != NULL )
-//                {
-//                    printf (" ->#include <vector>\n" );
-//                    b_inclVector = 1;
-//                    print ("#include <vector>\n");
-//                }
-//            } // fin if ( ! b_inclVector )
-//
-//
-//            ////////    include <functional>   ////////////////////////
-//            // si on a pas encore inclus
-//            if ( ! b_inclFunctional ) {
-//                // si on trouve un type qui fait parti de l'include on l'ajoute
-//                if ( strstr ( umla->key.type , "function")        != NULL
-//                ||   strstr ( umla->key.type , "std::function")   != NULL )
-//                {
-//                    printf (" ->#include <functional>\n" );
-//                    b_inclFunctional = 1;
-//                    print ("#include <functional>\n");
-//                }
-//            } // fin if ( ! b_inclFunctional )
-//
-//
-//
-//            ////////    include <SFML>   ////////////////////////
-//            // si on a pas encore inclus
-//            if ( ! b_inclSFMLGraph ) {
-//                // si on trouve un type qui fait parti de l'include on l'ajoute
-//                if ( strstr ( umla->key.type , "sf::")        != NULL/*
-//                ||   strstr ( umla->key.type , "std::function")   != NULL*/ )
-//                {
-//                    printf (" ->#include <SFML/Graphics.hpp> --> a partir d'un \"sf::\"\n" );
-//                    b_inclSFMLGraph = 1;
-//                    print ("#include <SFML/Graphics.hpp>\n");
-//                }
-//            } // fin if ( ! b_inclSFMLGraph )
-//
-
-
-
 
             umla=umla->next;
         }
     }
 
 
-
-
-
     //////// les ASSOCIATIONS   ////////
-    // on regarde si on a des types dans les associations
+    // on regarde si on a des types à inclure dans les associations
     umlassoclist assoc = node->associations;
 
     while (assoc != NULL)
@@ -1695,8 +1630,11 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         if ( eq ( "using", assoc->key->stereotype)
         ||   eq ( "typedef", assoc->key->stereotype) )
         {
+
+            // inclusion globale
              ajouteIncludeType ( assoc->key->attributes->key.type );
 
+            // inclusion supplementaire : vector si association multiple
              if ( ! b_inclVector ) {
                if ( eq ( assoc->multiplicity, "*" )
                 ||  eq ( assoc->multiplicity, "0..*" ) )
@@ -1706,23 +1644,47 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                     print ("#include <vector>\n");
                 }
              }
-        } else {
 
-            printf (" ----?!?----->    %s\n" , assoc->key->name);
+        } else if ( ! eq ( "enum", assoc->key->stereotype) ) {
+
+            // inclusion globale
             ajouteIncludeType ( assoc->key->name );
-            printf (" ----?!?----->b_inclVector= %d\n" , b_inclVector );
 
+            // inclusion supplementaire : memory si association type "aggregation"(test bizarre recup. dans code original)
             if ( ! b_inclMemory ) {
                 umlclassnode * ref = find_by_name (gb->classlist, assoc->key->name);
                 if (ref != NULL) {
+                    printf (" ->#include <memory>(association)\n" );
                     print ("#include <memory>\n");
                     b_inclMemory = 1;
                 }
             }
+
+            // inclusion pour les associations
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+                    print ("#include \"%s.h\"\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
         }
 
-
         assoc = assoc->next;
+
     }
 
 
@@ -1736,9 +1698,171 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     print ("\n");
     print ("\n\n");
 
-
     if ( strlen(nomEspace) >0 )
         print ( "namespace %s {\n\n" , nomEspace );
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////// les classes à declarer   ////////////////////////////////////////////////////////////////////////
+    // on regarde si on a des types dans les associations
+
+
+    //////// les MEMBRES   ////////
+    if (node->key->attributes != NULL  )
+    {
+        umlattrlist attribut = node->key->attributes;
+        while (attribut != NULL)
+        {
+            //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+
+                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+
+                if ( ! eq ( "using", classes->key->stereotype )
+                &&   ! eq ( "typedef", classes->key->stereotype )
+                &&   ! eq ( "enum", classes->key->stereotype ) )
+                {
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherché
+                     )
+                    {
+
+
+                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+                        print ("class %s;\n" , classes->key->name );
+                        break;
+                    }
+                }
+
+                classes=classes->next;
+            }
+
+            attribut=attribut->next;
+        }
+    }
+
+
+
+
+    //////// les ASSOCIATIONS   ////////
+
+    assoc = node->associations;
+
+    while (assoc != NULL)
+    {
+        //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+
+
+        // pour les using et typedef /////
+        if ( eq ( "typedef", assoc->key->stereotype )
+        ||   eq ( "using", assoc->key->stereotype  ) )
+        {
+
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->attributes->key.type,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+                    print ("class %s;\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+
+
+        } // sinon pour les classes /////
+        else if ( ! eq ( "enum", assoc->key->stereotype ) )
+        {
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+                    print ("class %s;\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+        }
+
+/*
+        umlclasslist classes = b->classlist;
+        umlclasslist tmpnode = NULL;
+        while (classes != NULL)
+        {
+
+            if ( ! eq ( "using", classes->key->stereotype )
+            &&   ! eq ( "enum", classes->key->stereotype ) )
+            {
+                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+                    print ("class %s;\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+            } else {
+
+//                printf ("assoc->key->attributes->key.type: %s\n" , assoc->key->attributes->key.type );
+//                char* tmp = assoc->key->attributes->key.type;
+//                char* tmp2 = classes->key->name ;
+//                if ( tmp!= NULL )
+//                if ( strstr ( tmp ,  tmp2 )   != NULL )
+//                    printf ("pipi");
+//               )
+//                {
+////                    print ("class %s;\n" , classes->key->name );
+////
+////                    strcat ( listClassesIncl ,classes->key->name );
+////                    strcat ( listClassesIncl , "/" );
+////                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+//
+//                }
+
+
+            }
+
+            classes=classes->next;
+        }
+*/
+        assoc=assoc->next;
+    }
+
+    print ("\n\n");
+    //////// FIN classes à déclarer //////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 

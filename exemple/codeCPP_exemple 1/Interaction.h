@@ -7,11 +7,12 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 #include <functional>
-#include <memory>
 
 
 
 namespace gui {
+
+
 
 /////////////////////////////////////////////////
 /// \brief Classe abstraite qui gère les évenements claviers et souris
@@ -98,7 +99,6 @@ public:
 /////////////////////////////////////////////////
 // Membres
 /////////////////////////////////////////////////
-    std::shared_ptr<gui::FctnAction> ;     ///< le type de fonction associé aux declenchements des evenements.
 private:
     std::map < Evenement , FctnAction > m_evenementsSouris;    ///< la liste des evenements souris enregistrés.    
     std::map < sf::Keyboard  , FctnAction > m_evenementsClavier;    ///<  la liste des evenements claviers enregistrés.    

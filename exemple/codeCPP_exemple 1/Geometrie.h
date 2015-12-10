@@ -12,6 +12,10 @@
 
 namespace gui {
 
+class Skin;
+class Gadget;
+
+
 /////////////////////////////////////////////////
 /// \brief Concerne la partie geometrique des gadgets, comme la taille, collision...
 ///

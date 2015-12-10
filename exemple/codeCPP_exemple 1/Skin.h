@@ -5,10 +5,13 @@
 // Headers
 /////////////////////////////////////////////////
 #include <memory>
+#include "Style.h"
 
 
 
 namespace gui {
+
+
 
 /////////////////////////////////////////////////
 /// \brief Un skin regroupe un ensemble de style pour composer tout les éléments d'une interface.
@@ -42,7 +45,7 @@ public:
     std::shared_ptr<gui::Style> btnSurvol;
     std::shared_ptr<gui::Style> btnRepos;
     std::shared_ptr<gui::Style> fenetre;
-    std::shared_ptr<gui::Style> desactive;
+    gui::Style desactive;
 
 }; // fin class Skin
 

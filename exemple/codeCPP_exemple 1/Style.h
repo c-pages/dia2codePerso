@@ -10,6 +10,9 @@
 
 namespace gui {
 
+class Style;
+
+
 /////////////////////////////////////////////////
 /// \brief Un style regroupe un ensemble de caractéristiques de base des gadgets.
 ///

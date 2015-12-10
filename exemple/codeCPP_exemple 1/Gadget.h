@@ -12,6 +12,8 @@
 
 namespace gui {
 
+
+
 /////////////////////////////////////////////////
 /// \brief Classe communes à tout les gadgets, gère affichage actualisation, etc...
 ///

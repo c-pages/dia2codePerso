@@ -11,6 +11,10 @@
 
 namespace gui {
 
+class Gadget;
+class ptr;
+
+
 /////////////////////////////////////////////////
 /// \brief Gestion des enfants, parent (GOF4: composite)
 ///
