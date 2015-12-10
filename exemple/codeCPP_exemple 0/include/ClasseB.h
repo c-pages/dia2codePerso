@@ -36,8 +36,8 @@ public:
 // Membres
 /////////////////////////////////////////////////
 public:
-    sf::FloatRect m_TrucSFML;    ///< Un peu tricky : le type comprte "sf::" on include donc <SFML/Graphics.hpp>.    
-    std::shared_ptr<ClasseC> m_classeC;    ///< ceci ajoute l'include <memory>, definie temporairement la ClassC dans le *.h, et include ClasseC dans le *.cpp.    
+    sf::FloatRect m_TrucSFML;    ///< Un peu tricky : le type comprte "sf::" on include donc 'SFML/Graphics.hpp'.    
+    std::shared_ptr<ClasseC> m_classeC;    ///< ceci ajoute l'include 'memory', definie temporairement la ClassC dans le *.h, et include ClasseC dans le *.cpp.    
     float m_attr_B1;    ///< Attribut direct dans les propriétés de ClasseB.    
 
 }; // fin class ClasseB

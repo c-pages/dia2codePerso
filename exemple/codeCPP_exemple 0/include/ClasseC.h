@@ -23,7 +23,7 @@ class ClasseC {
 // Enums & typedefs
 /////////////////////////////////////////////////
     /////////////////////////////////////////////////
-    /// \brief Un exemple d'integration du stereotype <<enum>>. Chaque élément de l'énumération est stocké dans le Nom d'un attribut.
+    /// \brief Un exemple d'integration du stereotype 'enum'. Chaque élément de l'énumération est stocké dans le Nom d'un attribut.
     /////////////////////////////////////////////////
     enum EnumC {
         enum1,            ///< Commentaire de l'enum 1.
@@ -31,7 +31,7 @@ class ClasseC {
         enum3            ///< Commentaire de l'enum 3.
     };
 
-    using FctnAction = std::function<void()>;    ///< Un exemple d'integration du stereotype <<using>> avec l'include de <function>
+    using FctnAction = std::function<void()>;    ///< Un exemple d'integration du stereotype 'using'  avec l'include de 'functional'
 
 
 /////////////////////////////////////////////////
@@ -57,7 +57,7 @@ public:
 /////////////////////////////////////////////////
 public:
     float m_attr_C1;    ///< Attribut direct dans les propriétés de ClasseC.    
-    std::vector<ClasseA> m_vectAttribut_C1;    ///< Ceci inclus <vector> et déclare ClasseA    
+    std::vector<ClasseA> m_vectAttribut_C1;    ///< Ceci inclus 'vector' et déclare ClasseA    
 
 }; // fin class ClasseC
 
