@@ -1,0 +1,4 @@
+<map id="ClasseDeBase" name="ClasseDeBase">
+<area shape="rect" id="node2" href="$class_classe_c.html" title="ici on associe 2 stereotypes : un using et un enum " alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node3" href="$class_classe_a.html" title="Dans la ClasseA on colle une définition de type et on utilise ce type dans 2 attributs associés en mu..." alt="" coords="100,5,171,32"/>
+</map>

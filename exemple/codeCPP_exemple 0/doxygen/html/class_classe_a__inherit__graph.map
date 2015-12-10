@@ -1,0 +1,3 @@
+<map id="ClasseA" name="ClasseA">
+<area shape="rect" id="node2" href="$class_classe_de_base.html" title="Classe qui hérite de 2 autres classes. Cela ajoutera les includes necéssaires. " alt="" coords="5,80,113,107"/>
+</map>

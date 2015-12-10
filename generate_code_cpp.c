@@ -198,7 +198,8 @@ fqnameSHARED (umlclassnode *node, int use_ref_type)
 
     if (use_ref_type)
         strcat (buf, "std::shared_ptr<");
-    if (node->key->package != NULL)
+    if ( node->key->package != NULL
+    && ! eq ( node->key->stereotype , "typedef" ) )
     {
         umlpackagelist pkglist = make_package_list (node->key->package);
         while (pkglist != NULL)
@@ -1022,6 +1023,33 @@ gen_class (umlclassnode *node)
             //print ("// Attributes\n");
 
 
+            //////// les ATTRIBUTS  ////////
+            while (umla != NULL)
+            {
+                check_visibility (&tmpv, umla->key.visibility);
+
+
+
+                print ("");
+                if (umla->key.isstatic)
+                {
+                    emit ("static ");
+                }
+                emit ("%s %s", umla->key.type, umla->key.name);
+
+                emit (";");
+
+                if (strlen(umla->key.comment))
+                {
+                    print("///< %s", umla->key.comment);
+                }
+                print("\n");
+
+
+                umla = umla->next;
+            }
+
+
             //////// les classes associés ////////
             umlassoclist assoc = node->associations;
             while (assoc != NULL)
@@ -1100,40 +1128,13 @@ gen_class (umlclassnode *node)
         }
 
 
-
-
-
-        //////// les ATTRIBUTS  ////////
-        while (umla != NULL)
-        {
-            check_visibility (&tmpv, umla->key.visibility);
-
-
-
-            print ("");
-            if (umla->key.isstatic)
-            {
-                emit ("static ");
-            }
-            emit ("%s %s", umla->key.type, umla->key.name);
-
-            emit (";");
-
-            if (strlen(umla->key.comment))
-            {
-                print("///< %s", umla->key.comment);
-            }
-            print("\n");
-
-
-            umla = umla->next;
-        }
+//
 
 
     }
 
 
-    //////// ???? ATTRIBUTS  ???? ////////
+    //////// ???? autres ATTRIBUTS  ???? ////////
     if (node->key->attributes != NULL && is_valuetype)
     {
         umlattrlist umla = node->key->attributes;
@@ -1556,7 +1557,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         print ("#include <p_orb.h>\n\n");
 
 
-
+/*
     // les includes de base /////////////////
     if (includes)
     {
@@ -1569,11 +1570,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
             }
             incfile = incfile->next;
         }
-
-
-
-
-    }
+    }*/
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///// MES includes ///////////////////////////////////////////////////////////////////////////////////////
@@ -1665,7 +1662,8 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
             umlclasslist tmpnode = NULL;
             while (classes != NULL)
             {
-                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                if ( ! eq ( classes->key->stereotype , "typedef" )
+                &&   strstr ( assoc->key->name,  classes->key->name )   != NULL
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
@@ -1705,7 +1703,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////// les classes à declarer   ////////////////////////////////////////////////////////////////////////
-    // on regarde si on a des types dans les associations
+
 
 
     //////// les MEMBRES   ////////
@@ -1759,9 +1757,8 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
 
 
-        // pour les using et typedef /////
-        if ( eq ( "typedef", assoc->key->stereotype )
-        ||   eq ( "using", assoc->key->stereotype  ) )
+        // pour les using  /////
+        if ( eq ( "using", assoc->key->stereotype  ) )
         {
 
             umlclasslist classes = b->classlist;
@@ -1772,7 +1769,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+                    printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
                     print ("class %s;\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -1784,6 +1781,35 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 classes=classes->next;
             }
 
+
+
+        } // sinon pour les typedef /////
+        else if ( eq ( "typedef", assoc->key->stereotype ))
+        {
+            if ( strlen ( assoc->multiplicity ) == 0 ) {
+
+
+                umlclasslist classes = b->classlist;
+                umlclasslist tmpnode = NULL;
+                while (classes != NULL)
+                {
+                    if ( strstr ( assoc->key->attributes->key.type,  classes->key->name )   != NULL
+                    &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                    {
+
+                        printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
+                        print ("class %s;\n" , classes->key->name );
+
+                        strcat ( listClassesIncl ,classes->key->name );
+                        strcat ( listClassesIncl , "/" );
+                        printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                        break;
+                    }
+                    classes=classes->next;
+                }
+
+            }
 
 
         } // sinon pour les classes /////
@@ -2086,7 +2112,7 @@ gen_body (umlclassnode *node)
                     emit ("%s  %s::%s", umla->key.type, name, umla->key.name );
                     if (umla->key.value[0] != 0)
                         emit (" = %s", umla->key.value);
-                    print (".\n");
+                    print (";\n");
                 }
                 umla = umla->next;
             }
@@ -2299,55 +2325,6 @@ generate_code_cpp_Body (batch *b)
         char filename[BIG_BUFFER];
 
 
-//    printf("\n####### Nouveau noeud #######n...");
-//    system("pause");
-//        ///////////////////////////////////////////////////////////////////////
-//        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
-//        if ( d->u.this_class->key->operations == NULL ){
-//            printf("\n\n    ------> pas de methodes ici : %s", name );
-//        } else {
-//        ///////////////////////////////////////////////////////////////////////
-
-
-
-
-        ///////////////////////////////////////////////////////////////////////
-        // on passe le cpp si pas de fonctions (ni de static a declarer ?)
-//        if ( d->u.this_class->key->operations == NULL ){
-//        && is_enum_stereo ( d->u.this_class->key->stereotype ) ){
-//
-//            printf( "\n\n    ------> pas de CPP a ecrire ici: \n ");
-//
-//            d = d->next;
-//            continue;
-//        }
-        /////////////////////////////////////////////////////////////////////
-
-
-
-//////////////// On regarde si on a besoin de faire un fichier cpp    ///////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //////////////// On ecris le fichier cpp    ///////////////////////////////////////////////////////////////
         // si on est dans un namespace
@@ -2486,6 +2463,112 @@ generate_code_cpp_Body (batch *b)
                 print ("\n");
 
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////// gestion des includes des classes que l'on a juste declaré dans le *h ////////////////////////////////////
+    listClassesIncl[0] = '\0';
+    //////// les MEMBRES   ////////
+    if ( dClass->u.this_class->key->attributes != NULL  )
+    {
+        umlattrlist attribut = dClass->u.this_class->key->attributes;
+        while (attribut != NULL)
+        {
+            //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+
+                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+
+                if ( ! eq ( "using", classes->key->stereotype )
+                &&   ! eq ( "typedef", classes->key->stereotype )
+                &&   ! eq ( "enum", classes->key->stereotype ) )
+                {
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherché
+                     )
+                    {
+
+
+                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+                        print ("#include <%s.h>\n" , classes->key->name );
+                        break;
+                    }
+                }
+
+                classes=classes->next;
+            }
+
+            attribut=attribut->next;
+        }
+    }
+
+
+
+
+    //////// les ASSOCIATIONS   ////////
+
+    umlassoclist assoc = dClass->u.this_class->associations;
+
+    while (assoc != NULL)
+    {
+        //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+
+
+        if ( eq ( "typedef", assoc->key->stereotype )
+        ||   eq ( "enum", assoc->key->stereotype ) )
+        {
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->attributes->key.type,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+                    print ("#include <%s.h>\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+        } else
+        if (! eq ( "using", assoc->key->stereotype  ))
+        {
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+                    print ("#include <%s.h>\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+        }
+        assoc=assoc->next;
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -2529,6 +2612,31 @@ generate_code_cpp_Body (batch *b)
         {
 
 
+            /////  TYPEDEF /////
+            if ( eq ( d->u.this_class->key->stereotype , "typedef")
+            ||   eq ( d->u.this_class->key->stereotype , "using")  )
+            {
+//                            printf( "    ------> c'est un TYPEDEF, on quite.\n");
+                d = d->next;
+                continue;
+            } //else  printf( "    ------> c'est PAS un TYPEDEF, on continue ...\n");
+
+
+
+
+
+            //        printf( "\non creer le CPP ?\n\n ");
+
+            /////  ENUM /////
+            if ( is_enum_stereo ( d->u.this_class->key->stereotype ) )
+            {
+                // printf( "    ------> c'est un ENUM, on quite.\n");
+                d = d->next;
+                continue;
+            } //else  printf( "    ------> c'est PAS un ENUM, on continue ...\n");
+
+
+
             name = d->u.this_class->key->name;
             sprintf (filename, "%s.%s", name, body_file_ext);
 
@@ -2539,6 +2647,8 @@ generate_code_cpp_Body (batch *b)
                 d = d->next;
                 continue;
             }
+
+
 
             tmpname = strtoupper(name);
 
@@ -2556,6 +2666,126 @@ generate_code_cpp_Body (batch *b)
             print("/////////////////////////////////////////////////\n");
             print("#include <%s.h>\n",name );
             print ("\n");
+
+
+
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////// gestion des includes des classes que l'on a juste declaré dans le *h ////////////////////////////////////
+    listClassesIncl[0] = '\0';
+    //////// les MEMBRES   ////////
+    if ( d->u.this_class->key->attributes != NULL  )
+    {
+        umlattrlist attribut = d->u.this_class->key->attributes;
+        while (attribut != NULL)
+        {
+            //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+
+                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+
+                if ( ! eq ( "using", classes->key->stereotype )
+                &&   ! eq ( "typedef", classes->key->stereotype )
+                &&   ! eq ( "enum", classes->key->stereotype ) )
+                {
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherché
+                     )
+                    {
+
+
+                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+                        print ("#include <%s.h>\n" , classes->key->name );
+                        break;
+                    }
+                }
+
+                classes=classes->next;
+            }
+
+            attribut=attribut->next;
+        }
+    }
+
+
+
+
+    //////// les ASSOCIATIONS   ////////
+
+    umlassoclist assoc = d->u.this_class->associations;
+
+    while (assoc != NULL)
+    {
+        //printf (" -> decl class ? => type : %s\n", attribut->key.type );
+        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+
+
+        if ( eq ( "enum", assoc->key->stereotype ) )
+        {
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->attributes->key.type,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+                    print ("#include #A# <%s.h>\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+        } else
+        if ( ! eq ( "typedef", assoc->key->stereotype )
+        &&   ! eq ( "using", assoc->key->stereotype  ))
+        {
+            umlclasslist classes = b->classlist;
+            umlclasslist tmpnode = NULL;
+            while (classes != NULL)
+            {
+                if ( strstr ( assoc->key->name,  classes->key->name )   != NULL
+                &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
+                {
+
+                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+                    print ("#include <%s.h>\n" , classes->key->name );
+
+                    strcat ( listClassesIncl ,classes->key->name );
+                    strcat ( listClassesIncl , "/" );
+                    printf ("listClassesIncl: %s\n" , listClassesIncl );
+
+                    break;
+                }
+                classes=classes->next;
+            }
+
+        }
+        assoc=assoc->next;
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 
             gen_declBody (d);
 

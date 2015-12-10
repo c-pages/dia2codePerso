@@ -1,0 +1,58 @@
+#ifndef CLASSEC__H
+#define CLASSEC__H
+
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <vector>
+#include <functional>
+
+
+
+class ClasseA;
+
+
+/////////////////////////////////////////////////
+/// \brief ici on associe 2 stereotypes : un using et un enum
+///
+/////////////////////////////////////////////////
+class ClasseC {
+
+
+/////////////////////////////////////////////////
+// Enums & typedefs
+/////////////////////////////////////////////////
+    /////////////////////////////////////////////////
+    /// \brief Un exemple d'integration du stereotype <<enum>>. Chaque élément de l'énumération est stocké dans le Nom d'un attribut.
+    /////////////////////////////////////////////////
+    enum EnumC {
+        enum1,            ///< Commentaire de l'enum 1.
+        enum2,            ///< Commentaire de l'enum 2.
+        enum3            ///< Commentaire de l'enum 3.
+    };
+
+    using FctnAction = std::function<void()>;    ///< Un exemple d'integration du stereotype <<using>> avec l'include de <function>
+
+
+/////////////////////////////////////////////////
+// Méthodes
+/////////////////////////////////////////////////
+public:
+    /////////////////////////////////////////////////
+    /// \brief operation simple
+    ///
+    /////////////////////////////////////////////////
+    bool operation_C1 ();
+
+
+
+/////////////////////////////////////////////////
+// Membres
+/////////////////////////////////////////////////
+public:
+    float m_attr_C1;    ///< Attribut direct dans les propriétés de ClasseC.    
+    std::vector<ClasseA> m_vectAttribut_C1;    ///< Ceci inclus <vector> et déclare ClasseA    
+
+}; // fin class ClasseC
+
+#endif

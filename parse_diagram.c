@@ -624,15 +624,23 @@ void lolipop_implementation(umlclasslist classlist, xmlNodePtr object) {
 void recursive_search( xmlNodePtr node, xmlNodePtr * object ) {
     xmlNodePtr child;
     if ( *object != NULL ) {
+
+        printf ("--------- XML : *object != NULL  ---------------------------\n");
+
         return;
     }
     if ( node != NULL ) {
+        printf ("--------- XML : *node != NULL  ---------------------------\n");
+        printf ("    XML : node->name = %s  ---------------------------\n" , node->name );
         if ( eq(node->name,"object") ){
+            printf ("   --------- XML : eq(node->name,'object')  ---------------------------\n");
             *object = node;
             return;
         }
         child = node->xmlChildrenNode;
+        printf ("--------- XML : recursive ?  ---------------------------\n");
         while ( child != NULL ) {
+            printf ("   --------- XML : recursive  ---------------------------\n");
             recursive_search(child,object);
             child=child->next;
         }
@@ -797,12 +805,17 @@ umlclasslist parse_diagram(char *diafile) {
         exit(2);
     }
 
+    printf ("--------- XML - Dia object ? ---------------------------\n");
+
     /* we search for the first "object" node */
     recursive_search( ptr->xmlRootNode->xmlChildrenNode->next, &object );
     //recursive_search( ptr->xmlRootNode->xmlChildrenNode->next, &objectTest );
 
     while (object != NULL) {
     objectTest = object;
+       // printf ("---------Here we have a Dia object ---------------------------\n");
+
+
         /* Here we have a Dia object */
         xmlChar *objtype = xmlGetProp(object, "type");
         if ( eq("UML - Class", objtype) ) {

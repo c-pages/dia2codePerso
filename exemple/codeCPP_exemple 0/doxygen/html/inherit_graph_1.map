@@ -1,0 +1,5 @@
+<map id="Graphe hiérarchique des classes" name="Graphe hiérarchique des classes">
+<area shape="rect" id="node1" href="$class_classe_a.html" title="Dans la ClasseA on colle une définition de type et on utilise ce type dans 2 attributs associés en mu..." alt="" coords="5,5,76,32"/>
+<area shape="rect" id="node2" href="$class_classe_de_base.html" title="Classe qui hérite de 2 autres classes. Cela ajoutera les includes necéssaires. " alt="" coords="124,31,232,57"/>
+<area shape="rect" id="node3" href="$class_classe_c.html" title="ici on associe 2 stereotypes : un using et un enum " alt="" coords="5,56,76,83"/>
+</map>

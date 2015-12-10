@@ -1,0 +1,45 @@
+#ifndef CLASSEB__H
+#define CLASSEB__H
+
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <SFML/Graphics.hpp>
+#include <memory>
+
+
+
+class ClasseC;
+
+
+/////////////////////////////////////////////////
+/// \brief associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr.
+///
+/////////////////////////////////////////////////
+class ClasseB {
+
+
+
+/////////////////////////////////////////////////
+// Méthodes
+/////////////////////////////////////////////////
+public:
+    /////////////////////////////////////////////////
+    /// \brief operation simple
+    ///
+    /////////////////////////////////////////////////
+    bool operation_B1 ();
+
+
+
+/////////////////////////////////////////////////
+// Membres
+/////////////////////////////////////////////////
+public:
+    sf::FloatRect m_TrucSFML;    ///< Un peu tricky : le type comprte "sf::" on include donc <SFML/Graphics.hpp>.    
+    std::shared_ptr<ClasseC> m_classeC;    ///< ceci ajoute l'include <memory>, definie temporairement la ClassC dans le *.h, et include ClasseC dans le *.cpp.    
+    float m_attr_B1;    ///< Attribut direct dans les propriétés de ClasseB.    
+
+}; // fin class ClasseB
+
+#endif
