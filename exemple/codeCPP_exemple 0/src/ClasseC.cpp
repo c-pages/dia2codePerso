@@ -11,3 +11,10 @@ bool ClasseC::operation_C1 ()
 }
 
 
+/////////////////////////////////////////////////
+float ClasseC::get_attr_C1 () const
+{
+    
+}
+
+

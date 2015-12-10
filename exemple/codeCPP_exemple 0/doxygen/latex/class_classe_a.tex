@@ -1,0 +1,131 @@
+\section{Référence de la classe Classe\+A}
+\label{class_classe_a}\index{Classe\+A@{Classe\+A}}
+
+
+Dans la \doxyref{Classe\+A}{p.}{class_classe_a} on colle une définition de type et on utilise ce type dans 2 attributs associés en multiple (dans des vectors ($\ast$)  
+
+
+
+
+{\ttfamily \#include $<$Classe\+A.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Classe\+A\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_classe_a__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bf operation\+\_\+\+A1} ()
+\begin{DoxyCompactList}\small\item\em operation simple \end{DoxyCompactList}\item 
+virtual void {\bf operation\+\_\+virtuelle} ()
+\begin{DoxyCompactList}\small\item\em operation virtuelle \+: dans Dia\+: polymorphe(virtuelle). \end{DoxyCompactList}\item 
+virtual void {\bf operation\+\_\+abstraite} ()=0
+\begin{DoxyCompactList}\small\item\em operation abstraite \+: dans Dia\+: Abstraite. Doit etre overridé par héritié. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+float {\bf m\+\_\+attr\+\_\+\+A1}
+\begin{DoxyCompactList}\small\item\em Attribut direct dans les propriétés de \doxyref{Classe\+A}{p.}{class_classe_a}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ {\bf ptr} $>$ $>$ {\bf m\+\_\+\+B\+\_\+agregation\+Multiple}
+\begin{DoxyCompactList}\small\item\em multiplicité\+: $\ast$ ou 0..$\ast$ \+: creation vector de cet attribut. \end{DoxyCompactList}\item 
+std\+::vector$<$ {\bf ptr} $>$ {\bf m\+\_\+\+B\+\_\+composition\+Multiple}
+\begin{DoxyCompactList}\small\item\em multiplicité\+: $\ast$ ou 0..$\ast$ \+: creation vector de cet attribut. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Types privés}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ {\bf Classe\+B} $>$ {\bf ptr}
+\begin{DoxyCompactList}\small\item\em Celui ci est integré comme definition de type car la liaison est vide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Dans la \doxyref{Classe\+A}{p.}{class_classe_a} on colle une définition de type et on utilise ce type dans 2 attributs associés en multiple (dans des vectors ($\ast$) 
+
+\subsection{Documentation des définitions de type membres}
+\index{Classe\+A@{Classe\+A}!ptr@{ptr}}
+\index{ptr@{ptr}!Classe\+A@{Classe\+A}}
+\subsubsection[{ptr}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::shared\+\_\+ptr$<${\bf Classe\+B}$>$ {\bf Classe\+A\+::ptr}\hspace{0.3cm}{\ttfamily [private]}}\label{class_classe_a_a459f6871995e0425cc373779acd645bf}
+
+
+Celui ci est integré comme definition de type car la liaison est vide. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\index{Classe\+A@{Classe\+A}!operation\+\_\+\+A1@{operation\+\_\+\+A1}}
+\index{operation\+\_\+\+A1@{operation\+\_\+\+A1}!Classe\+A@{Classe\+A}}
+\subsubsection[{operation\+\_\+\+A1()}]{\setlength{\rightskip}{0pt plus 5cm}bool Classe\+A\+::operation\+\_\+\+A1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_classe_a_a5457ae6df0159e29191ee5179580717f}
+
+
+operation simple 
+
+\index{Classe\+A@{Classe\+A}!operation\+\_\+abstraite@{operation\+\_\+abstraite}}
+\index{operation\+\_\+abstraite@{operation\+\_\+abstraite}!Classe\+A@{Classe\+A}}
+\subsubsection[{operation\+\_\+abstraite()=0}]{\setlength{\rightskip}{0pt plus 5cm}void Classe\+A\+::operation\+\_\+abstraite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_classe_a_a811e7c008ce6b48539ba545f3a52112c}
+
+
+operation abstraite \+: dans Dia\+: Abstraite. Doit etre overridé par héritié. 
+
+
+
+Implémenté dans {\bf Classe\+De\+Base} \doxyref{}{p.}{class_classe_de_base_a066806c67b8ae57e247992dcd905dd9e}.
+
+\index{Classe\+A@{Classe\+A}!operation\+\_\+virtuelle@{operation\+\_\+virtuelle}}
+\index{operation\+\_\+virtuelle@{operation\+\_\+virtuelle}!Classe\+A@{Classe\+A}}
+\subsubsection[{operation\+\_\+virtuelle()}]{\setlength{\rightskip}{0pt plus 5cm}void Classe\+A\+::operation\+\_\+virtuelle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_classe_a_a7d34e699687795ee47a2da2ab89fd7c2}
+
+
+operation virtuelle \+: dans Dia\+: polymorphe(virtuelle). 
+
+
+
+Réimplémentée dans {\bf Classe\+De\+Base} \doxyref{}{p.}{class_classe_de_base_a69c1bbd18ee2f1989141443328dcd031}.
+
+
+
+\subsection{Documentation des données membres}
+\index{Classe\+A@{Classe\+A}!m\+\_\+attr\+\_\+\+A1@{m\+\_\+attr\+\_\+\+A1}}
+\index{m\+\_\+attr\+\_\+\+A1@{m\+\_\+attr\+\_\+\+A1}!Classe\+A@{Classe\+A}}
+\subsubsection[{m\+\_\+attr\+\_\+\+A1}]{\setlength{\rightskip}{0pt plus 5cm}float Classe\+A\+::m\+\_\+attr\+\_\+\+A1}\label{class_classe_a_acff950594aaeae758faca3a7d114aa32}
+
+
+Attribut direct dans les propriétés de \doxyref{Classe\+A}{p.}{class_classe_a}. 
+
+\index{Classe\+A@{Classe\+A}!m\+\_\+\+B\+\_\+agregation\+Multiple@{m\+\_\+\+B\+\_\+agregation\+Multiple}}
+\index{m\+\_\+\+B\+\_\+agregation\+Multiple@{m\+\_\+\+B\+\_\+agregation\+Multiple}!Classe\+A@{Classe\+A}}
+\subsubsection[{m\+\_\+\+B\+\_\+agregation\+Multiple}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::shared\+\_\+ptr$<${\bf ptr}$>$ $>$ Classe\+A\+::m\+\_\+\+B\+\_\+agregation\+Multiple}\label{class_classe_a_a1377feaf9a8dec73edc05e13ed183830}
+
+
+multiplicité\+: $\ast$ ou 0..$\ast$ \+: creation vector de cet attribut. 
+
+\index{Classe\+A@{Classe\+A}!m\+\_\+\+B\+\_\+composition\+Multiple@{m\+\_\+\+B\+\_\+composition\+Multiple}}
+\index{m\+\_\+\+B\+\_\+composition\+Multiple@{m\+\_\+\+B\+\_\+composition\+Multiple}!Classe\+A@{Classe\+A}}
+\subsubsection[{m\+\_\+\+B\+\_\+composition\+Multiple}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf ptr}$>$ Classe\+A\+::m\+\_\+\+B\+\_\+composition\+Multiple}\label{class_classe_a_a10a19e5c0031fac325588bb505ce2347}
+
+
+multiplicité\+: $\ast$ ou 0..$\ast$ \+: creation vector de cet attribut. 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+R\+:/06 -\/ C++/dia2code\+Perso/exemple/code\+C\+P\+P\+\_\+exemple 0/include/{\bf Classe\+A.\+h}\item 
+R\+:/06 -\/ C++/dia2code\+Perso/exemple/code\+C\+P\+P\+\_\+exemple 0/src/{\bf Classe\+A.\+cpp}\end{DoxyCompactItemize}

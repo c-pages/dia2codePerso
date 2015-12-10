@@ -1,0 +1,171 @@
+\section{Référence de la classe Classe\+De\+Base}
+\label{class_classe_de_base}\index{Classe\+De\+Base@{Classe\+De\+Base}}
+
+
+Classe qui hérite de 2 autres classes. Cela ajoutera les includes necéssaires.  
+
+
+
+
+{\ttfamily \#include $<$Classe\+De\+Base.\+h$>$}
+
+
+
+Graphe d\textquotesingle{}héritage de Classe\+De\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{class_classe_de_base__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Graphe de collaboration de Classe\+De\+Base\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{class_classe_de_base__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+{\bf Classe\+De\+Base} ()
+\begin{DoxyCompactList}\small\item\em Constructeur, les attributs ayant une valeur par défaut vont être initialisés dans le $\ast$.cpp. \end{DoxyCompactList}\item 
+void {\bf operation\+\_\+1} (int param1)
+\begin{DoxyCompactList}\small\item\em operation public de base. \end{DoxyCompactList}\item 
+virtual void {\bf operation\+\_\+virtuelle} ()
+\begin{DoxyCompactList}\small\item\em operation virtuelle qui override celle de la \doxyref{Classe\+A}{p.}{class_classe_a}. \end{DoxyCompactList}\item 
+virtual void {\bf operation\+\_\+abstraite} ()
+\begin{DoxyCompactList}\small\item\em operation virtuelle qui override l\textquotesingle{}operation abstraite de la \doxyref{Classe\+A}{p.}{class_classe_a}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf m\+\_\+attr\+\_\+2}
+\begin{DoxyCompactList}\small\item\em Attribut public de la classe de base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs publics statiques}
+\begin{DoxyCompactItemize}
+\item 
+static int {\bf ms\+\_\+attr\+\_\+1} = 0
+\begin{DoxyCompactList}\small\item\em Attribut static de la classe de base. Sera initialisé au début du $\ast$.cpp. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs protégés}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf m\+\_\+attr\+\_\+3}
+\begin{DoxyCompactList}\small\item\em Attribut protegé de la classe de base. \end{DoxyCompactList}\item 
+{\bf Classe\+B} {\bf m\+\_\+\+B\+\_\+composition}
+\begin{DoxyCompactList}\small\item\em associé avec le type\+: \textquotesingle{}composition\textquotesingle{}, créer un simple attribut. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ {\bf Classe\+B} $>$ {\bf m\+\_\+\+B\+\_\+aggregation}
+\begin{DoxyCompactList}\small\item\em associé avec le type\+: \textquotesingle{}Aggregation\textquotesingle{}. Créer l\textquotesingle{}attribut dans un shared\+\_\+ptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe qui hérite de 2 autres classes. Cela ajoutera les includes necéssaires. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\index{Classe\+De\+Base@{Classe\+De\+Base}!Classe\+De\+Base@{Classe\+De\+Base}}
+\index{Classe\+De\+Base@{Classe\+De\+Base}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{Classe\+De\+Base()}]{\setlength{\rightskip}{0pt plus 5cm}Classe\+De\+Base\+::\+Classe\+De\+Base (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_classe_de_base_ab12f84aa56a394fa0f7db9518af68f70}
+
+
+Constructeur, les attributs ayant une valeur par défaut vont être initialisés dans le $\ast$.cpp. 
+
+
+
+\subsection{Documentation des fonctions membres}
+\index{Classe\+De\+Base@{Classe\+De\+Base}!operation\+\_\+1@{operation\+\_\+1}}
+\index{operation\+\_\+1@{operation\+\_\+1}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{operation\+\_\+1(int param1)}]{\setlength{\rightskip}{0pt plus 5cm}void Classe\+De\+Base\+::operation\+\_\+1 (
+\begin{DoxyParamCaption}
+\item[{int}]{param1}
+\end{DoxyParamCaption}
+)}\label{class_classe_de_base_a1e6d89bbc396d801afddc4f7bc715537}
+
+
+operation public de base. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em param1} & Parametre de l\textquotesingle{}operation. \\
+\hline
+\end{DoxyParams}
+\index{Classe\+De\+Base@{Classe\+De\+Base}!operation\+\_\+abstraite@{operation\+\_\+abstraite}}
+\index{operation\+\_\+abstraite@{operation\+\_\+abstraite}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{operation\+\_\+abstraite()}]{\setlength{\rightskip}{0pt plus 5cm}void Classe\+De\+Base\+::operation\+\_\+abstraite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_classe_de_base_a066806c67b8ae57e247992dcd905dd9e}
+
+
+operation virtuelle qui override l\textquotesingle{}operation abstraite de la \doxyref{Classe\+A}{p.}{class_classe_a}. 
+
+
+
+Implémente {\bf Classe\+A} \doxyref{}{p.}{class_classe_a_a811e7c008ce6b48539ba545f3a52112c}.
+
+\index{Classe\+De\+Base@{Classe\+De\+Base}!operation\+\_\+virtuelle@{operation\+\_\+virtuelle}}
+\index{operation\+\_\+virtuelle@{operation\+\_\+virtuelle}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{operation\+\_\+virtuelle()}]{\setlength{\rightskip}{0pt plus 5cm}void Classe\+De\+Base\+::operation\+\_\+virtuelle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_classe_de_base_a69c1bbd18ee2f1989141443328dcd031}
+
+
+operation virtuelle qui override celle de la \doxyref{Classe\+A}{p.}{class_classe_a}. 
+
+
+
+Réimplémentée à partir de {\bf Classe\+A} \doxyref{}{p.}{class_classe_a_a7d34e699687795ee47a2da2ab89fd7c2}.
+
+
+
+\subsection{Documentation des données membres}
+\index{Classe\+De\+Base@{Classe\+De\+Base}!m\+\_\+attr\+\_\+2@{m\+\_\+attr\+\_\+2}}
+\index{m\+\_\+attr\+\_\+2@{m\+\_\+attr\+\_\+2}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{m\+\_\+attr\+\_\+2}]{\setlength{\rightskip}{0pt plus 5cm}int Classe\+De\+Base\+::m\+\_\+attr\+\_\+2}\label{class_classe_de_base_a8ae3ec3194396062a58f0c953dd9d751}
+
+
+Attribut public de la classe de base. 
+
+\index{Classe\+De\+Base@{Classe\+De\+Base}!m\+\_\+attr\+\_\+3@{m\+\_\+attr\+\_\+3}}
+\index{m\+\_\+attr\+\_\+3@{m\+\_\+attr\+\_\+3}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{m\+\_\+attr\+\_\+3}]{\setlength{\rightskip}{0pt plus 5cm}int Classe\+De\+Base\+::m\+\_\+attr\+\_\+3\hspace{0.3cm}{\ttfamily [protected]}}\label{class_classe_de_base_add64a038fee30008edf9b5e7d8e822ea}
+
+
+Attribut protegé de la classe de base. 
+
+\index{Classe\+De\+Base@{Classe\+De\+Base}!m\+\_\+\+B\+\_\+aggregation@{m\+\_\+\+B\+\_\+aggregation}}
+\index{m\+\_\+\+B\+\_\+aggregation@{m\+\_\+\+B\+\_\+aggregation}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{m\+\_\+\+B\+\_\+aggregation}]{\setlength{\rightskip}{0pt plus 5cm}std\+::shared\+\_\+ptr$<${\bf Classe\+B}$>$ Classe\+De\+Base\+::m\+\_\+\+B\+\_\+aggregation\hspace{0.3cm}{\ttfamily [protected]}}\label{class_classe_de_base_a3224cb629fa4f6e6c05c76238c9f126c}
+
+
+associé avec le type\+: \textquotesingle{}Aggregation\textquotesingle{}. Créer l\textquotesingle{}attribut dans un shared\+\_\+ptr. 
+
+\index{Classe\+De\+Base@{Classe\+De\+Base}!m\+\_\+\+B\+\_\+composition@{m\+\_\+\+B\+\_\+composition}}
+\index{m\+\_\+\+B\+\_\+composition@{m\+\_\+\+B\+\_\+composition}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{m\+\_\+\+B\+\_\+composition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Classe\+B} Classe\+De\+Base\+::m\+\_\+\+B\+\_\+composition\hspace{0.3cm}{\ttfamily [protected]}}\label{class_classe_de_base_a2a7a74b8a94b0d31f9872838e01d6464}
+
+
+associé avec le type\+: \textquotesingle{}composition\textquotesingle{}, créer un simple attribut. 
+
+\index{Classe\+De\+Base@{Classe\+De\+Base}!ms\+\_\+attr\+\_\+1@{ms\+\_\+attr\+\_\+1}}
+\index{ms\+\_\+attr\+\_\+1@{ms\+\_\+attr\+\_\+1}!Classe\+De\+Base@{Classe\+De\+Base}}
+\subsubsection[{ms\+\_\+attr\+\_\+1}]{\setlength{\rightskip}{0pt plus 5cm}int Classe\+De\+Base\+::ms\+\_\+attr\+\_\+1 = 0\hspace{0.3cm}{\ttfamily [static]}}\label{class_classe_de_base_a052532b7d64e18455fbf76d405b882a7}
+
+
+Attribut static de la classe de base. Sera initialisé au début du $\ast$.cpp. 
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \+:\begin{DoxyCompactItemize}
+\item 
+R\+:/06 -\/ C++/dia2code\+Perso/exemple/code\+C\+P\+P\+\_\+exemple 0/include/{\bf Classe\+De\+Base.\+h}\item 
+R\+:/06 -\/ C++/dia2code\+Perso/exemple/code\+C\+P\+P\+\_\+exemple 0/src/{\bf Classe\+De\+Base.\+cpp}\end{DoxyCompactItemize}
