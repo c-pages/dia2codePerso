@@ -267,43 +267,43 @@
 	<libxml/xmlIO.h>
 	<libxml/globals.h>
 
-1308508838 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlversion.h
+1308512438 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlversion.h
 	<libxml/xmlexports.h>
 	<ansidecl.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlexports.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlexports.h
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\tree.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\tree.h
 	<stdio.h>
 	<libxml/xmlversion.h>
 	<libxml/xmlstring.h>
 	<libxml/xmlregexp.h>
 	<libxml/xmlmemory.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlstring.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlstring.h
 	<stdarg.h>
 	<libxml/xmlversion.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlregexp.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlregexp.h
 	<libxml/xmlversion.h>
 	<libxml/tree.h>
 	<libxml/dict.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\dict.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\dict.h
 	<libxml/xmlversion.h>
 	<libxml/tree.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlmemory.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlmemory.h
 	<stdio.h>
 	<libxml/xmlversion.h>
 	<libxml/threads.h>
 	<libxml/globals.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\threads.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\threads.h
 	<libxml/xmlversion.h>
 	<libxml/globals.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\globals.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\globals.h
 	<libxml/xmlversion.h>
 	<libxml/parser.h>
 	<libxml/xmlerror.h>
@@ -312,33 +312,33 @@
 	<libxml/xmlmemory.h>
 	<libxml/threads.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlerror.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlerror.h
 	<libxml/parser.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\sax.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\sax.h
 	<stdio.h>
 	<stdlib.h>
 	<libxml/xmlversion.h>
 	<libxml/parser.h>
 	<libxml/xlink.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xlink.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xlink.h
 	<libxml/xmlversion.h>
 	<libxml/tree.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\sax2.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\sax2.h
 	<stdio.h>
 	<stdlib.h>
 	<libxml/xmlversion.h>
 	<libxml/parser.h>
 	<libxml/xlink.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\hash.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\hash.h
 	<libxml/xmlversion.h>
 	<libxml/parser.h>
 	<libxml/dict.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\valid.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\valid.h
 	<libxml/xmlversion.h>
 	<libxml/xmlerror.h>
 	<libxml/tree.h>
@@ -346,15 +346,15 @@
 	<libxml/xmlautomata.h>
 	<libxml/xmlregexp.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\list.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\list.h
 	<libxml/xmlversion.h>
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlautomata.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlautomata.h
 	<libxml/xmlversion.h>
 	<libxml/tree.h>
 	<libxml/xmlregexp.h>
 
-1286861132 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\entities.h
+1286864732 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\entities.h
 	<libxml/xmlversion.h>
 	<libxml/tree.h>
 
@@ -373,7 +373,7 @@
 
 1447287091 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\_types.h
 
-1253802720 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlio.h
+1253806320 f:\bibliotheques cpp\libxml2-2.7.8.win32\include\libxml\xmlio.h
 	<stdio.h>
 	<libxml/xmlversion.h>
 	<libxml/globals.h>
@@ -506,4 +506,27 @@
 	"decls.h"
 	"includes.h"
 	<string.h>
+
+1449850644 source:c:\users\kris\documents\06 - c++\dia2codeperso\code\comment_helper.c
+	"dia2code.h"
+
+1449850644 c:\users\kris\documents\06 - c++\dia2codeperso\code\dia2code.h
+	<string.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<stdarg.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<libxml/parser.h>
+	<libxml/tree.h>
+	<dlfcn.h>
+	"ansidecl.h"
+	<stddef.h>
+
+1449850644 source:c:\users\kris\documents\06 - c++\dia2codeperso\code\decls.c
+	"decls.h"
+
+1449850644 c:\users\kris\documents\06 - c++\dia2codeperso\code\decls.h
+	"dia2code.h"
 

@@ -244,7 +244,7 @@ char *create_package_dir( const batch *batch, umlpackage *pkg )
     char *fulldirname, *dirname, fulldirnamedup[BIG_BUFFER];
     int ret;
     /* created directories permissions */
-    mode_t dir_mask = S_IRUSR | S_IWUSR | S_IXUSR |S_IRGRP | S_IXGRP;
+    mode_t dir_mask = S_IRUSR | S_IWUSR | S_IXUSR;
     if (pkg == NULL) {
         return NULL;
     }
