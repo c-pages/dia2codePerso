@@ -1,10 +1,10 @@
 ﻿# dia2codePerso
 customisation à la cerpe de dia2code http://dia2code.sourceforge.net/
   - commentaires (facon SFML)  (Visible C++ Style de code::block).
-  - creation des*.cpp avec initialisation des membres pour fonction de creation.
+  - creation des*.cpp.
   - gestion des virtuel, abstrait et statics, avec initialisation des statics dans le *.cpp.
   - gestion des includes.
-  - creation automatique des accesseurs avec ajout de tag dans le commentaire de l'attribut:
+  - creation automatique des accesseurs par ajout de tag dans le commentaire de l'attribut:
 	- pour attributs simple : #G:get, #S:set
 	- pour vector d'attributs : #A:Ajouter, #R:Retirer, #V:vider, #G:getIndex
 
@@ -12,7 +12,7 @@ customisation à la cerpe de dia2code http://dia2code.sourceforge.net/
 
 
 
-INSTALLE perso à l'arrache mais ca marche
+INSTALLE windaube à l'arrache mais ca marche
 
 	
 1>	ajouter un chemin dans la liste des paths
