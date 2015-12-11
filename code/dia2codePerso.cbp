@@ -12,7 +12,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -24,7 +23,6 @@
 				<Option use_console_runner="0" />
 				<Compiler>
 					<Add option="-O2" />
-					<Add option="-std=c++11" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -32,7 +30,6 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-std=c++11" />
 			<Add option="-Wall" />
 			<Add directory="F:/Bibliotheques CPP/libxml2-2.7.8.win32/include" />
 		</Compiler>
