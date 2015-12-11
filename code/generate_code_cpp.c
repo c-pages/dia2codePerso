@@ -299,6 +299,191 @@ char* supprimCharAt(char * chaine1, int i)
 //    }
 //}
 
+
+
+
+
+
+
+
+
+
+void
+accesseurSimple( char* nom , char* nomType, char * commentaires , int composite )
+{
+
+    //      printf (" ***** A *******************************************************************\n");
+
+    char  nomAtt[2048];
+    strcpy ( nomAtt , nom );
+    char* teste = strstr( nomAtt , "m_");
+    char    nomFonctionGET[80];
+    char    nomFonctionSET[80];
+    char    nomAttAffiche[80];
+    strcpy ( nomAttAffiche , nomAtt );
+    if (teste != NULL )
+        if ( ! strcmp ( teste , nomAttAffiche  ))
+        {
+            supprimCharAt( nomAttAffiche, 0);
+            supprimCharAt( nomAttAffiche, 0);
+        }
+
+    // si minuscule => majuscule
+    if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
+        nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+    strcpy ( nomFonctionGET , nomAttAffiche );
+    strcpy ( nomFonctionSET , nomAttAffiche );
+
+    char  GET[80]= "get";
+    char  SET[80] = "set";
+
+    strcat ( GET , nomFonctionGET );
+    strcat ( SET , nomFonctionSET );
+
+    // LE SET ///////////////
+    if ( strstr( commentaires , "#GS" ) != NULL
+    ||   strstr( commentaires , "#S" )  != NULL )
+    {
+
+        char * shared1 = "";
+        char * shared2 = "";
+
+        if ( !composite ) {
+            shared1 = "std::shared_ptr<";
+            shared2 = ">";
+        }
+
+        print("///< Definir %s\n", nomAtt);
+        print("void %s( %s%s%s val ){ %s = val; };\n\n", SET, shared1, nomType, shared2 , nomAtt );
+    }
+    //        printf (" ***** G *******************************************************************\n");
+    // LE GET ///////////////
+    if ( strstr( commentaires , "#GS" ) != NULL
+    ||   strstr( commentaires , "#G" )  != NULL )
+    {
+        printf (" **** LE GET *********************************************************************\n");
+
+        char * shared1 = "";
+        char * shared2 = "";
+
+        if ( !composite ) {
+            shared1 = "std::shared_ptr<";
+            shared2 = ">";
+        }
+        print("///< Acceder à %s\n", nomAtt);
+        print("%s%s%s %s () const { return %s; };\n\n", shared1,  nomType, shared2 , GET, nomAtt );
+    }
+    //        printf (" ***** H *******************************************************************\n");
+
+}
+
+
+
+void
+accesseurVector( char* nom , char* nomType ,char * commentaires )
+{
+    char    nomAtt[2048];
+    strcpy ( nomAtt , nom );
+    char*   teste = strstr( nomAtt , "m_");
+
+    char    nomFonctionAjouter[80];
+    char    nomFonctionRetirer[80];
+    char    nomFonctionVider[80];
+    char    nomFonctionGet[80];
+
+    char    nomAttAffiche[80];
+    strcpy ( nomAttAffiche , nomAtt );
+
+    if (teste != NULL )
+        if ( ! strcmp ( teste , nomAttAffiche  ))
+        {
+            supprimCharAt( nomAttAffiche, 0);
+            supprimCharAt( nomAttAffiche, 0);
+        }
+
+    // si minuscule => majuscule
+    if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
+        nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+    strcpy ( nomFonctionAjouter , nomAttAffiche );
+    strcpy ( nomFonctionRetirer , nomAttAffiche );
+    strcpy ( nomFonctionVider , nomAttAffiche );
+    strcpy ( nomFonctionGet , nomAttAffiche );
+
+    char  ajouter[80]= "ajouter";
+    char  retirer[80] = "retirer";
+    char  vider[80] = "vider";
+    char  get[80] = "get";
+
+
+    strcat ( ajouter , nomFonctionAjouter );
+    strcat ( retirer , nomFonctionRetirer );
+    strcat ( vider , nomFonctionVider );
+    strcat ( get , nomFonctionGet );
+
+
+    // LE AJOUTER ///////////////
+    if ( strstr( commentaires , "#A" ) != NULL )
+    {
+        print  ("///< Ajouter un élement dans %s\n", nomAtt);
+        print("void %s ( %s nouvelElement ){ %s.push_back( nouvelElement ); };\n\n", ajouter, nomType, nomAtt );
+    }
+
+
+    // LE retirer ///////////////
+    if ( strstr( commentaires , "#R" ) != NULL )
+    {
+        print  ("///< retirer l'élement à la position id dans %s\n", nomAtt);
+        print("void %s ( int id ) { if ( id>=0 || id<%s.size() ) %s.erase( %s.begin() + id ); };\n\n", retirer, nomAtt, nomAtt, nomAtt );
+    }
+
+
+    // LE Vider ///////////////
+    if ( strstr( commentaires , "#V" ) != NULL )
+    {
+        print  ("///< Vider %s\n", nomAtt);
+        print("void %s () { %s.clear(); };\n\n", vider, nomAtt );
+    }
+
+    // LE get ///////////////
+    if ( strstr( commentaires , "#G" ) != NULL )
+    {
+        print  ("///< Accesseur à l'élément de %s désigné par un id.\n", nomAtt);
+        print("%s %s ( int id ) const { if ( id>=0 || id<%s.size() )  return %s.at( id ); else return 0; };\n\n", nomType, get, nomAtt, nomAtt );
+    }
+}
+
+char *str_sub (const char *s, unsigned int start, unsigned int end)
+{
+   char *new_s = NULL;
+
+   if (s != NULL && start < end)
+   {
+/* (1)*/
+      new_s = malloc (sizeof (*new_s) * (end - start + 2));
+      if (new_s != NULL)
+      {
+         int i;
+
+/* (2) */
+         for (i = start; i <= end; i++)
+         {
+/* (3) */
+            new_s[i-start] = s[i];
+         }
+         new_s[i-start] = '\0';
+      }
+      else
+      {
+         fprintf (stderr, "Memoire insuffisante\n");
+         exit (EXIT_FAILURE);
+      }
+   }
+   return new_s;
+}
+
+
 //strcmp
 static void creerAccesseurs ( umlclassnode *node )
 {
@@ -330,168 +515,24 @@ static void creerAccesseurs ( umlclassnode *node )
         if ( eq ( umlAssoc->multiplicity , "*" )
         ||   eq ( umlAssoc->multiplicity , "0..*" )  )
         {
-            char    nomAtt[2048];
-            strcpy ( nomAtt , umlAssoc->name );
-            char*   teste = strstr( nomAtt , "m_");
+            char * type;
+            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
+                type = umlAssoc->key->attributes->key.type;
+            else
+                type = umlAssoc->key->name;
 
-            char    nomFonctionAjouter[80];
-            char    nomFonctionRetirer[80];
-            char    nomFonctionVider[80];
-            char    nomFonctionGet[80];
+            accesseurVector( umlAssoc->name , type , umlAssoc->key->comment  );
 
-            char    nomAttAffiche[80];
-            strcpy ( nomAttAffiche , nomAtt );
-
-            if (teste != NULL )
-                if ( ! strcmp ( teste , nomAttAffiche  ))
-                {
-                    supprimCharAt( nomAttAffiche, 0);
-                    supprimCharAt( nomAttAffiche, 0);
-                }
-
-            // si minuscule => majuscule
-            if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
-                nomAttAffiche[0] = nomAttAffiche[0] - 32;
-
-            strcpy ( nomFonctionAjouter , nomAttAffiche );
-            strcpy ( nomFonctionRetirer , nomAttAffiche );
-            strcpy ( nomFonctionVider , nomAttAffiche );
-            strcpy ( nomFonctionGet , nomAttAffiche );
-
-    //        printf (" ***** E *******************************************************************\n");
-
-            char  ajouter[80]= "ajouter";
-            char  retirer[80] = "retirer";
-            char  vider[80] = "vider";
-            char  get[80] = "get";
-
-         //   printf (" ***** F *******************************************************************\n");
-
-            strcat ( ajouter , nomFonctionAjouter );
-            strcat ( retirer , nomFonctionRetirer );
-            strcat ( vider , nomFonctionVider );
-            strcat ( get , nomFonctionGet );
-
-
-            // LE AJOUTER ///////////////
-            if ( strstr( umlAssoc->key->comment , "#A" ) != NULL )
-            {
-                printf (" **** ajouter *********************************************************************\n");
-                print  ("///< Ajouter un élement dans %s\n", nomAtt);
-
-                print("void %s ( %s nouvelElement ){ %s.push_back( nouvelElement ); };\n\n", ajouter, umlAssoc->key->name, nomAtt );
-                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
-            }
-
-
-            // LE retirer ///////////////
-            if ( strstr( umlAssoc->key->comment , "#R" ) != NULL )
-            {
-                printf (" **** retirer *********************************************************************\n");
-                print  ("///< retirer l'élement à la position id dans %s\n", nomAtt);
-
-                print("void %s ( int id ) { if ( id>=0 || id<%s.size() ) %s.erase( %s.begin() + id ); };\n\n", retirer, nomAtt, nomAtt, nomAtt );
-                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
-            }
-
-
-            // LE Vider ///////////////
-            if ( strstr( umlAssoc->key->comment , "#V" ) != NULL )
-            {
-                printf (" **** vider *********************************************************************\n");
-                print  ("///< Vider %s\n", nomAtt);
-
-                print("void %s () { %s.clear(); };\n\n", vider, nomAtt );
-                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
-            }
-
-            // LE get ///////////////
-            if ( strstr( umlAssoc->key->comment , "#G" ) != NULL )
-            {
-                printf (" **** get *********************************************************************\n");
-                print  ("///< Accesseur à l'élément de %s désigné par un id.\n", nomAtt);
-
-                print("%s %s ( int id ) const { if ( id>=0 || id<%s.size() )  return %s.at( id ); else return 0; };\n\n", umlAssoc->key->name, get, nomAtt, nomAtt );
-                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
-            }
         } else {
+            printf ("popo : %s !!! \n" , umlAssoc->key->name );
 
+            char * type;
+            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
+                type = umlAssoc->key->attributes->key.type;
+            else
+                type = umlAssoc->key->name;
 
-
-
-
-    //      printf (" ***** A *******************************************************************\n");
-
-            char  nomAtt[2048];
-            strcpy ( nomAtt , umlAssoc->name );
-            char* teste = strstr( nomAtt , "m_");
-            char    nomFonctionGET[80];
-            char    nomFonctionSET[80];
-            char    nomAttAffiche[80];
-            strcpy ( nomAttAffiche , nomAtt );
-            if (teste != NULL )
-                if ( ! strcmp ( teste , nomAttAffiche  ))
-                {
-                    supprimCharAt( nomAttAffiche, 0);
-                    supprimCharAt( nomAttAffiche, 0);
-                }
-
-            // si minuscule => majuscule
-            if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
-                nomAttAffiche[0] = nomAttAffiche[0] - 32;
-
-            strcpy ( nomFonctionGET , nomAttAffiche );
-            strcpy ( nomFonctionSET , nomAttAffiche );
-
-    //        printf (" ***** E *******************************************************************\n");
-
-            char  GET[80]= "get";
-            char  SET[80] = "set";
-
-    //        printf (" ***** F *******************************************************************\n");
-
-            strcat ( GET , nomFonctionGET );
-            strcat ( SET , nomFonctionSET );
-
-            //printf (" ***< %s >***\n", umlAssoc->key->comment );
-
-
-            // LE SET ///////////////
-            if ( strstr( umlAssoc->key->comment , "#GS" ) != NULL
-            ||   strstr( umlAssoc->key->comment , "#S" )  != NULL )
-            {
-                printf (" **** LE SET *********************************************************************\n");
-
-
-                char * shared1 = "";
-                char * shared2 = "";
-
-                if ( !umlAssoc->composite ) {
-                    shared1 = "std::shared_ptr<";
-                    shared2 = ">";
-                }
-
-                print("///< Definir %s\n", nomAtt);
-                print("void %s( %s%s%s val ){ %s = val; };\n\n", SET, shared1, umlAssoc->key->name, shared2 , nomAtt );
-            }
-    //        printf (" ***** G *******************************************************************\n");
-            // LE GET ///////////////
-            if ( strstr( umlAssoc->key->comment , "#GS" ) != NULL
-            ||   strstr( umlAssoc->key->comment , "#G" )  != NULL )
-            {
-                printf (" **** LE GET *********************************************************************\n");
-
-                char * shared1 = "";
-                char * shared2 = "";
-
-                if ( !umlAssoc->composite ) {
-                    shared1 = "std::shared_ptr<";
-                    shared2 = ">";
-                }
-                print("///< Acceder à %s\n", nomAtt);
-                print("%s%s%s %s () const { return %s; };\n\n", shared1,  umlAssoc->key->name, shared2 , GET, nomAtt );
-            }
-    //        printf (" ***** H *******************************************************************\n");
+            accesseurSimple( umlAssoc->name , type , umlAssoc->key->comment , umlAssoc->composite );
         }
         // suivant
         umlAssoc = umlAssoc->next;
@@ -501,56 +542,20 @@ static void creerAccesseurs ( umlclassnode *node )
 
 
     // attributs ////////
-    while (umlAtt != NULL)
+    while ( umlAtt != NULL )
     {
 
-        char  nomAtt[80];
-        strcpy ( nomAtt , umlAtt->key.name );
-        char* teste = strstr( nomAtt , "m_");
+        if ( strstr ( umlAtt->key.type , "vector" ) != NULL ) {
 
-        char nomFonctionGET[80];
-        char nomFonctionSET[80];
 
-        /////////////////////////////////////////////////////////////////////////////////
-        //////////////// ACCESSEUR //////////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////
+            char * type = umlAtt->key.type;
+            if ( strstr ( type , "std::vector<" ) != NULL )
+                type = str_sub ( type , 12 , strlen(type)-2 );
 
-        char  nomAttAffiche[80];
-        strcpy ( nomAttAffiche , nomAtt );
-        if (teste != NULL )
-            if ( ! strcmp ( teste , nomAttAffiche  ))
-            {
-                supprimCharAt( nomAttAffiche, 0);
-                supprimCharAt( nomAttAffiche, 0);
-            }
-
-        // si minuscule => majuscule
-        if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
-            nomAttAffiche[0] = nomAttAffiche[0] - 32;
-
-        strcpy ( nomFonctionGET , nomAttAffiche );
-        strcpy ( nomFonctionSET , nomAttAffiche );
-
-        char  GET[80]= "get";
-        char  SET[80] = "set";
-
-        strcat ( GET , nomFonctionGET );
-        strcat ( SET , nomFonctionSET );
-
-        // LE SET ///////////////
-        if ( strstr( umlAtt->key.comment , "#GS" ) != NULL
-        ||   strstr( umlAtt->key.comment , "#S" )  != NULL )
-        {
-            print("///< Definir %s\n", nomAtt);
-            print("void %s( %s val ){ %s = val; };\n\n", SET, umlAtt->key.type, nomAtt );
+            accesseurVector( umlAtt->key.name  , type, umlAtt->key.comment  );
         }
-        // LE GET ///////////////
-        if ( strstr( umlAtt->key.comment , "#GS" ) != NULL
-        ||   strstr( umlAtt->key.comment , "#G" )  != NULL )
-        {
-            print("///< Acceder à %s\n", nomAtt);
-            print("%s %s () const { return %s; };\n\n",  umlAtt->key.type, GET, nomAtt );
-        }
+        else
+            accesseurSimple( umlAtt->key.name , umlAtt->key.type, umlAtt->key.comment , 1 );
 
         // suivant
         umlAtt = umlAtt->next;

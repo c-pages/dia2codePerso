@@ -31,7 +31,7 @@ class ClasseA {
 
 public:
     ///< Ajouter un élement dans m_compositionMultiple
-    void ajouterCompositionMultiple ( ptr nouvelElement ){ m_compositionMultiple.push_back( nouvelElement ); };
+    void ajouterCompositionMultiple ( std::shared_ptr<ClasseB> nouvelElement ){ m_compositionMultiple.push_back( nouvelElement ); };
 
     ///< retirer l'élement à la position id dans m_compositionMultiple
     void retirerCompositionMultiple ( int id ) { if ( id>=0 || id<m_compositionMultiple.size() ) m_compositionMultiple.erase( m_compositionMultiple.begin() + id ); };
@@ -40,7 +40,7 @@ public:
     void viderCompositionMultiple () { m_compositionMultiple.clear(); };
 
     ///< Accesseur à l'élément de m_compositionMultiple désigné par un id.
-    ptr getCompositionMultiple ( int id ) const { if ( id>=0 || id<m_compositionMultiple.size() )  return m_compositionMultiple.at( id ); else return 0; };
+    std::shared_ptr<ClasseB> getCompositionMultiple ( int id ) const { if ( id>=0 || id<m_compositionMultiple.size() )  return m_compositionMultiple.at( id ); else return 0; };
 
 public:
     /////////////////////////////////////////////////

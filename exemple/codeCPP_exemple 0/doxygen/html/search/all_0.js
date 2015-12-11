@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ajoutercompositionmultiple',['ajouterCompositionMultiple',['../class_classe_a.html#a5c591b7fa87ba8702ba94870b07a18c2',1,'ClasseA']]]
+  ['ajoutercompositionmultiple',['ajouterCompositionMultiple',['../class_classe_a.html#a3b9851ff6150bee935227bd87428c7fb',1,'ClasseA']]],
+  ['ajoutermachins',['ajouterMachins',['../class_classe_b.html#abe4b5e54bfac7c871b8fb2110ddc0afc',1,'ClasseB']]]
 ];

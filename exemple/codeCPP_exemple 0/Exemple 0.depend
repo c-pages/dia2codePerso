@@ -1,22 +1,21 @@
 # depslib dependency file v1.0
 1449758055 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\main.cpp
 
-1449794995 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classea.cpp
+1449800247 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classea.cpp
 	<ClasseA.h>
 
-1449794832 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classea.h
+1449800247 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classea.h
 	<memory>
 	<vector>
 
-1449794703 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classeb.cpp
+1449800247 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classeb.cpp
 	<ClasseB.h>
 	<ClasseC.h>
-	<ClasseC.h>
 
-1449794703 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classeb.h
+1449800247 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classeb.h
+	<vector>
 	<SFML/Graphics.hpp>
 	<memory>
-	"ClasseC.h"
 
 1367993678 l:\programes\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -352,19 +351,19 @@
 	<string>
 	<vector>
 
-1449794702 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classec.h
+1449800247 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classec.h
 	<vector>
 	<functional>
 
-1449794703 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classec.cpp
+1449800247 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classec.cpp
 	<ClasseC.h>
-	<ClasseA.h>
+	<ClasseB.h>
 
-1449794703 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classedebase.cpp
+1449800247 source:r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\src\classedebase.cpp
 	<ClasseDeBase.h>
 	<ClasseB.h>
 
-1449795251 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classedebase.h
+1449800247 r:\06 - c++\dia2codeperso\exemple\codecpp_exemple 0\include\classedebase.h
 	"ClasseC.h"
 	"ClasseA.h"
 	<memory>

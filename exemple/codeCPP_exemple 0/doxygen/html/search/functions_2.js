@@ -4,5 +4,6 @@ var searchData=
   ['getaggregation',['getAggregation',['../class_classe_de_base.html#adfc900acc95b173c17858c8c62f94507',1,'ClasseDeBase']]],
   ['getattr_5fb1',['getAttr_B1',['../class_classe_b.html#a03fd13c0dad76d6436faa22c6f7e94ec',1,'ClasseB']]],
   ['getcomposition',['getComposition',['../class_classe_de_base.html#aa389d39667d11658acdbe4e0011d2f6d',1,'ClasseDeBase']]],
-  ['getcompositionmultiple',['getCompositionMultiple',['../class_classe_a.html#acdae73528ed6b77d64c67f765a0c052e',1,'ClasseA']]]
+  ['getcompositionmultiple',['getCompositionMultiple',['../class_classe_a.html#a8fe04faf8a0791bd67ee26f7aee15c76',1,'ClasseA']]],
+  ['getmachins',['getMachins',['../class_classe_b.html#ae6f6d18f9996ba78e35363b04c17058b',1,'ClasseB']]]
 ];
