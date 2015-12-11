@@ -27,10 +27,10 @@ class ClasseB {
 
 public:
     ///< Ajouter un élement dans m_machins
-    void ajouterMachins ( int nouvelElement ){ m_machins.push_back( nouvelElement ); };
+    void ajouterAMachins ( int nouvelElement ){ m_machins.push_back( nouvelElement ); };
 
     ///< retirer l'élement à la position id dans m_machins
-    void retirerMachins ( int id ) { if ( id>=0 || id<m_machins.size() ) m_machins.erase( m_machins.begin() + id ); };
+    void retirerAMachins ( int id ) { if ( id>=0 || id<m_machins.size() ) m_machins.erase( m_machins.begin() + id ); };
 
     ///< Vider m_machins
     void viderMachins () { m_machins.clear(); };

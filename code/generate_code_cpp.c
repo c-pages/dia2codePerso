@@ -304,6 +304,34 @@ char* supprimCharAt(char * chaine1, int i)
 
 
 
+char *str_sub (const char *s, unsigned int start, unsigned int end)
+{
+   char *new_s = NULL;
+
+   if (s != NULL && start < end)
+   {
+/* (1)*/
+      new_s = malloc (sizeof (*new_s) * (end - start + 2));
+      if (new_s != NULL)
+      {
+         int i;
+
+/* (2) */
+         for (i = start; i <= end; i++)
+         {
+/* (3) */
+            new_s[i-start] = s[i];
+         }
+         new_s[i-start] = '\0';
+      }
+      else
+      {
+         fprintf (stderr, "Memoire insuffisante\n");
+         exit (EXIT_FAILURE);
+      }
+   }
+   return new_s;
+}
 
 
 
@@ -402,25 +430,43 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
             supprimCharAt( nomAttAffiche, 0);
         }
 
+
+
+
     // si minuscule => majuscule
     if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
         nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+//    char* test2 = str_sub ( nomAttAffiche , strlen( nomAttAffiche)-1, strlen( nomAttAffiche) );
+//        printf ("-> test2 : %s\n" , test2);
+//
+//    // retirer le 's' de fin?
+//    if ( eq ( test2 , "s" ) ){
+//        supprimCharAt( nomAttAffiche, strlen( nomAttAffiche ) - 1);
+//        printf ("POPOPOPOPOPOPOPOPOPOPOPOPOPOPOPOPPO\n");
+//    }
+
 
     strcpy ( nomFonctionAjouter , nomAttAffiche );
     strcpy ( nomFonctionRetirer , nomAttAffiche );
     strcpy ( nomFonctionVider , nomAttAffiche );
     strcpy ( nomFonctionGet , nomAttAffiche );
 
-    char  ajouter[80]= "ajouter";
-    char  retirer[80] = "retirer";
+
+
+
+    char  ajouter[80]= "ajouterA";
+    char  retirer[80] = "retirerA";
     char  vider[80] = "vider";
     char  get[80] = "get";
+
 
 
     strcat ( ajouter , nomFonctionAjouter );
     strcat ( retirer , nomFonctionRetirer );
     strcat ( vider , nomFonctionVider );
     strcat ( get , nomFonctionGet );
+
 
 
     // LE AJOUTER ///////////////
@@ -454,34 +500,6 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     }
 }
 
-char *str_sub (const char *s, unsigned int start, unsigned int end)
-{
-   char *new_s = NULL;
-
-   if (s != NULL && start < end)
-   {
-/* (1)*/
-      new_s = malloc (sizeof (*new_s) * (end - start + 2));
-      if (new_s != NULL)
-      {
-         int i;
-
-/* (2) */
-         for (i = start; i <= end; i++)
-         {
-/* (3) */
-            new_s[i-start] = s[i];
-         }
-         new_s[i-start] = '\0';
-      }
-      else
-      {
-         fprintf (stderr, "Memoire insuffisante\n");
-         exit (EXIT_FAILURE);
-      }
-   }
-   return new_s;
-}
 
 
 //strcmp
@@ -516,10 +534,10 @@ static void creerAccesseurs ( umlclassnode *node )
         ||   eq ( umlAssoc->multiplicity , "0..*" )  )
         {
             char * type;
-            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
-                type = umlAssoc->key->attributes->key.type;
-            else
-                type = umlAssoc->key->name;
+//            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
+//                type = umlAssoc->key->attributes->key.type;
+//            else
+            type = umlAssoc->key->name;
 
             accesseurVector( umlAssoc->name , type , umlAssoc->key->comment  );
 
@@ -527,9 +545,9 @@ static void creerAccesseurs ( umlclassnode *node )
             printf ("popo : %s !!! \n" , umlAssoc->key->name );
 
             char * type;
-            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
-                type = umlAssoc->key->attributes->key.type;
-            else
+//            if ( eq ( umlAssoc->key->stereotype , "typedef" ) )
+//                type = umlAssoc->key->attributes->key.type;
+//            else
                 type = umlAssoc->key->name;
 
             accesseurSimple( umlAssoc->name , type , umlAssoc->key->comment , umlAssoc->composite );
