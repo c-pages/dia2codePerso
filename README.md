@@ -15,14 +15,14 @@ customisation à la cerpe de dia2code http://dia2code.sourceforge.net/
 INSTALLE windaube à l'arrache mais ca marche
 
 	
-1>	ajouter un chemin dans la liste des paths
+1> 	copier le contenu du dossier "bin/Release" dans "C:\Program Files (x86)\dia2code"
+
+2>	ajouter un chemin dans la liste des paths
 			("My Computer" > "Properties" > "Advanced" > "Environment Variables" > "Path")
-			vers le dossier "....\dia2codePerso\bin\Release\"
+			vers le dossier "C:\Program Files (x86)\dia2code"
 			
-2> 	copier le dossier "shell" dans "C:\Windows\"
 
-3>	copier un raccourci vers "C:\Windows\shell\dia2codeBAT.bat" dans le dossier sendto (shell:sendto)
-
+3>	copier un raccourci vers "C:\Program Files (x86)\dia2code\dia2codeBAT.bat" dans le dossier sendto (shell:sendto)
 
 
-4>	enjoy:	clique droit sur un fichier *.dia => "envoyer vers"  => "dia2code" !
+4>	=> clique droit sur un fichier *.dia => "envoyer vers"  => "dia2code"
