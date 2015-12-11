@@ -1,0 +1,52 @@
+#ifndef CLASSEB__H
+#define CLASSEB__H
+
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <SFML/Graphics.hpp>
+#include <memory>
+#include "ClasseC.h"
+
+
+
+class ClasseC;
+
+
+/////////////////////////////////////////////////
+/// \brief associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr. En mettant #G ou #S dans le commentaire d'un attribut on indique a dia2code  de prevoir les fonctions get ou set dans le *.h.
+///
+/////////////////////////////////////////////////
+class ClasseB {
+
+
+
+/////////////////////////////////////////////////
+// Méthodes
+/////////////////////////////////////////////////
+
+public:
+    ///< Acceder à m_lesClassesC
+    ClasseC getLesClassesC () const { return m_lesClassesC; };
+
+public:
+    /////////////////////////////////////////////////
+    /// \brief operation simple
+    ///
+    /////////////////////////////////////////////////
+    bool operation_B1 ();
+
+
+
+/////////////////////////////////////////////////
+// Membres
+/////////////////////////////////////////////////
+public:
+    sf::FloatRect m_TrucSFML;               ///< Un peu tricky : le type comprte "sf::" on include donc 'SFML/Graphics.hpp'.
+    std::shared_ptr<ClasseC> m_classeC;     ///< ceci ajoute l'include 'memory', definie temporairement la ClassC dans le *.h, et include ClasseC dans le *.cpp.
+    float m_attr_B1;                        ///< Attribut direct dans les propriétés de ClasseB.
+    ClasseC m_lesClassesC;                  ///< association multiple pour vector d'attributs. En mettant #A, #R, #V, #G dans le commentaire d'un vector d'attributs on indique a dia2code de prevoir les fonctions ajouter, retirer, vider, get dans le *.h
+
+}; // fin class ClasseB
+
+#endif

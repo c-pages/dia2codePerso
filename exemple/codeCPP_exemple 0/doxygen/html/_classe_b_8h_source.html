@@ -113,37 +113,49 @@ $(document).ready(function(){initNavTree('_classe_b_8h_source.html','');});
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Headers</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span><span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_classe_c_8h.html">ClasseC.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span><a class="code" href="class_classe_c.html">ClasseC</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_classe_c.html">ClasseC</a>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_classe_b.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe_b.html">ClasseB</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_classe_b.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_classe_b.html">ClasseB</a> {</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Méthodes</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span><span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_classe_b.html#a4a2e82d68664a57ad9f922543e2eed18">operation_B1</a> ();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">// Méthodes</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_classe_b.html#ace86bbd0eef55f4782a1d44c5192d896">   30</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_classe_b.html#ace86bbd0eef55f4782a1d44c5192d896">setAttr_B1</a>( <span class="keywordtype">float</span> val ){ <a class="code" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">m_attr_B1</a> = val; };</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_classe_b.html#a03fd13c0dad76d6436faa22c6f7e94ec">   33</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_classe_b.html#a03fd13c0dad76d6436faa22c6f7e94ec">getAttr_B1</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">m_attr_B1</a>; };</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// Membres</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span><span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">   39</a></span>&#160;    sf::FloatRect <a class="code" href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">m_TrucSFML</a>;    </div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">   40</a></span>&#160;    std::shared_ptr&lt;ClasseC&gt; <a class="code" href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">m_classeC</a>;    </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">   41</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">m_attr_B1</a>;    </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_classe_b.html#a4a2e82d68664a57ad9f922543e2eed18">operation_B1</a> ();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}; <span class="comment">// fin class ClasseB</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="class_classe_b_html"><div class="ttname"><a href="class_classe_b.html">ClasseB</a></div><div class="ttdoc">associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:19</div></div>
-<div class="ttc" id="class_classe_b_html_a3db1ea15c88b64e3e428e2b22416af39"><div class="ttname"><a href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">ClasseB::m_attr_B1</a></div><div class="ttdeci">float m_attr_B1</div><div class="ttdoc">Attribut direct dans les propriétés de ClasseB. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:41</div></div>
-<div class="ttc" id="class_classe_b_html_a4a2e82d68664a57ad9f922543e2eed18"><div class="ttname"><a href="class_classe_b.html#a4a2e82d68664a57ad9f922543e2eed18">ClasseB::operation_B1</a></div><div class="ttdeci">bool operation_B1()</div><div class="ttdoc">operation simple </div><div class="ttdef"><b>Definition:</b> ClasseB.cpp:8</div></div>
-<div class="ttc" id="class_classe_b_html_a23514f02a80438f4ea56e8dfc6efbdfd"><div class="ttname"><a href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">ClasseB::m_TrucSFML</a></div><div class="ttdeci">sf::FloatRect m_TrucSFML</div><div class="ttdoc">Un peu tricky : le type comprte "sf::" on include donc &#39;SFML/Graphics.hpp&#39;. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:39</div></div>
-<div class="ttc" id="class_classe_b_html_ad3e8fc2038d1aebf65a7a0df2bb4fc78"><div class="ttname"><a href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">ClasseB::m_classeC</a></div><div class="ttdeci">std::shared_ptr&lt; ClasseC &gt; m_classeC</div><div class="ttdoc">ceci ajoute l&#39;include &#39;memory&#39;, definie temporairement la ClassC dans le *.h, et include ClasseC dans...</div><div class="ttdef"><b>Definition:</b> ClasseB.h:40</div></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// Membres</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment"></span><span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">   48</a></span>&#160;    sf::FloatRect <a class="code" href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">m_TrucSFML</a>;    </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">   49</a></span>&#160;    std::shared_ptr&lt;ClasseC&gt; <a class="code" href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">m_classeC</a>;    </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">   50</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">m_attr_B1</a>;    </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_classe_b.html#a33027d83d426e8423f863ca85fa17061">   51</a></span>&#160;    std::vector&lt;ClasseC&gt;  <a class="code" href="class_classe_b.html#a33027d83d426e8423f863ca85fa17061">m_lesClassesC</a>;     </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}; <span class="comment">// fin class ClasseB</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="class_classe_b_html"><div class="ttname"><a href="class_classe_b.html">ClasseB</a></div><div class="ttdoc">associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. En mettant #G ou #S dans le...</div><div class="ttdef"><b>Definition:</b> ClasseB.h:20</div></div>
+<div class="ttc" id="class_classe_b_html_a3db1ea15c88b64e3e428e2b22416af39"><div class="ttname"><a href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">ClasseB::m_attr_B1</a></div><div class="ttdeci">float m_attr_B1</div><div class="ttdoc">Attribut direct dans les propriétés de ClasseB. #G pour ajouter une fonction get et #S pour set...</div><div class="ttdef"><b>Definition:</b> ClasseB.h:50</div></div>
+<div class="ttc" id="class_classe_b_html_a4a2e82d68664a57ad9f922543e2eed18"><div class="ttname"><a href="class_classe_b.html#a4a2e82d68664a57ad9f922543e2eed18">ClasseB::operation_B1</a></div><div class="ttdeci">bool operation_B1()</div><div class="ttdoc">operation simple </div><div class="ttdef"><b>Definition:</b> ClasseB.cpp:9</div></div>
+<div class="ttc" id="class_classe_b_html_a23514f02a80438f4ea56e8dfc6efbdfd"><div class="ttname"><a href="class_classe_b.html#a23514f02a80438f4ea56e8dfc6efbdfd">ClasseB::m_TrucSFML</a></div><div class="ttdeci">sf::FloatRect m_TrucSFML</div><div class="ttdoc">Un peu tricky : le type comprte "sf::" on include donc &#39;SFML/Graphics.hpp&#39;. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:48</div></div>
+<div class="ttc" id="class_classe_b_html_ad3e8fc2038d1aebf65a7a0df2bb4fc78"><div class="ttname"><a href="class_classe_b.html#ad3e8fc2038d1aebf65a7a0df2bb4fc78">ClasseB::m_classeC</a></div><div class="ttdeci">std::shared_ptr&lt; ClasseC &gt; m_classeC</div><div class="ttdoc">ceci ajoute l&#39;include &#39;memory&#39;, definie temporairement la ClassC dans le *.h, et include ClasseC dans...</div><div class="ttdef"><b>Definition:</b> ClasseB.h:49</div></div>
+<div class="ttc" id="_classe_c_8h_html"><div class="ttname"><a href="_classe_c_8h.html">ClasseC.h</a></div></div>
+<div class="ttc" id="class_classe_b_html_a03fd13c0dad76d6436faa22c6f7e94ec"><div class="ttname"><a href="class_classe_b.html#a03fd13c0dad76d6436faa22c6f7e94ec">ClasseB::getAttr_B1</a></div><div class="ttdeci">float getAttr_B1() const </div><div class="ttdoc">Acceder à m_attr_B1. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:33</div></div>
+<div class="ttc" id="class_classe_b_html_a33027d83d426e8423f863ca85fa17061"><div class="ttname"><a href="class_classe_b.html#a33027d83d426e8423f863ca85fa17061">ClasseB::m_lesClassesC</a></div><div class="ttdeci">std::vector&lt; ClasseC &gt; m_lesClassesC</div><div class="ttdoc">association multiple pour vector d&#39;attributs. </div><div class="ttdef"><b>Definition:</b> ClasseB.h:51</div></div>
 <div class="ttc" id="class_classe_c_html"><div class="ttname"><a href="class_classe_c.html">ClasseC</a></div><div class="ttdoc">ici on associe 2 stereotypes : un using et un enum </div><div class="ttdef"><b>Definition:</b> ClasseC.h:19</div></div>
+<div class="ttc" id="class_classe_b_html_ace86bbd0eef55f4782a1d44c5192d896"><div class="ttname"><a href="class_classe_b.html#ace86bbd0eef55f4782a1d44c5192d896">ClasseB::setAttr_B1</a></div><div class="ttdeci">void setAttr_B1(float val)</div><div class="ttdoc">< Definir m_attr_B1 </div><div class="ttdef"><b>Definition:</b> ClasseB.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

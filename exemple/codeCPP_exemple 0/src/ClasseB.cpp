@@ -4,6 +4,7 @@
 #include <ClasseB.h>
 
 #include <ClasseC.h>
+#include <ClasseC.h>
 /////////////////////////////////////////////////
 bool ClasseB::operation_B1 ()
 {

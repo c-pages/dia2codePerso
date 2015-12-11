@@ -7,6 +7,8 @@
 
 namespace gui {
 
+
+public:
 /////////////////////////////////////////////////
 Gadget::Gadget ()
 : m_actif ( true )

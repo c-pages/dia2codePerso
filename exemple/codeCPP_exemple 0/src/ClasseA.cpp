@@ -17,10 +17,3 @@ void ClasseA::operation_virtuelle ()
 }
 
 
-/////////////////////////////////////////////////
-void ClasseA::operation_abstraite ()
-{
-    
-}
-
-

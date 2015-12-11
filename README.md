@@ -1,10 +1,12 @@
-# dia2codePerso
+﻿# dia2codePerso
 customisation à la cerpe de dia2code http://dia2code.sourceforge.net/
   - commentaires (facon SFML)  (Visible C++ Style de code::block).
-  - creation des*.cpp avec initialisation des membres pour fonction de creation
-  - gestion des virtuel, abstrait et statics, avec initialisation des statics dans le *.cpp
-
-
+  - creation des*.cpp avec initialisation des membres pour fonction de creation.
+  - gestion des virtuel, abstrait et statics, avec initialisation des statics dans le *.cpp.
+  - gestion des includes.
+  - creation automatique des accesseurs avec ajout de tag dans le commentaire de l'attribut:
+	- pour attributs simple : #G:get, #S:set
+	- pour vector d'attributs : #A:Ajouter, #R:Retirer, #V:vider, #G:getIndex
 
 
 

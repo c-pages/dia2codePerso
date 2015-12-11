@@ -7,6 +7,8 @@
 
 namespace gui {
 
+
+public:
 /////////////////////////////////////////////////
 void Interaction::lier  (Evenement evenement, FctnAction fonction)
 {

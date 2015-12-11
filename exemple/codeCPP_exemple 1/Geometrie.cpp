@@ -3,10 +3,13 @@
 /////////////////////////////////////////////////
 #include <Geometrie.h>
 
+#include <Skin.h>
 
 
 namespace gui {
 
+
+public:
 /////////////////////////////////////////////////
 sf::Vector2f Geometrie::getPosAbs () const
 {

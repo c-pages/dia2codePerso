@@ -28,6 +28,20 @@ class ClasseA {
 /////////////////////////////////////////////////
 // Méthodes
 /////////////////////////////////////////////////
+
+public:
+    ///< Ajouter un élement dans m_compositionMultiple
+    void ajouterCompositionMultiple ( ptr nouvelElement ){ m_compositionMultiple.push_back( nouvelElement ); };
+
+    ///< retirer l'élement à la position id dans m_compositionMultiple
+    void retirerCompositionMultiple ( int id ) { if ( id>=0 || id<m_compositionMultiple.size() ) m_compositionMultiple.erase( m_compositionMultiple.begin() + id ); };
+
+    ///< Vider m_compositionMultiple
+    void viderCompositionMultiple () { m_compositionMultiple.clear(); };
+
+    ///< Accesseur à l'élément de m_compositionMultiple désigné par un id.
+    ptr getCompositionMultiple ( int id ) const { if ( id>=0 || id<m_compositionMultiple.size() )  return m_compositionMultiple.at( id ); else return 0; };
+
 public:
     /////////////////////////////////////////////////
     /// \brief operation simple
@@ -42,7 +56,7 @@ public:
     virtual void operation_virtuelle ();
 
     /////////////////////////////////////////////////
-    /// \brief operation abstraite : dans Dia: Abstraite. Doit etre overridé par héritié.
+    /// \brief operation abstraite : dans Dia: Abstraite. Doit etre overridé par héritié. N'est par définie dans le *.cpp.
     ///
     /////////////////////////////////////////////////
     virtual void operation_abstraite () = 0;
@@ -54,8 +68,7 @@ public:
 /////////////////////////////////////////////////
 public:
     float m_attr_A1;    ///< Attribut direct dans les propriétés de ClasseA.    
-    std::vector<std::shared_ptr<ptr>>  m_B_agregationMultiple;     ///< multiplicité:  * ou 0..* : creation vector de cet attribut.
-    std::vector<ptr>  m_B_compositionMultiple;     ///< multiplicité:  * ou 0..* : creation vector de cet attribut.
+    std::vector<ptr>  m_compositionMultiple;     ///< multiplicité:  * ou 0..* : creation vector de cet attribut.  En mettant #A, #R, #V, #G dans le commentaire d'un vector d'attributs on indique a dia2code de prevoir les fonctions ajouter, retirer, vider, get dans le *.h
 
 }; // fin class ClasseA
 

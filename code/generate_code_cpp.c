@@ -304,39 +304,212 @@ static void creerAccesseurs ( umlclassnode *node )
 {
 
 
+    //printf ("\nACCESSEUR : pour %s\n" , node->key->name );
 
-    umloplist umlo = node->key->operations;
-    umlattrlist umlAtt = node->key->attributes;
+    umloplist       umlo        =   node->key->operations;
+    umlattrlist     umlAtt      =   node->key->attributes;
+    umlassoclist    umlAssoc    =   node->associations;
 
-    if ( umlAtt != NULL )
+    if ( umlAtt != NULL || umlAssoc != NULL )
     {
         emit ("\npublic:\n");
     }
-    else
+
+
+
+    // associations ////////
+    while ( umlAssoc != NULL )
     {
-        return;
+
+        printf ( "associations : %s\n" , umlAssoc->key->name );
+        printf ( "multiplicity : %s\n" , umlAssoc->multiplicity );
+
+
+        // le cas de vector
+        // #A:ajouter,  #R:retirer,  #V:vider,  #G:get
+        if ( eq ( umlAssoc->multiplicity , "*" )
+        ||   eq ( umlAssoc->multiplicity , "0..*" )  )
+        {
+            char    nomAtt[2048];
+            strcpy ( nomAtt , umlAssoc->name );
+            char*   teste = strstr( nomAtt , "m_");
+
+            char    nomFonctionAjouter[80];
+            char    nomFonctionRetirer[80];
+            char    nomFonctionVider[80];
+            char    nomFonctionGet[80];
+
+            char    nomAttAffiche[80];
+            strcpy ( nomAttAffiche , nomAtt );
+
+            if (teste != NULL )
+                if ( ! strcmp ( teste , nomAttAffiche  ))
+                {
+                    supprimCharAt( nomAttAffiche, 0);
+                    supprimCharAt( nomAttAffiche, 0);
+                }
+
+            // si minuscule => majuscule
+            if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
+                nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+            strcpy ( nomFonctionAjouter , nomAttAffiche );
+            strcpy ( nomFonctionRetirer , nomAttAffiche );
+            strcpy ( nomFonctionVider , nomAttAffiche );
+            strcpy ( nomFonctionGet , nomAttAffiche );
+
+    //        printf (" ***** E *******************************************************************\n");
+
+            char  ajouter[80]= "ajouter";
+            char  retirer[80] = "retirer";
+            char  vider[80] = "vider";
+            char  get[80] = "get";
+
+         //   printf (" ***** F *******************************************************************\n");
+
+            strcat ( ajouter , nomFonctionAjouter );
+            strcat ( retirer , nomFonctionRetirer );
+            strcat ( vider , nomFonctionVider );
+            strcat ( get , nomFonctionGet );
+
+
+            // LE AJOUTER ///////////////
+            if ( strstr( umlAssoc->key->comment , "#A" ) != NULL )
+            {
+                printf (" **** ajouter *********************************************************************\n");
+                print  ("///< Ajouter un élement dans %s\n", nomAtt);
+
+                print("void %s ( %s nouvelElement ){ %s.push_back( nouvelElement ); };\n\n", ajouter, umlAssoc->key->name, nomAtt );
+                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
+            }
+
+
+            // LE retirer ///////////////
+            if ( strstr( umlAssoc->key->comment , "#R" ) != NULL )
+            {
+                printf (" **** retirer *********************************************************************\n");
+                print  ("///< retirer l'élement à la position id dans %s\n", nomAtt);
+
+                print("void %s ( int id ) { if ( id>=0 || id<%s.size() ) %s.erase( %s.begin() + id ); };\n\n", retirer, nomAtt, nomAtt, nomAtt );
+                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
+            }
+
+
+            // LE Vider ///////////////
+            if ( strstr( umlAssoc->key->comment , "#V" ) != NULL )
+            {
+                printf (" **** vider *********************************************************************\n");
+                print  ("///< Vider %s\n", nomAtt);
+
+                print("void %s () { %s.clear(); };\n\n", vider, nomAtt );
+                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
+            }
+
+            // LE get ///////////////
+            if ( strstr( umlAssoc->key->comment , "#G" ) != NULL )
+            {
+                printf (" **** get *********************************************************************\n");
+                print  ("///< Accesseur à l'élément de %s désigné par un id.\n", nomAtt);
+
+                print("%s %s ( int id ) const { if ( id>=0 || id<%s.size() )  return %s.at( id ); else return 0; };\n\n", umlAssoc->key->name, get, nomAtt, nomAtt );
+                //print("void %s( %s val ){ %s = val; };\n\n", ajouter, umlAssoc->key->attributes->key.type, nomAtt );
+            }
+        } else {
+
+
+
+
+
+    //      printf (" ***** A *******************************************************************\n");
+
+            char  nomAtt[2048];
+            strcpy ( nomAtt , umlAssoc->name );
+            char* teste = strstr( nomAtt , "m_");
+            char    nomFonctionGET[80];
+            char    nomFonctionSET[80];
+            char    nomAttAffiche[80];
+            strcpy ( nomAttAffiche , nomAtt );
+            if (teste != NULL )
+                if ( ! strcmp ( teste , nomAttAffiche  ))
+                {
+                    supprimCharAt( nomAttAffiche, 0);
+                    supprimCharAt( nomAttAffiche, 0);
+                }
+
+            // si minuscule => majuscule
+            if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
+                nomAttAffiche[0] = nomAttAffiche[0] - 32;
+
+            strcpy ( nomFonctionGET , nomAttAffiche );
+            strcpy ( nomFonctionSET , nomAttAffiche );
+
+    //        printf (" ***** E *******************************************************************\n");
+
+            char  GET[80]= "get";
+            char  SET[80] = "set";
+
+    //        printf (" ***** F *******************************************************************\n");
+
+            strcat ( GET , nomFonctionGET );
+            strcat ( SET , nomFonctionSET );
+
+            //printf (" ***< %s >***\n", umlAssoc->key->comment );
+
+
+            // LE SET ///////////////
+            if ( strstr( umlAssoc->key->comment , "#GS" ) != NULL
+            ||   strstr( umlAssoc->key->comment , "#S" )  != NULL )
+            {
+                printf (" **** LE SET *********************************************************************\n");
+
+
+                char * shared1 = "";
+                char * shared2 = "";
+
+                if ( !umlAssoc->composite ) {
+                    shared1 = "std::shared_ptr<";
+                    shared2 = ">";
+                }
+
+                print("///< Definir %s\n", nomAtt);
+                print("void %s( %s%s%s val ){ %s = val; };\n\n", SET, shared1, umlAssoc->key->name, shared2 , nomAtt );
+            }
+    //        printf (" ***** G *******************************************************************\n");
+            // LE GET ///////////////
+            if ( strstr( umlAssoc->key->comment , "#GS" ) != NULL
+            ||   strstr( umlAssoc->key->comment , "#G" )  != NULL )
+            {
+                printf (" **** LE GET *********************************************************************\n");
+
+                char * shared1 = "";
+                char * shared2 = "";
+
+                if ( !umlAssoc->composite ) {
+                    shared1 = "std::shared_ptr<";
+                    shared2 = ">";
+                }
+                print("///< Acceder à %s\n", nomAtt);
+                print("%s%s%s %s () const { return %s; };\n\n", shared1,  umlAssoc->key->name, shared2 , GET, nomAtt );
+            }
+    //        printf (" ***** H *******************************************************************\n");
+        }
+        // suivant
+        umlAssoc = umlAssoc->next;
+
+
     }
 
 
+    // attributs ////////
     while (umlAtt != NULL)
     {
 
         char  nomAtt[80];
         strcpy ( nomAtt , umlAtt->key.name );
-//            nomAtt =  umlAtt->key.name;
         char* teste = strstr( nomAtt , "m_");
 
         char nomFonctionGET[80];
         char nomFonctionSET[80];
-
-
-
-
-//            char prefixeASupprimer = "m_";
-
-
-
-
 
         /////////////////////////////////////////////////////////////////////////////////
         //////////////// ACCESSEUR //////////////////////////////////////////////////////
@@ -364,118 +537,56 @@ static void creerAccesseurs ( umlclassnode *node )
         strcat ( GET , nomFonctionGET );
         strcat ( SET , nomFonctionSET );
 
-
-
-
-
-
-
+        // LE SET ///////////////
+        if ( strstr( umlAtt->key.comment , "#GS" ) != NULL
+        ||   strstr( umlAtt->key.comment , "#S" )  != NULL )
+        {
+            print("///< Definir %s\n", nomAtt);
+            print("void %s( %s val ){ %s = val; };\n\n", SET, umlAtt->key.type, nomAtt );
+        }
         // LE GET ///////////////
-//                print("/////////////////////////////////////////////////\n");
-        print("///< Definir %s\n", nomAtt);
-//                print("///\n");
-//                print("/////////////////////////////////////////////////\n");
-        print("void %s( %s val ){ %s = val; };\n\n", SET, umlAtt->key.type, nomAtt );
-
-
-
-
-
-        // LE GET ///////////////
-//                print("/////////////////////////////////////////////////\n");
-        print("///< Acceder à %s\n", nomAtt);
-//                print("///\n");
-//                print("/////////////////////////////////////////////////\n");
-        print("%s %s () const { return %s; };\n\n",  umlAtt->key.type, GET, nomAtt );
-
-
-
-
-
-
-
-
-
-//
-//                print("/////////////////////////////////////////////////\n");
-//                print("/// \\brief Definir %s\n", umlo->key.attr.comment);
-//                print("///\n");
-//
-//                tmpa = umlo->key.parameters;
-//                while (tmpa != NULL) {
-//                     print("/// \\param %s\t\t %s\n",
-//                           tmpa->key.name,
-//                           //kind_str(tmpa->key.kind),
-//                           tmpa->key.comment);
-//                           tmpa = tmpa->next;
-//                }
-//                print("/////////////////////////////////////////////////\n");
-//            }
-
-        /*
-                    // pour l'indentation //
-                    print ("");
-
-
-
-
-
-                    if (strlen (umlo->key.attr.type) > 0) {
-                        emit ("%s ", cppname (umlo->key.attr.type));
-                    }
-                    emit ("%s (", umlo->key.attr.name);
-                    tmpa = umlo->key.parameters;
-                    while (tmpa != NULL) {
-                        emit ("%s %s", tmpa->key.type, tmpa->key.name);
-                        if (tmpa->key.value[0] != 0) {
-                            if (is_valuetype)
-                                fprintf (stderr, "CORBAValue %s/%s: param default "
-                                         "not supported\n", name, umlo->key.attr.name);
-                            else
-                               emit (" = %s", tmpa->key.value);
-                        }
-                        tmpa = tmpa->next;
-                        if (tmpa != NULL) {
-                            emit (", ");
-                        }
-                    }
-                    emit (")");
-                    if (umlo->key.attr.isconstant) {
-                        emit (" const");
-                    }
-                    if (umlo->key.attr.value[0]) {
-                        // virtual
-                        if ((umlo->key.attr.isabstract || is_valuetype) &&
-                            umlo->key.attr.name[0] != '~')
-                            emit (" = %s", umlo->key.attr.value);
-                    }
-                    emit (";\n\n");*/
-//            umlo = umlo->next;
-        //  }
-
-
-
-
-
-
-
-
-
-
-
-//            if ( eq ( nomAtt[0] , "m"))
-//                printf ("       -> on a un M\n" );
-
-
+        if ( strstr( umlAtt->key.comment , "#GS" ) != NULL
+        ||   strstr( umlAtt->key.comment , "#G" )  != NULL )
+        {
+            print("///< Acceder à %s\n", nomAtt);
+            print("%s %s () const { return %s; };\n\n",  umlAtt->key.type, GET, nomAtt );
+        }
 
         // suivant
         umlAtt = umlAtt->next;
     }
 
-//    if (node->key->attributes != NULL) {
-//
-//            umlattrlist tmpa = umlo->key.parameters;
-//
+
+
+
+
+
+//        printf (" ***** F *******************************************************************\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -513,53 +624,29 @@ besoinHeader ( declaration * dClass, declaration * dContents )
         int b_present = 0;
         while (dTest!= NULL)
         {
-//                        printf ("#######--> par ici (2) \n" );
 
             umlassoclist  assoc = dTest->u.this_class->associations;
-//                        printf ("#######--> par ici (3) \n" );
-
             if ( assoc != NULL)
             {
-
-//                            printf ("#######--> par ici (4) \n" );
-
-                //   printf ("--------> ASSOCIATIONS ! : %s\n" , dTest->u.this_class->key->name );
-
                 while (assoc != NULL)
                 {
-                    //   printf ("------------------------>assoc->name    :%s\n", assoc->key->name );
-//
-//                                    printf ("#######--> par ici (5) \n" );
-//                                    printf ("#######--> par ici : %s\n", assoc->key->name );
-//                                    printf ("#######--> par ici (6) \n" );
                     if ( eq ( assoc->key->name, dClass->u.this_class->key->name ) )
                     {
-                        // printf ("#######--> par ici ! \n" );
-                        //printf ("#######--> par ici ! \n" );
                         b_present = 1;
                         break ;
                     }
-//
-//
                     assoc = assoc->next;
-//                                    printf ("#######--> par ici (6) \n" );
                 }
-//                                    printf ("#######--> par ici (7) \n" );
-
-
-
             }
             if ( b_present ) break;
             dTest=dTest->next;
         }
         if ( b_present )
         {
-            // printf ("------------------------> non, pas besoin de fichier\n");
             return 0;
         }
         else
         {
-            // printf ("------------------------> oui\n");
             return 1;
         }
 
@@ -738,8 +825,8 @@ gen_class (umlclassnode *node)
                 {
                     char *literal = umla->key.name;
                     check_umlattr (&umla->key, name);
-                    if (strlen (umla->key.type) > 0)
-                        fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
+//                    if (strlen (umla->key.type) > 0)
+//                        fprintf (stderr, "%s/%s: ignoring type\n", name, literal);
                     print ("%s", literal);
 
                     if (strlen (umla->key.value) > 0)
@@ -842,7 +929,7 @@ gen_class (umlclassnode *node)
         emit("/////////////////////////////////////////////////\n");
 
 
-        //creerAccesseurs ( node );
+        creerAccesseurs ( node );
 
         if (is_valuetype)
         {
@@ -1096,7 +1183,6 @@ gen_class (umlclassnode *node)
                         bVector = 1;
                     if (bVector)
                         emit ("std::vector<");
-
 
 
 
@@ -1557,26 +1643,11 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         print ("#include <p_orb.h>\n\n");
 
 
-/*
-    // les includes de base /////////////////
-    if (includes)
-    {
-        namelist incfile = includes;
-        while (incfile != NULL)
-        {
-            if (!eq (incfile->name, name))
-            {
-                print ("#include \"%s.%s\"\n", incfile->name, file_ext);
-            }
-            incfile = incfile->next;
-        }
-    }*/
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///// MES includes ///////////////////////////////////////////////////////////////////////////////////////
 
     ///// includes des héritages ////////////
-//    printf ("DEBUG-->   Debut\n");
     umlclassnode *node = dClass->u.this_class;
     umlclasslist parent = node->parents;
 
@@ -1586,7 +1657,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     {
         strcat ( listClassesIncl , parent->key->name );
         strcat ( listClassesIncl , "/" );
-        printf ("listClassesIncl: %s\n" , listClassesIncl );
+//        printf ("listClassesIncl: %s\n" , listClassesIncl );
 
         print ("#include \"%s.%s\"\n", parent->key->name, file_ext);
         parent = parent->next;
@@ -1608,7 +1679,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         umlattrlist umla = node->key->attributes;
         while (umla != NULL)
         {
-            printf (" ->membre ! => type : %s\n", umla->key.type );
+//            printf (" ->membre ! => type : %s\n", umla->key.type );
 
             ajouteIncludeType ( umla->key.type );
 
@@ -1667,7 +1738,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
                     print ("#include \"%s.h\"\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -1713,14 +1784,14 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         while (attribut != NULL)
         {
             //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+//            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
 
             umlclasslist classes = b->classlist;
             umlclasslist tmpnode = NULL;
             while (classes != NULL)
             {
 
-                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+//                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
 
                 if ( ! eq ( "using", classes->key->stereotype )
                 &&   ! eq ( "typedef", classes->key->stereotype )
@@ -1731,7 +1802,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                     {
 
 
-                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+//                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
                         print ("class %s;\n" , classes->key->name );
                         break;
                     }
@@ -1754,7 +1825,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     while (assoc != NULL)
     {
         //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+//        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
 
 
         // pour les using  /////
@@ -1769,7 +1840,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
                     print ("class %s;\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -1797,7 +1868,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                     &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                     {
 
-                        printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
+//                        printf ("       ###DEBUG### DECLARATION CLASS %s #################\n" , classes->key->name );
                         print ("class %s;\n" , classes->key->name );
 
                         strcat ( listClassesIncl ,classes->key->name );
@@ -1823,7 +1894,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
                     print ("class %s;\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -1850,7 +1921,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS %s\n" , classes->key->name );
                     print ("class %s;\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -2126,13 +2197,24 @@ gen_body (umlclassnode *node)
     {
 
 
-//        creerAccesseurs ( node );
+       // creerAccesseurs ( node );
 
         umloplist umlo = node->key->operations;
         int tmpv = -1;
 
         while (umlo != NULL)
         {
+
+            // si c'est une operation abstraite on zappe
+            if ( umlo->key.attr.isabstract )
+            {
+                umlo=umlo->next;
+                break;
+            }
+
+
+
+
             umlattrlist tmpa = umlo->key.parameters;
 
             print("/////////////////////////////////////////////////\n");
@@ -2473,14 +2555,14 @@ generate_code_cpp_Body (batch *b)
         while (attribut != NULL)
         {
             //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+//            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
 
             umlclasslist classes = b->classlist;
             umlclasslist tmpnode = NULL;
             while (classes != NULL)
             {
 
-                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+//                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
 
                 if ( ! eq ( "using", classes->key->stereotype )
                 &&   ! eq ( "typedef", classes->key->stereotype )
@@ -2491,7 +2573,7 @@ generate_code_cpp_Body (batch *b)
                     {
 
 
-                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+//                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
                         print ("#include <%s.h>\n" , classes->key->name );
                         break;
                     }
@@ -2514,11 +2596,10 @@ generate_code_cpp_Body (batch *b)
     while (assoc != NULL)
     {
         //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+//        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
 
 
-        if ( eq ( "typedef", assoc->key->stereotype )
-        ||   eq ( "enum", assoc->key->stereotype ) )
+        if ( eq ( "enum", assoc->key->stereotype ) )
         {
             umlclasslist classes = b->classlist;
             umlclasslist tmpnode = NULL;
@@ -2528,7 +2609,7 @@ generate_code_cpp_Body (batch *b)
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG###    #B# DECLARATION CLASS=>CPP %s\n" , classes->key->name );
                     print ("#include <%s.h>\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -2541,7 +2622,8 @@ generate_code_cpp_Body (batch *b)
             }
 
         } else
-        if (! eq ( "using", assoc->key->stereotype  ))
+        if ( ! eq ( "typedef", assoc->key->stereotype )
+        &&   ! eq ( "using", assoc->key->stereotype  ))
         {
             umlclasslist classes = b->classlist;
             umlclasslist tmpnode = NULL;
@@ -2551,7 +2633,7 @@ generate_code_cpp_Body (batch *b)
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
                     print ("#include <%s.h>\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -2681,14 +2763,14 @@ generate_code_cpp_Body (batch *b)
         while (attribut != NULL)
         {
             //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
+//            printf ("###DEBUG### -> classe a declarer ? : %s\n" , attribut->key.type );
 
             umlclasslist classes = b->classlist;
             umlclasslist tmpnode = NULL;
             while (classes != NULL)
             {
 
-                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
+//                //printf ("   ###DEBUG### %s ?\n" , classes->key->name );
 
                 if ( ! eq ( "using", classes->key->stereotype )
                 &&   ! eq ( "typedef", classes->key->stereotype )
@@ -2699,7 +2781,7 @@ generate_code_cpp_Body (batch *b)
                     {
 
 
-                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
+//                        printf ("       ###DEBUG### DECLARATION  %s\n" , classes->key->name );
                         print ("#include <%s.h>\n" , classes->key->name );
                         break;
                     }
@@ -2722,7 +2804,7 @@ generate_code_cpp_Body (batch *b)
     while (assoc != NULL)
     {
         //printf (" -> decl class ? => type : %s\n", attribut->key.type );
-        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
+//        printf ("###DEBUG### -> classe a declarer ? : %s\n" , assoc->key->name );
 
 
         if ( eq ( "enum", assoc->key->stereotype ) )
@@ -2735,7 +2817,7 @@ generate_code_cpp_Body (batch *b)
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
                     print ("#include #A# <%s.h>\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -2759,7 +2841,7 @@ generate_code_cpp_Body (batch *b)
                 &&   strstr ( listClassesIncl,  classes->key->name )    == NULL )
                 {
 
-                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
+//                    printf ("       ###DEBUG### DECLARATION CLASS=>CPP %s\n" , classes->key->name );
                     print ("#include <%s.h>\n" , classes->key->name );
 
                     strcat ( listClassesIncl ,classes->key->name );
@@ -2814,563 +2896,6 @@ generate_code_cpp_Body (batch *b)
 
 
 
-
-
-
-
-
-
-
-void
-generate_code_cppBACK (batch *b)
-{
-
-
-
-    declaration *d;
-    umlclasslist tmplist = b->classlist;
-//    umlclasslist tmplistRESULT;
-    umlclasslist listClean;
-
-    FILE *licensefile = NULL;
-
-    gb = b;
-
-    if (file_ext == NULL)
-        file_ext = "h";
-
-    if (body_file_ext == NULL)
-        body_file_ext = "cpp";
-
-
-    /* open license file */
-    if (b->license != NULL)
-    {
-        licensefile = fopen (b->license, "r");
-        if (!licensefile)
-        {
-            fprintf (stderr, "Can't open the license file.\n");
-            exit (1);
-        }
-    }
-
-
-
-    while (tmplist != NULL)
-    {
-        //printf ( "generate_code_cpp 01 :  tmplist = %s \n", tmplist->key->name );
-        if (! (is_present (b->classes, tmplist->key->name) ^ b->mask))
-        {
-            // printf ( "  ->  par ici\n", tmplist->key->name );
-            push (tmplist, b);
-        }
-        tmplist = tmplist->next;
-    }
-
-
-    /*//    ///////////// mon bordel |--> //////////////////////////////////////////////////////////////////////////
-    //    listeClasses =  b->classlist;
-    //    umlclasslist    listeClassesResult = NULL;
-    //
-    //    umlclasslist listClassesClean = NULL, endlist = NULL;;
-    //
-    //    int i = 0;
-    //    //on creer une liste de classes unique ( au nom unique)
-    //    // pour chaque classe du global
-    //    while ( listeClasses != NULL ) {
-    //            i++;
-    //
-    //
-    //
-    //            //on regarde si la classe existe dans la liste de resulats
-    //            int testPresent = 0;
-    //            umlclasslist listeTEMPClasses = listClassesClean;
-    //
-    //            // on compare avec les classes qu'on a deja ajouté a la classe
-    //            while ( listeTEMPClasses != NULL ) {
-    //                // si on a deux classes avec le mme nom on quite
-    //                if ( eq ( listeTEMPClasses->key->name        , listeClasses->key->name )){
-    //                    testPresent = 1;
-    //                    printf( "       ---> c'est elle même, on continue\n" );
-    //
-    //                    break;
-    //                }
-    //
-    //                listeTEMPClasses=listeTEMPClasses->next;
-    //            }
-    //            // si on a pas trouvé de classe homonyme ou ajoute la classe
-    //            if ( ! testPresent)
-    //            {
-    //                umlclasslist nodeCopy;
-    //                nodeCopy = NEW (umlclassnode);
-    //                nodeCopy->key = listeClasses->key;
-    //                nodeCopy->next = listClassesClean;
-    //                listClassesClean = nodeCopy;
-    //
-    ////                listClassesClean->key = listeClasses;
-    //            }
-    //        listeClasses = listeClasses->next;
-    //    }
-    //
-    //
-    //
-    //
-    //
-    //    umlclasslist    listeParseClassClean = listClassesClean;
-    //
-    //    listeClasses = b->classlist;
-    //
-    //
-    //
-    //
-    //    //// DEBUG ////////////////////////
-    //    umlclasslist    listeAFFICHE = listClassesClean;
-    //    printf( "\n|-------------> LES CLASSES CLEAN\n" );
-    //    while ( listeAFFICHE != NULL ) {
-    //        printf ( "  %s\n", listeAFFICHE->key->name );
-    //        listeAFFICHE = listeAFFICHE->next;
-    //    }
-    //    printf( "|-------------> LES CLASSES CLEAN\n\n" );
-    //    //// DEBUG ////////////////////////
-    //
-    //
-    //
-    //    umlclasslist    listeClassEtAttrClean = listClassesClean;
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //    listeParseClassClean = listeClassEtAttrClean;
-    //
-    //    // pour chaques classes du dia
-    //    // on va merger les attributs, operations... dans la liste de classes uniques
-    //    i =0;
-    //    while ( listeClasses != NULL ) {
-    //
-    //        i++;
-    //
-    //        printf ( "---> (%d) rechercher les classes se nommant : %s\n", i, listeClasses->key->name );
-    //
-    //        int testDoublons = 0;
-    //        int j =0;
-    //        //umlclasslist listeTEMPClasses = listClassesClean;
-    //        umlclasslist listeTEMPClasses = listeClassEtAttrClean;
-    //        // on cherche les classes differentes mais meme nom
-    //        while ( listeTEMPClasses != NULL ) {
-    //            j++;
-    //            printf ( "  ---> %d: %s et %s ?\n", j, listeClasses->key->name , listeTEMPClasses->key->name );
-    //
-    //            //printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
-    //
-    //            // si on a egalité avec  la classe avec elle meme, on passe
-    //            if ( listeTEMPClasses->key  == listeClasses->key ){
-    //               // testPresent = 1;
-    //                printf( "       ---> c'est elle même, on continue\n" );
-    ////                listeParseClassClean=listeParseClassClean->next;
-    ////                continue;
-    //            } else {
-    //                if ( eq ( listeTEMPClasses->key->name , listeClasses->key->name ) )
-    //                {
-    //                    printf( "       ---> meme nom, on merge\n" );
-    //                    listerAttributs ( listeTEMPClasses->key->attributes );
-    //                    //////////// Merge les parametres du second dans le premier //////////////////////////
-    //                    mergeAttributs ( listeTEMPClasses->key , listeClasses->key );
-    //                    //////////// Merge les parametres du second dans le premier //////////////////////////
-    //                    listerAttributs ( listeTEMPClasses->key->attributes );
-    //                }
-    //            }
-    //            listeTEMPClasses = listeTEMPClasses->next;
-    //        }
-    //        listeParseClassClean = listeTEMPClasses;
-    //        //listeClassEtAttrClean = listeParseClassClean;
-    //        listeClasses = listeClasses->next;
-    //    }
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //
-    //    //// DEBUG ////////////////////////
-    //    listeAFFICHE = listeClassEtAttrClean;
-    //    printf( "\n|-------------> LES ATTRIBUTS CLEAN\n" );
-    //    while ( listeAFFICHE != NULL ) {
-    //        printf ( "  %s\n", listeAFFICHE->key->name );
-    //        while ( listeAFFICHE->key->attributes != NULL ) {
-    //            printf ( "      attributes : %s\n", listeAFFICHE->key->attributes->key.name );
-    //            listeAFFICHE->key->attributes = listeAFFICHE->key->attributes->next;
-    //        }
-    ////        while ( listeAFFICHE->key->operations != NULL ) {
-    ////            printf ( "      operations : %s\n", listeAFFICHE->key->name );
-    ////            listeAFFICHE->key->operations = listeAFFICHE->key->operations->next;
-    ////        }
-    //        listeAFFICHE = listeAFFICHE->next;
-    //    }
-    //    printf( "|-------------> LES ATTRIBUTS CLEAN\n\n" );
-    //    //// DEBUG ////////////////////////
-    //
-    //
-    //
-    //
-    //    /////////////  <---| mon bordel  //////////////////////////////////////////////////////////////////////////*/
-
-
-
-    // Generate a file for each outer declaration.
-    d = decls;
-
-    while (d != NULL)
-    {
-
-
-
-        char *name, *tmpname;
-        char filename[BIG_BUFFER];
-        char* nomEspace ="";
-        declaration * dClass;
-
-
-        // si c'est un namespace
-        if (d->decl_kind == dk_module)
-        {
-
-
-            nomEspace = d->u.this_module->pkg->name;
-
-            printf ("namespace <-------------- %s\n", nomEspace );
-
-
-
-
-
-
-
-
-
-
-
-//            ///////////// mon bordel |--> //////////////////////////////////////////////////////////////////////////
-//            declaration * dClasses;
-//            dClasses =  d->u.this_module->contents;
-////            umlclasslist    listeClassesResult = NULL;
-//
-//            umlclasslist listClassesClean = NULL, endlist = NULL;;
-//            umlclasslist listeClasses;
-//
-////            printf ("DEBUG 1\n" );
-//            int i = 0;
-//            //on creer une liste de classes uniques ( au nom unique)
-//            // pour chaque classe du global
-//            while ( dClasses != NULL ) {
-//                    i++;
-//                    umlclassnode * listeClassesaTester = dClasses->u.this_class;
-////                    printf ("DEBUG 2 : %s\n" ,listeClassesaTester->key->name );
-//                printf ( "---> (%d) rechercher les classes se nommant : %s\n", i, listeClassesaTester->key->name );
-//
-//                    //on regarde si la classe existe dans la liste de resulats
-//                    int testPresent = 0;
-//                    umlclasslist listeTEMPClasses = listClassesClean;
-//
-//                    // on compare avec les classes qu'on a deja ajouté a la classe
-//                    while ( listeTEMPClasses != NULL ) {
-////                        printf ("DEBUG 3 - comparer noms : %s et %s \n" ,listeTEMPClasses->key->name        , listeClassesaTester->key->name );
-//
-//                        // si on a deux classes avec le mme nom on quite
-//                        if ( eq ( listeTEMPClasses->key->name        , listeClassesaTester->key->name )){
-////                            printf ("DEBUG 3 - > 1 \n" );
-//                            testPresent = 1;
-//                            printf( "       ---> c'est elle même, on continue\n" );
-//
-//                            break;
-//                        }
-//
-//                        listeTEMPClasses=listeTEMPClasses->next;
-////                        printf ("DEBUG 3 FIN\n" );
-//                    }
-//                    // si on a pas trouvé de classe homonyme ou ajoute la classe
-//                    if ( ! testPresent)
-//                    {
-////                        printf ("DEBUG 4\n" );
-//
-//                        umlclasslist nodeCopy;
-//                        nodeCopy = NEW (umlclassnode);
-//                        nodeCopy->key = listeClassesaTester->key;
-//                        nodeCopy->next = listClassesClean;
-//                        listClassesClean = nodeCopy;
-//
-////                        printf ("DEBUG 4 FIN\n" );
-//            //                listClassesClean->key = listeClasses;
-//                    }
-//                dClasses = dClasses->next;
-//            }
-//
-//
-////                        printf ("DEBUG 5 -------\n" );
-//
-//
-//
-//            umlclasslist    listeParseClassClean = listClassesClean;
-//
-//
-//
-//
-//
-//            //// DEBUG ////////////////////////
-//            umlclasslist    listeAFFICHE = listClassesClean;
-//            printf( "\n|-------------> LES CLASSES CLEAN\n" );
-//            while ( listeAFFICHE != NULL ) {
-//                printf ( "  %s\n", listeAFFICHE->key->name );
-//                listeAFFICHE = listeAFFICHE->next;
-//            }
-//            printf( "|-------------> LES CLASSES CLEAN\n\n" );
-//            //// DEBUG ////////////////////////
-//
-//
-//
-//            umlclasslist    listeClassEtAttrClean = listClassesClean;
-//
-//
-//
-//            declaration * declClasses = d->u.this_module->contents;
-//
-////            //rembobinne decl
-////            while (declClasses->prev == NULL)
-////                declClasses = declClasses->prev;
-//
-////            printf( "|-------------> BUG 1\n" );
-//
-//
-//            listeParseClassClean = listeClassEtAttrClean;
-//
-//            // pour chaques classes du dia
-//            // on va merger les attributs, operations... dans la liste de classes uniques
-//            i =0;
-//            while ( declClasses != NULL ) {
-//
-//
-////                printf( "|-------------> BUG 2\n" );
-//                umlclassnode * listeClassesaTester = declClasses->u.this_class;
-//
-////                printf( "|-------------> BUG 2 : %s\n" , listeClassesaTester->key->name );
-//
-//                i++;
-//
-//                printf ( "---> (%d) rechercher les classes se nommant : %s\n", i, listeClassesaTester->key->name );
-//
-//                int testDoublons = 0;
-//                int j =0;
-//                //umlclasslist listeTEMPClasses = listClassesClean;
-//                umlclasslist listeTEMPClasses = listeClassEtAttrClean;
-//                // on cherche les classes differentes mais meme nom
-//                while ( listeTEMPClasses != NULL ) {
-////                printf( "|-------------> BUG 3\n" );
-//                    j++;
-//                    printf ( "  ---> %d: %s et %s ?\n", j, listeClassesaTester->key->name , listeTEMPClasses->key->name );
-//
-//                    //printf ( "    j: %d -> listeTEMPClasses : %s\n", j,  listeTEMPClasses->key->name );
-//
-//                    // si on a egalité avec  la classe avec elle meme, on passe
-//                    if ( listeTEMPClasses->key  == listeClassesaTester->key ){
-//                       // testPresent = 1;
-//                        printf( "       ---> c'est elle même, on continue\n" );
-//            //                listeParseClassClean=listeParseClassClean->next;
-//            //                continue;
-//                    } else {
-//                        if ( eq ( listeTEMPClasses->key->name , listeClassesaTester->key->name ) )
-//                        {
-//                            printf( "       ---> meme nom, on merge\n" );
-//                            listerAttributs ( listeTEMPClasses->key->attributes );
-//                            //////////// Merge les parametres du second dans le premier //////////////////////////
-//                            mergeAttributs ( listeTEMPClasses->key , listeClassesaTester->key );
-//                            //////////// Merge les parametres du second dans le premier //////////////////////////
-//                            listerAttributs ( listeTEMPClasses->key->attributes );
-//                        }
-//                    }
-//                    listeTEMPClasses = listeTEMPClasses->next;
-//                }
-//                listeParseClassClean = listeTEMPClasses;
-//                //listeClassEtAttrClean = listeParseClassClean;
-//                declClasses = declClasses->next;
-//            }
-//
-//
-//
-//
-//
-//
-//
-//
-//            //// DEBUG ////////////////////////
-//            listeAFFICHE = listeClassEtAttrClean;
-//            printf( "\n|-------------> LES ATTRIBUTS CLEAN\n" );
-//            while ( listeAFFICHE != NULL ) {
-//                printf ( "  %s\n", listeAFFICHE->key->name );
-//                while ( listeAFFICHE->key->attributes != NULL ) {
-//                    printf ( "      attributes : %s\n", listeAFFICHE->key->attributes->key.name );
-//                    listeAFFICHE->key->attributes = listeAFFICHE->key->attributes->next;
-//                }
-//            //        while ( listeAFFICHE->key->operations != NULL ) {
-//            //            printf ( "      operations : %s\n", listeAFFICHE->key->name );
-//            //            listeAFFICHE->key->operations = listeAFFICHE->key->operations->next;
-//            //        }
-//                listeAFFICHE = listeAFFICHE->next;
-//            }
-//            printf( "|-------------> LES ATTRIBUTS CLEAN\n\n" );
-//            //// DEBUG ////////////////////////
-//
-//
-//
-//
-//            /////////////  <---| mon bordel  //////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            //indentlevel++;
-//            dClass = listeClassEtAttrClean;
-
-
-            while (dClass != NULL)
-            {
-
-                printf ( "generate_code_cpp ------------------------------------ \n");
-                //     printf ( "generate_code_cpp 04 :  dClass = %s \n", dClass->u.this_class->key->name );
-
-
-                // on regarde si on a besoin de faire un fichier *.h
-                if ( ! besoinHeader ( dClass , d->u.this_module->contents ) )
-                {
-                    //printf ("------------------------> PAS besoin d'un header\n");
-                    dClass = dClass->next;
-                    continue;
-                }
-                //else printf ("------------------------> besoin d'un header\n");
-
-                // si besoin d'un *.h -> on continue
-                name = dClass->u.this_module->pkg->name;
-
-                /////////////////////////////////////
-                ecrire_Head ( dClass, b, name , nomEspace , file_ext);
-                /////////////////////////////////////
-
-                dClass = dClass->next;
-            }
-
-
-
-        } // si c'est pas dans un namespace
-        else
-        {
-
-
-            printf ("pas namespace <-------------- \n" );
-            printf ( "generate_code_cpp ------------------------------------ \n");
-            //printf ( "generate_code_cpp 05 :  d = %s \n", d->u.this_class->key->name );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // on regarde si on a besoin de faire un fichier *.h
-            if ( ! besoinHeader ( d , d ) )
-            {
-//                    printf ("------------------------> PAS besoin d'un header\n");
-                d = d->next;
-                continue;
-            }
-
-            // si besoin d'un *.h -> on continue
-            char * name = d->u.this_module->pkg->name;
-
-            /////////////////////////////////////
-            ecrire_Head ( d, b, name , nomEspace , file_ext);
-            /////////////////////////////////////
-
-        }
-        d = d->next;
-
-    }
-
-
-
-    // printf("\n\n\n\n\n####### CREER CPP  #######\n...");
-//    system("pause");
-
-    generate_code_cpp_Body (b);
-
-//    printf("\n####### FIN CREER CPP #######\n...");
-//    system("pause");
-
-
-}
 
 
 

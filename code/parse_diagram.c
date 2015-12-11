@@ -625,22 +625,22 @@ void recursive_search( xmlNodePtr node, xmlNodePtr * object ) {
     xmlNodePtr child;
     if ( *object != NULL ) {
 
-        printf ("--------- XML : *object != NULL  ---------------------------\n");
+        //printf ("--------- XML : *object != NULL  ---------------------------\n");
 
         return;
     }
     if ( node != NULL ) {
-        printf ("--------- XML : *node != NULL  ---------------------------\n");
-        printf ("    XML : node->name = %s  ---------------------------\n" , node->name );
+        //printf ("--------- XML : *node != NULL  ---------------------------\n");
+        //printf ("    XML : node->name = %s  ---------------------------\n" , node->name );
         if ( eq(node->name,"object") ){
-            printf ("   --------- XML : eq(node->name,'object')  ---------------------------\n");
+            //printf ("   --------- XML : eq(node->name,'object')  ---------------------------\n");
             *object = node;
             return;
         }
         child = node->xmlChildrenNode;
-        printf ("--------- XML : recursive ?  ---------------------------\n");
+        //printf ("--------- XML : recursive ?  ---------------------------\n");
         while ( child != NULL ) {
-            printf ("   --------- XML : recursive  ---------------------------\n");
+            //printf ("   --------- XML : recursive  ---------------------------\n");
             recursive_search(child,object);
             child=child->next;
         }
@@ -695,23 +695,7 @@ nettoyage_liste ( umlclasslist  classlist ){
         printf ( "sizeof(listeNOMS) : %zu  \n", sizeof(listeNOMS)  );
         int i =0;
         while (classlist != NULL) {
-        //    printf ( "NETTOYAGE_LISTE : %s\n" , classlist->key->name );
-//            printf ( "  size : %zu\n" , sizeof(classlist ));
 
-
-
-//strcpy(arr[0], "blah");
-//
-//                listeNOMS[i] = classlistPropre->key->name;
-      //  printf ( "listeNOMS[i] : %d   \n", i   );
-//                listeType[i] = classlistPropre->key->stereotype;
-//
-//                int b_test = 0;
-//
-//                if (b_test)
-//                {
-//                    printf ( "     -> b_test ! \n" );
-//                };
 
             i=i+1;
             classlist=classlist->next;

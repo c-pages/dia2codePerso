@@ -115,13 +115,19 @@ $(document).ready(function(){initNavTree('class_classe_b.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr.  
+<p>associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr. En mettant #G ou #S dans le commentaire d'un attribut on indique a dia2code de prevoir les fonctions get ou set dans le *.h.  
  <a href="class_classe_b.html#details">Plus de détails...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_classe_b_8h_source.html">ClasseB.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:ace86bbd0eef55f4782a1d44c5192d896"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classe_b.html#ace86bbd0eef55f4782a1d44c5192d896">setAttr_B1</a> (float val)</td></tr>
+<tr class="memdesc:ace86bbd0eef55f4782a1d44c5192d896"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Definir m_attr_B1  <a href="#ace86bbd0eef55f4782a1d44c5192d896">Plus de détails...</a><br /></td></tr>
+<tr class="separator:ace86bbd0eef55f4782a1d44c5192d896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03fd13c0dad76d6436faa22c6f7e94ec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classe_b.html#a03fd13c0dad76d6436faa22c6f7e94ec">getAttr_B1</a> () const </td></tr>
+<tr class="memdesc:a03fd13c0dad76d6436faa22c6f7e94ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acceder à m_attr_B1.  <a href="#a03fd13c0dad76d6436faa22c6f7e94ec">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a03fd13c0dad76d6436faa22c6f7e94ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a2e82d68664a57ad9f922543e2eed18"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classe_b.html#a4a2e82d68664a57ad9f922543e2eed18">operation_B1</a> ()</td></tr>
 <tr class="memdesc:a4a2e82d68664a57ad9f922543e2eed18"><td class="mdescLeft">&#160;</td><td class="mdescRight">operation simple  <a href="#a4a2e82d68664a57ad9f922543e2eed18">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a4a2e82d68664a57ad9f922543e2eed18"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,12 +141,40 @@ Attributs publics</h2></td></tr>
 <tr class="memdesc:ad3e8fc2038d1aebf65a7a0df2bb4fc78"><td class="mdescLeft">&#160;</td><td class="mdescRight">ceci ajoute l'include 'memory', definie temporairement la ClassC dans le *.h, et include <a class="el" href="class_classe_c.html" title="ici on associe 2 stereotypes : un using et un enum ">ClasseC</a> dans le *.cpp.  <a href="#ad3e8fc2038d1aebf65a7a0df2bb4fc78">Plus de détails...</a><br /></td></tr>
 <tr class="separator:ad3e8fc2038d1aebf65a7a0df2bb4fc78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3db1ea15c88b64e3e428e2b22416af39"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classe_b.html#a3db1ea15c88b64e3e428e2b22416af39">m_attr_B1</a></td></tr>
-<tr class="memdesc:a3db1ea15c88b64e3e428e2b22416af39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut direct dans les propriétés de <a class="el" href="class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. ">ClasseB</a>.  <a href="#a3db1ea15c88b64e3e428e2b22416af39">Plus de détails...</a><br /></td></tr>
+<tr class="memdesc:a3db1ea15c88b64e3e428e2b22416af39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attribut direct dans les propriétés de <a class="el" href="class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. En mettant #G ou #S dans le...">ClasseB</a>. #G pour ajouter une fonction get et #S pour set.  <a href="#a3db1ea15c88b64e3e428e2b22416af39">Plus de détails...</a><br /></td></tr>
 <tr class="separator:a3db1ea15c88b64e3e428e2b22416af39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33027d83d426e8423f863ca85fa17061"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_classe_c.html">ClasseC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_classe_b.html#a33027d83d426e8423f863ca85fa17061">m_lesClassesC</a></td></tr>
+<tr class="memdesc:a33027d83d426e8423f863ca85fa17061"><td class="mdescLeft">&#160;</td><td class="mdescRight">association multiple pour vector d'attributs.  <a href="#a33027d83d426e8423f863ca85fa17061">Plus de détails...</a><br /></td></tr>
+<tr class="separator:a33027d83d426e8423f863ca85fa17061"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
-<div class="textblock"><p>associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr. </p>
+<div class="textblock"><p>associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr. En mettant #G ou #S dans le commentaire d'un attribut on indique a dia2code de prevoir les fonctions get ou set dans le *.h. </p>
 </div><h2 class="groupheader">Documentation des fonctions membres</h2>
+<a class="anchor" id="a03fd13c0dad76d6436faa22c6f7e94ec"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ClasseB::getAttr_B1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Acceder à m_attr_B1. </p>
+
+</div>
+</div>
 <a class="anchor" id="a4a2e82d68664a57ad9f922543e2eed18"></a>
 <div class="memitem">
 <div class="memproto">
@@ -158,6 +192,32 @@ Attributs publics</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ace86bbd0eef55f4782a1d44c5192d896"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ClasseB::setAttr_B1 </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt; Definir m_attr_B1 </p>
+
+</div>
+</div>
 <h2 class="groupheader">Documentation des données membres</h2>
 <a class="anchor" id="a3db1ea15c88b64e3e428e2b22416af39"></a>
 <div class="memitem">
@@ -169,7 +229,7 @@ Attributs publics</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Attribut direct dans les propriétés de <a class="el" href="class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. ">ClasseB</a>. </p>
+<p>Attribut direct dans les propriétés de <a class="el" href="class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. En mettant #G ou #S dans le...">ClasseB</a>. #G pour ajouter une fonction get et #S pour set. </p>
 
 </div>
 </div>
@@ -184,6 +244,20 @@ Attributs publics</h2></td></tr>
 </div><div class="memdoc">
 
 <p>ceci ajoute l'include 'memory', definie temporairement la ClassC dans le *.h, et include <a class="el" href="class_classe_c.html" title="ici on associe 2 stereotypes : un using et un enum ">ClasseC</a> dans le *.cpp. </p>
+
+</div>
+</div>
+<a class="anchor" id="a33027d83d426e8423f863ca85fa17061"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_classe_c.html">ClasseC</a>&gt; ClasseB::m_lesClassesC</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>association multiple pour vector d'attributs. </p>
 
 </div>
 </div>

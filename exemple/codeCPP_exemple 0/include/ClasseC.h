@@ -9,7 +9,7 @@
 
 
 
-class ClasseA;
+class ClasseB;
 
 
 /////////////////////////////////////////////////
@@ -37,6 +37,8 @@ class ClasseC {
 /////////////////////////////////////////////////
 // Méthodes
 /////////////////////////////////////////////////
+
+public:
 public:
     /////////////////////////////////////////////////
     /// \brief operation simple
@@ -57,7 +59,7 @@ public:
 /////////////////////////////////////////////////
 public:
     float m_attr_C1;    ///< Attribut direct dans les propriétés de ClasseC.    
-    std::vector<ClasseA> m_vectAttribut_C1;    ///< Ceci inclus 'vector' et déclare ClasseA    
+    std::vector<ClasseB> m_vectAttribut_C1;    ///< Ceci inclus 'vector' et déclare ClasseB    
 
 }; // fin class ClasseC
 

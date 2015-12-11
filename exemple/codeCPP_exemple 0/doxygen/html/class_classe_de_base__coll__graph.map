@@ -1,5 +1,5 @@
 <map id="ClasseDeBase" name="ClasseDeBase">
 <area shape="rect" id="node2" href="$class_classe_c.html" title="ici on associe 2 stereotypes : un using et un enum " alt="" coords="5,5,76,32"/>
 <area shape="rect" id="node3" href="$class_classe_a.html" title="Dans la ClasseA on colle une définition de type et on utilise ce type dans 2 attributs associés en mu..." alt="" coords="100,5,171,32"/>
-<area shape="rect" id="node4" href="$class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. " alt="" coords="195,5,265,32"/>
+<area shape="rect" id="node4" href="$class_classe_b.html" title="associé avec le type: &#39;Aggregation&#39;. Créer l&#39;attribut dans un shared_ptr. En mettant #G ou #S dans le..." alt="" coords="195,5,265,32"/>
 </map>

@@ -220,16 +220,14 @@ append_decl (declaration *d)
     //////// MERGE OPERATIONS /////////
     umlassoclist listeOpDest = classDest->associations;
     umlassoclist listOpACopier = classACopier->associations;
-//    printf ( "\n    ----- mergeAssociations ------------\n" );
+
     while ( listOpACopier != NULL ) {
         int bCopier = 1;
-//        printf ( "      -----> assoc->key->name  %s?\n",   listOpACopier->key->name );
-//        printf ( "      -----> assoc->name %s?\n",   listOpACopier->name );
 
         umlassoclist listDestTemp = listeOpDest;
         // on compare les attributs a copier
         while ( listDestTemp != NULL ) {
-//            printf ( "          ----->  %s?\n",  listDestTemp->name );
+
             //  on compare les noms des attributs
             if (  eq ( listDestTemp->name , listOpACopier->name ) ){
                 bCopier = 0;
@@ -239,41 +237,30 @@ append_decl (declaration *d)
         }
         if ( bCopier )
         {
-//            printf( "               -----> on copie : %s dans la dest.\n" ,listOpACopier->name );
-/*
-            umlassoclist nodeCopy;
-            nodeCopy = NEW (umlassocnode);
-            nodeCopy->key = listOpACopier;
-            nodeCopy->next = classDest->associations;
-            classDest->associations = nodeCopy;
 
-            */
             umlassoclist tmp;
             tmp = NEW (umlassocnode);
             if (listOpACopier->name != NULL)
                 sscanf(listOpACopier->name, "%s"/*sscanfmt()*/, tmp->name);
-//            printf( "               -----> tmp->name :%s\n" ,tmp->name );
+
             if (listOpACopier->multiplicity != NULL)
-                sscanf(listOpACopier->multiplicity, sscanfmt(), tmp->multiplicity);
+                sscanf(listOpACopier->multiplicity, "%s", tmp->multiplicity);
             else
                 sprintf(tmp->multiplicity, "1");
 
             tmp->key = listOpACopier->key;
             tmp->composite = listOpACopier->composite;
             tmp->visibility = listOpACopier->visibility;
-
+           // tmp->multiplicity = listOpACopier->multiplicity;
 
             tmp->next = classDest->associations;
             classDest->associations = tmp;
 
-            //listOpACopier->
         }
-//        else            printf( "               -----> association deja présent, on continue...\n" );
 
         listOpACopier = listOpACopier->next;
 
     }
-//    printf ( "  ----- FIN mergeAssociations ------------\n\n" );
 
  }
 void

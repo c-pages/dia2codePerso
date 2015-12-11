@@ -12,7 +12,6 @@
 namespace gui {
 
 class Gadget;
-class ptr;
 
 
 /////////////////////////////////////////////////
@@ -31,6 +30,8 @@ class Composite {
 /////////////////////////////////////////////////
 // Méthodes
 /////////////////////////////////////////////////
+
+public:
 public:
     /////////////////////////////////////////////////
     /// \brief Definir comme parent.
@@ -79,8 +80,8 @@ protected:
 // Membres
 /////////////////////////////////////////////////
 protected:
-    std::shared_ptr<gui::ptr> m_parent;
-    std::vector<std::shared_ptr<gui::ptr>>  m_enfants;
+    std::shared_ptr<ptr> m_parent;
+    std::vector<std::shared_ptr<ptr>>  m_enfants;
 
 }; // fin class Composite
 

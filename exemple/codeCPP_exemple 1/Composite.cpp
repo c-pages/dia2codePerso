@@ -7,6 +7,8 @@
 
 namespace gui {
 
+
+public:
 /////////////////////////////////////////////////
 void Composite::setParent (ptr parent)
 {

@@ -24,6 +24,20 @@ class ClasseDeBase : public ClasseC, public ClasseA {
 /////////////////////////////////////////////////
 // Méthodes
 /////////////////////////////////////////////////
+
+public:
+    ///< Definir m_composition
+    void setComposition( ClasseB val ){ m_composition = val; };
+
+    ///< Acceder à m_composition
+    ClasseB getComposition () const { return m_composition; };
+
+    ///< Definir m_aggregation
+    void setAggregation( std::shared_ptr<ClasseB> val ){ m_aggregation = val; };
+
+    ///< Acceder à m_aggregation
+    std::shared_ptr<ClasseB> getAggregation () const { return m_aggregation; };
+
 public:
     /////////////////////////////////////////////////
     /// \brief Constructeur, les attributs ayant une valeur par défaut vont être initialisés dans le *.cpp.
@@ -60,8 +74,8 @@ public:
     int m_attr_2;    ///< Attribut public de la classe de base.    
 protected:
     int m_attr_3;    ///< Attribut protegé de la classe de base.    
-    ClasseB m_B_composition;     ///< associé avec le type: 'composition', créer un simple attribut.
-    std::shared_ptr<ClasseB> m_B_aggregation;     ///< associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr.
+    ClasseB m_composition;     ///< associé avec le type: 'composition', créer un simple attribut. #G#S
+    std::shared_ptr<ClasseB> m_aggregation;     ///< associé avec le type: 'Aggregation'. Créer l'attribut dans un shared_ptr. En mettant #G ou #S dans le commentaire d'un attribut on indique a dia2code  de prevoir les fonctions get ou set dans le *.h.
 
 }; // fin class ClasseDeBase
 
