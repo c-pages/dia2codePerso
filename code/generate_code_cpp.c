@@ -695,7 +695,63 @@ besoinHeader ( declaration * dClass, declaration * dContents )
 
 
 
+void  printEnPageComments  (char* comment )
+{
+    //    char* commentTmp = comment;
 
+//    char commentResult[256];
+
+    int id_read, id_write;
+    id_read = 0;
+    id_write = 0;
+
+    print ( "/// \\brief ");
+
+    // tant que la chaine n'est pas vide
+//    while (comment[id_read] != '\0')
+int i;
+    for (  i = 0; i < strlen ( comment ); i++)
+    {
+        // si le charac lu est un antislash
+        if (comment[id_read] == '\\')
+        {
+//            printf ( "> on echappe ---------------------------------\n" );
+            // si le charac suivant est un "n" on change le "\n" par "\n/// "
+
+            if (comment[id_read+1] == 'n')
+            {
+                print ( "\n/// ");
+//            printf ( "> on saute א la ligne\n" );
+
+//                commentResult[id_read] = '\\';
+//                commentResult[id_read+1] = 'n';
+//                commentResult[id_read+2] = '/';
+//                commentResult[id_read+3] = '/';
+//                commentResult[id_read+4] = '/';
+//                commentResult[id_read+5] = ' ';
+//                id_write+=5;
+                id_read+=2;
+
+            }
+        } else {
+//            char* charTmp[100];
+//            charTmp[0] =   &comment[id_read];
+
+//            char charTmp[100] = "P";
+            print ("%c", comment[id_read] );
+//            printf ( "> on echappe pas\n" );
+//            printf ( "> %i %c\n", id_write, comment[id_read] );
+//            commentResult[id_write] = comment[id_read];
+//            printf ( "> on a ecris une lettre\n" );
+            id_read++;
+//            id_write++;
+        }
+    }
+    print("\n");
+
+//        printf ( "> commentResult (%i) : %s\n" , strlen ( commentResult ), commentResult );
+
+}
 
 
 
@@ -724,9 +780,12 @@ gen_class (umlclassnode *node)
 
     if ( strlen ( node->key->comment ) > 0 )
     {
-
+//        char* comment =  mettreEnPageComments ( node->key->comment );
         print("/////////////////////////////////////////////////\n");
-        print("/// \\brief %s\n", node->key->comment);
+//        print("/// \\brief %s\n", comment );
+
+        printEnPageComments ( node->key->comment );
+
         print("///\n");
         print("/////////////////////////////////////////////////\n");
     }
@@ -1684,7 +1743,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         strcat ( listClassesIncl , "/" );
 //        printf ("listClassesIncl: %s\n" , listClassesIncl );r
 
-        print ("       ###DEBUG### accents : יטאח ?\n" );
+//        print ("       ###DEBUG### accents : יטאח ?\n" );
 
         if (    eq (  parent->key->name , "NonCopyable" )
             ||  eq (  parent->key->name , "Drawable" )
