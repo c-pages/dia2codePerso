@@ -25,6 +25,15 @@
 #include "includes.h"
 #include <string.h>
 
+
+#include <windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+#include <wchar.h>
+
 #define SPEC_EXT "h"
 #define BODY_EXT "cpp"
 
@@ -285,7 +294,7 @@ char* supprimCharAt(char * chaine1, int i)
 //{
 //    int i = 0;
 //
-//    //Tant que nous ne sommes pas arrivÈs a la fin de la chaine, continuer
+//    //Tant que nous ne sommes pas arriv√©s a la fin de la chaine, continuer
 //    while (chaine[i] != '\0')
 //    {
 //        /*si chaine[1] est une minuscule
@@ -399,7 +408,7 @@ accesseurSimple( char* nom , char* nomType, char * commentaires , int composite 
             shared1 = "std::shared_ptr<";
             shared2 = ">";
         }
-        print("///< Acceder ‡ %s\n", nomAtt);
+        print("///< Acceder √† %s\n", nomAtt);
         print("%s%s%s %s () const { return %s; };\n\n", shared1,  nomType, shared2 , GET, nomAtt );
     }
     //        printf (" ***** H *******************************************************************\n");
@@ -472,7 +481,7 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     // LE AJOUTER ///////////////
     if ( strstr( commentaires , "#A" ) != NULL )
     {
-        print  ("///< Ajouter un Èlement dans %s\n", nomAtt);
+        print  ("///< Ajouter un √©lement dans %s\n", nomAtt);
         print("void %s ( %s nouvelElement ){ %s.push_back( nouvelElement ); };\n\n", ajouter, nomType, nomAtt );
     }
 
@@ -480,7 +489,7 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     // LE retirer ///////////////
     if ( strstr( commentaires , "#R" ) != NULL )
     {
-        print  ("///< retirer l'Èlement ‡ la position id dans %s\n", nomAtt);
+        print  ("///< retirer l'√©lement √† la position id dans %s\n", nomAtt);
         print("void %s ( int id ) { if ( id>=0 || id<%s.size() ) %s.erase( %s.begin() + id ); };\n\n", retirer, nomAtt, nomAtt, nomAtt );
     }
 
@@ -495,7 +504,7 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     // LE get ///////////////
     if ( strstr( commentaires , "#G" ) != NULL )
     {
-        print  ("///< Accesseur ‡ l'ÈlÈment de %s dÈsignÈ par un id.\n", nomAtt);
+        print  ("///< Accesseur √† l'√©l√©ment de %s d√©sign√© par un id.\n", nomAtt);
         print("%s %s ( int id ) const { if ( id>=0 || id<%s.size() )  return %s.at( id ); else return 0; };\n\n", nomType, get, nomAtt, nomAtt );
     }
 }
@@ -683,78 +692,96 @@ besoinHeader ( declaration * dClass, declaration * dContents )
 
 
 
+/*
 
 
+char * Accent(const char * mess) {
+printf ("> hop 1\n");
+  static char retour [80];
+printf ("> hop 2\n");
+  CharToOem (mess,retour); // API Windows
+printf ("> hop 3\n");
+  return retour;
+}
+
+*/
 
 
+char* str_replace(char* str, char* pattern, char* sub )
+{
+    printf ( "> str_replace 1\n");
 
+    char* buff = 0;
 
+    printf ( "> str_replace 2\n");
 
+    buff = (char*)malloc(sizeof(char*)*255);
 
+    printf ( "> str_replace 3\n");
+
+    while(*str != '\0')
+    {
+        printf ( "> str_replace 4\n");
+
+        if(*str == *pattern)
+        {
+            printf ( "> str_replace 5\n");
+            strcat(buff, sub);
+        }
+        else
+        {
+            printf ( "> str_replace 6\n");
+            strcat(buff, str);
+        }
+        printf ( "> str_replace 7\n");
+        *str++;
+    }
+    printf ( "> str_replace 8\n");
+    return buff;
+}
 
 
 
 
 void  printEnPageComments  (char* comment )
 {
-    //    char* commentTmp = comment;
+    char*  txt;
 
-//    char commentResult[256];
 
-    int id_read, id_write;
-    id_read = 0;
-    id_write = 0;
+    if ( indentlevel == 0 )
+        txt = remplacer( comment , "\\n", "\n/// " , NULL);
+    if ( indentlevel == 1 )
+        txt = remplacer( comment , "\\n", "\n    /// " , NULL);
+    if ( indentlevel == 2 )
+        txt = remplacer( comment , "\\n", "\n        /// " , NULL);
+    if ( indentlevel == 3 )
+        txt = remplacer( comment , "\\n", "\n            /// " , NULL);
+    if ( indentlevel == 4 )
+        txt = remplacer( comment , "\\n", "\n                /// " , NULL);
 
-    print ( "/// \\brief ");
 
-    // tant que la chaine n'est pas vide
-//    while (comment[id_read] != '\0')
-int i;
-    for (  i = 0; i < strlen ( comment ); i++)
-    {
-        // si le charac lu est un antislash
-        if (comment[id_read] == '\\')
-        {
-//            printf ( "> on echappe ---------------------------------\n" );
-            // si le charac suivant est un "n" on change le "\n" par "\n/// "
+    printf ( "indentlevel : %i\n", indentlevel );
+    print ( "/// \\brief %s\n", txt );
 
-            if (comment[id_read+1] == 'n')
-            {
-                print ( "\n/// ");
-//            printf ( "> on saute ‡ la ligne\n" );
-
-//                commentResult[id_read] = '\\';
-//                commentResult[id_read+1] = 'n';
-//                commentResult[id_read+2] = '/';
-//                commentResult[id_read+3] = '/';
-//                commentResult[id_read+4] = '/';
-//                commentResult[id_read+5] = ' ';
-//                id_write+=5;
-                id_read+=2;
-
-            }
-        } else {
-//            char* charTmp[100];
-//            charTmp[0] =   &comment[id_read];
-
-//            char charTmp[100] = "P";
-            print ("%c", comment[id_read] );
-//            printf ( "> on echappe pas\n" );
-//            printf ( "> %i %c\n", id_write, comment[id_read] );
-//            commentResult[id_write] = comment[id_read];
-//            printf ( "> on a ecris une lettre\n" );
-            id_read++;
-//            id_write++;
-        }
-    }
-    print("\n");
-
-//        printf ( "> commentResult (%i) : %s\n" , strlen ( commentResult ), commentResult );
 
 }
 
 
+/*
+√º : \x81
+√© : \x82
+√¢ : \x83
+√§ : \x84
+√† : \x85
+√ß : \x87
+√™ : \x88
+√´ : \x89
+√® : \x8A
+√Ø : \x8B
+√Æ : \x8C
 
+
+*/
 
 
 
@@ -838,7 +865,7 @@ gen_class (umlclassnode *node)
 
 
     tmpv = -1;
-    //////// les ENUMS associÈs et TYPEDEF associÈs et USING ////////
+    //////// les ENUMS associ√©s et TYPEDEF associ√©s et USING ////////
     if (node->associations != NULL)
     {
         umlassoclist assoc = node->associations;
@@ -894,7 +921,8 @@ gen_class (umlclassnode *node)
 
 
                 print( "/////////////////////////////////////////////////\n");
-                print( "/// \\brief %s\n" , assoc->key->comment );
+//                print( "/// \\brief %s\n" , assoc->key->comment );
+        printEnPageComments ( assoc->key->comment );
                 print( "/////////////////////////////////////////////////\n");
 
 
@@ -944,7 +972,7 @@ gen_class (umlclassnode *node)
 //                        assoc = assoc->next;
 //                        continue;
 //                    }
-                printf ( "->    on ‡ un USING.\n");
+                printf ( "->    on √† un USING.\n");
 
                 check_visibility ( &tmpv, assoc->visibility );
                 print ("using %s = ", assoc->key->name );
@@ -1007,7 +1035,7 @@ gen_class (umlclassnode *node)
 
         emit("\n\n");
         emit("/////////////////////////////////////////////////\n");
-        emit("// MÈthodes\n");
+        emit("// M√©thodes\n");
         emit("/////////////////////////////////////////////////\n");
 
 
@@ -1038,7 +1066,8 @@ gen_class (umlclassnode *node)
             {
 
                 print("/////////////////////////////////////////////////\n");
-                print("/// \\brief %s\n", umlo->key.attr.comment);
+//                print("/// \\brief %s\n", umlo->key.attr.comment);
+        printEnPageComments (  umlo->key.attr.comment );
                 print("///\n");
 
                 tmpa = umlo->key.parameters;
@@ -1129,7 +1158,7 @@ gen_class (umlclassnode *node)
 
 
     tmpv = -1;
-    //////// les MEMBRES et membres associÈs  ////////
+    //////// les MEMBRES et membres associ√©s  ////////
     if (node->key->attributes != NULL || node->associations != NULL )
     {
 
@@ -1219,7 +1248,7 @@ gen_class (umlclassnode *node)
             }
 
 
-            //////// les classes associÈs ////////
+            //////// les classes associ√©s ////////
             umlassoclist assoc = node->associations;
             while (assoc != NULL)
             {
@@ -1257,7 +1286,7 @@ gen_class (umlclassnode *node)
                     print ("");
 
 
-                    //////// MULTIPLICITÈ /////////
+                    //////// MULTIPLICIT√© /////////
                     int bVector = 0;
                     if (eq ( assoc->multiplicity, "*" ))
                         bVector = 1;
@@ -1465,7 +1494,8 @@ gen_decl (declaration *d)
 
 
         print( "/////////////////////////////////////////////////\n");
-        print( "/// \\brief %s\n" , node->key->comment );
+//        print( "/// \\brief %s\n" , node->key->comment );
+        printEnPageComments (  node->key->comment );
         print( "///\n");
         print( "/////////////////////////////////////////////////\n");
 
@@ -1729,7 +1759,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///// MES includes ///////////////////////////////////////////////////////////////////////////////////////
 
-    ///// includes des hÈritages ////////////
+    ///// includes des h√©ritages ////////////
     umlclassnode *node = dClass->u.this_class;
     umlclasslist parent = node->parents;
 
@@ -1743,7 +1773,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
         strcat ( listClassesIncl , "/" );
 //        printf ("listClassesIncl: %s\n" , listClassesIncl );r
 
-//        print ("       ###DEBUG### accents : ÈË‡Á ?\n" );
+//        print ("       ###DEBUG### accents : √©√®√†√ß ?\n" );
 
         if (    eq (  parent->key->name , "NonCopyable" )
             ||  eq (  parent->key->name , "Drawable" )
@@ -1788,7 +1818,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
 
 
     //////// les ASSOCIATIONS   ////////
-    // on regarde si on a des types ‡ inclure dans les associations
+    // on regarde si on a des types √† inclure dans les associations
     umlassoclist assoc = node->associations;
 
     while (assoc != NULL)
@@ -1872,7 +1902,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////// les classes ‡ declarer   ////////////////////////////////////////////////////////////////////////
+    //////// les classes √† declarer   ////////////////////////////////////////////////////////////////////////
 
 
 
@@ -1896,7 +1926,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
                 &&   ! eq ( "typedef", classes->key->stereotype )
                 &&   ! eq ( "enum", classes->key->stereotype ) )
                 {
-                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherchÈ
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherch√©
                      )
                     {
 
@@ -2057,7 +2087,7 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     }
 
     print ("\n\n");
-    //////// FIN classes ‡ dÈclarer //////////////////////////////////////////////////////////////////////////
+    //////// FIN classes √† d√©clarer //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -2645,7 +2675,7 @@ generate_code_cpp_Body (batch *b)
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////// gestion des includes des classes que l'on a juste declarÈ dans le *h ////////////////////////////////////
+    ////////////// gestion des includes des classes que l'on a juste declar√© dans le *h ////////////////////////////////////
     listClassesIncl[0] = '\0';
     //////// les MEMBRES   ////////
     if ( dClass->u.this_class->key->attributes != NULL  )
@@ -2667,7 +2697,7 @@ generate_code_cpp_Body (batch *b)
                 &&   ! eq ( "typedef", classes->key->stereotype )
                 &&   ! eq ( "enum", classes->key->stereotype ) )
                 {
-                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherchÈ
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherch√©
                      )
                     {
 
@@ -2853,7 +2883,7 @@ generate_code_cpp_Body (batch *b)
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////// gestion des includes des classes que l'on a juste declarÈ dans le *h ////////////////////////////////////
+    ////////////// gestion des includes des classes que l'on a juste declar√© dans le *h ////////////////////////////////////
     listClassesIncl[0] = '\0';
     //////// les MEMBRES   ////////
     if ( d->u.this_class->key->attributes != NULL  )
@@ -2875,7 +2905,7 @@ generate_code_cpp_Body (batch *b)
                 &&   ! eq ( "typedef", classes->key->stereotype )
                 &&   ! eq ( "enum", classes->key->stereotype ) )
                 {
-                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherchÈ
+                    if ( strstr ( attribut->key.type,  classes->key->name ) != NULL     //  si on ne trouve pas le type recherch√©
                      )
                     {
 

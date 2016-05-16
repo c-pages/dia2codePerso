@@ -386,6 +386,7 @@ void print (char *msg, ...)
     var_arg_to_str (msg);
 
     char * txtAvecAccents = cleanAccents ( str );
+//    char * txtAvecAccents =  str ;
 
 //    printf ( "%s" ,txtAvecAccents );
 //    CharToOem ( str, spec );
