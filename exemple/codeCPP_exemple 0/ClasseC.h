@@ -1,0 +1,70 @@
+#ifndef CLASSEC__H
+#define CLASSEC__H
+
+/////////////////////////////////////////////////
+// Headers
+/////////////////////////////////////////////////
+#include <vector>
+#include <functional>
+
+
+
+namespace popo {
+
+class ClasseB;
+
+
+/////////////////////////////////////////////////
+/// \brief ici on associe 2 stereotypes : un using et un enum
+///
+/////////////////////////////////////////////////
+class ClasseC {
+
+
+/////////////////////////////////////////////////
+// Enums & typedefs
+/////////////////////////////////////////////////
+    /////////////////////////////////////////////////
+    /// \brief Un exemple d'integration du stereotype 'enum'. Chaque élément de l'énumération est stocké dans le Nom d'un attribut.
+    /////////////////////////////////////////////////
+    enum EnumC {
+        enum1,            ///< Commentaire de l'enum 1.
+        enum2,            ///< Commentaire de l'enum 2.
+        enum3            ///< Commentaire de l'enum 3.
+    };
+
+    using FctnAction = std::function<void()>;    ///< Un exemple d'integration du stereotype 'using'  avec l'include de 'functional'
+
+
+/////////////////////////////////////////////////
+// Méthodes
+/////////////////////////////////////////////////
+
+public:
+public:
+    /////////////////////////////////////////////////
+    /// \brief operation simple
+    ///
+    /////////////////////////////////////////////////
+    bool operation_C1 ();
+
+    /////////////////////////////////////////////////
+    /// \brief Accesseur de l'attribut C1, c'est une requête, 'const' sera ajouté dans le *.h.  
+    ///
+    /////////////////////////////////////////////////
+    float get_attr_C1 () const;
+
+
+
+/////////////////////////////////////////////////
+// Membres
+/////////////////////////////////////////////////
+public:
+    float m_attr_C1;    ///< Attribut direct dans les propriétés de ClasseC.    
+    std::vector<ClasseB> m_vectAttribut_C1;    ///< Ceci inclus 'vector' et déclare ClasseB    
+
+}; // fin class ClasseC
+
+} // fin namespace popo
+
+#endif
