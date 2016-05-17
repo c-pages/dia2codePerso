@@ -413,6 +413,7 @@ accesseurSimple( char* nom , char* nomType, char * commentaires , int composite 
     }
     //        printf (" ***** H *******************************************************************\n");
 
+
 }
 
 
@@ -561,10 +562,27 @@ static void creerAccesseurs ( umlclassnode *node )
 
             accesseurSimple( umlAssoc->name , type , umlAssoc->key->comment , umlAssoc->composite );
         }
+
+
+
+        // on retire les notes de creation des accesseurs des commentaires
+        char * commentTMP = umlAssoc->key->comment;
+
+        commentTMP = remplacer( commentTMP , "#GS" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#G"  , "", NULL );
+        commentTMP = remplacer( commentTMP , "#S"  , "", NULL );
+
+        commentTMP = remplacer( commentTMP , "#A" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#R" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#V" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#G" , "", NULL );
+
+        memcpy ( umlAssoc->key->comment, commentTMP, strlen(commentTMP)+1 );
+
+
+
         // suivant
         umlAssoc = umlAssoc->next;
-
-
     }
 
 
@@ -583,6 +601,22 @@ static void creerAccesseurs ( umlclassnode *node )
         }
         else
             accesseurSimple( umlAtt->key.name , umlAtt->key.type, umlAtt->key.comment , 1 );
+
+
+
+        // on retire les notes de creation des accesseurs des commentaires
+        char * commentTMP = umlAtt->key.comment;
+
+        commentTMP = remplacer( commentTMP , "#GS" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#G"  , "", NULL );
+        commentTMP = remplacer( commentTMP , "#S"  , "", NULL );
+
+        commentTMP = remplacer( commentTMP , "#A" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#R" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#V" , "", NULL );
+        commentTMP = remplacer( commentTMP , "#G" , "", NULL );
+
+        memcpy ( umlAtt->key.comment, commentTMP, strlen(commentTMP)+1 );
 
         // suivant
         umlAtt = umlAtt->next;
