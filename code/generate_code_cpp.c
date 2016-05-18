@@ -1804,28 +1804,42 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
 
     listClassesIncl[0] = '\0';
 
+
+    ///// includes des types connus ////////////
+    b_inclMemory = 0;
+    b_inclMap = 0;
+    b_inclVector = 0;
+    b_inclFunctional = 0;
     b_inclSFMLGraph = 0;
+
 
     while (parent != NULL)
     {
+
+
+
         strcat ( listClassesIncl , parent->key->name );
         strcat ( listClassesIncl , "/" );
-//        printf ("listClassesIncl: %s\n" , listClassesIncl );r
 
-//        print ("       ###DEBUG### accents : éèàç ?\n" );
 
-        if (    eq (  parent->key->name , "NonCopyable" )
+        // inclure le SFML/Graphique si héritage depuis SFML
+        if  (   eq (  parent->key->name , "NonCopyable" )
             ||  eq (  parent->key->name , "Drawable" )
             ||  eq (  parent->key->name , "Transformable" )
             ) {
-//        print ("       ###DEBUG### PAR LAAAAA\n", parent->key->name );
-                if ( !b_inclSFMLGraph ) {
+                if ( ! b_inclSFMLGraph ) {
                     print ( "#include <SFML/Graphics.hpp>\n" );
                     b_inclSFMLGraph = 1;
                 }
             }
-        else
-            print ("#include \"%s.%s\"\n", parent->key->name, file_ext);
+        // inclure le <memory> si héritage de std::enable_shared_from_this
+        else if (    eq (  parent->key->name , "enable_shared_from_this" ) && ! b_inclMemory )  {
+            print ("#include <memory>\n");
+            b_inclMemory = 1;
+        }
+        // sinon on inclut
+        else  print ("#include \"%s.%s\"\n", parent->key->name, file_ext);
+
 
 
 
@@ -1833,13 +1847,6 @@ ecrire_Head( declaration * dClass , batch* b, char* name, char * nomEspace, char
     }
 //    printf ("DEBUG-->   fin\n");
 
-
-    ///// includes des types connus ////////////
-
-    b_inclMemory = 0;
-    b_inclMap = 0;
-    b_inclVector = 0;
-    b_inclFunctional = 0;
 
     //////// les MEMBRES   ////////
     if (node->key->attributes != NULL  )
@@ -2631,13 +2638,13 @@ generate_code_cpp_Body (batch *b)
                 // les classes à ne pas créer   //////////////////////////////////
                 // 1) dans le namespace SFML :  sf::
 
-                printf ("CPP ------------> namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+//                printf ("CPP ------------> namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
                 if ( ( eq ( nomEspace , "sf") )
                     && ( eq ( name , "Drawable" )
                     ||   eq ( name , "Transformable" )
                     ||   eq ( name , "NonCopyable" ) ) )
                 {
-                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+//                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
                     dClass = dClass->next;
                     continue;
                 }
@@ -2646,7 +2653,7 @@ generate_code_cpp_Body (batch *b)
                 if ( ( eq ( nomEspace , "std") )
                     && ( eq ( name , "enable_shared_from_this" ) ) )
                 {
-                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+//                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
                     dClass = dClass->next;
                     continue;
                 }
