@@ -2244,6 +2244,37 @@ generate_code_cpp (batch *b)
             while (dClass != NULL)
             {
 
+
+                // si besoin d'un *.h -> on continue
+                name = dClass->u.this_module->pkg->name;
+
+                // les classes à ne pas créer   //////////////////////////////////
+                // 1) dans le namespace SFML :  sf::
+
+                if ( ( eq ( nomEspace , "sf") )
+                    && ( eq ( name , "Drawable" )
+                    ||   eq ( name , "Transformable" )
+                    ||   eq ( name , "NonCopyable" ) ) )
+                {
+//                    printf ("------------> namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+                    dClass = dClass->next;
+                    continue;
+                }
+
+                // 2) dans le namespace standard :  std::
+                if ( ( eq ( nomEspace , "std") )
+                    && ( eq ( name , "enable_shared_from_this" ) ) )
+                {
+                    dClass = dClass->next;
+                    continue;
+                }
+                // les classes à ne pas créer FIN  //////////////////////////////////
+
+
+
+
+
+
 //            printf ( "generate_code_cpp ------------------------------------ \n");
                 //     printf ( "generate_code_cpp 04 :  dClass = %s \n", dClass->u.this_class->key->name );
 
@@ -2256,8 +2287,6 @@ generate_code_cpp (batch *b)
                 }
                 //else printf ("------------------------> besoin d'un header\n");
 
-                // si besoin d'un *.h -> on continue
-                name = dClass->u.this_module->pkg->name;
 
                 /////////////////////////////////////
                 ecrire_Head ( dClass, b, name , nomEspace , file_ext);
@@ -2581,19 +2610,13 @@ generate_code_cpp_Body (batch *b)
         if (d->decl_kind == dk_module)
         {
 
-
-
-
-
-
-            name = d->u.this_module->pkg->name;
-
-
-
+//            name = d->u.this_module->pkg->name;
 
             char* nomEspace;
 
             nomEspace = d->u.this_module->pkg->name;
+
+
 
             //printf ("namespace CPP CPP CPPC PPC PPPC PCPPC PPPC PCPC P <-------------- yeah : %s\n", nomEspace );
 
@@ -2601,6 +2624,44 @@ generate_code_cpp_Body (batch *b)
             declaration * dClass = d->u.this_module->contents;
             while (dClass != NULL)
             {
+
+
+                name = dClass->u.this_class->key->name;
+
+                // les classes à ne pas créer   //////////////////////////////////
+                // 1) dans le namespace SFML :  sf::
+
+                printf ("CPP ------------> namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+                if ( ( eq ( nomEspace , "sf") )
+                    && ( eq ( name , "Drawable" )
+                    ||   eq ( name , "Transformable" )
+                    ||   eq ( name , "NonCopyable" ) ) )
+                {
+                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+                    dClass = dClass->next;
+                    continue;
+                }
+
+                // 2) dans le namespace standard :  std::
+                if ( ( eq ( nomEspace , "std") )
+                    && ( eq ( name , "enable_shared_from_this" ) ) )
+                {
+                    printf ("NE PAS CREER : namespace : %s; nom class : %s <-------------- \n", nomEspace, name );
+                    dClass = dClass->next;
+                    continue;
+                }
+                // les classes à ne pas créer FIN  //////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
 
 
                 //printf( "---> besoin d'un CPP ? : %s\n", dClass->u.this_class->key->name );
