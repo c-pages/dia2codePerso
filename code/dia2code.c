@@ -446,6 +446,7 @@ FILE * open_outfile (char *filename, batch *b)
         fclose (o);
         return NULL;
     }
+//    o = fopen (outfilename, "w+,ccs=UTF-8");
     o = fopen (outfilename, "w");
     if (o == NULL) {
         fprintf (stderr, "Can't open file %s for writing\n", outfilename);

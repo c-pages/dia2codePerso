@@ -431,8 +431,14 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     char    nomFonctionGet[80];
 
     char    nomAttAffiche[80];
+
     strcpy ( nomAttAffiche , nomAtt );
 
+
+
+
+
+    //
     if (teste != NULL )
         if ( ! strcmp ( teste , nomAttAffiche  ))
         {
@@ -447,26 +453,25 @@ accesseurVector( char* nom , char* nomType ,char * commentaires )
     if (nomAttAffiche[0]  >= 97 &&  nomAttAffiche[0] <= 122)
         nomAttAffiche[0] = nomAttAffiche[0] - 32;
 
-//    char* test2 = str_sub ( nomAttAffiche , strlen( nomAttAffiche)-1, strlen( nomAttAffiche) );
-//        printf ("-> test2 : %s\n" , test2);
-//
-//    // retirer le 's' de fin?
-//    if ( eq ( test2 , "s" ) ){
-//        supprimCharAt( nomAttAffiche, strlen( nomAttAffiche ) - 1);
-//        printf ("POPOPOPOPOPOPOPOPOPOPOPOPOPOPOPOPPO\n");
-//    }
+
+    // si on a  un s a la fin on le vire
+    char    nomAttAfficheSingulier[80];
+    strcpy ( nomAttAfficheSingulier , nomAttAffiche );
+    if ( nomAttAfficheSingulier[ strlen( nomAttAfficheSingulier ) -1 ] == 's' )
+        nomAttAfficheSingulier[ strlen( nomAttAfficheSingulier ) -1 ] = '\0';
 
 
-    strcpy ( nomFonctionAjouter , nomAttAffiche );
-    strcpy ( nomFonctionRetirer , nomAttAffiche );
+
+    strcpy ( nomFonctionAjouter , nomAttAfficheSingulier );
+    strcpy ( nomFonctionRetirer , nomAttAfficheSingulier );
     strcpy ( nomFonctionVider , nomAttAffiche );
-    strcpy ( nomFonctionGet , nomAttAffiche );
+    strcpy ( nomFonctionGet , nomAttAfficheSingulier );
 
 
 
 
-    char  ajouter[80]= "ajouterA";
-    char  retirer[80] = "retirerA";
+    char  ajouter[80]= "ajouter";
+    char  retirer[80] = "retirer";
     char  vider[80] = "vider";
     char  get[80] = "get";
 
@@ -2186,7 +2191,7 @@ generate_code_cpp (batch *b)
     /* open license file */
     if (b->license != NULL)
     {
-        licensefile = fopen (b->license, "r");
+        licensefile = fopen (b->license, "r, ccs=utf-8");
         if (!licensefile)
         {
             fprintf (stderr, "Can't open the license file.\n");
@@ -2545,7 +2550,7 @@ generate_code_cpp_Body (batch *b)
     /* open license file */
     if (b->license != NULL)
     {
-        licensefile = fopen (b->license, "r");
+        licensefile = fopen (b->license, "r, ccs=utf-8");
         if (!licensefile)
         {
             fprintf (stderr, "Can't open the license file.\n");
